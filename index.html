@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PepTrack — Track Your Peptides</title>
+  <title>PepTrack - Track Your Peptides</title>
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
   <meta name="description" content="PepTrack — the smartest way to log, schedule, and track your peptide protocols." />
@@ -73,14 +73,24 @@
     .hero {
       max-width: 1100px; margin: 0 auto;
       padding: 100px 32px 80px;
-      display: flex; flex-direction: column; align-items: flex-start;
+      display: flex; flex-direction: row;
+      align-items: center; gap: 48px;
+    }
+    .hero-content {
+      flex: 1; display: flex; flex-direction: column; align-items: flex-start;
+    }
+    .hero-image {
+      flex: 1; display: flex; justify-content: flex-end; align-items: center;
+    }
+    .hero-image img {
+      width: 100%; max-width: 520px; border-radius: 20px;
     }
     .hero-eyebrow {
       font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 20px;
     }
     .hero h1 {
-      font-size: clamp(40px, 6vw, 72px);
+      font-size: clamp(36px, 5vw, 64px);
       font-weight: 900; line-height: 1.0; letter-spacing: -.03em;
       margin-bottom: 22px; color: #fff;
     }
@@ -88,9 +98,9 @@
       font-style: normal; color: var(--accent2);
     }
     .hero-sub {
-      font-size: clamp(16px, 2vw, 19px);
+      font-size: clamp(15px, 1.8vw, 18px);
       color: var(--muted); line-height: 1.6;
-      max-width: 520px; margin-bottom: 40px;
+      margin-bottom: 40px;
     }
     .hero-actions {
       display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
@@ -126,23 +136,6 @@
       letter-spacing: -.02em; color: #fff; margin-bottom: 4px;
     }
     .stat-card span { font-size: 13px; color: var(--muted); }
-
-    /* ── Mockup ── */
-    .mockup-section {
-      max-width: 1100px; margin: 0 auto; padding: 0 32px 100px;
-      display: flex; justify-content: center;
-    }
-    .mockup-img {
-      width: 100%; max-width: 680px; border-radius: 28px;
-      /* TODO: Replace /peptrack-mockup.png with actual app mockup once provided */
-    }
-    .mockup-placeholder {
-      width: 100%; max-width: 680px; height: 400px;
-      background: var(--bg2); border: 2px dashed var(--border);
-      border-radius: 28px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--muted); font-size: 14px; font-weight: 500;
-    }
 
     /* ── Features ── */
     .features-section {
@@ -206,12 +199,15 @@
     .footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 10px; flex-wrap: wrap; }
 
     /* ── Responsive ── */
+    @media (max-width: 860px) {
+      .hero { flex-direction: column; padding: 60px 20px 48px; gap: 40px; }
+      .hero-image { justify-content: center; }
+      .hero-image img { max-width: 100%; }
+    }
     @media (max-width: 600px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
-      .hero { padding: 60px 20px 48px; }
       .stats { padding: 0 20px 60px; }
-      .mockup-section { padding: 0 20px 60px; }
       .features-section { padding: 0 20px 60px; }
       .cta-section { padding: 0 20px 60px; }
       .cta-banner { padding: 36px 24px; }
@@ -234,16 +230,21 @@
   </nav>
 
   <section class="hero">
-    <div class="hero-eyebrow">Now Available on iOS</div>
-    <h1>Track your peptides.<br><em>Precisely.</em></h1>
-    <p class="hero-sub">PepTrack makes it easy to log doses, schedule protocols, and monitor your progress — all in one place.</p>
-    <div class="hero-actions">
-      <!-- TODO: Replace # with real App Store link once live -->
-      <a class="btn-primary" href="#" id="downloadBtn">
-        <svg viewBox="0 0 24 24" fill="#080a0f"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        Download on the App Store
-      </a>
-      <a class="btn-secondary" href="#features">See features →</a>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Now Available on iOS</div>
+      <h1>Track your peptides.<br><em>Precisely.</em></h1>
+      <p class="hero-sub">PepTrack makes it easy to log doses, schedule protocols, and monitor your progress — all in one place.</p>
+      <div class="hero-actions">
+        <!-- TODO: Replace # with real App Store link once live -->
+        <a class="btn-primary" href="#" id="downloadBtn">
+          <svg viewBox="0 0 24 24" fill="#080a0f"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Download on the App Store
+        </a>
+        <a class="btn-secondary" href="#features">See features →</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="/peptrack-mockup.png" alt="PepTrack App" />
     </div>
   </section>
 
@@ -261,10 +262,6 @@
       <strong>iOS</strong>
       <span>iPhone & iPad</span>
     </div>
-  </section>
-
-  <section class="mockup-section">
-    <img class="mockup-img" src="/peptrack-mockup.png" alt="PepTrack App" />
   </section>
 
   <section class="features-section" id="features">
@@ -322,7 +319,6 @@
   <footer>
     <div class="footer-links">
       <a href="/">Home</a>
-      <!-- TODO: Add /privacy.html and /terms.html once created -->
       <a href="/privacy.html">Privacy Policy</a>
       <a href="/terms.html">Terms of Service</a>
       <a href="mailto:support.peptrack@gmail.com">Contact</a>
