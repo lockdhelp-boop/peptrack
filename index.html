@@ -52,10 +52,12 @@
       backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255,255,255,.06);
     }
-    .nav-logo img { height: 36px; width: auto; display: block; }
-    /* TODO: Replace with actual wordmark image once provided */
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo img { height: 32px; width: auto; display: block; }
     .nav-logo-text {
-      font-size: 22px; font-weight: 800; letter-spacing: -.03em; color: #fff;
+      font-size: 20px; font-weight: 800; letter-spacing: -.03em; color: #fff;
     }
     .nav-links { display: flex; gap: 4px; }
     .nav-links a {
@@ -226,7 +228,7 @@
 
   <nav>
     <div class="nav-logo">
-      <!-- TODO: Replace with <img src="/peptrack-wordmark.png" alt="PepTrack" /> once wordmark is provided -->
+      <img src="/peptrack-icon.png" alt="PepTrack" />
       <span class="nav-logo-text">PepTrack</span>
     </div>
     <div class="nav-links">
@@ -268,8 +270,7 @@
   </section>
 
   <section class="mockup-section">
-    <!-- TODO: Replace placeholder with <img class="mockup-img" src="/peptrack-mockup.png" alt="PepTrack App" /> once mockup is provided -->
-    <div class="mockup-placeholder">App mockup coming soon</div>
+    <img class="mockup-img" src="/peptrack-mockup.png" alt="PepTrack App" />
   </section>
 
   <section class="features-section" id="features">
