@@ -1,0 +1,26 @@
+# PepTrack
+
+PepTrack is an iOS app for tracking peptide protocols. It lets users log doses, schedule protocols, set reminders, and monitor their regimen over time. All personal data is stored locally on the user's device.
+
+## App
+- Name: PepTrack
+- Platform: iOS (iPhone and iPad)
+- Developer: Tuned Tech LLC
+- Website: https://pep-track.app
+- Category: Health and fitness tracking
+
+## Features
+- Dose logging: log each dose with amount, time, and notes
+- Protocol scheduling: set up recurring schedules for compounds
+- Smart reminders: customizable notifications for dose timing
+- Progress tracking: history and charts showing consistency over time
+- Research library: informational content on compounds
+- Private by default: no account required, data stays on device
+
+## Blog
+- https://pep-track.app/blog/ - guides on peptide tracking and protocol consistency
+
+## Legal
+- Privacy Policy: https://pep-track.app/privacy.html
+- Terms of Service: https://pep-track.app/terms.html
+- Contact: support.peptrack@gmail.com

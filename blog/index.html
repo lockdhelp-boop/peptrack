@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog - PepTrack</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="description" content="Guides and insights on peptide tracking, protocol consistency, and getting the most out of your regimen." />
+  <link rel="canonical" href="https://pep-track.app/blog/" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080a0f; --bg2: #0d0f14; --border: rgba(255,255,255,.07);
+      --accent: #2563EB; --accent2: #3b82f6; --text: #ffffff; --muted: #6b7280;
+      --card-bg: rgba(255,255,255,.03); --card-border: rgba(255,255,255,.08);
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    nav {
+      position: sticky; top: 0; z-index: 100; padding: 0 24px; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(8,10,15,.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo img { height: 42px; width: auto; }
+    .nav-logo-text { font-size: 18px; font-weight: 800; letter-spacing: -.03em; color: #fff; }
+    .nav-cta { background: var(--accent); color: #fff; font-size: 14px; font-weight: 700;
+      padding: 8px 18px; border-radius: 50px; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .blog-header { padding: 64px 0 48px; }
+    .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent2); display: block; margin-bottom: 12px; }
+    h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 800; letter-spacing: -.02em; margin-bottom: 12px; }
+    .blog-header p { color: var(--muted); font-size: 16px; }
+    .posts-grid { display: grid; grid-template-columns: 1fr; gap: 20px; padding-bottom: 80px; }
+    @media (min-width: 640px) { .posts-grid { grid-template-columns: 1fr 1fr; } }
+    .post-card {
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      border-radius: 20px; padding: 28px 24px;
+      display: flex; flex-direction: column; gap: 10px;
+      transition: border-color .2s, transform .2s;
+    }
+    .post-card:hover { border-color: rgba(37,99,235,.3); transform: translateY(-2px); }
+    .post-tag { font-size: 11px; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent2); }
+    .post-card h2 { font-size: 19px; font-weight: 800; line-height: 1.2; letter-spacing: -.01em; }
+    .post-card p { font-size: 14px; color: var(--muted); line-height: 1.65; flex: 1; }
+    .post-meta { font-size: 12px; color: var(--muted); }
+    .post-link { font-size: 14px; font-weight: 600; color: var(--accent2); margin-top: 4px; display: inline-block; }
+    footer { padding: 32px 24px; border-top: 1px solid var(--border);
+      text-align: center; font-size: 13px; color: var(--muted); }
+    footer a { color: var(--muted); transition: color .15s; }
+    footer a:hover { color: #fff; }
+    .footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 10px; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="/">
+      <img src="/favicon.png" alt="PepTrack" />
+      <span class="nav-logo-text">PepTrack</span>
+    </a>
+    <a class="nav-cta" href="/">Download Free</a>
+  </nav>
+  <div class="container">
+    <div class="blog-header">
+      <span class="eyebrow">PepTrack Blog</span>
+      <h1>Guides and insights</h1>
+      <p>Practical content on tracking, consistency, and getting the most from your protocol.</p>
+    </div>
+    <div class="posts-grid">
+      <a class="post-card" href="/blog/how-to-stay-consistent-with-your-peptide-protocol">
+        <div class="post-tag">Protocol</div>
+        <h2>How to Stay Consistent With Your Peptide Protocol</h2>
+        <p>Most people start strong and drift off by week three. Here is what separates the ones who stick with it.</p>
+        <div class="post-meta">June 4, 2025 · 5 min read</div>
+        <span class="post-link">Read more →</span>
+      </a>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="mailto:support.peptrack@gmail.com">Contact</a>
+    </div>
+    <div>© 2025 PepTrack. All rights reserved.</div>
+  </footer>
+</body>
+</html>
