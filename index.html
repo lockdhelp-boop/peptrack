@@ -169,20 +169,29 @@
     .proof-item strong { color: rgba(255,255,255,.8); }
     .proof-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,.15); }
 
-    /* ── Stats ── */
-    .stats-section { padding: 48px 0; }
-    .stats-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    /* ── How it works ── */
+    .hiw-section { padding: 80px 0; border-top: 1px solid var(--border); }
+    .hiw-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; margin-top: 52px; position: relative;
     }
-    .stat-card {
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      border-radius: 20px; padding: 28px 24px;
+    .hiw-steps::before {
+      content: '';
+      position: absolute; top: 27px; left: 12.5%; right: 12.5%; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(37,99,235,.3) 15%, rgba(37,99,235,.3) 85%, transparent);
     }
-    .stat-card strong {
-      display: block; font-size: 36px; font-weight: 800;
-      color: #fff; letter-spacing: -.02em; margin-bottom: 4px;
+    .hiw-step {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 0 20px; position: relative; z-index: 1;
     }
-    .stat-card span { font-size: 13px; color: var(--muted); }
+    .step-num {
+      width: 54px; height: 54px; border-radius: 50%; flex-shrink: 0;
+      background: var(--bg2); border: 1px solid rgba(37,99,235,.4);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 18px; color: var(--accent2); margin-bottom: 20px;
+    }
+    .hiw-step h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .hiw-step p { font-size: 13px; color: var(--muted); line-height: 1.65; }
 
     /* ── Reviews ── */
     .reviews-section { padding: 80px 0; border-top: 1px solid var(--border); }
@@ -294,13 +303,14 @@
       .hero-right img { max-width: 100%; }
       .hero-sub { max-width: 100%; }
       .features-grid { grid-template-columns: 1fr 1fr; }
-      .stats-grid { grid-template-columns: 1fr 1fr 1fr; }
+      .hiw-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .hiw-steps::before { display: none; }
     }
     @media (max-width: 600px) {
       nav { padding: 0 20px; }
       .hero { padding: 80px 0 48px; }
       .features-grid { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: 1fr; }
+      .hiw-steps { grid-template-columns: 1fr; }
       .cta-inner { padding: 36px 24px; }
     }
   </style>
@@ -329,7 +339,7 @@
       <div class="hero-inner">
         <div class="hero-left">
           <span class="hero-eyebrow">Now Available on iOS</span>
-          <h1>The peptide tracker<br>for people who are <em>precise.</em></h1>
+          <h1>Peptide tracking<br><em>made simple.</em></h1>
           <p class="hero-sub">PepTrack is the peptide app for iPhone. Log doses, schedule protocols, set reminders, and track your full regimen in one clean place.</p>
           <div class="hero-actions">
             <!-- TODO: Replace # with real App Store link once live -->
@@ -371,21 +381,32 @@
     </div>
   </div>
 
-  <!-- ── Stats ── -->
-  <section class="stats-section">
+  <!-- ── How it works ── -->
+  <section class="hiw-section" id="how-it-works">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-card">
-          <strong>100%</strong>
-          <span>Local and private — data never leaves your device</span>
+      <span class="section-eyebrow">How it works</span>
+      <h2 class="section-title">Up and running in minutes</h2>
+      <p class="section-sub">No setup headaches. Just open the app and start tracking.</p>
+      <div class="hiw-steps">
+        <div class="hiw-step">
+          <div class="step-num">1</div>
+          <h3>Add your compounds</h3>
+          <p>Enter the peptides you're running. PepTrack supports any compound, any dose.</p>
         </div>
-        <div class="stat-card">
-          <strong>5 sec</strong>
-          <span>Average time to log a dose</span>
+        <div class="hiw-step">
+          <div class="step-num">2</div>
+          <h3>Set your schedule</h3>
+          <p>Choose your frequency and timing. PepTrack builds your protocol automatically.</p>
         </div>
-        <div class="stat-card">
-          <strong>Free</strong>
-          <span>To download on iPhone and iPad</span>
+        <div class="hiw-step">
+          <div class="step-num">3</div>
+          <h3>Log each dose</h3>
+          <p>Tap to log in seconds. Track amount, time, and site. Your history builds itself.</p>
+        </div>
+        <div class="hiw-step">
+          <div class="step-num">4</div>
+          <h3>Stay on track</h3>
+          <p>Reminders keep you consistent. Your progress view shows exactly where you stand.</p>
         </div>
       </div>
     </div>
