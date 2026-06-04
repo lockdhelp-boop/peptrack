@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pep-track.app/sitemap.xml
