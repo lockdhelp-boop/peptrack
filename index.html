@@ -170,7 +170,7 @@
     .proof-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,.15); }
 
     /* ── Stats ── */
-    .stats-section { padding: 72px 0; }
+    .stats-section { padding: 48px 0; }
     .stats-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
     }
@@ -252,9 +252,11 @@
     }
     .feature-card:hover { border-color: rgba(37,99,235,.3); transform: translateY(-2px); }
     .feature-icon {
-      font-size: 24px; margin-bottom: 14px;
-      width: 48px; height: 48px;
-      background: rgba(37,99,235,.1); border-radius: 12px;
+      margin-bottom: 16px;
+      width: 44px; height: 44px;
+      background: rgba(37,99,235,.1);
+      border: 1px solid rgba(37,99,235,.2);
+      border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
     }
     .feature-card h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
@@ -327,7 +329,7 @@
       <div class="hero-inner">
         <div class="hero-left">
           <span class="hero-eyebrow">Now Available on iOS</span>
-          <h1>The peptide tracker<br>built to be <em>precise.</em></h1>
+          <h1>The peptide tracker<br>for people who are <em>precise.</em></h1>
           <p class="hero-sub">PepTrack is the peptide app for iPhone. Log doses, schedule protocols, set reminders, and track your full regimen in one clean place.</p>
           <div class="hero-actions">
             <!-- TODO: Replace # with real App Store link once live -->
@@ -375,15 +377,15 @@
       <div class="stats-grid">
         <div class="stat-card">
           <strong>100%</strong>
-          <span>Local and private</span>
+          <span>Local and private — data never leaves your device</span>
+        </div>
+        <div class="stat-card">
+          <strong>5 sec</strong>
+          <span>Average time to log a dose</span>
         </div>
         <div class="stat-card">
           <strong>Free</strong>
-          <span>To download</span>
-        </div>
-        <div class="stat-card">
-          <strong>iOS</strong>
-          <span>iPhone and iPad</span>
+          <span>To download on iPhone and iPad</span>
         </div>
       </div>
     </div>
@@ -517,34 +519,46 @@
       <h2 class="section-title">Everything you need<br>to stay on protocol</h2>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">💉</div>
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6m-3-3v6"/><circle cx="12" cy="12" r="9"/></svg>
+          </div>
           <h3>Dose Logging</h3>
-          <p>Log every dose instantly. Track amounts, timing, and injection sites with zero friction.</p>
+          <p>Log every dose in seconds. Track amounts, timing, and injection sites with zero friction.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">📅</div>
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
           <h3>Protocol Scheduling</h3>
           <p>Set up your full protocol once. PepTrack keeps you on schedule automatically.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">📊</div>
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
           <h3>Progress Tracking</h3>
           <p>See your full history at a glance. Charts and logs that show your consistency over time.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🔔</div>
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </div>
           <h3>Smart Reminders</h3>
           <p>Never miss a dose. Customizable reminders that fit your schedule, not the other way around.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🔒</div>
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
           <h3>Private by Default</h3>
           <p>All your data stays on your device. No account required, no cloud, no data sharing.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🧬</div>
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
           <h3>Research Library</h3>
-          <p>Access clean, informational content on compounds right inside the app. For reference only.</p>
+          <p>Informational content on compounds built right into the app. Learn while you track.</p>
         </div>
       </div>
     </div>
