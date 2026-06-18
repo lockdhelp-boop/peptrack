@@ -48,12 +48,12 @@
 <body>
   <main class="wrap">
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective date: June 1, 2025 &nbsp;|&nbsp; Contact: <a href="mailto:support.peptrack@gmail.com">support.peptrack@gmail.com</a></p>
+    <p class="meta">Effective date: June 17, 2026 &nbsp;|&nbsp; Contact: <a href="mailto:support.peptrack@gmail.com">support.peptrack@gmail.com</a></p>
 
     <p>PepTrack is built with your privacy as a priority. This policy explains what data is collected, where it goes, and how it is used. We keep it simple because there is genuinely very little to disclose.</p>
 
     <div class="highlight">
-      <p><strong>Short version:</strong> Almost all of your data stays on your device and never leaves it. The only information stored on our servers is your optional username and whether you completed onboarding. Anonymous analytics help us improve the app. We do not sell your data. We do not share your data for advertising. That is it.</p>
+      <p><strong>Short version:</strong> Almost all of your data stays on your device and never leaves it. The only information stored on our servers is your optional username and whether you completed onboarding. Anonymous analytics help us improve the app. We run paid advertising and use privacy-preserving attribution tools (via Apple's SKAdNetwork) to measure campaign performance — no personal data is shared with ad platforms. We do not sell your data. That is it.</p>
     </div>
 
     <h2>1. What Stays on Your Device</h2>
@@ -76,7 +76,7 @@
     <p>To request deletion of your server-stored data, email <a href="mailto:support.peptrack@gmail.com">support.peptrack@gmail.com</a> and we will remove it promptly.</p>
 
     <h2>3. Analytics (PostHog)</h2>
-    <p>We use PostHog to collect anonymous usage analytics. This helps us understand how the app is used so we can improve it. PostHog data is used solely for internal product decisions. We do not sell your data. We do not share your data with third parties for advertising purposes.</p>
+    <p>We use PostHog to collect anonymous usage analytics. This helps us understand how the app is used so we can improve it. PostHog data is used solely for internal product decisions. We do not sell your data.</p>
 
     <p>PostHog collects:</p>
     <ul>
@@ -91,22 +91,18 @@
 
     <p>For more information, see the <a href="https://posthog.com/privacy" target="_blank" rel="noopener">PostHog Privacy Policy</a>.</p>
 
-    <!-- TODO (Ad Attribution): If you run paid ads in the future (Apple Search Ads, Meta, TikTok, etc.)
-         you will need to add an attribution SDK such as AppsFlyer, Adjust, or Branch.
-         When you do, add a new section here disclosing:
-           - The SDK name and link to their privacy policy
-           - What data it collects (device ID, install source, campaign name)
-           - That it is used only for measuring ad performance
-           - That it does not share personal data with advertisers
-         Apple Search Ads via SKAdNetwork is privacy-preserving by default and may not require
-         additional disclosure, but check Apple's current guidelines at that time.
-         Also add the SDK to the Terms of Service section 8 (Third-Party Services). -->
+    <h2>4. Advertising & Attribution</h2>
+    <p>We run paid advertising campaigns on platforms including Meta (Facebook/Instagram) and may in the future run campaigns on TikTok. To measure whether those campaigns result in app installs or in-app actions, we use ad attribution tools provided by those platforms.</p>
+    <p><strong>How it works on iOS:</strong> Attribution runs through Apple's SKAdNetwork (SKAN) framework. SKAN is privacy-preserving by design — it sends only aggregate, anonymized signals to ad platforms. No individual user is identified, and no personally identifiable information leaves your device through this process.</p>
+    <p><strong>What Meta may receive:</strong> aggregate install and conversion signals via SKAN (e.g., that an install occurred and whether a subscription followed), along with basic device and technical data the Meta SDK collects for campaign measurement. We do not share your name, email, peptide logs, or any health-related data with Meta. For more, see <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta's Privacy Policy</a>.</p>
+    <p><strong>What TikTok may receive (if/when applicable):</strong> similar aggregate attribution signals via SKAN and TikTok's attribution tools. For more, see <a href="https://www.tiktok.com/legal/page/us/privacy-policy/en" target="_blank" rel="noopener">TikTok's Privacy Policy</a>.</p>
+    <p>You can review or change tracking permissions at any time in iOS Settings &gt; Privacy &amp; Security &gt; Tracking.</p>
 
-    <h2>4. Subscriptions (Apple and Superwall)</h2>
+    <h2>5. Subscriptions (Apple and Superwall)</h2>
     <p>Subscriptions are processed by Apple via In-App Purchase. Apple handles all payment information and subscription management. We do not receive or store your payment details.</p>
     <p>We use Superwall to manage paywall presentation and subscription status. Superwall may receive anonymous subscription status signals to determine which users have active subscriptions. For more information, see the <a href="https://superwall.com/privacy" target="_blank" rel="noopener">Superwall Privacy Policy</a>.</p>
 
-    <h2>5. Data Summary</h2>
+    <h2>6. Data Summary</h2>
     <table>
       <thead>
         <tr>
@@ -141,16 +137,26 @@
           <td>Apple / Superwall</td>
           <td>Access control</td>
         </tr>
+        <tr>
+          <td>Aggregate install/conversion signals</td>
+          <td>Meta (via Apple SKAdNetwork)</td>
+          <td>Ad campaign measurement</td>
+        </tr>
+        <tr>
+          <td>Aggregate signals (if/when applicable)</td>
+          <td>TikTok (via Apple SKAdNetwork)</td>
+          <td>Ad campaign measurement</td>
+        </tr>
       </tbody>
     </table>
 
-    <h2>6. Children and Age Requirements</h2>
+    <h2>7. Children and Age Requirements</h2>
     <p>PepTrack is intended for users who are 16 years of age or older. We do not knowingly collect any information from anyone under 16. If you believe a minor has used the app, please contact us and we will take appropriate action.</p>
 
-    <h2>7. Data Security</h2>
+    <h2>8. Data Security</h2>
     <p>Server-stored data is secured via Supabase, which uses industry-standard encryption in transit and at rest. Local data on your device is protected by iOS device security. That said, no system is perfectly secure, and we cannot guarantee absolute security.</p>
 
-    <h2>8. Your Rights</h2>
+    <h2>9. Your Rights</h2>
     <p>You have the right to:</p>
     <ul>
       <li>Skip username creation entirely so nothing is stored on our servers</li>
@@ -158,13 +164,13 @@
       <li>Request deletion of any server-stored data by emailing <a href="mailto:support.peptrack@gmail.com">support.peptrack@gmail.com</a></li>
     </ul>
 
-    <h2>9. Changes to This Policy</h2>
+    <h2>10. Changes to This Policy</h2>
     <p>We may update this Privacy Policy from time to time. If changes are significant, we will notify users in-app. Continued use of PepTrack after changes are posted constitutes acceptance of the updated policy.</p>
 
-    <h2>10. Governing Law</h2>
+    <h2>11. Governing Law</h2>
     <p>This Privacy Policy is governed by the laws of the State of Wyoming, USA.</p>
 
-    <h2>11. Contact</h2>
+    <h2>12. Contact</h2>
     <p>Questions about your privacy? Email <a href="mailto:support.peptrack@gmail.com">support.peptrack@gmail.com</a>.</p>
 
     <div class="foot">© 2025 PepTrack by Tuned Tech LLC. All rights reserved.</div>
