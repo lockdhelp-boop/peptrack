@@ -297,14 +297,11 @@
       var ua = navigator.userAgent || '';
       var isTikTok = /musical_ly|TikTok|Bytedance|aweme/i.test(ua);
 
-      if (!isTikTok) {
-        window.location.replace(AFFILIATE);
-      } else {
-        document.getElementById('downloadBtn').addEventListener('click', function(e) {
-          e.preventDefault();
-          document.getElementById('tiktokOverlay').classList.add('show');
-        });
-      }
+      // TEMP: redirect disabled for preview — button shows overlay
+      document.getElementById('downloadBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('tiktokOverlay').classList.add('show');
+      });
     })();
   </script>
 </body>
