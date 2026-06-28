@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>PepTrack - Peptide Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="robots" content="noindex" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #080a0f;
+      --bg2:     #0d0f14;
+      --accent:  #2563EB;
+      --accent2: #3b82f6;
+      --accent3: #1d4ed8;
+      --text:    #ffffff;
+      --muted:   #6b7280;
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 28px 24px 40px;
+      min-height: 100vh;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      align-self: flex-start;
+      margin-bottom: 40px;
+    }
+    .brand img { height: 36px; width: auto; border-radius: 9px; }
+    .brand span {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      color: #fff;
+    }
+
+    .headline {
+      font-size: clamp(34px, 9.5vw, 44px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -.03em;
+      text-align: left;
+      align-self: flex-start;
+      margin-bottom: 12px;
+    }
+    .headline span {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: block;
+    }
+
+    .subhead {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--muted);
+      text-align: left;
+      align-self: flex-start;
+      line-height: 1.55;
+      margin-bottom: 36px;
+    }
+
+    .hero-icon {
+      width: 168px;
+      height: 168px;
+      border-radius: 38px;
+      display: block;
+      margin: 4px auto 38px;
+      box-shadow: 0 24px 60px rgba(37,99,235,.32), 0 8px 22px rgba(0,0,0,.5);
+    }
+
+    .cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 18px 24px;
+      background: #ffffff;
+      color: #080a0f;
+      border-radius: 14px;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      text-decoration: none;
+      transition: opacity .15s, transform .1s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cta-btn:active { opacity: .85; transform: scale(.98); }
+    .cta-icon { width: 28px; height: 28px; }
+
+    .cta-sub {
+      margin-top: 12px;
+      margin-bottom: 38px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .features {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--bg2);
+      border: 1px solid rgba(37,99,235,.14);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .feature-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(37,99,235,.12);
+      border-radius: 10px;
+    }
+    .feature-text strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .feature-text span {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .disclaimer {
+      font-size: 11px;
+      color: #4b5563;
+      text-align: center;
+      line-height: 1.5;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* TikTok in-app browser overlay */
+    .tiktok-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.78);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .tiktok-overlay.show { display: flex; }
+    .tiktok-card {
+      background: #14161d;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 24px;
+      padding: 36px 28px;
+      text-align: center;
+      max-width: 320px;
+      width: 100%;
+    }
+    .tiktok-card .app-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+    .tiktok-card h2 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+    .tiktok-card h2 .dots { letter-spacing: 2px; }
+    .tiktok-card p {
+      font-size: 14px;
+      color: rgba(255,255,255,.5);
+      line-height: 1.5;
+    }
+    .tiktok-arrow {
+      position: fixed;
+      top: 14px;
+      right: 16px;
+      z-index: 1000;
+      animation: bounce 1.2s ease-in-out infinite;
+    }
+    .tiktok-arrow svg {
+      width: 56px;
+      height: 56px;
+      filter: drop-shadow(0 0 12px rgba(255,255,255,.8));
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TikTok in-app browser overlay -->
+  <div class="tiktok-overlay" id="tiktokOverlay">
+    <div class="tiktok-arrow">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" transform="rotate(-90 12 12)"/></svg>
+    </div>
+    <div class="tiktok-card">
+      <img class="app-icon" src="/favicon.png" alt="PepTrack" />
+      <h2>Tap the three dots <span class="dots">(•••)</span> above and tap "Open in browser"</h2>
+      <p>Required to open the App Store</p>
+    </div>
+  </div>
+
+  <div class="page">
+
+    <div class="brand">
+      <img src="/peptrack-icon.png" alt="PepTrack" />
+      <span>PepTrack</span>
+    </div>
+
+    <h1 class="headline">Track your peptides.<br><span>Effortlessly.</span></h1>
+    <p class="subhead">Log doses, schedule protocols, and never miss a day. The cleanest peptide tracker on iOS.</p>
+
+    <img class="hero-icon" src="/peptrack-icon.png" alt="PepTrack App" />
+
+    <a class="cta-btn" id="downloadBtn" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032?ppid=6d924ff1-bfe3-45c1-b739-cadffdfe8284">
+      <svg class="cta-icon" viewBox="0 0 24 24" fill="#080a0f" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+      </svg>
+      Download on the App Store
+    </a>
+    <p class="cta-sub">Free · iOS only · No account needed</p>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">💉</div>
+        <div class="feature-text">
+          <strong>Log Every Dose</strong>
+          <span>Track doses, sites, and timing in seconds.</span>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📅</div>
+        <div class="feature-text">
+          <strong>Protocol Scheduling</strong>
+          <span>Set your cycles and let PepTrack keep you on track.</span>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔔</div>
+        <div class="feature-text">
+          <strong>Smart Reminders</strong>
+          <span>Never miss a dose with timed notifications.</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="disclaimer">PepTrack is a tracking tool for informational purposes only and does not provide medical advice.</p>
+
+  </div>
+
+  <script>
+    (function() {
+      var AFFILIATE = 'https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032?ppid=6d924ff1-bfe3-45c1-b739-cadffdfe8284';
+      var ua = navigator.userAgent || '';
+      var isTikTok = /musical_ly|TikTok|Bytedance|aweme/i.test(ua);
+
+      if (!isTikTok) {
+        window.location.replace(AFFILIATE);
+      } else {
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('tiktokOverlay').classList.add('show');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
