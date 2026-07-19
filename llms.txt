@@ -1,21 +1,35 @@
 # PepTrack
 
-PepTrack is an iOS app for tracking peptide protocols. It lets users log doses, schedule protocols, set reminders, and monitor their regimen over time. All personal data is stored locally on the user's device.
+PepTrack is a private, local-first iPhone app for organizing user-defined peptide routines. It lets users create custom entries, log activity, set reminders, and review timing and history. PepTrack is a tracking and organizational tool, not a medical app, and it does not provide dosing advice.
 
 ## App
-- Name: PepTrack
-- Platform: iOS (iPhone and iPad)
+- Name: PepTrack: Peptide Tracker
+- Platform: iOS (iPhone)
 - Developer: Tuned Tech LLC
 - Website: https://pep-track.app
+- App Store: https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032
 - Category: Health and fitness tracking
 
 ## Features
-- Dose logging: log each dose with amount, time, and notes
-- Protocol scheduling: set up recurring schedules for compounds
-- Smart reminders: customizable notifications for dose timing
-- Progress tracking: history and charts showing consistency over time
-- Research library: informational content on compounds
-- Private by default: no account required, data stays on device
+- Custom routine tracking: organize user-created entries without requiring a fixed library
+- Logging and history: record user-entered amounts, times, sites, and notes
+- Scheduling and reminders: keep user-defined recurring schedules together
+- Timing visuals: review history and estimated activity-level charts
+- Reconstitution calculator: perform user-directed concentration and syringe-unit math
+- Private by default: routine details stay on-device and no account is required
+
+## Privacy
+- Routine details, logs, schedules, reminders, notes, and custom entries are stored locally on the device
+- An optional username and onboarding-completion state may be stored through Supabase
+- Anonymous product analytics and advertising attribution are described in the Privacy Policy
+- Optional Apple Health weight data stays on the device and in the user's Apple Health store
+
+## Guides
+- https://pep-track.app/guides/ - non-medical guides to organizing routines, reminders, logs, and private tracking
+- https://pep-track.app/guides/how-to-track-a-peptide-routine/
+- https://pep-track.app/guides/peptide-tracker-vs-notes/
+- https://pep-track.app/guides/tracking-multiple-routines/
+- https://pep-track.app/guides/private-peptide-tracking/
 
 ## Blog
 - https://pep-track.app/blog/ - guides on peptide tracking and protocol consistency
