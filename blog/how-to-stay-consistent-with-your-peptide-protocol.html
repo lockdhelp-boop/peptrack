@@ -52,6 +52,7 @@
     .nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,.55);
       padding: 6px 12px; border-radius: 8px; transition: color .15s, background .15s; }
     .nav-links a:hover { color: #fff; background: rgba(255,255,255,.07); }
+    .nav-links a[aria-current="page"] { color: #fff; background: rgba(255,255,255,.08); }
     .nav-cta { background: var(--accent); color: #fff; font-size: 14px; font-weight: 700;
       padding: 8px 18px; border-radius: 50px; white-space: nowrap; }
     .article-wrap { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; }
@@ -112,6 +113,12 @@
     footer a { color: var(--muted); transition: color .15s; }
     footer a:hover { color: #fff; }
     .footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 10px; flex-wrap: wrap; }
+    @media (max-width: 700px) {
+      nav { height: auto; min-height: 60px; padding: 8px 18px; flex-wrap: wrap; }
+      .nav-links { order: 3; width: 100%; justify-content: center; padding-top: 6px;
+        border-top: 1px solid var(--border); }
+      .nav-links a { padding: 5px 8px; font-size: 13px; }
+    }
   </style>
 </head>
 <body>
@@ -122,8 +129,10 @@
       <span class="nav-logo-text">PepTrack</span>
     </a>
     <div class="nav-links">
+      <a href="/">Home</a>
       <a href="/guides/">Guides</a>
-      <a href="/blog/">Blog</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/privacy.html">Privacy</a>
     </div>
     <a class="nav-cta" href="/">Download Free</a>
   </nav>

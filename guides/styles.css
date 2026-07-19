@@ -47,6 +47,7 @@ nav {
   border-radius: 8px;
 }
 .nav-links a:hover { color: #fff; background: rgba(255,255,255,.06); }
+.nav-links a[aria-current="page"] { color: #fff; background: rgba(255,255,255,.08); }
 .nav-cta {
   background: var(--accent);
   color: #fff;
@@ -184,7 +185,20 @@ footer {
 .footer-links a:hover { color: #fff; }
 
 @media (max-width: 700px) {
-  .nav-links { display: none; }
+  nav {
+    height: auto;
+    min-height: 60px;
+    padding: 8px 18px;
+    flex-wrap: wrap;
+  }
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    padding-top: 6px;
+    border-top: 1px solid var(--border);
+  }
+  .nav-links a { padding: 5px 8px; font-size: 13px; }
   .shell, .article { width: min(100% - 36px, 760px); }
   .hero { padding-top: 48px; }
   .guides-grid { grid-template-columns: 1fr; }
