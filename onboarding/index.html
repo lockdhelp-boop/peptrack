@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>PepTrack Introduction</title>
+  <meta name="description" content="A short introduction to PepTrack." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/funnel/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <a class="brand" href="/" aria-label="PepTrack home">
+      <img src="/peptrack-icon.png" alt="" />
+      <span>PepTrack</span>
+    </a>
+
+    <main class="content">
+      <div class="panel">
+        <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+        <section class="step" data-step="1">
+          <p class="step-count">Step 1 of 3</p>
+          <h1 tabindex="-1">Welcome to PepTrack.</h1>
+          <p>This short introduction will show where the future personalized onboarding experience will live.</p>
+          <button class="button next-button" type="button">Next</button>
+        </section>
+
+        <section class="step" data-step="2" hidden>
+          <p class="step-count">Step 2 of 3</p>
+          <h2 tabindex="-1">Keep everything in one place.</h2>
+          <p>PepTrack helps you organize user-defined routines, reminders, timing, and personal logs on your iPhone.</p>
+          <button class="button next-button" type="button">Next</button>
+        </section>
+
+        <section class="step" data-step="3" hidden>
+          <p class="step-count">Step 3 of 3</p>
+          <h2 tabindex="-1">You’re ready to continue.</h2>
+          <p>The Superwall checkout and app handoff can be connected here after the onboarding structure is finalized.</p>
+          <a class="button" id="completeButton" href="/complete/">Continue</a>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:support.peptrack@gmail.com">Contact</a>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var steps = Array.prototype.slice.call(document.querySelectorAll('.step'));
+      var nextButtons = document.querySelectorAll('.next-button');
+      var progressBar = document.getElementById('progressBar');
+      var completeButton = document.getElementById('completeButton');
+      var currentStep = 0;
+      var query = window.location.search;
+
+      if (!query) {
+        try {
+          query = sessionStorage.getItem('peptrackFunnelParameters') || '';
+        } catch (error) {
+          query = '';
+        }
+      }
+
+      if (query) {
+        completeButton.href = '/complete/' + query;
+      }
+
+      function showStep(index) {
+        steps.forEach(function (step, stepIndex) {
+          step.hidden = stepIndex !== index;
+        });
+        currentStep = index;
+        progressBar.style.width = ((index + 1) / steps.length * 100) + '%';
+        steps[index].querySelector('h1, h2').focus();
+      }
+
+      nextButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          if (currentStep < steps.length - 1) {
+            showStep(currentStep + 1);
+          }
+        });
+      });
+    }());
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Get Started with PepTrack</title>
+  <meta name="description" content="A short introduction to PepTrack, a private routine tracking app for iPhone." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/funnel/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <a class="brand" href="/" aria-label="PepTrack home">
+      <img src="/peptrack-icon.png" alt="" />
+      <span>PepTrack</span>
+    </a>
+
+    <main class="content">
+      <section class="panel">
+        <p class="eyebrow">Quick introduction</p>
+        <h1>Keep your routine organized.</h1>
+        <p>Take a short three-step introduction to see how PepTrack helps keep user-defined routines, reminders, and personal logs together.</p>
+        <a class="button" id="startButton" href="/onboarding/">Get Started</a>
+        <p class="disclaimer">PepTrack is a tracking tool, not medical advice, and is not affiliated with any drug or pharmaceutical manufacturer.</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:support.peptrack@gmail.com">Contact</a>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var query = window.location.search;
+      var startButton = document.getElementById('startButton');
+      if (query) {
+        startButton.href = '/onboarding/' + query;
+      }
+
+      try {
+        sessionStorage.setItem('peptrackFunnelParameters', query);
+        sessionStorage.setItem('peptrackLandingPath', window.location.pathname);
+      } catch (error) {
+        // The flow still works when browser storage is unavailable.
+      }
+    }());
+  </script>
+</body>
+</html>

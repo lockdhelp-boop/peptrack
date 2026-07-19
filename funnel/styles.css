@@ -1,0 +1,180 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #080a0f;
+  --panel: #0d1017;
+  --border: rgba(255,255,255,.1);
+  --text: #ffffff;
+  --muted: #9aa3b2;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  width: min(100% - 32px, 560px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 10px;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 48px 0;
+}
+
+.panel {
+  width: 100%;
+  padding: 28px 24px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+.eyebrow,
+.step-count {
+  margin: 0 0 10px;
+  color: #60a5fa;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0 0 14px;
+  font-size: clamp(30px, 9vw, 42px);
+  line-height: 1.08;
+  letter-spacing: -.03em;
+}
+
+p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.button {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 28px;
+  padding: 14px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--accent-hover);
+}
+
+.button:focus-visible {
+  outline: 3px solid rgba(96,165,250,.7);
+  outline-offset: 3px;
+}
+
+.progress {
+  height: 4px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  width: 33.333%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width .2s ease;
+}
+
+.step[hidden] {
+  display: none;
+}
+
+.disclaimer {
+  margin-top: 22px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.footer {
+  padding: 8px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer a:hover {
+  color: var(--text);
+}
+
+@media (max-width: 420px) {
+  .content {
+    padding: 32px 0;
+  }
+
+  .panel {
+    padding: 24px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress span {
+    transition: none;
+  }
+}
