@@ -11,10 +11,12 @@
 </head>
 <body class="quiz-body">
 
-  <div class="quiz-progress">
+  <div class="quiz-header">
     <div class="q-brand"><img src="/peptrack-icon.png" alt="" width="20" height="20" /><span>PepTrack</span></div>
-    <button class="q-progress-back" type="button" id="progressBack" aria-label="Go back" hidden><svg width="10" height="18" viewBox="0 0 10 18" fill="none"><path d="M9 1L1 9l8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-    <div class="q-progress-track"><span id="progressBar"></span></div>
+    <div class="quiz-progress">
+      <button class="q-progress-back" type="button" id="progressBack" aria-label="Go back" hidden><svg width="10" height="18" viewBox="0 0 10 18" fill="none"><path d="M9 1L1 9l8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="q-progress-track"><span id="progressBar"></span></div>
+    </div>
   </div>
 
   <div class="quiz-page">
@@ -156,19 +158,19 @@
         <svg viewBox="0 0 400 160" preserveAspectRatio="none" aria-hidden="true">
           <defs>
             <linearGradient id="gUp" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#2563eb" stop-opacity=".2"/>
-              <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+              <stop offset="0%" stop-color="#ffffff" stop-opacity=".15"/>
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
             </linearGradient>
           </defs>
           <path d="M0,140 C80,130 160,100 240,60 S360,20 400,10 L400,160 L0,160Z" fill="url(#gUp)" />
-          <path d="M0,140 C80,130 160,100 240,60 S360,20 400,10" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+          <path d="M0,140 C80,130 160,100 240,60 S360,20 400,10" fill="none" stroke="#fff" stroke-width="2.5"/>
           <path d="M0,100 C80,105 160,110 240,115 S360,125 400,130" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="6,4"/>
-          <text x="12" y="24" fill="#60a5fa" font-size="11" font-weight="700">With PepTrack</text>
+          <text x="12" y="24" fill="rgba(255,255,255,.7)" font-size="11" font-weight="700">With PepTrack</text>
           <text x="12" y="148" fill="#777" font-size="10" id="chartLabel">Current method</text>
         </svg>
       </div>
       <div class="q-chart-legend">
-        <span class="q-legend"><span class="q-dot" style="background:#2563eb"></span> With PepTrack</span>
+        <span class="q-legend"><span class="q-dot" style="background:#fff"></span> With PepTrack</span>
         <span class="q-legend"><span class="q-dot" style="background:#555"></span> <span id="legendLabel">Current method</span></span>
       </div>
 
