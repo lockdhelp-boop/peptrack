@@ -11,7 +11,10 @@
 </head>
 <body class="quiz-body">
 
-  <div class="quiz-progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <div class="quiz-progress">
+    <button class="q-progress-back" type="button" id="progressBack" aria-label="Go back" hidden><svg width="10" height="18" viewBox="0 0 10 18" fill="none"><path d="M9 1L1 9l8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div class="q-progress-track"><span id="progressBar"></span></div>
+  </div>
 
   <div class="quiz-page">
 
@@ -288,6 +291,7 @@
         steps.forEach(function (s, idx) { s.hidden = idx !== i; });
         cur = i;
         bar.style.width = ((i + 1) / TOTAL * 100) + '%';
+        document.getElementById('progressBack').hidden = i === 0;
         var h = steps[i].querySelector('h1, h2');
         if (h) h.focus();
         window.scrollTo(0, 0);
@@ -333,6 +337,9 @@
 
       document.querySelectorAll('.q-next, .next-button').forEach(function (b) { b.addEventListener('click', advance); });
       document.querySelectorAll('.q-back').forEach(function (b) { b.addEventListener('click', goBack); });
+
+      var progressBack = document.getElementById('progressBack');
+      progressBack.addEventListener('click', goBack);
 
       var tagField = document.getElementById('tagField');
       var tagWrap = document.getElementById('tagWrap');

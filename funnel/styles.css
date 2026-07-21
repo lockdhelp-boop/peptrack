@@ -199,16 +199,43 @@ p {
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: rgba(255,255,255,.06);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
   z-index: 100;
+  background: var(--bg);
 }
 
-.quiz-progress span {
+.q-progress-back {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.5);
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.q-progress-back:active { color: var(--text); }
+
+.q-progress-track {
+  flex: 1;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.1);
+  overflow: hidden;
+}
+
+.q-progress-track span {
   display: block;
   height: 100%;
   width: 6.67%;
-  background: var(--accent);
+  border-radius: 999px;
+  background: rgba(255,255,255,.85);
   transition: width .3s ease;
 }
 
@@ -218,11 +245,10 @@ p {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  padding: 48px 24px 40px;
+  padding: 56px 24px 40px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 /* ── Step ── */
@@ -252,6 +278,7 @@ p {
   letter-spacing: -.02em;
   margin: 0 0 24px;
   font-weight: 700;
+  outline: none;
 }
 
 .q-sub {
@@ -652,6 +679,7 @@ p {
   margin: 0 0 24px;
   font-weight: 400;
   font-style: italic;
+  outline: none;
 }
 
 /* ── Features ── */
