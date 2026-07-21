@@ -207,19 +207,19 @@ p {
 .q-brand {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 10px;
   color: rgba(255,255,255,.4);
-  font-size: 13px;
+  font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
 .q-brand img {
-  width: 20px;
-  height: 20px;
-  max-width: 20px;
-  max-height: 20px;
-  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  max-width: 40px;
+  max-height: 40px;
+  border-radius: 9px;
   opacity: .45;
 }
 
@@ -268,7 +268,7 @@ p {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  padding: 76px 24px 40px;
+  padding: 90px 24px 40px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
