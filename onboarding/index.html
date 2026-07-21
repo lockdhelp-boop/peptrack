@@ -11,10 +11,10 @@
 </head>
 <body>
   <div class="page">
-    <a class="brand" href="/" aria-label="PepTrack home">
+    <div class="brand" aria-label="PepTrack">
       <img src="/peptrack-icon.png" alt="" />
       <span>PepTrack</span>
-    </a>
+    </div>
 
     <main class="content">
       <div class="panel">
@@ -37,8 +37,9 @@
         <section class="step" data-step="3" hidden>
           <p class="step-count">Step 3 of 3</p>
           <h2 tabindex="-1">You’re ready to continue.</h2>
-          <p>The Superwall checkout and app handoff can be connected here after the onboarding structure is finalized.</p>
-          <a class="button" id="completeButton" href="/complete/">Continue</a>
+          <p>Continue to the secure checkout to unlock the complete PepTrack tracking experience.</p>
+          <a class="button" id="completeButton" href="https://peptrack.superwall.app/web-onboarding">Continue to secure checkout</a>
+          <p class="disclaimer">You’ll continue on PepTrack’s secure Superwall checkout.</p>
         </section>
       </div>
     </main>
@@ -58,6 +59,7 @@
       var completeButton = document.getElementById('completeButton');
       var currentStep = 0;
       var query = window.location.search;
+      var checkoutUrl = new URL('https://peptrack.superwall.app/web-onboarding');
 
       if (!query) {
         try {
@@ -68,8 +70,18 @@
       }
 
       if (query) {
-        completeButton.href = '/complete/' + query;
+        var incomingParameters = new URLSearchParams(query);
+        var reservedIdentityParameters = ['email', 'uid', 'user', 'app_user_id'];
+
+        incomingParameters.forEach(function (value, key) {
+          if (reservedIdentityParameters.indexOf(key.toLowerCase()) === -1) {
+            checkoutUrl.searchParams.append(key, value);
+          }
+        });
       }
+
+      checkoutUrl.searchParams.set('funnel', 'web2app-v1');
+      completeButton.href = checkoutUrl.toString();
 
       function showStep(index) {
         steps.forEach(function (step, stepIndex) {
