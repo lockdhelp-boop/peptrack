@@ -4,15 +4,15 @@
   <meta charset="utf-8" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PepTrack - Privacy Policy</title>
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
-  <meta name="description" content="Privacy Policy for PepTrack, a peptide tracking app by Tuned Tech LLC." />
+  <meta name="description" content="Privacy Policy for the PepTrack app, website, Web2App onboarding, analytics, advertising attribution, and checkout services." />
   <link rel="canonical" href="https://pep-track.app/privacy.html" />
   <meta property="og:title" content="PepTrack Privacy Policy" />
-  <meta property="og:description" content="How PepTrack handles local routine data, optional account information, analytics, attribution, and Apple Health data." />
+  <meta property="og:description" content="How PepTrack handles local tracking data, web onboarding, account information, analytics, attribution, checkout, and Apple Health data." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://pep-track.app/privacy.html" />
   <style>
@@ -52,155 +52,161 @@
 <body>
   <main class="wrap">
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective date: July 2, 2026 &nbsp;|&nbsp; Contact: <a href="mailto:support.peptrack@gmail.com">support.peptrack@gmail.com</a></p>
+    <p class="meta">Effective date: July 21, 2026 &nbsp;|&nbsp; Contact: <a href="mailto:support.peptrack@gmail.com">support.peptrack@gmail.com</a></p>
 
-    <p>PepTrack is built with your privacy as a priority. This policy explains what data is collected, where it goes, and how it is used. We keep it simple because there is genuinely very little to disclose.</p>
+    <p>This Privacy Policy explains how Tuned Tech LLC ("PepTrack," "we," "us," or "our") handles information when you use the PepTrack mobile application, the pep-track.app website, advertising landing pages, web onboarding, Superwall web checkout, purchase-redemption flows, and related support services (together, the "Service").</p>
+    <p>PepTrack is a tracking and organizational tool, not a healthcare provider or medical device. It does not provide medical advice, diagnosis, treatment, prescriptions, or dosing instructions.</p>
 
     <div class="highlight">
-      <p><strong>Short version:</strong> Almost all of your data stays on your device and never leaves it. The only information stored on our servers is your optional username and whether you completed onboarding. Anonymous analytics help us improve the app. If you enable Apple Health, your weight data stays on your device and in your own Apple Health, and is never used for ads or analytics. We run paid advertising and use privacy-preserving attribution tools (via Apple's SKAdNetwork) to measure campaign performance — no personal data is shared with ad platforms. We do not sell your data. That is it.</p>
+      <p><strong>Plain-language summary:</strong> Core tracking information such as compounds, schedules, dose logs, notes, reminders, and weight entries is stored locally on your device. Web questionnaire answers currently remain in your browser and are not sent to PepTrack, Meta, PostHog, Superwall, or Stripe. We store limited anonymous account, access, and creator-attribution records in Supabase; use PostHog for pseudonymous product analytics; use Meta tools for advertising measurement; and use Apple, Superwall, and Stripe to manage subscriptions and web checkout. Apple Health information is optional and is never used for advertising or analytics. We do not sell personal information or consumer health data.</p>
     </div>
 
-    <h2>1. What Stays on Your Device</h2>
-    <p>The following data is stored locally on your iPhone or iPad only. It is never transmitted to our servers or any third party:</p>
+    <h2>1. Information Stored Locally in the App</h2>
+    <p>The following information is stored in PepTrack's local app storage on your device:</p>
     <ul>
-      <li>All peptide logs and dose entries</li>
+      <li>Compounds you add or select</li>
+      <li>Dose logs, dates, amounts, and related entries</li>
       <li>Protocol schedules and reminders</li>
-      <li>Any personal notes or custom entries</li>
-      <li>App settings and preferences</li>
+      <li>Personal notes and custom entries</li>
+      <li>Weight entries, goals, and display preferences</li>
+      <li>Other app settings and onboarding selections</li>
     </ul>
-    <p>Deleting the app permanently removes all of this data from your device.</p>
+    <p>PepTrack does not upload this core tracking information to our Supabase database. Deleting the app removes information held in PepTrack's local app storage from that device. Information separately written to Apple Health remains subject to your Apple Health settings and must be managed there.</p>
 
-    <h2>2. Apple Health (HealthKit)</h2>
-    <p>PepTrack integrates with Apple Health so your weight data stays in sync across the apps and devices you already use. This integration is entirely optional and only works after you grant permission.</p>
-    <p>With your permission, PepTrack:</p>
-    <ul>
-      <li><strong>Reads body weight</strong> from Apple Health, so weigh-ins recorded by your smart scale or other apps appear automatically on your PepTrack progress chart.</li>
-      <li><strong>Writes weights you log in PepTrack</strong> back to Apple Health, so your data stays consistent everywhere.</li>
-    </ul>
-    <p>Health data is stored only on your device (in local app storage) and, if you choose, in your own Apple Health. <strong>It is never sent to our servers.</strong></p>
+    <h2>2. Web Onboarding and Browser Storage</h2>
+    <p>PepTrack's web onboarding asks questions that may include what you are tracking, how long you have been tracking it, your current tracking method, general challenges, goals, and an age range. These answers are processed temporarily in your browser to personalize the pages you see. PepTrack does not currently save or transmit those questionnaire answers. Refreshing or closing the page clears them.</p>
+    <p>The email field currently shown in web onboarding is disabled and does not collect or submit an email address.</p>
+    <p>Our advertising landing page temporarily stores the page's campaign query string and landing path in browser session storage. Campaign parameters such as source, campaign, advertisement, creator, angle, or funnel identifiers may be carried into the Superwall paywall so we can measure campaign performance. Reserved email and user-ID parameters are not forwarded by the PepTrack onboarding page. Session-storage values generally last until the browser tab or session ends.</p>
+    <p>Our website is hosted by GitHub Pages. GitHub and ordinary internet infrastructure may process technical request information such as IP address, browser or device type, requested page, referring page, and request time to deliver and protect the site. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.</p>
 
+    <h2>3. Apple Health (HealthKit)</h2>
+    <p>PepTrack optionally integrates with Apple Health after you grant permission. With permission, PepTrack can read body weight from Apple Health and write weights you enter in PepTrack back to Apple Health.</p>
     <div class="highlight">
-      <p><strong>How we handle your Health data - and how we don't:</strong></p>
+      <p><strong>How we handle Apple Health information:</strong></p>
       <ul>
-        <li>Your Health data is <strong>never used for advertising or marketing</strong>.</li>
-        <li>It is <strong>never shared with or sold to</strong> any third party, advertiser, or data broker.</li>
-        <li>It is <strong>never used for analytics</strong>. Health data is excluded from our product analytics (PostHog) and our ad-attribution SDK (Meta) - those tools only ever receive anonymous, non-health event counts (for example, that a screen was opened), never your weight or any other Health information.</li>
-        <li>Access requires your <strong>explicit permission</strong>, and you can revoke it at any time in the iOS Settings app or the Apple Health app.</li>
+        <li>Apple Health access is optional and controlled through your device and Apple Health settings.</li>
+        <li>Apple Health information is not sent to Supabase, PostHog, Meta, Superwall, Stripe, advertisers, or data brokers.</li>
+        <li>Apple Health information is never used for advertising, marketing, profiling, or product analytics.</li>
+        <li>We do not sell Apple Health information.</li>
+        <li>You can revoke access at any time in iOS Settings or the Apple Health app.</li>
       </ul>
     </div>
-    <p>Our use of Apple Health data complies with Apple's HealthKit requirements, including the restriction that Health data is never used for advertising, marketing, or use-based data mining, and is never disclosed to third parties for those purposes.</p>
+    <p>Deleting PepTrack does not necessarily delete information that was already written to Apple Health. You can view or delete those records and manage PepTrack's permissions in Apple Health.</p>
 
-    <h2>3. What Is Stored on Our Servers</h2>
-    <p>We use Supabase, a secure cloud database, to store a minimal amount of data:</p>
+    <h2>4. Limited Account and Access Information</h2>
+    <p>PepTrack uses Supabase to create and maintain a minimal anonymous app profile. Supabase may process:</p>
     <ul>
-      <li><strong>Username</strong> - optional. If you choose to set one, it is stored on our servers. You can leave this blank during onboarding and nothing is saved.</li>
-      <li><strong>Onboarding completion status</strong> - a simple flag indicating whether you have completed the initial setup flow.</li>
+      <li>A randomly generated account and profile identifier</li>
+      <li>An optional display name</li>
+      <li>Account creation and update timestamps</li>
+      <li>Onboarding-completion and paywall-reached status</li>
+      <li>Paid-access, entitlement-mirror, or administrator-approved bypass status</li>
+      <li>A creator or referral code redeemed in the app</li>
+      <li>Authentication and security information needed to maintain the anonymous session</li>
     </ul>
-    <p>No dose logs, protocol details, peptide names, or health-related data are ever stored on our servers.</p>
-    <p>To request deletion of your server-stored data, email <a href="mailto:support.peptrack@gmail.com">support.peptrack@gmail.com</a> and we will remove it promptly.</p>
+    <p>Supabase does not receive your compound names, dose logs, protocol details, notes, weight values, Apple Health information, or web questionnaire answers from PepTrack. See the <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase Privacy Policy</a>.</p>
 
-    <h2>4. Analytics (PostHog)</h2>
-    <p>We use PostHog to collect anonymous usage analytics. This helps us understand how the app is used so we can improve it. PostHog data is used solely for internal product decisions. We do not sell your data.</p>
-
-    <p>PostHog collects:</p>
+    <h2>5. Product Analytics (PostHog)</h2>
+    <p>We use PostHog for pseudonymous product analytics so we can understand onboarding completion, feature use, reliability, and where users encounter problems. Analytics events are associated with a randomly generated analytics identifier rather than a name, email address, Apple ID, or payment card.</p>
+    <p>PostHog may receive:</p>
     <ul>
-      <li>A randomly generated anonymous device identifier (not tied to your name, email, or Apple ID)</li>
-      <li>Screen views and navigation paths within the app</li>
-      <li>Feature interactions, such as which sections are used and in what order</li>
-      <li>App events such as notification permission responses and onboarding step completion</li>
-      <li>Content interactions, such as which peptide categories are viewed (captured as anonymous event data)</li>
+      <li>App opens, lifecycle events, screen views, and navigation paths</li>
+      <li>Onboarding screens reached and steps completed</li>
+      <li>Notification-permission responses</li>
+      <li>The number of compounds selected, but not their names</li>
+      <li>The number of weight entries, but not weight values, dates, or goals</li>
+      <li>Creator or referral codes and whether a redemption was valid, invalid, bypassed, skipped, or unavailable</li>
+      <li>Paywall, access-gate, and technical error events</li>
+      <li>Basic app, operating-system, device, network, and event-delivery metadata</li>
     </ul>
+    <p>PepTrack does not intentionally send compound names, dose amounts, dose logs, schedules, notes, weight values, Apple Health information, web questionnaire answers, display names, email addresses, or payment information to PostHog. Session replay is not currently enabled in the PepTrack app. See the <a href="https://posthog.com/privacy" target="_blank" rel="noopener">PostHog Privacy Policy</a>.</p>
 
-    <p>PostHog does not collect your name, email address, location, Apple ID, payment information, or any data that directly identifies you as an individual. All data is associated with an anonymous ID only.</p>
+    <h2>6. Advertising and Meta Measurement</h2>
+    <p>We use Meta advertising tools in separate parts of the Service to measure how advertising performs:</p>
+    <ul>
+      <li><strong>PepTrack landing-page Pixel:</strong> Our advertising landing page loads the Meta Pixel and sends a PageView event. Meta may receive the page URL and campaign parameters, referring page, browser and device information, IP-derived information, and Meta cookie or similar identifiers.</li>
+      <li><strong>Superwall Web2App Pixel:</strong> Meta's browser Pixel inside Superwall may receive paywall views, checkout starts, completed purchases, paywall or account-management interactions, product and paywall identifiers, transaction or redemption interaction identifiers, price, and currency.</li>
+      <li><strong>Meta iOS SDK:</strong> The PepTrack app uses Meta's iOS SDK for automatic app-event logging and advertising measurement. Meta may receive app-install, app-open, conversion, device, and technical signals, subject to Apple platform rules and your tracking permission where required.</li>
+      <li><strong>Apple attribution:</strong> Apple privacy-preserving attribution technologies, including SKAdNetwork where applicable, may provide Meta with aggregate installation or conversion signals.</li>
+    </ul>
+    <p>These sources may use the same Meta data source, and Meta may associate signals across browsers, devices, checkout, and the app under its own policies. PepTrack does not send web questionnaire answers, compound names, dose logs, protocol schedules, notes, weight values, or Apple Health information to Meta. We do not currently use Superwall's Meta Conversions API integration.</p>
+    <p>You can manage browser cookies through your browser and review iOS tracking permissions under Settings &gt; Privacy &amp; Security &gt; Tracking. Blocking advertising technologies may reduce measurement but should not prevent you from using PepTrack's core tracking features. See <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta's Privacy Policy</a> and <a href="https://www.facebook.com/privacy/policies/cookies/" target="_blank" rel="noopener">Cookies Policy</a>.</p>
 
-    <p>For more information, see the <a href="https://posthog.com/privacy" target="_blank" rel="noopener">PostHog Privacy Policy</a>.</p>
+    <h2>7. Subscriptions, Web Checkout, and Payments</h2>
+    <p>PepTrack subscriptions may be purchased through Apple In-App Purchase or through Superwall Web Checkout powered by Stripe.</p>
+    <ul>
+      <li><strong>Apple purchases:</strong> Apple processes payment and manages the App Store subscription. PepTrack and Superwall receive subscription and entitlement status needed to provide premium access.</li>
+      <li><strong>Web purchases:</strong> Superwall presents the web paywall, creates the Stripe checkout flow, manages purchase redemption, and connects an eligible purchase to PepTrack access.</li>
+      <li><strong>Stripe:</strong> Stripe processes checkout information such as email address, payment method, billing details, transaction information, tax, fraud-prevention signals, and subscription records. For eligible Managed Payments transactions, Stripe may act as merchant of record.</li>
+    </ul>
+    <p>Tuned Tech LLC does not receive or store your full payment-card number. We and our providers may receive or access checkout email, subscription status, product, price, currency, transaction identifiers, renewal or cancellation status, and related support information. Superwall may email purchase receipts, redemption links, and subscription-management links to the address used at checkout.</p>
+    <p>Resetting PepTrack, deleting the app, or requesting deletion of app data does not automatically cancel a subscription. Apple subscriptions must be managed through Apple, and web subscriptions must be managed through the Superwall or Stripe management flow provided with the purchase. See the <a href="https://superwall.com/legal/privacy-policy" target="_blank" rel="noopener">Superwall Privacy Policy</a>, <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe Privacy Policy</a>, and <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a>.</p>
 
-    <h2>5. Advertising & Attribution</h2>
-    <p>We run paid advertising campaigns on platforms including Meta (Facebook/Instagram) and may in the future run campaigns on TikTok. To measure whether those campaigns result in app installs or in-app actions, we use ad attribution tools provided by those platforms.</p>
-    <p><strong>How it works on iOS:</strong> Attribution runs through Apple's SKAdNetwork (SKAN) framework. SKAN is privacy-preserving by design — it sends only aggregate, anonymized signals to ad platforms. No individual user is identified, and no personally identifiable information leaves your device through this process.</p>
-    <p><strong>What Meta may receive:</strong> aggregate install and conversion signals via SKAN (e.g., that an install occurred and whether a subscription followed), along with basic device and technical data the Meta SDK collects for campaign measurement. We do not share your name, email, peptide logs, or any health-related data with Meta. For more, see <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta's Privacy Policy</a>.</p>
-    <p><strong>What TikTok may receive (if/when applicable):</strong> similar aggregate attribution signals via SKAN and TikTok's attribution tools. For more, see <a href="https://www.tiktok.com/legal/page/us/privacy-policy/en" target="_blank" rel="noopener">TikTok's Privacy Policy</a>.</p>
-    <p>You can review or change tracking permissions at any time in iOS Settings &gt; Privacy &amp; Security &gt; Tracking.</p>
+    <h2>8. Support Communications</h2>
+    <p>If you contact us, we process your email address and the information you choose to include so we can respond, troubleshoot, keep a record of the request, and protect the Service. Please do not include sensitive health information in a support request unless it is necessary for us to assist you.</p>
 
-    <h2>6. Subscriptions (Apple and Superwall)</h2>
-    <p>Subscriptions are processed by Apple via In-App Purchase. Apple handles all payment information and subscription management. We do not receive or store your payment details.</p>
-    <p>We use Superwall to manage paywall presentation and subscription status. Superwall may receive anonymous subscription status signals to determine which users have active subscriptions. For more information, see the <a href="https://superwall.com/privacy" target="_blank" rel="noopener">Superwall Privacy Policy</a>.</p>
+    <h2>9. Consumer Health Data Notice</h2>
+    <p>Depending on where you live, information you enter about compounds, doses, schedules, weight, or related routines may be considered consumer health data even when it is not protected health information under HIPAA.</p>
+    <p><strong>Categories and sources:</strong> PepTrack processes the tracking information you enter directly into the app, body-weight information you choose to read from or write to Apple Health, and questionnaire answers you enter into web onboarding.</p>
+    <p><strong>Purposes:</strong> We process this information to provide the tracking, scheduling, reminder, calculator, chart, personalization, and Apple Health features you request.</p>
+    <p><strong>Storage and sharing:</strong> Core app tracking information remains in local app storage, Apple Health information remains on your device and in Apple Health, and web questionnaire answers currently remain in browser memory. PepTrack does not share these contents with Supabase, PostHog, Meta, Superwall, Stripe, advertisers, or data brokers. Count-only product events, such as the number of compounds selected or number of weight entries, are not accompanied by compound names or weight values.</p>
+    <p><strong>No sale or targeted advertising:</strong> We do not sell consumer health data or use its contents for targeted advertising. We do not permit third parties to use Apple Health information, tracking entries, or questionnaire answers for their own advertising.</p>
+    <p>You may exercise applicable consumer-health-data rights using the controls described below or by contacting <a href="mailto:support.peptrack@gmail.com">support.peptrack@gmail.com</a>.</p>
 
-    <h2>7. Data Summary</h2>
+    <h2>10. How We Share Information</h2>
+    <p>We disclose limited information to service providers only as needed for the purposes described in this policy:</p>
     <table>
       <thead>
         <tr>
-          <th>Data</th>
-          <th>Where it goes</th>
+          <th>Provider</th>
+          <th>Information</th>
           <th>Purpose</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Dose logs, protocols, schedules</td>
-          <td>Your device only</td>
-          <td>Core app functionality</td>
-        </tr>
-        <tr>
-          <td>Body weight / Health data</td>
-          <td>Your device + your Apple Health only</td>
-          <td>Progress tracking</td>
-        </tr>
-        <tr>
-          <td>Username (optional)</td>
-          <td>Supabase (our servers)</td>
-          <td>Account personalization</td>
-        </tr>
-        <tr>
-          <td>Onboarding completion</td>
-          <td>Supabase (our servers)</td>
-          <td>App state</td>
-        </tr>
-        <tr>
-          <td>Anonymous usage events</td>
-          <td>PostHog</td>
-          <td>App improvement</td>
-        </tr>
-        <tr>
-          <td>Subscription status</td>
-          <td>Apple / Superwall</td>
-          <td>Access control</td>
-        </tr>
-        <tr>
-          <td>Aggregate install/conversion signals</td>
-          <td>Meta (via Apple SKAdNetwork)</td>
-          <td>Ad campaign measurement</td>
-        </tr>
-        <tr>
-          <td>Aggregate signals (if/when applicable)</td>
-          <td>TikTok (via Apple SKAdNetwork)</td>
-          <td>Ad campaign measurement</td>
-        </tr>
+        <tr><td>Supabase</td><td>Anonymous profile, access, and referral metadata</td><td>Authentication and access state</td></tr>
+        <tr><td>PostHog</td><td>Pseudonymous usage events and count-only properties</td><td>Product analytics and reliability</td></tr>
+        <tr><td>Meta</td><td>Landing, paywall, checkout, app-event, campaign, and conversion signals</td><td>Advertising measurement</td></tr>
+        <tr><td>Superwall</td><td>Paywall, entitlement, redemption, subscription, and checkout information</td><td>Paywalls and subscription access</td></tr>
+        <tr><td>Stripe</td><td>Checkout, contact, billing, transaction, tax, and fraud information</td><td>Web payment processing</td></tr>
+        <tr><td>Apple</td><td>App Store purchase information and optional Apple Health information</td><td>Subscriptions and user-requested HealthKit features</td></tr>
+        <tr><td>GitHub Pages</td><td>Website request and technical information</td><td>Website hosting and security</td></tr>
       </tbody>
     </table>
+    <p>We may also disclose information when reasonably necessary to comply with law, respond to valid legal process, investigate fraud or security issues, protect users or the Service, or complete a merger, financing, acquisition, reorganization, bankruptcy, or sale of assets. Any successor's handling of information remains subject to applicable law and the privacy commitments in effect at the time of transfer.</p>
 
-    <h2>8. Children and Age Requirements</h2>
-    <p>PepTrack is intended for users who are 16 years of age or older. We do not knowingly collect any information from anyone under 16. If you believe a minor has used the app, please contact us and we will take appropriate action.</p>
-
-    <h2>9. Data Security</h2>
-    <p>Server-stored data is secured via Supabase, which uses industry-standard encryption in transit and at rest. Local data on your device is protected by iOS device security. That said, no system is perfectly secure, and we cannot guarantee absolute security.</p>
-
-    <h2>10. Your Rights</h2>
-    <p>You have the right to:</p>
+    <h2>11. Retention</h2>
     <ul>
-      <li>Skip username creation entirely so nothing is stored on our servers</li>
-      <li>Delete all local data by deleting the app</li>
-      <li>Request deletion of any server-stored data by emailing <a href="mailto:support.peptrack@gmail.com">support.peptrack@gmail.com</a></li>
+      <li>Local app information remains until you delete individual entries, use available reset controls, or delete the app.</li>
+      <li>Apple Health information remains according to your Apple Health settings and deletion choices.</li>
+      <li>Web questionnaire answers last only in page memory; campaign parameters in session storage generally last for the browser session.</li>
+      <li>Supabase profile, access, and creator-attribution records remain as needed to operate access, prevent abuse, preserve attribution, and comply with deletion requests or legal requirements.</li>
+      <li>Analytics and advertising providers retain information according to our settings and their policies.</li>
+      <li>Purchase and transaction records may be retained for subscription management, receipts, accounting, tax, fraud prevention, disputes, refunds, and legal compliance.</li>
+      <li>Support communications are retained as reasonably necessary to respond and maintain appropriate records.</li>
     </ul>
 
-    <h2>11. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. If changes are significant, we will notify users in-app. Continued use of PepTrack after changes are posted constitutes acceptance of the updated policy.</p>
+    <h2>12. Your Choices, Reset, and Deletion</h2>
+    <p>You can delete individual tracking entries in the app, revoke notification or tracking permissions in iOS Settings, manage Apple Health access and records in Apple Health, manage browser cookies through your browser, and export supported PepTrack data from the app.</p>
+    <p>Using PepTrack's in-app reset or deletion control clears local compounds, schedules, dose logs, reminders, display-name and onboarding selections, resets the current Superwall identity, resets portions of the anonymous profile state, and signs the current anonymous profile out. Weight entries can be managed separately in the app. This control does not cancel an Apple or web subscription, remove records held by Apple Health, or necessarily erase subscription, transaction, fraud-prevention, legal, or creator-attribution records.</p>
+    <p>Deleting the app removes its local app storage from that device but does not cancel a subscription or automatically remove Apple Health, payment-provider, analytics-provider, or server-held records.</p>
+    <p>You may request access to, correction of, or deletion of eligible server-held personal or consumer health information by emailing <a href="mailto:support.peptrack@gmail.com">support.peptrack@gmail.com</a>. We may need to verify enough information to locate the relevant anonymous profile or purchase. We will respond in accordance with applicable law and may retain information when reasonably required for billing, fraud prevention, security, legal obligations, or the establishment or defense of legal claims.</p>
 
-    <h2>12. Governing Law</h2>
-    <p>This Privacy Policy is governed by the laws of the State of Wyoming, USA.</p>
+    <h2>13. Security and International Processing</h2>
+    <p>We use reasonable administrative, technical, and organizational safeguards designed to protect information. Local information is protected by your device's security, and service providers use their own security controls for information they process. No method of storage or transmission is completely secure, and we cannot guarantee absolute security.</p>
+    <p>PepTrack and its providers are based in or operate from the United States and other locations. Information may therefore be processed outside your state, province, or country under the safeguards and legal mechanisms used by the applicable provider.</p>
 
-    <h2>13. Contact</h2>
-    <p>Questions about your privacy? Email <a href="mailto:support.peptrack@gmail.com">support.peptrack@gmail.com</a>.</p>
+    <h2>14. Children and Age Requirements</h2>
+    <p>PepTrack is intended for users age 16 and older. We do not knowingly collect personal information from anyone under 16. If you believe a person under 16 has provided information through the Service, contact us so we can investigate and take appropriate action.</p>
+
+    <h2>15. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy as the Service, providers, or legal requirements change. We will post the revised policy with a new effective date and provide additional notice when required by law. Material new collection or use of consumer health data will be disclosed and handled in accordance with applicable consent requirements.</p>
+
+    <h2>16. Governing Law</h2>
+    <p>This Privacy Policy is governed by the laws of the State of Wyoming, USA, except where another jurisdiction's law applies.</p>
+
+    <h2>17. Contact</h2>
+    <p>Tuned Tech LLC operates PepTrack. For privacy questions or requests, email <a href="mailto:support.peptrack@gmail.com">support.peptrack@gmail.com</a>.</p>
 
     <div class="foot">© 2026 PepTrack by Tuned Tech LLC. All rights reserved.</div>
     <a class="back" href="/">Back to Home</a>
