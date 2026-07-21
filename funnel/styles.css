@@ -208,7 +208,7 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: rgba(255,255,255,.4);
+  color: #fff;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
@@ -220,7 +220,7 @@ p {
   max-width: 40px;
   max-height: 40px;
   border-radius: 9px;
-  opacity: .45;
+  opacity: 1;
 }
 
 .quiz-progress {
