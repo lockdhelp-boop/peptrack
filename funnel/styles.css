@@ -207,6 +207,23 @@ p {
   background: var(--bg);
 }
 
+.q-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(255,255,255,.35);
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.q-brand img {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  opacity: .4;
+}
+
 .q-progress-back {
   background: none;
   border: none;
@@ -216,6 +233,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
 }
@@ -245,10 +263,11 @@ p {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  padding: 56px 24px 40px;
+  padding: 64px 24px 40px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 /* ── Step ── */
