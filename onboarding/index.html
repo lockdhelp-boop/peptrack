@@ -9,286 +9,264 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="/funnel/styles.css" />
 </head>
-<body>
-  <div class="page">
-    <div class="brand" aria-label="PepTrack">
-      <img src="/peptrack-icon.png" alt="" />
-      <span>PepTrack</span>
-    </div>
+<body class="quiz-body">
 
-    <main class="content">
-      <div class="panel">
-        <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <div class="quiz-progress" aria-hidden="true"><span id="progressBar"></span></div>
 
-        <!-- ── S1: Segment fork ── -->
-        <section class="step" data-step="1">
-          <p class="step-count">Step 1 of 15</p>
-          <h2 class="quiz-heading" tabindex="-1">How are you currently managing your routine?</h2>
-          <ul class="option-list" data-select="single" data-var="segment">
-            <li><button class="option-btn" type="button" data-value="mainstream"><span class="option-icon">💊</span> Prescribed by a doctor or telehealth</button></li>
-            <li><button class="option-btn" type="button" data-value="biohacker"><span class="option-icon">🧪</span> I source and prepare it myself</button></li>
-            <li><button class="option-btn" type="button" data-value="hybrid"><span class="option-icon">🔁</span> Both — I've done it different ways</button></li>
-            <li><button class="option-btn" type="button" data-value="researching"><span class="option-icon">🤔</span> Still researching, haven't started yet</button></li>
-          </ul>
-        </section>
+  <div class="quiz-page">
 
-        <!-- ── S2: What they're tracking ── -->
-        <section class="step" data-step="2" hidden>
-          <p class="step-count">Step 2 of 15</p>
-          <h2 class="quiz-heading" tabindex="-1">What are you currently taking?</h2>
-          <p class="quiz-sub">Type a name and press Enter to add it. Your answers stay private on this device.</p>
-          <div class="tag-input-wrap" id="tagWrap">
-            <input class="tag-input" id="tagField" type="text" placeholder="Type a name…" autocomplete="off" />
-          </div>
-          <div class="nav-row">
-            <button class="back-btn" type="button" aria-label="Go back">&larr;</button>
-            <button class="button next-button" type="button">Next</button>
-          </div>
-        </section>
+    <!-- ── S1: Segment fork ── -->
+    <section class="step" data-step="1">
+      <p class="step-label">1 of 15</p>
+      <h2 class="q-heading" tabindex="-1">How are you currently managing your routine?</h2>
+      <ul class="q-options" data-select="single" data-var="segment">
+        <li><button class="q-opt" type="button" data-value="mainstream"><span class="q-opt-icon">💊</span> Prescribed by a doctor or telehealth</button></li>
+        <li><button class="q-opt" type="button" data-value="biohacker"><span class="q-opt-icon">🧪</span> I source and prepare it myself</button></li>
+        <li><button class="q-opt" type="button" data-value="hybrid"><span class="q-opt-icon">🔁</span> Both — I've done it different ways</button></li>
+        <li><button class="q-opt" type="button" data-value="researching"><span class="q-opt-icon">🤔</span> Still researching, haven't started yet</button></li>
+      </ul>
+    </section>
 
-        <!-- ── S3: Tenure ── -->
-        <section class="step" data-step="3" hidden>
-          <p class="step-count">Step 3 of 15</p>
-          <h2 class="quiz-heading" tabindex="-1">How long have you been on this routine?</h2>
-          <ul class="option-list" data-select="single" data-var="tenure">
-            <li><button class="option-btn" type="button" data-value="0-2w">Just starting (0–2 weeks)</button></li>
-            <li><button class="option-btn" type="button" data-value="1-3m">1–3 months</button></li>
-            <li><button class="option-btn" type="button" data-value="3-6m">3–6 months</button></li>
-            <li><button class="option-btn" type="button" data-value="6m+">6+ months</button></li>
-          </ul>
-        </section>
-
-        <!-- ── S4: Hardest part (segment-variant) ── -->
-        <section class="step" data-step="4" hidden>
-          <p class="step-count">Step 4 of 15</p>
-          <h2 class="quiz-heading" tabindex="-1" id="s4Heading">What's the hardest part of managing your routine?</h2>
-
-          <!-- Mainstream / hybrid / researching variant -->
-          <ul class="option-list" data-select="single" data-var="hardestPart" id="s4Mainstream">
-            <li><button class="option-btn" type="button" data-value="timing">Remembering exactly when to dose</button></li>
-            <li><button class="option-btn" type="button" data-value="guidance">Not enough guidance on what to expect</button></li>
-            <li><button class="option-btn" type="button" data-value="sideEffects">Hard to tell if a side effect is typical or concerning</button></li>
-            <li><button class="option-btn" type="button" data-value="progress">Hard to tell if things are actually working</button></li>
-            <li><button class="option-btn" type="button" data-value="scattered">Juggling notes, reminders, and apps just to keep track</button></li>
-          </ul>
-
-          <!-- Biohacker variant -->
-          <ul class="option-list" data-select="single" data-var="hardestPart" id="s4Biohacker" hidden>
-            <li><button class="option-btn" type="button" data-value="doseMath">Reconstitution and dose math</button></li>
-            <li><button class="option-btn" type="button" data-value="logging">Knowing what's actually worth logging</button></li>
-            <li><button class="option-btn" type="button" data-value="consistency">Staying consistent across cycles</button></li>
-            <li><button class="option-btn" type="button" data-value="sourcing">Keeping track of sourcing and dosing details</button></li>
-            <li><button class="option-btn" type="button" data-value="scattered">No single place that tracks all of it</button></li>
-          </ul>
-
-          <div id="s4Reassurance"></div>
-        </section>
-
-        <!-- ── S5: Beyond the scale ── -->
-        <section class="step" data-step="5" hidden>
-          <p class="step-count">Step 5 of 15</p>
-          <h2 class="quiz-heading" tabindex="-1">Outside of the number on the scale, what would actually feel like success?</h2>
-          <ul class="option-list" data-select="single" data-var="successMetric">
-            <li><button class="option-btn" type="button" data-value="energy">More energy, day to day</button></li>
-            <li><button class="option-btn" type="button" data-value="confidence">Feeling confident in my own skin again</button></li>
-            <li><button class="option-btn" type="button" data-value="understanding">Finally understanding what my body's doing</button></li>
-            <li><button class="option-btn" type="button" data-value="support">Not feeling like I'm figuring this out alone</button></li>
-            <li><button class="option-btn" type="button" data-value="consistency">Proving to myself I can stick with something</button></li>
-          </ul>
-        </section>
-
-        <!-- ── S6: Calculator qualifier ── -->
-        <section class="step" data-step="6" hidden>
-          <p class="step-count">Step 6 of 15</p>
-          <h2 class="quiz-heading" tabindex="-1">Do you ever find yourself unsure exactly how many units to draw?</h2>
-          <ul class="option-list" data-select="single" data-var="needsCalculator">
-            <li><button class="option-btn" type="button" data-value="yes">Yes, pretty often</button></li>
-            <li><button class="option-btn" type="button" data-value="sometimes">Sometimes</button></li>
-            <li><button class="option-btn" type="button" data-value="no">No — I use a pre-filled pen</button></li>
-          </ul>
-        </section>
-
-        <!-- ── S7: Current tracking method ── -->
-        <section class="step" data-step="7" hidden>
-          <p class="step-count">Step 7 of 15</p>
-          <h2 class="quiz-heading" tabindex="-1">How are you tracking your doses right now?</h2>
-          <p class="quiz-sub">Select all that apply.</p>
-          <ul class="option-list" data-select="multi" data-var="trackingMethod">
-            <li><button class="option-btn" type="button" data-value="notes"><span class="option-check"></span> Notes app</button></li>
-            <li><button class="option-btn" type="button" data-value="calendar"><span class="option-check"></span> Calendar reminders</button></li>
-            <li><button class="option-btn" type="button" data-value="pen-mark"><span class="option-check"></span> A mark on the pen</button></li>
-            <li><button class="option-btn" type="button" data-value="other-app"><span class="option-check"></span> Another tracking app</button></li>
-            <li><button class="option-btn" type="button" data-value="nothing"><span class="option-check"></span> Honestly, nothing — just trying to remember</button></li>
-          </ul>
-          <div class="nav-row">
-            <button class="back-btn" type="button" aria-label="Go back">&larr;</button>
-            <button class="button next-button" type="button">Next</button>
-          </div>
-        </section>
-
-        <!-- ── S8: Age band ── -->
-        <section class="step" data-step="8" hidden>
-          <p class="step-count">Step 8 of 15</p>
-          <h2 class="quiz-heading" tabindex="-1">What's your age range?</h2>
-          <div class="band-row" data-select="single" data-var="ageBand">
-            <button class="band-btn" type="button" data-value="20s">20s</button>
-            <button class="band-btn" type="button" data-value="30s">30s</button>
-            <button class="band-btn" type="button" data-value="40s">40s</button>
-            <button class="band-btn" type="button" data-value="50s">50s</button>
-            <button class="band-btn" type="button" data-value="60+">60+</button>
-          </div>
-          <button class="ghost-link next-button" type="button">Prefer not to say</button>
-        </section>
-
-        <!-- ── S9: Analyzing loader ── -->
-        <section class="step" data-step="9" hidden>
-          <div class="loader-wrap">
-            <div class="loader-ring"></div>
-            <p class="loader-text" id="loaderText">Reviewing your tracking setup…</p>
-          </div>
-        </section>
-
-        <!-- ── S10: Protocol Profile reveal ── -->
-        <section class="step" data-step="10" hidden>
-          <p class="step-count">Step 10 of 15</p>
-          <div class="profile-badge" id="profileBadge">Your Tracking Profile</div>
-          <h2 class="quiz-heading" tabindex="-1">Your Profile</h2>
-          <p class="profile-summary" id="profileSummary"></p>
-
-          <div class="chart-box">
-            <svg viewBox="0 0 400 160" preserveAspectRatio="none" aria-hidden="true">
-              <defs>
-                <linearGradient id="gUp" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#2563eb" stop-opacity=".25"/>
-                  <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <path d="M0,140 C80,130 160,100 240,60 S360,20 400,10 L400,160 L0,160Z" fill="url(#gUp)" />
-              <path d="M0,140 C80,130 160,100 240,60 S360,20 400,10" fill="none" stroke="#2563eb" stroke-width="2.5"/>
-              <path d="M0,100 C80,105 160,110 240,115 S360,125 400,130" fill="none" stroke="#9aa3b2" stroke-width="1.5" stroke-dasharray="6,4" opacity=".5"/>
-              <text x="12" y="24" fill="#60a5fa" font-size="11" font-weight="700">With PepTrack</text>
-              <text x="12" y="148" fill="#9aa3b2" font-size="10" id="chartLabel">Current method</text>
-            </svg>
-          </div>
-          <div class="chart-legend">
-            <span class="chart-legend-item"><span class="chart-legend-dot" style="background:#2563eb"></span> With PepTrack</span>
-            <span class="chart-legend-item"><span class="chart-legend-dot" style="background:#9aa3b2"></span> <span id="legendLabel">Current method</span></span>
-          </div>
-
-          <p class="quiz-sub" style="text-align:center;margin-bottom:0">Save your profile to your email (coming soon)</p>
-          <div class="email-row">
-            <input class="email-input" type="email" placeholder="you@email.com" disabled aria-label="Email — coming soon" />
-            <button class="email-btn" type="button" disabled>Save</button>
-          </div>
-          <button class="ghost-link next-button" type="button">Continue without saving</button>
-        </section>
-
-        <!-- ── S11: Why this happens (UMP) ── -->
-        <section class="step" data-step="11" hidden>
-          <p class="step-count">Step 11 of 15</p>
-          <h2 class="ump-heading" tabindex="-1">It's not that you're forgetful.</h2>
-          <p class="ump-body">Weekly routines create a tracking blind spot that daily reminder apps were never built for. Your brain locks onto things you do every 24 hours — a routine that lands on a different day each week never becomes automatic.</p>
-          <p class="ump-body" id="umpCalcLine" hidden><strong>And if you're converting dosing units by hand,</strong> that's one more place for things to slip.</p>
-          <p class="ump-body">That's not a you problem. <strong>That's a structural one.</strong></p>
-          <div class="nav-row">
-            <button class="back-btn" type="button" aria-label="Go back">&larr;</button>
-            <button class="button next-button" type="button">Next</button>
-          </div>
-        </section>
-
-        <!-- ── S12: What changes (product glimpse) ── -->
-        <section class="step" data-step="12" hidden>
-          <p class="step-count">Step 12 of 15</p>
-          <h2 class="quiz-heading" tabindex="-1">Here's what changes.</h2>
-          <div class="feature-cards">
-            <div class="feature-card" id="calcFeature" hidden>
-              <p class="feature-card-title">Dose Calculator</p>
-              <p class="feature-card-desc">Enter your vial concentration and target dose — get your exact draw. No math, no guessing.</p>
-              <div class="feature-preview">App screenshot placeholder</div>
-            </div>
-            <div class="feature-card">
-              <p class="feature-card-title">Hunger Cycle Heatmap</p>
-              <p class="feature-card-desc">See exactly when your routine peaks and fades, mapped to your log dates. No other tracker shows you this.</p>
-              <div class="feature-preview">App screenshot placeholder</div>
-            </div>
-            <div class="feature-card">
-              <p class="feature-card-title">All-in-One Log</p>
-              <p class="feature-card-desc">Doses, timing, notes, and body signals — one private place instead of scattered apps and reminders.</p>
-              <div class="feature-preview">App screenshot placeholder</div>
-            </div>
-          </div>
-          <div class="nav-row">
-            <button class="back-btn" type="button" aria-label="Go back">&larr;</button>
-            <button class="button next-button" type="button">Next</button>
-          </div>
-        </section>
-
-        <!-- ── S13: Social proof ── -->
-        <section class="step" data-step="13" hidden>
-          <p class="step-count">Step 13 of 15</p>
-          <h2 class="quiz-heading" tabindex="-1">Built for people managing a real routine.</h2>
-          <div class="rating-row">
-            <span class="rating-stars">★★★★★</span>
-          </div>
-          <p class="rating-sub" id="socialSegment">Designed for people who track what they take — not a generic health app.</p>
-          <div class="quote-placeholder">Real user reviews will appear here once available. No fabricated testimonials.</div>
-          <div class="nav-row">
-            <button class="back-btn" type="button" aria-label="Go back">&larr;</button>
-            <button class="button next-button" type="button">Next</button>
-          </div>
-        </section>
-
-        <!-- ── S14: Value framing ── -->
-        <section class="step" data-step="14" hidden>
-          <p class="step-count">Step 14 of 15</p>
-          <h2 class="quiz-heading" tabindex="-1">Consistency is the part nobody tracks.</h2>
-          <p class="ump-body">Missed doses, forgotten timing, scattered notes — the tracking gap costs more than people realize. Not in money. In momentum.</p>
-          <p class="ump-body"><strong>PepTrack closes that gap</strong> so your effort actually compounds instead of resetting every week.</p>
-          <div class="nav-row">
-            <button class="back-btn" type="button" aria-label="Go back">&larr;</button>
-            <button class="button next-button" type="button">Next</button>
-          </div>
-        </section>
-
-        <!-- ── S15: Handoff ── -->
-        <section class="step" data-step="15" hidden>
-          <div class="ready-icon">✓</div>
-          <h2 class="quiz-heading ready-heading" tabindex="-1">Your tracking profile is ready.</h2>
-          <p class="ready-sub quiz-sub">Continue to set up PepTrack and unlock your full tracking experience.</p>
-          <a class="button" id="checkoutLink" href="https://peptrack.superwall.app/web-onboarding">Continue to secure checkout</a>
-          <p class="disclaimer" style="text-align:center">PepTrack is a tracking tool, not medical advice, and is not affiliated with any drug or pharmaceutical manufacturer.</p>
-        </section>
+    <!-- ── S2: What they're tracking ── -->
+    <section class="step" data-step="2" hidden>
+      <p class="step-label">2 of 15</p>
+      <h2 class="q-heading" tabindex="-1">What are you currently taking?</h2>
+      <p class="q-sub">Type a name and press Enter to add it. Stays private on this device.</p>
+      <div class="q-tag-wrap" id="tagWrap">
+        <input class="q-tag-input" id="tagField" type="text" placeholder="Type a name…" autocomplete="off" enterkeyhint="done" />
       </div>
-    </main>
+      <div class="q-nav">
+        <button class="q-back" type="button" aria-label="Go back">&larr;</button>
+        <button class="q-next" type="button">Next</button>
+      </div>
+    </section>
 
-    <footer class="footer">
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-      <a href="mailto:support.peptrack@gmail.com">Contact</a>
-    </footer>
+    <!-- ── S3: Tenure ── -->
+    <section class="step" data-step="3" hidden>
+      <p class="step-label">3 of 15</p>
+      <h2 class="q-heading" tabindex="-1">How long have you been on this routine?</h2>
+      <ul class="q-options" data-select="single" data-var="tenure">
+        <li><button class="q-opt" type="button" data-value="0-2w">Just starting (0–2 weeks)</button></li>
+        <li><button class="q-opt" type="button" data-value="1-3m">1–3 months</button></li>
+        <li><button class="q-opt" type="button" data-value="3-6m">3–6 months</button></li>
+        <li><button class="q-opt" type="button" data-value="6m+">6+ months</button></li>
+      </ul>
+    </section>
+
+    <!-- ── S4: Hardest part (segment-variant) ── -->
+    <section class="step" data-step="4" hidden>
+      <p class="step-label">4 of 15</p>
+      <h2 class="q-heading" tabindex="-1" id="s4Heading">What's the hardest part of managing your routine?</h2>
+
+      <ul class="q-options" data-select="single" data-var="hardestPart" id="s4Mainstream">
+        <li><button class="q-opt" type="button" data-value="timing">Remembering exactly when to dose</button></li>
+        <li><button class="q-opt" type="button" data-value="guidance">Not enough guidance on what to expect</button></li>
+        <li><button class="q-opt" type="button" data-value="sideEffects">Hard to tell if a side effect is typical or concerning</button></li>
+        <li><button class="q-opt" type="button" data-value="progress">Hard to tell if things are actually working</button></li>
+        <li><button class="q-opt" type="button" data-value="scattered">Juggling notes, reminders, and apps just to keep track</button></li>
+      </ul>
+
+      <ul class="q-options" data-select="single" data-var="hardestPart" id="s4Biohacker" hidden>
+        <li><button class="q-opt" type="button" data-value="doseMath">Reconstitution and dose math</button></li>
+        <li><button class="q-opt" type="button" data-value="logging">Knowing what's actually worth logging</button></li>
+        <li><button class="q-opt" type="button" data-value="consistency">Staying consistent across cycles</button></li>
+        <li><button class="q-opt" type="button" data-value="sourcing">Keeping track of sourcing and dosing details</button></li>
+        <li><button class="q-opt" type="button" data-value="scattered">No single place that tracks all of it</button></li>
+      </ul>
+
+      <div id="s4Reassurance"></div>
+    </section>
+
+    <!-- ── S5: Beyond the scale ── -->
+    <section class="step" data-step="5" hidden>
+      <p class="step-label">5 of 15</p>
+      <h2 class="q-heading" tabindex="-1">Outside of the number on the scale, what would actually feel like success?</h2>
+      <ul class="q-options" data-select="single" data-var="successMetric">
+        <li><button class="q-opt" type="button" data-value="energy">More energy, day to day</button></li>
+        <li><button class="q-opt" type="button" data-value="confidence">Feeling confident in my own skin again</button></li>
+        <li><button class="q-opt" type="button" data-value="understanding">Finally understanding what my body's doing</button></li>
+        <li><button class="q-opt" type="button" data-value="support">Not feeling like I'm figuring this out alone</button></li>
+        <li><button class="q-opt" type="button" data-value="consistency">Proving to myself I can stick with something</button></li>
+      </ul>
+    </section>
+
+    <!-- ── S6: Calculator qualifier ── -->
+    <section class="step" data-step="6" hidden>
+      <p class="step-label">6 of 15</p>
+      <h2 class="q-heading" tabindex="-1">Do you ever find yourself unsure exactly how many units to draw?</h2>
+      <ul class="q-options" data-select="single" data-var="needsCalculator">
+        <li><button class="q-opt" type="button" data-value="yes">Yes, pretty often</button></li>
+        <li><button class="q-opt" type="button" data-value="sometimes">Sometimes</button></li>
+        <li><button class="q-opt" type="button" data-value="no">No — I use a pre-filled pen</button></li>
+      </ul>
+    </section>
+
+    <!-- ── S7: Current tracking method ── -->
+    <section class="step" data-step="7" hidden>
+      <p class="step-label">7 of 15</p>
+      <h2 class="q-heading" tabindex="-1">How are you tracking your doses right now?</h2>
+      <p class="q-sub">Select all that apply.</p>
+      <ul class="q-options" data-select="multi" data-var="trackingMethod">
+        <li><button class="q-opt" type="button" data-value="notes"><span class="q-check"></span> Notes app</button></li>
+        <li><button class="q-opt" type="button" data-value="calendar"><span class="q-check"></span> Calendar reminders</button></li>
+        <li><button class="q-opt" type="button" data-value="pen-mark"><span class="q-check"></span> A mark on the pen</button></li>
+        <li><button class="q-opt" type="button" data-value="other-app"><span class="q-check"></span> Another tracking app</button></li>
+        <li><button class="q-opt" type="button" data-value="nothing"><span class="q-check"></span> Honestly, nothing — just trying to remember</button></li>
+      </ul>
+      <div class="q-nav">
+        <button class="q-back" type="button" aria-label="Go back">&larr;</button>
+        <button class="q-next" type="button">Next</button>
+      </div>
+    </section>
+
+    <!-- ── S8: Age band ── -->
+    <section class="step" data-step="8" hidden>
+      <p class="step-label">8 of 15</p>
+      <h2 class="q-heading" tabindex="-1">What's your age range?</h2>
+      <div class="q-bands" data-select="single" data-var="ageBand">
+        <button class="q-band" type="button" data-value="20s">20s</button>
+        <button class="q-band" type="button" data-value="30s">30s</button>
+        <button class="q-band" type="button" data-value="40s">40s</button>
+        <button class="q-band" type="button" data-value="50s">50s</button>
+        <button class="q-band" type="button" data-value="60+">60+</button>
+      </div>
+      <button class="q-skip next-button" type="button">Prefer not to say</button>
+    </section>
+
+    <!-- ── S9: Analyzing loader ── -->
+    <section class="step" data-step="9" hidden>
+      <div class="q-loader">
+        <div class="q-loader-ring"></div>
+        <p class="q-loader-text" id="loaderText">Reviewing your tracking setup…</p>
+      </div>
+    </section>
+
+    <!-- ── S10: Protocol Profile reveal ── -->
+    <section class="step" data-step="10" hidden>
+      <p class="step-label">10 of 15</p>
+      <span class="q-badge" id="profileBadge">Your Tracking Profile</span>
+      <h2 class="q-heading" tabindex="-1">Your Profile</h2>
+      <p class="q-profile-summary" id="profileSummary"></p>
+
+      <div class="q-chart">
+        <svg viewBox="0 0 400 160" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="gUp" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2563eb" stop-opacity=".2"/>
+              <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M0,140 C80,130 160,100 240,60 S360,20 400,10 L400,160 L0,160Z" fill="url(#gUp)" />
+          <path d="M0,140 C80,130 160,100 240,60 S360,20 400,10" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+          <path d="M0,100 C80,105 160,110 240,115 S360,125 400,130" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <text x="12" y="24" fill="#60a5fa" font-size="11" font-weight="700">With PepTrack</text>
+          <text x="12" y="148" fill="#777" font-size="10" id="chartLabel">Current method</text>
+        </svg>
+      </div>
+      <div class="q-chart-legend">
+        <span class="q-legend"><span class="q-dot" style="background:#2563eb"></span> With PepTrack</span>
+        <span class="q-legend"><span class="q-dot" style="background:#555"></span> <span id="legendLabel">Current method</span></span>
+      </div>
+
+      <p class="q-sub" style="text-align:center;margin-top:24px">Save your profile to email (coming soon)</p>
+      <div class="q-email-row">
+        <input class="q-email" type="email" placeholder="you@email.com" disabled aria-label="Email — coming soon" />
+        <button class="q-email-btn" type="button" disabled>Save</button>
+      </div>
+      <button class="q-skip next-button" type="button">Continue without saving</button>
+    </section>
+
+    <!-- ── S11: Why this happens (UMP) ── -->
+    <section class="step" data-step="11" hidden>
+      <p class="step-label">11 of 15</p>
+      <h2 class="q-ump-heading" tabindex="-1">It's not that you're forgetful.</h2>
+      <p class="q-body">Weekly routines create a tracking blind spot that daily reminder apps were never built for. Your brain locks onto things you do every 24 hours — a routine that lands on a different day each week never becomes automatic.</p>
+      <p class="q-body" id="umpCalcLine" hidden><strong>And if you're converting dosing units by hand,</strong> that's one more place for things to slip.</p>
+      <p class="q-body">That's not a you problem. <strong>That's a structural one.</strong></p>
+      <div class="q-nav">
+        <button class="q-back" type="button" aria-label="Go back">&larr;</button>
+        <button class="q-next" type="button">Next</button>
+      </div>
+    </section>
+
+    <!-- ── S12: What changes (product glimpse) ── -->
+    <section class="step" data-step="12" hidden>
+      <p class="step-label">12 of 15</p>
+      <h2 class="q-heading" tabindex="-1">Here's what changes.</h2>
+      <div class="q-features">
+        <div class="q-feature" id="calcFeature" hidden>
+          <p class="q-feature-name">Dose Calculator</p>
+          <p class="q-feature-desc">Enter your vial concentration and target dose — get your exact draw. No math, no guessing.</p>
+          <div class="q-feature-img">App screenshot placeholder</div>
+        </div>
+        <div class="q-feature">
+          <p class="q-feature-name">Hunger Cycle Heatmap</p>
+          <p class="q-feature-desc">See exactly when your routine peaks and fades, mapped to your log dates. No other tracker shows you this.</p>
+          <div class="q-feature-img">App screenshot placeholder</div>
+        </div>
+        <div class="q-feature">
+          <p class="q-feature-name">All-in-One Log</p>
+          <p class="q-feature-desc">Doses, timing, notes, and body signals — one private place instead of scattered apps and reminders.</p>
+          <div class="q-feature-img">App screenshot placeholder</div>
+        </div>
+      </div>
+      <div class="q-nav">
+        <button class="q-back" type="button" aria-label="Go back">&larr;</button>
+        <button class="q-next" type="button">Next</button>
+      </div>
+    </section>
+
+    <!-- ── S13: Social proof ── -->
+    <section class="step" data-step="13" hidden>
+      <p class="step-label">13 of 15</p>
+      <h2 class="q-heading" tabindex="-1">Built for people managing a real routine.</h2>
+      <p class="q-stars">★★★★★</p>
+      <p class="q-sub" id="socialSegment">Designed for people who track what they take — not a generic health app.</p>
+      <div class="q-quote">Real user reviews will appear here once available. No fabricated testimonials.</div>
+      <div class="q-nav">
+        <button class="q-back" type="button" aria-label="Go back">&larr;</button>
+        <button class="q-next" type="button">Next</button>
+      </div>
+    </section>
+
+    <!-- ── S14: Value framing ── -->
+    <section class="step" data-step="14" hidden>
+      <p class="step-label">14 of 15</p>
+      <h2 class="q-heading" tabindex="-1">Consistency is the part nobody tracks.</h2>
+      <p class="q-body">Missed doses, forgotten timing, scattered notes — the tracking gap costs more than people realize. Not in money. In momentum.</p>
+      <p class="q-body"><strong>PepTrack closes that gap</strong> so your effort actually compounds instead of resetting every week.</p>
+      <div class="q-nav">
+        <button class="q-back" type="button" aria-label="Go back">&larr;</button>
+        <button class="q-next" type="button">Next</button>
+      </div>
+    </section>
+
+    <!-- ── S15: Handoff ── -->
+    <section class="step" data-step="15" hidden>
+      <div class="q-ready">
+        <div class="q-ready-icon">✓</div>
+        <h2 class="q-heading" style="text-align:center" tabindex="-1">Your tracking profile is ready.</h2>
+        <p class="q-sub" style="text-align:center">Continue to set up PepTrack and unlock your full tracking experience.</p>
+        <a class="q-cta" id="checkoutLink" href="https://peptrack.superwall.app/web-onboarding">Continue to secure checkout</a>
+        <p class="q-disclaimer">PepTrack is a tracking tool, not medical advice, and is not affiliated with any drug or pharmaceutical manufacturer.</p>
+      </div>
+    </section>
+
   </div>
 
   <script>
     (function () {
-      /* ── State ── */
       var answers = {
-        segment: '',
-        meds: [],
-        tenure: '',
-        hardestPart: '',
-        hardestPartLabel: '',
-        successMetric: '',
-        needsCalculator: '',
-        trackingMethod: [],
-        ageBand: ''
+        segment: '', meds: [], tenure: '', hardestPart: '',
+        hardestPartLabel: '', successMetric: '', needsCalculator: '',
+        trackingMethod: [], ageBand: ''
       };
 
-      var TOTAL_STEPS = 15;
-      var currentStep = 0;
+      var TOTAL = 15;
+      var cur = 0;
       var steps = Array.prototype.slice.call(document.querySelectorAll('.step'));
-      var progressBar = document.getElementById('progressBar');
+      var bar = document.getElementById('progressBar');
 
-      /* ── Superwall checkout URL with parameter forwarding ── */
       var checkoutLink = document.getElementById('checkoutLink');
       var query = window.location.search;
       var checkoutUrl = new URL('https://peptrack.superwall.app/web-onboarding');
@@ -296,7 +274,6 @@
       if (!query) {
         try { query = sessionStorage.getItem('peptrackFunnelParameters') || ''; } catch (e) { query = ''; }
       }
-
       if (query) {
         var params = new URLSearchParams(query);
         var reserved = ['email', 'uid', 'user', 'app_user_id'];
@@ -304,148 +281,105 @@
           if (reserved.indexOf(k.toLowerCase()) === -1) checkoutUrl.searchParams.append(k, v);
         });
       }
-
       checkoutUrl.searchParams.set('funnel', 'web2app-quiz-v1');
       checkoutLink.href = checkoutUrl.toString();
 
-      /* ── Navigation ── */
-
-      function showStep(index) {
-        steps.forEach(function (s, i) { s.hidden = i !== index; });
-        currentStep = index;
-        progressBar.style.width = ((index + 1) / TOTAL_STEPS * 100) + '%';
-        var heading = steps[index].querySelector('h1, h2');
-        if (heading) heading.focus();
+      function show(i) {
+        steps.forEach(function (s, idx) { s.hidden = idx !== i; });
+        cur = i;
+        bar.style.width = ((i + 1) / TOTAL * 100) + '%';
+        var h = steps[i].querySelector('h1, h2');
+        if (h) h.focus();
         window.scrollTo(0, 0);
-
-        if (index === 3) setupS4();
-        if (index === 8) runLoader();
-        if (index === 9) buildProfile();
-        if (index === 10) setupS11();
-        if (index === 11) setupS12();
-        if (index === 12) setupS13();
+        if (i === 3) setupS4();
+        if (i === 8) runLoader();
+        if (i === 9) buildProfile();
+        if (i === 10) setupS11();
+        if (i === 11) setupS12();
+        if (i === 12) setupS13();
       }
 
-      function advance() {
-        if (currentStep < TOTAL_STEPS - 1) showStep(currentStep + 1);
-      }
-
-      function goBack() {
-        if (currentStep > 0) {
-          var target = currentStep - 1;
-          if (target === 8) target = 7;
-          showStep(target);
-        }
-      }
-
-      /* ── Single-select auto-advance ── */
+      function advance() { if (cur < TOTAL - 1) show(cur + 1); }
+      function goBack() { if (cur > 0) show(cur === 9 ? 7 : cur - 1); }
 
       document.querySelectorAll('[data-select="single"]').forEach(function (list) {
-        var buttons = list.querySelectorAll('.option-btn, .band-btn');
-        buttons.forEach(function (btn) {
+        var btns = list.querySelectorAll('.q-opt, .q-band');
+        btns.forEach(function (btn) {
           btn.addEventListener('click', function () {
-            buttons.forEach(function (b) { b.classList.remove('selected'); });
+            btns.forEach(function (b) { b.classList.remove('selected'); });
             btn.classList.add('selected');
-            var varName = list.dataset.var;
-            var val = btn.dataset.value;
-            answers[varName] = val;
-
-            if (varName === 'hardestPart') {
+            var v = list.dataset.var;
+            answers[v] = btn.dataset.value;
+            if (v === 'hardestPart') {
               answers.hardestPartLabel = btn.textContent.trim();
-              showReassurance(val);
+              showReassurance(btn.dataset.value);
               return;
             }
-
-            setTimeout(advance, 250);
+            setTimeout(advance, 200);
           });
         });
       });
-
-      /* ── Multi-select (S7) ── */
 
       document.querySelectorAll('[data-select="multi"]').forEach(function (list) {
-        list.querySelectorAll('.option-btn').forEach(function (btn) {
+        list.querySelectorAll('.q-opt').forEach(function (btn) {
           btn.addEventListener('click', function () {
             btn.classList.toggle('selected');
-            var varName = list.dataset.var;
-            answers[varName] = Array.prototype.slice.call(list.querySelectorAll('.option-btn.selected')).map(function (b) { return b.dataset.value; });
+            answers[list.dataset.var] = Array.prototype.slice.call(
+              list.querySelectorAll('.q-opt.selected')
+            ).map(function (b) { return b.dataset.value; });
           });
         });
       });
 
-      /* ── Next / back buttons ── */
-
-      document.querySelectorAll('.next-button').forEach(function (btn) {
-        btn.addEventListener('click', advance);
-      });
-
-      document.querySelectorAll('.back-btn').forEach(function (btn) {
-        btn.addEventListener('click', goBack);
-      });
-
-      /* ── S2: Tag input ── */
+      document.querySelectorAll('.q-next, .next-button').forEach(function (b) { b.addEventListener('click', advance); });
+      document.querySelectorAll('.q-back').forEach(function (b) { b.addEventListener('click', goBack); });
 
       var tagField = document.getElementById('tagField');
       var tagWrap = document.getElementById('tagWrap');
-
       tagWrap.addEventListener('click', function () { tagField.focus(); });
-
       tagField.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ',') {
-          e.preventDefault();
-          addTag(tagField.value.trim());
-        }
+        if (e.key === 'Enter' || e.key === ',') { e.preventDefault(); addTag(tagField.value.trim()); }
         if (e.key === 'Backspace' && tagField.value === '') {
-          var tags = tagWrap.querySelectorAll('.tag');
+          var tags = tagWrap.querySelectorAll('.q-tag');
           if (tags.length) removeTag(tags[tags.length - 1]);
         }
       });
 
-      function addTag(text) {
-        if (!text) return;
-        if (answers.meds.indexOf(text) !== -1) { tagField.value = ''; return; }
-        answers.meds.push(text);
-        var tag = document.createElement('span');
-        tag.className = 'tag';
-        tag.textContent = text;
-        var rm = document.createElement('button');
-        rm.className = 'tag-remove';
-        rm.type = 'button';
-        rm.textContent = '×';
-        rm.setAttribute('aria-label', 'Remove ' + text);
-        rm.addEventListener('click', function () { removeTag(tag); });
-        tag.appendChild(rm);
-        tagWrap.insertBefore(tag, tagField);
+      function addTag(t) {
+        if (!t || answers.meds.indexOf(t) !== -1) { tagField.value = ''; return; }
+        answers.meds.push(t);
+        var s = document.createElement('span'); s.className = 'q-tag'; s.textContent = t;
+        var r = document.createElement('button'); r.className = 'q-tag-x'; r.type = 'button';
+        r.textContent = '×'; r.setAttribute('aria-label', 'Remove ' + t);
+        r.addEventListener('click', function () { removeTag(s); });
+        s.appendChild(r);
+        tagWrap.insertBefore(s, tagField);
         tagField.value = '';
       }
 
-      function removeTag(tagEl) {
-        var name = tagEl.textContent.replace('×', '').trim();
-        answers.meds = answers.meds.filter(function (m) { return m !== name; });
-        tagEl.remove();
+      function removeTag(el) {
+        var n = el.textContent.replace('×', '').trim();
+        answers.meds = answers.meds.filter(function (m) { return m !== n; });
+        el.remove();
       }
 
-      /* ── S4: Segment-variant setup ── */
-
       function setupS4() {
-        var isBio = answers.segment === 'biohacker';
-        document.getElementById('s4Mainstream').hidden = isBio;
-        document.getElementById('s4Biohacker').hidden = !isBio;
-        document.getElementById('s4Heading').textContent = isBio
+        var bio = answers.segment === 'biohacker';
+        document.getElementById('s4Mainstream').hidden = bio;
+        document.getElementById('s4Biohacker').hidden = !bio;
+        document.getElementById('s4Heading').textContent = bio
           ? "What's the hardest part of running your routine?"
           : "What's the hardest part of managing your routine?";
         document.getElementById('s4Reassurance').innerHTML = '';
       }
 
-      /* ── S4: Reassurance ── */
-
       var reassuranceMap = {
         timing: "You're far from the only one. Timing is the single most common thing people struggle with.",
         guidance: "That's incredibly common. Most people are navigating this without enough context.",
         sideEffects: "Totally fair. Knowing what's normal vs. what's not shouldn't require guesswork.",
-        progress: "You deserve to see whether your effort is actually paying off — not just hope it is.",
+        progress: "You deserve to see whether your effort is actually paying off.",
         scattered: "Yep. When your tracking is split across five apps, nothing sticks.",
-        doseMath: "Fair — most people running their own routines are doing that math by hand. That changes today.",
+        doseMath: "Fair — most people running their own routines are doing that math by hand.",
         logging: "Good instinct. Knowing what to track is half the battle.",
         consistency: "Staying on track across cycles is the part nobody talks about.",
         sourcing: "Makes sense. When details are scattered, confidence drops."
@@ -454,101 +388,48 @@
       function showReassurance(key) {
         var el = document.getElementById('s4Reassurance');
         var msg = reassuranceMap[key] || '';
-        if (msg) {
-          el.innerHTML = '<div class="reassurance">' + msg + '</div>';
-        }
+        if (msg) el.innerHTML = '<div class="q-reassurance">' + msg + '</div>';
         setTimeout(advance, 1800);
       }
 
-      /* ── S9: Loader ── */
-
       function runLoader() {
-        var texts = [
-          'Reviewing your tracking setup…',
-          'Cross-referencing your routine…',
-          'Building your profile…'
-        ];
-        var loaderText = document.getElementById('loaderText');
-        var i = 0;
-        loaderText.textContent = texts[0];
-        var interval = setInterval(function () {
+        var texts = ['Reviewing your tracking setup…', 'Cross-referencing your routine…', 'Building your profile…'];
+        var lt = document.getElementById('loaderText');
+        var i = 0; lt.textContent = texts[0];
+        var iv = setInterval(function () {
           i++;
           if (i < texts.length) {
-            loaderText.style.opacity = '0';
-            setTimeout(function () {
-              loaderText.textContent = texts[i];
-              loaderText.style.opacity = '1';
-            }, 200);
+            lt.style.opacity = '0';
+            setTimeout(function () { lt.textContent = texts[i]; lt.style.opacity = '1'; }, 200);
           }
         }, 1200);
-
-        setTimeout(function () {
-          clearInterval(interval);
-          advance();
-        }, 3800);
+        setTimeout(function () { clearInterval(iv); advance(); }, 3800);
       }
 
-      /* ── S10: Build profile ── */
-
       var tenureLabels = { '0-2w': 'just starting', '1-3m': '1–3 months in', '3-6m': '3–6 months in', '6m+': '6+ months in' };
-      var trackingLabels = {
-        notes: 'a notes app', calendar: 'calendar reminders', 'pen-mark': 'marks on the pen',
-        'other-app': 'another app', nothing: 'memory alone'
-      };
+      var trackLabels = { notes: 'a notes app', calendar: 'calendar reminders', 'pen-mark': 'marks on the pen', 'other-app': 'another app', nothing: 'memory alone' };
 
       function buildProfile() {
-        var badge = document.getElementById('profileBadge');
-        badge.textContent = (answers.segment === 'biohacker') ? 'Precision Tracker' : 'Your Tracking Profile';
-
+        document.getElementById('profileBadge').textContent = answers.segment === 'biohacker' ? 'Precision Tracker' : 'Your Tracking Profile';
         var meds = answers.meds.length ? answers.meds.join(', ') : 'your routine';
-        var tenureStr = tenureLabels[answers.tenure] || '';
+        var t = tenureLabels[answers.tenure] || '';
         var pain = answers.hardestPartLabel || 'staying consistent';
-
-        var summary = "You're <strong>" + tenureStr + "</strong> tracking <strong>" + escapeHtml(meds) + "</strong>";
-        if (pain) summary += ", and <strong>" + escapeHtml(pain.toLowerCase()) + "</strong> is what's tripping you up most.";
-        document.getElementById('profileSummary').innerHTML = summary;
-
-        var method = answers.trackingMethod.length
-          ? trackingLabels[answers.trackingMethod[0]] || answers.trackingMethod[0]
-          : 'current method';
+        document.getElementById('profileSummary').innerHTML =
+          "You're <strong>" + t + "</strong> tracking <strong>" + esc(meds) + "</strong>, and <strong>" + esc(pain.toLowerCase()) + "</strong> is what's tripping you up most.";
+        var method = answers.trackingMethod.length ? (trackLabels[answers.trackingMethod[0]] || answers.trackingMethod[0]) : 'current method';
         document.getElementById('chartLabel').textContent = method;
         document.getElementById('legendLabel').textContent = method;
       }
 
-      /* ── S11: UMP calc line ── */
-
-      function setupS11() {
-        var show = answers.needsCalculator === 'yes' || answers.needsCalculator === 'sometimes';
-        document.getElementById('umpCalcLine').hidden = !show;
-      }
-
-      /* ── S12: Feature cards ── */
-
-      function setupS12() {
-        var show = answers.needsCalculator === 'yes' || answers.needsCalculator === 'sometimes';
-        document.getElementById('calcFeature').hidden = !show;
-      }
-
-      /* ── S13: Social proof copy variant ── */
-
+      function setupS11() { document.getElementById('umpCalcLine').hidden = !(answers.needsCalculator === 'yes' || answers.needsCalculator === 'sometimes'); }
+      function setupS12() { document.getElementById('calcFeature').hidden = !(answers.needsCalculator === 'yes' || answers.needsCalculator === 'sometimes'); }
       function setupS13() {
-        var el = document.getElementById('socialSegment');
-        if (answers.segment === 'biohacker') {
-          el.textContent = 'Built for people running their own protocols — not a generic fitness app.';
-        }
+        if (answers.segment === 'biohacker') document.getElementById('socialSegment').textContent = 'Built for people running their own protocols — not a generic fitness app.';
       }
 
-      /* ── Utility ── */
+      function esc(s) { var d = document.createElement('div'); d.appendChild(document.createTextNode(s)); return d.innerHTML; }
 
-      function escapeHtml(s) {
-        var d = document.createElement('div');
-        d.appendChild(document.createTextNode(s));
-        return d.innerHTML;
-      }
-
-      /* ── Init ── */
-
-      showStep(0);
+      show(0);
     }());
   </script>
 </body>
