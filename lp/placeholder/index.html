@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Get Started with PepTrack</title>
-  <meta name="description" content="A short introduction to PepTrack, a private routine tracking app for iPhone." />
+  <title>PepTrack — Your Routine, Organized</title>
+  <meta name="description" content="Track your peptide routine with precise dose logging, smart scheduling, and estimated blood level curves. Set up in 5 minutes." />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="/funnel/styles.css" />
   <!-- Meta Pixel Code -->
@@ -22,6 +22,503 @@
     fbq('track', 'PageView');
   </script>
   <!-- End Meta Pixel Code -->
+  <style>
+    /* ═══════════════════════════════════════════
+       Landing page — full-width override
+       ═══════════════════════════════════════════ */
+    .lp-page {
+      width: 100%;
+      max-width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Nav ── */
+    .lp-nav {
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .lp-nav .brand {
+      font-size: 20px;
+    }
+    .lp-nav-cta {
+      padding: 10px 22px;
+      border: 0;
+      border-radius: 10px;
+      background: #fff;
+      color: #000;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* ── Section containers ── */
+    .lp-section {
+      padding: 64px 24px;
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .lp-section-wide {
+      padding: 64px 24px;
+      width: 100%;
+    }
+
+    /* ── Hero ── */
+    .lp-hero {
+      padding: 48px 24px 32px;
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+    }
+    .lp-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.6);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .lp-hero h1 {
+      font-size: clamp(36px, 10vw, 64px);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+      margin: 0 0 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .lp-hero-sub {
+      font-size: 18px;
+      line-height: 1.5;
+      color: rgba(255,255,255,.55);
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+    .lp-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 36px;
+      border: 0;
+      border-radius: 14px;
+      background: #fff;
+      color: #000;
+      font: inherit;
+      font-size: 17px;
+      font-weight: 750;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .lp-hero-cta:hover {
+      background: rgba(255,255,255,.9);
+      transform: scale(1.02);
+    }
+    .lp-hero-cta svg {
+      flex-shrink: 0;
+    }
+
+    /* ── Hero image ── */
+    .lp-hero-img {
+      margin: 48px auto 0;
+      max-width: 640px;
+      width: 100%;
+    }
+    .lp-hero-img img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+    }
+
+    /* ── Social proof bar ── */
+    .lp-proof-bar {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .lp-stars {
+      display: inline-flex;
+      gap: 2px;
+      margin-bottom: 8px;
+    }
+    .lp-star {
+      color: #f59e0b;
+      font-size: 18px;
+    }
+    .lp-proof-text {
+      font-size: 14px;
+      color: rgba(255,255,255,.45);
+    }
+
+    /* ── Without section ── */
+    .lp-without {
+      text-align: center;
+    }
+    .lp-without h2 {
+      font-size: clamp(28px, 7vw, 44px);
+      letter-spacing: -.03em;
+      margin: 0 0 32px;
+    }
+    .lp-without-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto 40px;
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .lp-without-list li {
+      padding: 18px 24px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      color: rgba(255,255,255,.7);
+      font-size: 17px;
+      line-height: 1.4;
+      text-align: left;
+    }
+    .lp-without-list strong {
+      color: #fff;
+    }
+
+    /* ── Features grid ── */
+    .lp-features h2 {
+      font-size: clamp(28px, 7vw, 44px);
+      letter-spacing: -.03em;
+      margin: 0 0 12px;
+      text-align: center;
+    }
+    .lp-features-sub {
+      text-align: center;
+      color: rgba(255,255,255,.5);
+      font-size: 17px;
+      margin: 0 0 48px;
+    }
+    .lp-features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .lp-feature-card {
+      padding: 28px 24px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .lp-feature-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+    .lp-feature-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 8px;
+      letter-spacing: -.02em;
+    }
+    .lp-feature-card p {
+      font-size: 15px;
+      color: rgba(255,255,255,.5);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ── How it works ── */
+    .lp-how h2 {
+      font-size: clamp(28px, 7vw, 44px);
+      letter-spacing: -.03em;
+      margin: 0 0 48px;
+      text-align: center;
+    }
+    .lp-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .lp-step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .lp-step-num {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .lp-step h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 4px;
+    }
+    .lp-step p {
+      font-size: 15px;
+      color: rgba(255,255,255,.5);
+      margin: 0;
+    }
+
+    /* ── App screenshot section ── */
+    .lp-app-img {
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+    }
+    .lp-app-img img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+    }
+
+    /* ── Reviews ── */
+    .lp-reviews h2 {
+      font-size: clamp(28px, 7vw, 44px);
+      letter-spacing: -.03em;
+      margin: 0 0 12px;
+      text-align: center;
+    }
+    .lp-reviews-sub {
+      text-align: center;
+      color: rgba(255,255,255,.5);
+      font-size: 17px;
+      margin: 0 0 40px;
+    }
+    .lp-reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .lp-review-card {
+      padding: 24px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .lp-review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+    .lp-review-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .lp-review-meta {
+      font-size: 13px;
+      color: rgba(255,255,255,.35);
+      text-align: right;
+    }
+    .lp-review-stars {
+      display: flex;
+      gap: 1px;
+      margin-bottom: 12px;
+    }
+    .lp-review-stars span {
+      color: #f59e0b;
+      font-size: 14px;
+    }
+    .lp-review-body {
+      font-size: 15px;
+      color: rgba(255,255,255,.6);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── Comparison ── */
+    .lp-compare h2 {
+      font-size: clamp(28px, 7vw, 44px);
+      letter-spacing: -.03em;
+      margin: 0 0 40px;
+      text-align: center;
+    }
+    .lp-compare-table {
+      max-width: 600px;
+      margin: 0 auto;
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .lp-compare-table th,
+    .lp-compare-table td {
+      padding: 14px 16px;
+      text-align: left;
+      font-size: 15px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .lp-compare-table th {
+      color: rgba(255,255,255,.4);
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .lp-compare-table td:first-child {
+      color: rgba(255,255,255,.6);
+    }
+    .lp-compare-check {
+      color: #22c55e;
+    }
+    .lp-compare-x {
+      color: rgba(255,255,255,.2);
+    }
+
+    /* ── FAQ ── */
+    .lp-faq h2 {
+      font-size: clamp(28px, 7vw, 44px);
+      letter-spacing: -.03em;
+      margin: 0 0 40px;
+      text-align: center;
+    }
+    .lp-faq-list {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .lp-faq-item {
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .lp-faq-q {
+      width: 100%;
+      padding: 20px 0;
+      background: none;
+      border: 0;
+      color: #fff;
+      font: inherit;
+      font-size: 17px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .lp-faq-q::after {
+      content: '+';
+      font-size: 22px;
+      font-weight: 400;
+      color: rgba(255,255,255,.3);
+      flex-shrink: 0;
+      transition: transform .2s ease;
+    }
+    .lp-faq-item.open .lp-faq-q::after {
+      transform: rotate(45deg);
+    }
+    .lp-faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+    }
+    .lp-faq-item.open .lp-faq-a {
+      max-height: 300px;
+    }
+    .lp-faq-a p {
+      padding: 0 0 20px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(255,255,255,.5);
+    }
+
+    /* ── Final CTA ── */
+    .lp-final-cta {
+      text-align: center;
+      padding: 80px 24px;
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .lp-final-cta h2 {
+      font-size: clamp(30px, 8vw, 48px);
+      letter-spacing: -.03em;
+      margin: 0 0 16px;
+    }
+    .lp-final-cta p {
+      font-size: 17px;
+      color: rgba(255,255,255,.5);
+      margin: 0 0 32px;
+    }
+
+    /* ── Footer ── */
+    .lp-footer {
+      padding: 32px 24px;
+      border-top: 1px solid rgba(255,255,255,.06);
+      text-align: center;
+    }
+    .lp-footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px 24px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .lp-footer-links a {
+      color: rgba(255,255,255,.4);
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .lp-footer-links a:hover {
+      color: #fff;
+    }
+    .lp-disclaimer {
+      font-size: 12px;
+      line-height: 1.6;
+      color: rgba(255,255,255,.25);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .lp-compare-table th,
+      .lp-compare-table td {
+        padding: 12px 8px;
+        font-size: 13px;
+      }
+      .lp-compare-table th {
+        font-size: 11px;
+      }
+    }
+    @media (min-width: 600px) {
+      .lp-features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .lp-reviews-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <noscript>
@@ -33,43 +530,269 @@
       alt=""
     />
   </noscript>
-  <div class="page">
-    <div class="brand" aria-label="PepTrack">
-      <img src="/peptrack-icon.png" alt="" />
-      <span>PepTrack</span>
+
+  <div class="lp-page">
+
+    <!-- ── Nav ── -->
+    <nav class="lp-nav">
+      <div class="brand" aria-label="PepTrack">
+        <img src="/peptrack-icon.png" alt="" width="38" height="38" />
+        <span>PepTrack</span>
+      </div>
+      <a class="lp-nav-cta" href="/onboarding/" id="navCta">Get Started</a>
+    </nav>
+
+    <!-- ── Hero ── -->
+    <section class="lp-hero">
+      <div class="lp-badge">Available on iPhone</div>
+      <h1>Your routine, organized in&nbsp;5&nbsp;minutes.</h1>
+      <p class="lp-hero-sub">Without scattered notes. Without guessing if you already dosed this week. Without another app that doesn't fit how your routine actually works.</p>
+      <a class="lp-hero-cta" href="/onboarding/" id="heroCta">
+        Get Started
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="lp-hero-img">
+        <img src="hero-phones.png" alt="PepTrack app showing the reconstitution calculator and home screen with dose tracking and estimated blood level curve" />
+      </div>
+    </section>
+
+    <!-- ── Social proof bar ── -->
+    <div class="lp-proof-bar">
+      <div class="lp-stars">
+        <span class="lp-star">&#9733;</span>
+        <span class="lp-star">&#9733;</span>
+        <span class="lp-star">&#9733;</span>
+        <span class="lp-star">&#9733;</span>
+        <span class="lp-star">&#9733;</span>
+      </div>
+      <p class="lp-proof-text">5-star rated on the App Store</p>
     </div>
 
-    <main class="content">
-      <section class="panel">
-        <p class="eyebrow">Quick introduction</p>
-        <h1>Keep your routine organized.</h1>
-        <p>Take a short three-step introduction to see how PepTrack helps keep user-defined routines, reminders, and personal logs together.</p>
-        <a class="button" id="startButton" href="/onboarding/">Get Started</a>
-        <p class="disclaimer">PepTrack is a tracking tool, not medical advice, and is not affiliated with any drug or pharmaceutical manufacturer.</p>
-      </section>
-    </main>
+    <!-- ── Without section ── -->
+    <section class="lp-section lp-without">
+      <h2>Sound familiar?</h2>
+      <ul class="lp-without-list">
+        <li><strong>Scattered notes</strong> across your phone, a spreadsheet, and a calendar that only tells you <em>when</em>, not <em>what</em>.</li>
+        <li><strong>Second-guessing</strong> whether you already took your dose this week — or if you mixed up the amount.</li>
+        <li><strong>Generic health apps</strong> built for daily pills that don't understand weekly or biweekly routines.</li>
+        <li><strong>Mental math</strong> every time you reconstitute — vial size, water volume, syringe units.</li>
+      </ul>
+      <p style="color:rgba(255,255,255,.45); font-size:17px;">PepTrack replaces the patchwork so your routine runs itself.</p>
+    </section>
 
-    <footer class="footer">
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-      <a href="mailto:support.peptrack@gmail.com">Contact</a>
+    <!-- ── Features ── -->
+    <section class="lp-section lp-features">
+      <h2>What changes from day one.</h2>
+      <p class="lp-features-sub">Every feature exists to remove a step from your routine.</p>
+      <div class="lp-features-grid">
+        <div class="lp-feature-card">
+          <div class="lp-feature-icon">&#128203;</div>
+          <h3>Your exact draw, every time</h3>
+          <p>Enter your vial, water, and dose. PepTrack calculates the syringe units — no math, no guessing.</p>
+        </div>
+        <div class="lp-feature-card">
+          <div class="lp-feature-icon">&#128200;</div>
+          <h3>See what's happening between doses</h3>
+          <p>Estimated blood level curves show you where things stand — not just when you last logged.</p>
+        </div>
+        <div class="lp-feature-card">
+          <div class="lp-feature-icon">&#128197;</div>
+          <h3>Schedules that actually repeat right</h3>
+          <p>Weekly, biweekly, custom — set it once. PepTrack handles the cadence so you don't have to think about it.</p>
+        </div>
+        <div class="lp-feature-card">
+          <div class="lp-feature-icon">&#128274;</div>
+          <h3>Everything stays on your device</h3>
+          <p>No account required. No cloud uploads. Your routine data never leaves your phone.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── App screenshot ── -->
+    <section class="lp-section lp-app-img">
+      <img src="app-trio.png" alt="PepTrack app showing schedule setup, home dashboard, and calendar view" />
+    </section>
+
+    <!-- ── How it works ── -->
+    <section class="lp-section lp-how">
+      <h2>Set up in three steps.</h2>
+      <div class="lp-steps">
+        <div class="lp-step">
+          <div class="lp-step-num">1</div>
+          <div>
+            <h3>Add what you're tracking</h3>
+            <p>Enter the name and your dose details. Takes about a minute.</p>
+          </div>
+        </div>
+        <div class="lp-step">
+          <div class="lp-step-num">2</div>
+          <div>
+            <h3>Set your schedule</h3>
+            <p>Pick the frequency, time of day, and start date. PepTrack builds the calendar for you.</p>
+          </div>
+        </div>
+        <div class="lp-step">
+          <div class="lp-step-num">3</div>
+          <div>
+            <h3>Log and track</h3>
+            <p>One tap to log a dose. See your history, estimated levels, and what's coming up next.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Reviews ── -->
+    <section class="lp-section lp-reviews">
+      <h2>What people are saying.</h2>
+      <p class="lp-reviews-sub">Real reviews from the App Store.</p>
+      <div class="lp-reviews-grid">
+        <div class="lp-review-card">
+          <div class="lp-review-header">
+            <span class="lp-review-title">PepTrack</span>
+            <span class="lp-review-meta">Thetimcook</span>
+          </div>
+          <div class="lp-review-stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <p class="lp-review-body">I've used a few peptide calculators and apps before that were mostly clunky and confusing but after using peptrack it made thing more easy and simple would recommend &#128077;</p>
+        </div>
+        <div class="lp-review-card">
+          <div class="lp-review-header">
+            <span class="lp-review-title">User Friendly</span>
+            <span class="lp-review-meta">Waitingforanswers</span>
+          </div>
+          <div class="lp-review-stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <p class="lp-review-body">Nice simple UI, I'm testing this for tracking my own schedules, so far it's been easy to add new items and schedules, seems to do exactly whats it's suppose to do.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Comparison ── -->
+    <section class="lp-section lp-compare">
+      <h2>PepTrack vs. the alternatives.</h2>
+      <div style="overflow-x:auto;">
+        <table class="lp-compare-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>PepTrack</th>
+              <th>Spreadsheets</th>
+              <th>Generic apps</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Reconstitution calculator</td>
+              <td class="lp-compare-check">&#10003;</td>
+              <td class="lp-compare-x">&#10005;</td>
+              <td class="lp-compare-x">&#10005;</td>
+            </tr>
+            <tr>
+              <td>Estimated blood level curves</td>
+              <td class="lp-compare-check">&#10003;</td>
+              <td class="lp-compare-x">&#10005;</td>
+              <td class="lp-compare-x">&#10005;</td>
+            </tr>
+            <tr>
+              <td>Weekly / biweekly schedules</td>
+              <td class="lp-compare-check">&#10003;</td>
+              <td class="lp-compare-check">&#10003;</td>
+              <td class="lp-compare-x">&#10005;</td>
+            </tr>
+            <tr>
+              <td>One-tap dose logging</td>
+              <td class="lp-compare-check">&#10003;</td>
+              <td class="lp-compare-x">&#10005;</td>
+              <td class="lp-compare-check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Data stays on device</td>
+              <td class="lp-compare-check">&#10003;</td>
+              <td class="lp-compare-x">&#10005;</td>
+              <td class="lp-compare-x">&#10005;</td>
+            </tr>
+            <tr>
+              <td>Built for non-daily routines</td>
+              <td class="lp-compare-check">&#10003;</td>
+              <td class="lp-compare-check">&#10003;</td>
+              <td class="lp-compare-x">&#10005;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="lp-section lp-faq">
+      <h2>Questions.</h2>
+      <div class="lp-faq-list">
+        <div class="lp-faq-item">
+          <button class="lp-faq-q" type="button">What does PepTrack actually do?</button>
+          <div class="lp-faq-a"><p>PepTrack is a routine tracking app for iPhone. It handles dose logging, schedule management, reconstitution math, and estimated blood level curves — everything you need to keep a recurring routine organized in one place.</p></div>
+        </div>
+        <div class="lp-faq-item">
+          <button class="lp-faq-q" type="button">Is my data private?</button>
+          <div class="lp-faq-a"><p>Yes. PepTrack stores everything locally on your device. No account required, no cloud sync, no data shared with anyone. Your routine stays between you and your phone.</p></div>
+        </div>
+        <div class="lp-faq-item">
+          <button class="lp-faq-q" type="button">Does it work for weekly or biweekly routines?</button>
+          <div class="lp-faq-a"><p>That's exactly what it's built for. Unlike daily pill reminder apps, PepTrack supports weekly, biweekly, and custom repeat intervals out of the box.</p></div>
+        </div>
+        <div class="lp-faq-item">
+          <button class="lp-faq-q" type="button">Is PepTrack a medical app?</button>
+          <div class="lp-faq-a"><p>No. PepTrack is a personal tracking tool. It doesn't provide medical advice, dosing recommendations, or treatment guidance. Always work with your healthcare provider for medical decisions.</p></div>
+        </div>
+        <div class="lp-faq-item">
+          <button class="lp-faq-q" type="button">Is there a free trial?</button>
+          <div class="lp-faq-a"><p>PepTrack offers a free trial so you can explore the full app before subscribing. You'll see the details during setup.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Final CTA ── -->
+    <section class="lp-final-cta">
+      <h2>Get your routine organized.</h2>
+      <p>Set up takes about 5 minutes. No account required.</p>
+      <a class="lp-hero-cta" href="/onboarding/" id="finalCta">
+        Get Started
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </section>
+
+    <!-- ── Footer ── -->
+    <footer class="lp-footer">
+      <div class="lp-footer-links">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="mailto:support.peptrack@gmail.com">Contact</a>
+      </div>
+      <p class="lp-disclaimer">PepTrack is a tracking tool, not medical advice, and is not affiliated with any drug or pharmaceutical manufacturer.</p>
     </footer>
+
   </div>
 
   <script>
     (function () {
       var query = window.location.search;
-      var startButton = document.getElementById('startButton');
-      if (query) {
-        startButton.href = '/onboarding/' + query;
-      }
+      var ctas = ['navCta', 'heroCta', 'finalCta'];
+      ctas.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el && query) el.href = '/onboarding/' + query;
+      });
 
       try {
         sessionStorage.setItem('peptrackFunnelParameters', query);
         sessionStorage.setItem('peptrackLandingPath', window.location.pathname);
-      } catch (error) {
-        // The flow still works when browser storage is unavailable.
-      }
+      } catch (e) {}
+
+      // FAQ accordion
+      document.querySelectorAll('.lp-faq-q').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          this.parentElement.classList.toggle('open');
+        });
+      });
     }());
   </script>
 </body>
