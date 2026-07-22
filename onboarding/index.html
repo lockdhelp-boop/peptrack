@@ -90,6 +90,145 @@
       color: rgba(255,255,255,.4);
     }
 
+    /* ── Building your plan (loader) ── */
+    .q-build {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .q-build-ring {
+      position: relative;
+      width: 116px;
+      height: 116px;
+      margin-bottom: 24px;
+    }
+    .q-build-ring svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+    .q-build-track {
+      fill: none;
+      stroke: rgba(255,255,255,.08);
+      stroke-width: 6;
+    }
+    .q-build-fill {
+      fill: none;
+      stroke: #fff;
+      stroke-width: 6;
+      stroke-linecap: round;
+    }
+    .q-build-pct {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      font-weight: 750;
+      letter-spacing: -.02em;
+    }
+    .q-build-title {
+      margin: 0 0 22px;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+    }
+    .q-build-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .q-build-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 15px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.02);
+      border: 1px solid rgba(255,255,255,.05);
+      font-size: 15px;
+      color: rgba(255,255,255,.3);
+      transition: color .35s ease, background .35s ease, border-color .35s ease;
+    }
+    .q-build-item.active,
+    .q-build-item.done {
+      color: rgba(255,255,255,.85);
+      background: rgba(255,255,255,.05);
+      border-color: rgba(255,255,255,.1);
+    }
+    .q-build-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.15);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .35s ease, background .35s ease;
+    }
+    .q-build-item.active .q-build-check {
+      border-color: rgba(255,255,255,.25);
+      border-top-color: #fff;
+      animation: qSpin .7s linear infinite;
+    }
+    .q-build-item.done .q-build-check {
+      background: var(--green);
+      border-color: var(--green);
+      animation: none;
+    }
+    .q-build-item.done .q-build-check::after {
+      content: '';
+      width: 5px;
+      height: 9px;
+      border: solid #080a0f;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg) translate(-1px, -1px);
+    }
+
+    /* ── Ready screen recap ── */
+    .q-ready-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 24px;
+      text-align: left;
+    }
+    .q-ready-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 15px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      font-size: 15px;
+      color: rgba(255,255,255,.75);
+    }
+    .q-ready-tick {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--green-dim);
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .q-cta-hint {
+      margin-top: 12px;
+      font-size: 13px;
+      color: rgba(255,255,255,.3);
+      text-align: center;
+    }
+
     /* ── Week strip (how it works) ── */
     .q-week {
       display: flex;
@@ -190,11 +329,23 @@
       </ul>
     </section>
 
-    <!-- ── S5: Analyzing loader ── -->
+    <!-- ── S5: Building your plan ── -->
     <section class="step" data-step="5" hidden>
-      <div class="q-loader">
-        <div class="q-loader-ring"></div>
-        <p class="q-loader-text" id="loaderText">Analyzing your routine…</p>
+      <div class="q-build">
+        <div class="q-build-ring">
+          <svg viewBox="0 0 116 116" aria-hidden="true">
+            <circle class="q-build-track" cx="58" cy="58" r="52" />
+            <circle class="q-build-fill" id="buildFill" cx="58" cy="58" r="52" />
+          </svg>
+          <div class="q-build-pct" id="buildPct">0%</div>
+        </div>
+        <h2 class="q-build-title" tabindex="-1">Building your routine plan</h2>
+        <div class="q-build-list">
+          <div class="q-build-item"><span class="q-build-check"></span> Reviewing your answers</div>
+          <div class="q-build-item"><span class="q-build-check"></span> Mapping your dose schedule</div>
+          <div class="q-build-item"><span class="q-build-check"></span> Setting up your reminders</div>
+          <div class="q-build-item"><span class="q-build-check"></span> Finalizing your plan</div>
+        </div>
       </div>
     </section>
 
@@ -255,9 +406,15 @@
     <section class="step" data-step="8" hidden>
       <div class="q-ready">
         <div class="q-ready-icon">✓</div>
-        <h2 class="q-heading" style="text-align:center" tabindex="-1">Get your routine organized in 5 minutes.</h2>
-        <p class="q-sub" style="text-align:center">Set up PepTrack and start tracking with a system built for exactly this.</p>
+        <h2 class="q-heading" style="text-align:center" tabindex="-1">Your PepTrack Routine Is Ready</h2>
+        <p class="q-sub" style="text-align:center">Your schedule, reminders, and dose log are set up and waiting for you.</p>
+        <div class="q-ready-list">
+          <div class="q-ready-item"><span class="q-ready-tick">✓</span> Dose schedule mapped</div>
+          <div class="q-ready-item"><span class="q-ready-tick">✓</span> Reminders configured</div>
+          <div class="q-ready-item"><span class="q-ready-tick">✓</span> Routine timeline ready</div>
+        </div>
         <a class="q-cta" id="checkoutLink" href="https://peptrack.superwall.app/web-onboarding">Get PepTrack →</a>
+        <p class="q-cta-hint">Set up in under 5 minutes</p>
         <p class="q-disclaimer">PepTrack is a tracking tool, not medical advice, and is not affiliated with any drug or pharmaceutical manufacturer.</p>
       </div>
     </section>
@@ -336,18 +493,46 @@
       var progressBack = document.getElementById('progressBack');
       progressBack.addEventListener('click', goBack);
 
+      var buildTimer = null;
+
       function runLoader() {
-        var texts = ['Analyzing your routine…', 'Mapping your schedule…', 'Building your profile…'];
-        var lt = document.getElementById('loaderText');
-        var i = 0; lt.textContent = texts[0];
-        var iv = setInterval(function () {
-          i++;
-          if (i < texts.length) {
-            lt.style.opacity = '0';
-            setTimeout(function () { lt.textContent = texts[i]; lt.style.opacity = '1'; }, 200);
+        var items = Array.prototype.slice.call(document.querySelectorAll('.q-build-item'));
+        var fill = document.getElementById('buildFill');
+        var pct = document.getElementById('buildPct');
+        var CIRC = 2 * Math.PI * 52;
+        var DURATION = 4600;
+
+        if (buildTimer) clearInterval(buildTimer);
+        items.forEach(function (el) { el.classList.remove('active', 'done'); });
+        fill.style.strokeDasharray = CIRC;
+        fill.style.strokeDashoffset = CIRC;
+        pct.textContent = '0%';
+
+        var start = Date.now();
+        var perStep = DURATION / items.length;
+
+        buildTimer = setInterval(function () {
+          var elapsed = Date.now() - start;
+          var p = Math.min(elapsed / DURATION, 1);
+
+          pct.textContent = Math.round(p * 100) + '%';
+          fill.style.strokeDashoffset = CIRC * (1 - p);
+
+          var idx = Math.min(Math.floor(elapsed / perStep), items.length - 1);
+          items.forEach(function (el, i) {
+            el.classList.remove('active');
+            if (i < idx) el.classList.add('done');
+          });
+
+          if (p >= 1) {
+            items.forEach(function (el) { el.classList.add('done'); });
+            clearInterval(buildTimer);
+            buildTimer = null;
+            setTimeout(function () { if (cur === 4) advance(); }, 550);
+          } else {
+            items[idx].classList.add('active');
           }
-        }, 1200);
-        setTimeout(function () { clearInterval(iv); advance(); }, 3800);
+        }, 40);
       }
 
       var complexityMap = {
