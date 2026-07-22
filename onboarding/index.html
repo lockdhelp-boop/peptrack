@@ -9,11 +9,13 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="/funnel/styles.css" />
   <style>
+    /* Center via auto margins so tall steps never clip under the header */
+    .quiz-page { justify-content: flex-start; }
+    .quiz-page > .step { margin-top: auto; margin-bottom: auto; }
+
     @media (min-height: 800px) {
-      .quiz-page {
-        justify-content: flex-start;
-        padding-top: max(90px, 18vh);
-      }
+      .quiz-page { padding-top: max(90px, 18vh); }
+      .quiz-page > .step { margin-top: 0; }
     }
     @media (min-width: 414px) {
       .q-heading, .q-ump-heading { font-size: 27px; }
@@ -407,13 +409,12 @@
       <div class="q-ready">
         <div class="q-ready-icon">✓</div>
         <h2 class="q-heading" style="text-align:center" tabindex="-1">Your PepTrack Routine Is Ready</h2>
-        <p class="q-sub" style="text-align:center">Your schedule, reminders, and dose log are set up and waiting for you.</p>
         <div class="q-ready-list">
           <div class="q-ready-item"><span class="q-ready-tick">✓</span> Dose schedule mapped</div>
           <div class="q-ready-item"><span class="q-ready-tick">✓</span> Reminders configured</div>
           <div class="q-ready-item"><span class="q-ready-tick">✓</span> Routine timeline ready</div>
         </div>
-        <a class="q-cta" id="checkoutLink" href="https://peptrack.superwall.app/web-onboarding">Get PepTrack →</a>
+        <a class="q-cta" id="checkoutLink" href="https://peptrack.superwall.app/web-onboarding">Start Tracking →</a>
         <p class="q-cta-hint">Set up in under 5 minutes</p>
         <p class="q-disclaimer">PepTrack is a tracking tool, not medical advice, and is not affiliated with any drug or pharmaceutical manufacturer.</p>
       </div>
