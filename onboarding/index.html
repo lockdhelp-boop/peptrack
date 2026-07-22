@@ -8,6 +8,23 @@
   <meta name="description" content="Answer a few quick questions so PepTrack can match you with the right tracking layout." />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="/funnel/styles.css" />
+  <style>
+    @media (min-height: 800px) {
+      .quiz-page {
+        justify-content: flex-start;
+        padding-top: max(90px, 18vh);
+      }
+    }
+    @media (min-width: 414px) {
+      .q-heading, .q-ump-heading { font-size: 27px; }
+      .q-opt { font-size: 17px; min-height: 60px; padding: 18px 20px; }
+      .q-band { min-height: 56px; font-size: 17px; }
+      .q-next { min-height: 56px; font-size: 18px; }
+      .q-body { font-size: 17px; }
+      .q-sub { font-size: 16px; }
+      .step-label { font-size: 14px; }
+    }
+  </style>
 </head>
 <body class="quiz-body">
 
