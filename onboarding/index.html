@@ -23,6 +23,114 @@
       .q-body { font-size: 17px; }
       .q-sub { font-size: 16px; }
     }
+
+    /* ── Complexity / chaos-vs-clarity ── */
+    .q-compare {
+      display: flex;
+      gap: 12px;
+      margin: 4px 0 8px;
+    }
+    .q-compare-col { flex: 1; min-width: 0; }
+    .q-compare-label {
+      margin: 0 0 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+    }
+    .q-chaos {
+      position: relative;
+      height: 156px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.02);
+      border: 1px solid rgba(255,255,255,.06);
+      overflow: hidden;
+    }
+    .q-chaos-tag {
+      position: absolute;
+      padding: 5px 9px;
+      border-radius: 7px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.05);
+      font-size: 11px;
+      color: rgba(255,255,255,.45);
+      white-space: nowrap;
+    }
+    .q-clarity {
+      height: 156px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .q-clarity-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 9px;
+      border-radius: 7px;
+      background: rgba(255,255,255,.05);
+      font-size: 11px;
+      color: rgba(255,255,255,.75);
+    }
+    .q-clarity-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+    .q-clarity-time {
+      margin-left: auto;
+      font-size: 10px;
+      color: rgba(255,255,255,.4);
+    }
+
+    /* ── Week strip (how it works) ── */
+    .q-week {
+      display: flex;
+      gap: 6px;
+      margin: 24px 0 4px;
+    }
+    .q-week-day {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .q-week-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,.4);
+    }
+    .q-week-slot {
+      position: relative;
+      width: 100%;
+      height: 46px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .q-week-slot.on {
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.16);
+    }
+    .q-week-slot.on::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
   </style>
 </head>
 <body class="quiz-body">
@@ -39,162 +147,112 @@
 
     <!-- ── S1: Pain point ── -->
     <section class="step" data-step="1">
-      <h2 class="q-heading" tabindex="-1">What do you struggle with most?</h2>
+      <h2 class="q-heading" tabindex="-1">What do you struggle with most when tracking your peptides?</h2>
       <ul class="q-options" data-select="single" data-var="painPoint">
-        <li><button class="q-opt" type="button" data-value="doseMath"><span class="q-opt-icon">💉</span> Getting the syringe math right every time</button></li>
-        <li><button class="q-opt" type="button" data-value="timing"><span class="q-opt-icon">🗓️</span> Remembering when (or if) I already dosed</button></li>
-        <li><button class="q-opt" type="button" data-value="scattered"><span class="q-opt-icon">📝</span> No single place to track my whole routine</button></li>
-        <li><button class="q-opt" type="button" data-value="progress"><span class="q-opt-icon">📉</span> Not sure if my routine is actually working</button></li>
-        <li><button class="q-opt" type="button" data-value="researching"><span class="q-opt-icon">🤷</span> Still figuring out where to start</button></li>
+        <li><button class="q-opt" type="button" data-value="forgot"><span class="q-opt-icon">❓</span> Forgetting if I already took a dose</button></li>
+        <li><button class="q-opt" type="button" data-value="juggling"><span class="q-opt-icon">🤹</span> Juggling multiple schedules</button></li>
+        <li><button class="q-opt" type="button" data-value="active"><span class="q-opt-icon">⏳</span> Can't tell what's still active</button></li>
+        <li><button class="q-opt" type="button" data-value="logging"><span class="q-opt-icon">📋</span> Inconsistent logging</button></li>
+        <li><button class="q-opt" type="button" data-value="scattered"><span class="q-opt-icon">🗂️</span> A mix of apps, notes, and spreadsheets</button></li>
+        <li><button class="q-opt" type="button" data-value="unsure"><span class="q-opt-icon">👀</span> Not sure yet</button></li>
       </ul>
     </section>
 
-    <!-- ── S2: Tenure ── -->
+    <!-- ── S2: How many peptides ── -->
     <section class="step" data-step="2" hidden>
-      <h2 class="q-heading" tabindex="-1">How long have you been on this routine?</h2>
-      <ul class="q-options" data-select="single" data-var="tenure">
-        <li><button class="q-opt" type="button" data-value="0-2w">Just starting (0-2 weeks)</button></li>
-        <li><button class="q-opt" type="button" data-value="1-3m">1-3 months</button></li>
-        <li><button class="q-opt" type="button" data-value="3-6m">3-6 months</button></li>
-        <li><button class="q-opt" type="button" data-value="6m+">6+ months</button></li>
+      <h2 class="q-heading" tabindex="-1">How many peptides are you currently tracking?</h2>
+      <ul class="q-options" data-select="single" data-var="peptideCount">
+        <li><button class="q-opt" type="button" data-value="1">Just one</button></li>
+        <li><button class="q-opt" type="button" data-value="2-3">2-3</button></li>
+        <li><button class="q-opt" type="button" data-value="4+">4 or more</button></li>
+        <li><button class="q-opt" type="button" data-value="just-starting">Just starting out</button></li>
       </ul>
     </section>
 
-    <!-- ── S3: Calculator qualifier ── -->
+    <!-- ── S3: Current method ── -->
     <section class="step" data-step="3" hidden>
-      <h2 class="q-heading" tabindex="-1">Do you ever find yourself unsure exactly how many units to draw?</h2>
-      <ul class="q-options" data-select="single" data-var="needsCalculator">
-        <li><button class="q-opt" type="button" data-value="yes">Yes, pretty often</button></li>
-        <li><button class="q-opt" type="button" data-value="sometimes">Sometimes</button></li>
-        <li><button class="q-opt" type="button" data-value="no">No - I use a pre-filled pen</button></li>
+      <h2 class="q-heading" tabindex="-1">How are you currently tracking your routine?</h2>
+      <ul class="q-options" data-select="single" data-var="trackingMethod">
+        <li><button class="q-opt" type="button" data-value="notes">Notes app</button></li>
+        <li><button class="q-opt" type="button" data-value="spreadsheet">Spreadsheet</button></li>
+        <li><button class="q-opt" type="button" data-value="memory">Memory - nothing formal</button></li>
+        <li><button class="q-opt" type="button" data-value="other-app">Another app</button></li>
       </ul>
     </section>
 
-    <!-- ── S4: Current tracking method ── -->
+    <!-- ── S4: Reminders check ── -->
     <section class="step" data-step="4" hidden>
-      <h2 class="q-heading" tabindex="-1">How are you tracking your doses right now?</h2>
-      <p class="q-sub">Select all that apply.</p>
-      <ul class="q-options" data-select="multi" data-var="trackingMethod">
-        <li><button class="q-opt" type="button" data-value="notes"><span class="q-check"></span> Notes app</button></li>
-        <li><button class="q-opt" type="button" data-value="calendar"><span class="q-check"></span> Calendar reminders</button></li>
-        <li><button class="q-opt" type="button" data-value="pen-mark"><span class="q-check"></span> A mark on the pen</button></li>
-        <li><button class="q-opt" type="button" data-value="other-app"><span class="q-check"></span> Another tracking app</button></li>
-        <li><button class="q-opt" type="button" data-value="nothing"><span class="q-check"></span> Honestly, nothing - just trying to remember</button></li>
+      <h2 class="q-heading" tabindex="-1">Do you currently use reminders to stay on schedule?</h2>
+      <ul class="q-options" data-select="single" data-var="usesReminders">
+        <li><button class="q-opt" type="button" data-value="yes">Yes</button></li>
+        <li><button class="q-opt" type="button" data-value="sometimes">Sometimes</button></li>
+        <li><button class="q-opt" type="button" data-value="no">No</button></li>
       </ul>
-      <div class="q-nav">
-        <button class="q-next" type="button">Next</button>
-      </div>
     </section>
 
-    <!-- ── S5: Age band ── -->
+    <!-- ── S5: Analyzing loader ── -->
     <section class="step" data-step="5" hidden>
-      <h2 class="q-heading" tabindex="-1">What's your age range?</h2>
-      <div class="q-bands" data-select="single" data-var="ageBand">
-        <button class="q-band" type="button" data-value="20s">20s</button>
-        <button class="q-band" type="button" data-value="30s">30s</button>
-        <button class="q-band" type="button" data-value="40s">40s</button>
-        <button class="q-band" type="button" data-value="50s">50s</button>
-        <button class="q-band" type="button" data-value="60+">60+</button>
-      </div>
-      <button class="q-skip next-button" type="button">Prefer not to say</button>
-    </section>
-
-    <!-- ── S6: Analyzing loader ── -->
-    <section class="step" data-step="6" hidden>
       <div class="q-loader">
         <div class="q-loader-ring"></div>
-        <p class="q-loader-text" id="loaderText">Reviewing your tracking setup…</p>
+        <p class="q-loader-text" id="loaderText">Analyzing your routine…</p>
       </div>
     </section>
 
-    <!-- ── S7: Profile reveal ── -->
+    <!-- ── S6: Complexity result / chaos-vs-clarity ── -->
+    <section class="step" data-step="6" hidden>
+      <span class="q-badge" id="complexityBadge">Routine complexity: Moderate</span>
+      <h2 class="q-heading" tabindex="-1">Your routine, organized.</h2>
+      <p class="q-profile-summary" id="complexitySummary"></p>
+
+      <div class="q-compare">
+        <div class="q-compare-col">
+          <p class="q-compare-label">Now</p>
+          <div class="q-chaos">
+            <span class="q-chaos-tag" style="top:12px;left:10px;transform:rotate(-6deg)">Notes app</span>
+            <span class="q-chaos-tag" style="top:40px;left:70px;transform:rotate(5deg)">Mon?</span>
+            <span class="q-chaos-tag" style="top:30px;left:14px;transform:rotate(3deg)">Calendar</span>
+            <span class="q-chaos-tag" style="top:74px;left:44px;transform:rotate(-4deg)">did I?</span>
+            <span class="q-chaos-tag" style="top:96px;left:12px;transform:rotate(7deg)">Spreadsheet</span>
+            <span class="q-chaos-tag" style="top:120px;left:56px;transform:rotate(-5deg)">Memory</span>
+            <span class="q-chaos-tag" style="top:60px;left:96px;transform:rotate(8deg)">Wed?</span>
+          </div>
+        </div>
+        <div class="q-compare-col">
+          <p class="q-compare-label">With PepTrack</p>
+          <div class="q-clarity">
+            <div class="q-clarity-row"><span class="q-clarity-dot"></span> Dose logged <span class="q-clarity-time">8:00 AM</span></div>
+            <div class="q-clarity-row"><span class="q-clarity-dot"></span> Reminder set <span class="q-clarity-time">Today</span></div>
+            <div class="q-clarity-row"><span class="q-clarity-dot"></span> Next dose <span class="q-clarity-time">Wed</span></div>
+          </div>
+        </div>
+      </div>
+
+      <button class="q-skip next-button" type="button">See how it works →</button>
+    </section>
+
+    <!-- ── S7: How it works ── -->
     <section class="step" data-step="7" hidden>
-      <span class="q-badge" id="profileBadge">Your Tracking Profile</span>
-      <h2 class="q-heading" tabindex="-1">Your routine deserves a system.</h2>
-      <p class="q-profile-summary" id="profileSummary"></p>
+      <h2 class="q-heading" tabindex="-1">See your whole routine at a glance.</h2>
+      <p class="q-body">Every dose, schedule, and reminder in one timeline - so you always know what you've logged, what's coming up, and what's still active.</p>
 
-      <div class="q-chart">
-        <svg viewBox="0 0 400 160" preserveAspectRatio="none" aria-hidden="true">
-          <defs>
-            <linearGradient id="gUp" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#ffffff" stop-opacity=".15"/>
-              <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <path d="M0,140 C80,130 160,100 240,60 S360,20 400,10 L400,160 L0,160Z" fill="url(#gUp)" />
-          <path d="M0,140 C80,130 160,100 240,60 S360,20 400,10" fill="none" stroke="#fff" stroke-width="2.5"/>
-          <path d="M0,100 C80,105 160,110 240,115 S360,125 400,130" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="6,4"/>
-          <text x="12" y="24" fill="rgba(255,255,255,.7)" font-size="11" font-weight="700">With PepTrack</text>
-          <text x="12" y="148" fill="#777" font-size="10" id="chartLabel">Current method</text>
-        </svg>
-      </div>
-      <div class="q-chart-legend">
-        <span class="q-legend"><span class="q-dot" style="background:#fff"></span> With PepTrack</span>
-        <span class="q-legend"><span class="q-dot" style="background:#555"></span> <span id="legendLabel">Current method</span></span>
+      <div class="q-week">
+        <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot"></span></div>
+        <div class="q-week-day"><span class="q-week-label">M</span><span class="q-week-slot on"></span></div>
+        <div class="q-week-day"><span class="q-week-label">T</span><span class="q-week-slot"></span></div>
+        <div class="q-week-day"><span class="q-week-label">W</span><span class="q-week-slot on"></span></div>
+        <div class="q-week-day"><span class="q-week-label">T</span><span class="q-week-slot"></span></div>
+        <div class="q-week-day"><span class="q-week-label">F</span><span class="q-week-slot on"></span></div>
+        <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot"></span></div>
       </div>
 
-      <button class="q-skip next-button" type="button">See what's inside →</button>
+      <p class="q-body">One clean system instead of a mix of apps, notes, and memory.</p>
+      <div class="q-nav">
+        <button class="q-next" type="button">Next</button>
+      </div>
     </section>
 
-    <!-- ── S8: Why this happens (UMP) ── -->
+    <!-- ── S8: Handoff ── -->
     <section class="step" data-step="8" hidden>
-      <h2 class="q-ump-heading" tabindex="-1">It's not that you're forgetful.</h2>
-      <p class="q-body">Weekly routines create a tracking blind spot that daily reminder apps were never built for. Your brain locks onto things you do every 24 hours - a routine that lands on a different day each week never becomes automatic.</p>
-      <p class="q-body" id="umpCalcLine" hidden><strong>And if you're converting dosing units by hand,</strong> that's one more place for things to slip.</p>
-      <p class="q-body">That's not a you problem. <strong>That's a structural one</strong> - and it's exactly why PepTrack exists.</p>
-      <div class="q-nav">
-        <button class="q-next" type="button">Next</button>
-      </div>
-    </section>
-
-    <!-- ── S9: What changes (product glimpse) ── -->
-    <section class="step" data-step="9" hidden>
-      <h2 class="q-heading" tabindex="-1">What changes from day one.</h2>
-      <div class="q-features">
-        <div class="q-feature" id="calcFeature" hidden>
-          <p class="q-feature-name">Your exact draw, every time</p>
-          <p class="q-feature-desc">Enter your vial concentration and target dose - the math is done. No mental arithmetic, no second-guessing.</p>
-          <div class="q-feature-img">App screenshot placeholder</div>
-        </div>
-        <div class="q-feature">
-          <p class="q-feature-name">See what's happening between doses</p>
-          <p class="q-feature-desc">Your routine's peaks and valleys, mapped to real dates. Know exactly when things are working - and when they're not.</p>
-          <div class="q-feature-img">App screenshot placeholder</div>
-        </div>
-        <div class="q-feature">
-          <p class="q-feature-name">Everything in one place</p>
-          <p class="q-feature-desc">Doses, timing, notes, and body signals - one private log instead of scattered apps and reminders you'll forget to check.</p>
-          <div class="q-feature-img">App screenshot placeholder</div>
-        </div>
-      </div>
-      <div class="q-nav">
-        <button class="q-next" type="button">Next</button>
-      </div>
-    </section>
-
-    <!-- ── S10: Social proof ── -->
-    <section class="step" data-step="10" hidden>
-      <h2 class="q-heading" tabindex="-1">The only tracker built for weekly routines.</h2>
-      <p class="q-stars">★★★★★</p>
-      <p class="q-sub" id="socialSegment">Not a generic health app. Not a daily pill reminder. Built for routines that repeat weekly or less.</p>
-      <div class="q-quote">Real user reviews will appear here once available. No fabricated testimonials.</div>
-      <div class="q-nav">
-        <button class="q-next" type="button">Next</button>
-      </div>
-    </section>
-
-    <!-- ── S11: Value framing ── -->
-    <section class="step" data-step="11" hidden>
-      <h2 class="q-heading" tabindex="-1">Stay consistent - without the workarounds.</h2>
-      <p class="q-body">Without scattered notes across apps you'll forget to check. Without calendar reminders that only tell you <em>when</em>, not <em>what</em>. Without guessing whether you already dosed this week.</p>
-      <p class="q-body"><strong>PepTrack replaces the patchwork</strong> so your effort compounds instead of resetting every week.</p>
-      <div class="q-nav">
-        <button class="q-next" type="button">Next</button>
-      </div>
-    </section>
-
-    <!-- ── S12: Handoff ── -->
-    <section class="step" data-step="12" hidden>
       <div class="q-ready">
         <div class="q-ready-icon">✓</div>
         <h2 class="q-heading" style="text-align:center" tabindex="-1">Get your routine organized in 5 minutes.</h2>
@@ -209,11 +267,10 @@
   <script>
     (function () {
       var answers = {
-        painPoint: '', tenure: '', needsCalculator: '',
-        trackingMethod: [], ageBand: ''
+        painPoint: '', peptideCount: '', trackingMethod: '', usesReminders: ''
       };
 
-      var TOTAL = 12;
+      var TOTAL = 8;
       var cur = 0;
       var steps = Array.prototype.slice.call(document.querySelectorAll('.step'));
       var bar = document.getElementById('progressBar');
@@ -243,14 +300,12 @@
         var h = steps[i].querySelector('h1, h2');
         if (h) h.focus();
         window.scrollTo(0, 0);
-        if (i === 5) runLoader();
-        if (i === 6) buildProfile();
-        if (i === 7) setupS8();
-        if (i === 8) setupS9();
+        if (i === 4) runLoader();
+        if (i === 5) buildComplexity();
       }
 
       function advance() { if (cur < TOTAL - 1) show(cur + 1); }
-      function goBack() { if (cur > 0) show(cur === 6 ? 4 : cur - 1); }
+      function goBack() { if (cur > 0) show(cur === 5 ? 3 : cur - 1); }
 
       document.querySelectorAll('[data-select="single"]').forEach(function (list) {
         var btns = list.querySelectorAll('.q-opt, .q-band');
@@ -282,7 +337,7 @@
       progressBack.addEventListener('click', goBack);
 
       function runLoader() {
-        var texts = ['Reviewing your tracking setup…', 'Cross-referencing your routine…', 'Building your profile…'];
+        var texts = ['Analyzing your routine…', 'Mapping your schedule…', 'Building your profile…'];
         var lt = document.getElementById('loaderText');
         var i = 0; lt.textContent = texts[0];
         var iv = setInterval(function () {
@@ -295,31 +350,18 @@
         setTimeout(function () { clearInterval(iv); advance(); }, 3800);
       }
 
-      var painLabels = {
-        doseMath: 'getting the syringe math right',
-        timing: 'remembering when you dosed',
-        scattered: 'having no single place to track',
-        progress: 'knowing if your routine is working',
-        researching: 'figuring out where to start'
+      var complexityMap = {
+        '1': { level: 'Simple', line: 'One peptide is easy to manage now - reminders and clean logging keep it that way as your routine grows.' },
+        '2-3': { level: 'Moderate', line: 'A few peptides on different schedules is exactly where things start to slip. PepTrack keeps them straight.' },
+        '4+': { level: 'Advanced', line: 'Four or more peptides means multiple schedules and logs to juggle. This is where one clean system pays off most.' },
+        'just-starting': { level: 'Getting started', line: 'Starting fresh is the best time to build a system - before the schedules pile up.' }
       };
-      var tenureLabels = { '0-2w': 'just starting', '1-3m': '1-3 months in', '3-6m': '3-6 months in', '6m+': '6+ months in' };
-      var trackLabels = { notes: 'a notes app', calendar: 'calendar reminders', 'pen-mark': 'marks on the pen', 'other-app': 'another app', nothing: 'memory alone' };
 
-      function buildProfile() {
-        document.getElementById('profileBadge').textContent = answers.painPoint === 'doseMath' ? 'Precision Tracker' : 'Your Tracking Profile';
-        var t = tenureLabels[answers.tenure] || '';
-        var pain = painLabels[answers.painPoint] || 'staying consistent';
-        document.getElementById('profileSummary').innerHTML =
-          "You're <strong>" + esc(t) + "</strong>, and <strong>" + esc(pain) + "</strong> is what's tripping you up most.";
-        var method = answers.trackingMethod.length ? (trackLabels[answers.trackingMethod[0]] || answers.trackingMethod[0]) : 'current method';
-        document.getElementById('chartLabel').textContent = method;
-        document.getElementById('legendLabel').textContent = method;
+      function buildComplexity() {
+        var c = complexityMap[answers.peptideCount] || complexityMap['2-3'];
+        document.getElementById('complexityBadge').textContent = 'Routine complexity: ' + c.level;
+        document.getElementById('complexitySummary').textContent = c.line;
       }
-
-      function setupS8() { document.getElementById('umpCalcLine').hidden = !(answers.needsCalculator === 'yes' || answers.needsCalculator === 'sometimes'); }
-      function setupS9() { document.getElementById('calcFeature').hidden = !(answers.needsCalculator === 'yes' || answers.needsCalculator === 'sometimes'); }
-
-      function esc(s) { var d = document.createElement('div'); d.appendChild(document.createTextNode(s)); return d.innerHTML; }
 
       show(0);
     }());
