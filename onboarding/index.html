@@ -8,6 +8,19 @@
   <meta name="description" content="Answer a few quick questions so PepTrack can match you with the right tracking layout." />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="/funnel/styles.css" />
+  <!-- Meta Pixel Code — init only; PageView is intentionally omitted here -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3767964506689016');
+  </script>
+  <!-- End Meta Pixel Code -->
   <style>
     /* Center via auto margins so tall steps never clip under the header */
     .quiz-page { justify-content: flex-start; }
@@ -457,6 +470,35 @@
       checkoutUrl.searchParams.set('funnel', 'web2app-quiz-v1');
       checkoutLink.href = checkoutUrl.toString();
 
+      // ── Meta events ──
+      // Each fires at most once. The in-memory flag covers back/forward inside
+      // the quiz; sessionStorage covers leaving and re-entering (e.g. back to
+      // the landing page, then into the quiz again) within the same tab.
+      var pixelFired = { start: false, complete: false };
+
+      function fireOnce(memKey, storeKey, fire) {
+        if (pixelFired[memKey]) return;
+        pixelFired[memKey] = true;
+        try {
+          if (sessionStorage.getItem(storeKey)) return;
+          sessionStorage.setItem(storeKey, '1');
+        } catch (e) {}
+        if (typeof fbq !== 'function') return;
+        try { fire(); } catch (e) {}
+      }
+
+      function trackQuizStart() {
+        fireOnce('start', 'peptrackQuizStarted', function () {
+          fbq('trackCustom', 'QuizStart');
+        });
+      }
+
+      function trackQuizComplete() {
+        fireOnce('complete', 'peptrackQuizCompleted', function () {
+          fbq('track', 'CompleteRegistration');
+        });
+      }
+
       function show(i) {
         steps.forEach(function (s, idx) { s.hidden = idx !== i; });
         cur = i;
@@ -467,6 +509,7 @@
         window.scrollTo(0, 0);
         if (i === 4) runLoader();
         if (i === 5) buildComplexity();
+        if (i === TOTAL - 1) trackQuizComplete();
       }
 
       function advance() { if (cur < TOTAL - 1) show(cur + 1); }
@@ -556,6 +599,7 @@
         document.getElementById('complexitySummary').textContent = c.line;
       }
 
+      trackQuizStart();
       show(0);
     }());
   </script>
