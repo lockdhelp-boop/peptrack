@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>PepTrack — One Place for Every Peptide &amp; Schedule</title>
+  <meta name="description" content="Managing multiple peptides on different schedules? PepTrack keeps every peptide, reminder, and active level in one clean dashboard - so you always know what's next." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/funnel/styles.css" />
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3767964506689016');
+    fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
+  <style>
+    .lp {
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* ── Nav ── */
+    .lp-nav {
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .lp-nav .brand {
+      font-size: 18px;
+    }
+    .lp-nav .brand img {
+      width: 32px;
+      height: 32px;
+    }
+    .lp-proof-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      font-size: 13px;
+      color: rgba(255,255,255,.5);
+      font-weight: 600;
+    }
+    .lp-proof-pill .lp-stars {
+      color: #f59e0b;
+      letter-spacing: 1px;
+      font-size: 12px;
+    }
+
+    /* ── Shared section wrapper ── */
+    .lp-wrap {
+      max-width: 520px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .lp-eyebrow {
+      margin: 0 0 12px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+    }
+    .lp-h2 {
+      font-size: clamp(24px, 6.5vw, 30px);
+      line-height: 1.15;
+      letter-spacing: -.025em;
+      font-weight: 750;
+      margin: 0 0 16px;
+    }
+    .lp-h2-sub {
+      font-size: 15px;
+      line-height: 1.45;
+      color: rgba(255,255,255,.45);
+      margin: -6px 0 18px;
+    }
+
+    /* ── Hero ── */
+    .lp-hero {
+      display: flex;
+      flex-direction: column;
+      padding: 6px 24px 12px;
+    }
+    .lp-hero h1 {
+      font-size: clamp(30px, 8.4vw, 46px);
+      line-height: 1.1;
+      letter-spacing: -.035em;
+      margin: 0 0 16px;
+    }
+    .lp-hero-img {
+      width: 72%;
+      margin: 4px auto 8px;
+    }
+    .lp-hero-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .lp-sub {
+      font-size: 17px;
+      line-height: 1.5;
+      color: rgba(255,255,255,.5);
+      margin: 0 0 24px;
+    }
+    .lp-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 16px 24px;
+      border: 0;
+      border-radius: 14px;
+      background: #fff;
+      color: #000;
+      font: inherit;
+      font-size: 17px;
+      font-weight: 750;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .lp-cta:hover {
+      background: rgba(255,255,255,.9);
+      transform: scale(1.015);
+    }
+    .lp-cta svg {
+      flex-shrink: 0;
+    }
+    .lp-hint {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 13px;
+      color: rgba(255,255,255,.3);
+    }
+
+    /* ── Agitation ── */
+    .lp-agitate {
+      padding: 24px 24px 8px;
+    }
+    .lp-pain-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .lp-pain-item {
+      display: flex;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      font-size: 15px;
+      line-height: 1.45;
+      color: rgba(255,255,255,.6);
+    }
+    .lp-pain-item::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.25);
+    }
+
+    /* ── Mechanism / features ── */
+    .lp-mechanism {
+      padding: 32px 24px 8px;
+    }
+    .lp-feat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .lp-feat {
+      display: flex;
+      gap: 12px;
+      padding: 15px 16px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .lp-feat-check {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: 1px;
+      border-radius: 50%;
+      background: var(--green-dim);
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .lp-feat p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.45;
+      color: rgba(255,255,255,.55);
+    }
+    .lp-feat p strong {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* ── Social proof ── */
+    .lp-social {
+      padding: 32px 24px 8px;
+    }
+    .lp-reviews {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .lp-review {
+      padding: 16px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .lp-review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .lp-review-stars {
+      color: #f59e0b;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+    .lp-review-user {
+      font-size: 12px;
+      color: rgba(255,255,255,.3);
+    }
+    .lp-review-text {
+      font-size: 15px;
+      line-height: 1.45;
+      color: rgba(255,255,255,.55);
+    }
+
+    /* ── Closing CTA ── */
+    .lp-close {
+      padding: 36px 24px 8px;
+      text-align: center;
+    }
+    .lp-close-line {
+      font-size: clamp(23px, 6.2vw, 29px);
+      font-weight: 750;
+      letter-spacing: -.025em;
+      line-height: 1.15;
+      margin: 0 0 20px;
+    }
+
+    /* ── Footer ── */
+    .lp-footer {
+      padding: 32px 24px 20px;
+      text-align: center;
+    }
+    .lp-footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 8px 20px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .lp-footer-links a {
+      color: rgba(255,255,255,.3);
+      font-size: 12px;
+      text-decoration: none;
+    }
+    .lp-footer-links a:hover {
+      color: rgba(255,255,255,.6);
+    }
+    .lp-disclaimer {
+      font-size: 11px;
+      line-height: 1.5;
+      color: rgba(255,255,255,.2);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <noscript>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=3767964506689016&amp;ev=PageView&amp;noscript=1"
+      alt=""
+    />
+  </noscript>
+
+  <div class="lp">
+
+    <!-- Nav -->
+    <nav class="lp-nav">
+      <div class="brand" aria-label="PepTrack">
+        <img src="/peptrack-icon.png" alt="" width="32" height="32" />
+        <span>PepTrack</span>
+      </div>
+      <div class="lp-proof-pill">
+        <span class="lp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        App Store
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <main class="lp-hero lp-wrap">
+      <h1>Too many peptides. Too many schedules. One place to run it&nbsp;all.</h1>
+      <div class="lp-hero-img">
+        <img src="/start/2phonepeptrack.png" alt="PepTrack app - dose tracking and routine dashboard" />
+      </div>
+      <p class="lp-sub">When you're managing three or four peptides on different timelines, your notes app and your memory aren't a system. PepTrack puts every peptide, schedule, and reminder in one clean dashboard - so you always know what's next.</p>
+      <a class="lp-cta" href="/onboarding/">
+        Take the Quiz
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <p class="lp-hint">Takes 2 minutes &middot; Free to start</p>
+    </main>
+
+    <!-- Agitation -->
+    <section class="lp-agitate lp-wrap">
+      <h2 class="lp-h2">Sound familiar?</h2>
+      <p class="lp-h2-sub">If this is your week…</p>
+      <ul class="lp-pain-list">
+        <li class="lp-pain-item">One's daily. One's twice a week. One's every few days. And it all lives in your head.</li>
+        <li class="lp-pain-item">Doses in Notes, reminders in your calendar, and a spreadsheet you stopped updating weeks ago.</li>
+        <li class="lp-pain-item">Half your energy goes to "wait - did I already do that one today?"</li>
+        <li class="lp-pain-item">Add one more peptide and the whole setup falls apart.</li>
+      </ul>
+    </section>
+
+    <!-- Mechanism / relief -->
+    <section class="lp-mechanism lp-wrap">
+      <p class="lp-eyebrow">One dashboard for your whole stack</p>
+      <h2 class="lp-h2">Your memory isn't a system. This is.</h2>
+      <div class="lp-feat-list">
+        <div class="lp-feat">
+          <span class="lp-feat-check">&#10003;</span>
+          <p><strong>Every peptide in one place</strong> - see your entire routine at a glance, not scattered across five apps.</p>
+        </div>
+        <div class="lp-feat">
+          <span class="lp-feat-check">&#10003;</span>
+          <p><strong>A reminder for each one, on its own schedule</strong> - daily, weekly, or custom. Nothing relies on you remembering.</p>
+        </div>
+        <div class="lp-feat">
+          <span class="lp-feat-check">&#10003;</span>
+          <p><strong>"Next dose" always front and center</strong> - you open the app and instantly know what's due.</p>
+        </div>
+        <div class="lp-feat">
+          <span class="lp-feat-check">&#10003;</span>
+          <p><strong>See what's still active for each peptide</strong> - not just a date on a calendar.</p>
+        </div>
+        <div class="lp-feat">
+          <span class="lp-feat-check">&#10003;</span>
+          <p><strong>Add as many peptides as you want</strong> - your full stack, one clean view.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social proof -->
+    <section class="lp-social lp-wrap">
+      <h2 class="lp-h2">Built for people running real routines.</h2>
+      <div class="lp-reviews">
+        <div class="lp-review">
+          <div class="lp-review-header">
+            <span class="lp-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="lp-review-user">Waitingforanswers</span>
+          </div>
+          <p class="lp-review-text">"Nice simple UI. So far it's been easy to add new items and schedules, seems to do exactly what it's supposed to do."</p>
+        </div>
+        <div class="lp-review">
+          <div class="lp-review-header">
+            <span class="lp-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="lp-review-user">Thetimcook</span>
+          </div>
+          <p class="lp-review-text">"I've used a few peptide calculators and apps before that were mostly clunky and confusing but after using PepTrack it made things more easy and simple. Would recommend."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="lp-close lp-wrap">
+      <p class="lp-close-line">Get your whole routine in one place.</p>
+      <a class="lp-cta" href="/onboarding/">
+        Take the Quiz
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <p class="lp-hint">Takes 2 minutes &middot; Free to start</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="lp-footer lp-wrap">
+      <div class="lp-footer-links">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="mailto:support.peptrack@gmail.com">Contact</a>
+      </div>
+      <p class="lp-disclaimer">PepTrack is a tracking tool, not medical advice, and is not affiliated with any drug or pharmaceutical manufacturer.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var query = window.location.search;
+      var ctas = document.querySelectorAll('a.lp-cta');
+      Array.prototype.forEach.call(ctas, function (cta) {
+        if (query) cta.href = '/onboarding/' + query;
+      });
+
+      try {
+        sessionStorage.setItem('peptrackFunnelParameters', query);
+        sessionStorage.setItem('peptrackLandingPath', window.location.pathname);
+      } catch (e) {}
+    }());
+  </script>
+</body>
+</html>
