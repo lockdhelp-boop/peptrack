@@ -468,7 +468,7 @@
       }
       if (query) {
         var params = new URLSearchParams(query);
-        var reserved = ['email', 'uid', 'user', 'app_user_id'];
+        var reserved = ['email', 'uid', 'user', 'app_user_id', 'pp'];
         params.forEach(function (v, k) {
           if (reserved.indexOf(k.toLowerCase()) === -1) checkoutUrl.searchParams.append(k, v);
         });
@@ -654,9 +654,24 @@
         document.getElementById('complexitySummary').textContent = c.line;
       }
 
+      // Optional pre-answered pain point handed off from an embedded landing
+      // question (/quiz). Backward-compatible: no param -> normal start at screen 1.
+      var startIndex = 0;
+      try {
+        var ppRaw = new URLSearchParams(window.location.search).get('pp');
+        var validPain = ['forgot', 'juggling', 'active', 'logging', 'scattered', 'unsure'];
+        if (ppRaw && validPain.indexOf(ppRaw) !== -1) {
+          answers.painPoint = ppRaw;
+          startIndex = 1;
+          var s1btn = document.querySelector('[data-var="painPoint"] .q-opt[data-value="' + ppRaw + '"]');
+          if (s1btn) s1btn.classList.add('selected');
+        }
+      } catch (e) {}
+
       trackQuizStart();
       trackWebquizStart();
-      show(0);
+      if (startIndex === 1) trackWebquizScreen(0); // record step 1 (answered on the landing page)
+      show(startIndex);
     }());
   </script>
 </body>
