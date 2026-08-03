@@ -179,29 +179,6 @@
 
     /* ── Reflection / trust / ready: centered non-question layout ── */
     .q-center { text-align: center; }
-
-    /* ── Dark-theme transition (from "ready" onward) ── */
-    body.theme-dark { background: #080a0f; color: #fff; transition: background .5s ease, color .5s ease; }
-    body.theme-dark .quiz-header { background: #080a0f; }
-    body.theme-dark .q-brand { color: #fff; }
-    body.theme-dark .q-progress-track { background: rgba(255,255,255,.12); }
-    body.theme-dark .q-progress-track span { background: rgba(255,255,255,.85); }
-    body.theme-dark .q-progress-back { color: rgba(255,255,255,.5); }
-    body.theme-dark .q-heading { color: #fff; }
-    body.theme-dark .q-body,
-    body.theme-dark .q-cta-hint,
-    body.theme-dark .q-disclaimer { color: #6b7280; }
-    body.theme-dark .q-ready-item {
-      background: rgba(255,255,255,.05);
-      border-color: rgba(255,255,255,.09);
-      color: rgba(255,255,255,.85);
-    }
-    body.theme-dark .q-ready-tick { background: rgba(34,197,94,.18); color: #4ade80; }
-    body.theme-dark .q-week-label { color: rgba(255,255,255,.4); }
-    body.theme-dark .q-week-slot { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.1); }
-    body.theme-dark .q-week-slot.on { background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22); }
-    body.theme-dark .q-cta { background: #2563eb; }
-    body.theme-dark .q-cta:active { background: #1d4ed8; }
   </style>
 </head>
 <body class="quiz-body">
@@ -609,8 +586,6 @@
         if (h) h.focus();
         window.scrollTo(0, 0);
 
-        if (id !== 'ready' && id !== 'transition') document.body.classList.remove('theme-dark');
-
         trackWebquizScreen(idx, id, vis.length);
         if (id === 'ready') { trackQuizComplete(); trackWebquizComplete(); }
 
@@ -691,7 +666,6 @@
       }
 
       function enterReady() {
-        document.body.classList.add('theme-dark');
         renderWeek('readyWeek', false);
       }
 
