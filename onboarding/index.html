@@ -45,39 +45,7 @@
       .q-sub { font-size: 16px; }
     }
 
-    /* ── Complexity / chaos-vs-clarity ── */
-    .q-compare {
-      display: flex;
-      gap: 12px;
-      margin: 4px 0 8px;
-    }
-    .q-compare-col { flex: 1; min-width: 0; }
-    .q-compare-label {
-      margin: 0 0 10px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,.4);
-    }
-    .q-chaos {
-      position: relative;
-      height: 156px;
-      border-radius: 12px;
-      background: rgba(0,0,0,.02);
-      border: 1px solid rgba(0,0,0,.06);
-      overflow: hidden;
-    }
-    .q-chaos-tag {
-      position: absolute;
-      padding: 5px 9px;
-      border-radius: 7px;
-      background: rgba(0,0,0,.07);
-      border: 1px solid rgba(0,0,0,.05);
-      font-size: 11px;
-      color: rgba(0,0,0,.45);
-      white-space: nowrap;
-    }
+    /* ── Reused "with PepTrack" clarity rows (help screens) ── */
     .q-clarity {
       height: 156px;
       border-radius: 12px;
@@ -87,6 +55,7 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+      margin: 20px 0 4px;
     }
     .q-clarity-row {
       display: flex;
@@ -95,7 +64,7 @@
       padding: 8px 9px;
       border-radius: 7px;
       background: rgba(0,0,0,.05);
-      font-size: 11px;
+      font-size: 13px;
       color: rgba(0,0,0,.75);
     }
     .q-clarity-dot {
@@ -107,107 +76,8 @@
     }
     .q-clarity-time {
       margin-left: auto;
-      font-size: 10px;
+      font-size: 11px;
       color: rgba(0,0,0,.4);
-    }
-
-    /* ── Building your plan (loader) ── */
-    .q-build {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .q-build-ring {
-      position: relative;
-      width: 116px;
-      height: 116px;
-      margin-bottom: 24px;
-    }
-    .q-build-ring svg {
-      width: 100%;
-      height: 100%;
-      transform: rotate(-90deg);
-    }
-    .q-build-track {
-      fill: none;
-      stroke: rgba(0,0,0,.08);
-      stroke-width: 6;
-    }
-    .q-build-fill {
-      fill: none;
-      stroke: #1c1f26;
-      stroke-width: 6;
-      stroke-linecap: round;
-    }
-    .q-build-pct {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 25px;
-      font-weight: 750;
-      letter-spacing: -.02em;
-    }
-    .q-build-title {
-      margin: 0 0 22px;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text);
-      text-align: center;
-    }
-    .q-build-list {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .q-build-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 13px 15px;
-      border-radius: 12px;
-      background: rgba(0,0,0,.02);
-      border: 1px solid rgba(0,0,0,.05);
-      font-size: 15px;
-      color: rgba(0,0,0,.3);
-      transition: color .35s ease, background .35s ease, border-color .35s ease;
-    }
-    .q-build-item.active,
-    .q-build-item.done {
-      color: rgba(0,0,0,.85);
-      background: rgba(0,0,0,.05);
-      border-color: rgba(0,0,0,.1);
-    }
-    .q-build-check {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border: 2px solid rgba(0,0,0,.15);
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: border-color .35s ease, background .35s ease;
-    }
-    .q-build-item.active .q-build-check {
-      border-color: rgba(0,0,0,.25);
-      border-top-color: #1c1f26;
-      animation: qSpin .7s linear infinite;
-    }
-    .q-build-item.done .q-build-check {
-      background: var(--green);
-      border-color: var(--green);
-      animation: none;
-    }
-    .q-build-item.done .q-build-check::after {
-      content: '';
-      width: 5px;
-      height: 9px;
-      border: solid #f4f1ea;
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg) translate(-1px, -1px);
     }
 
     /* ── Ready screen recap ── */
@@ -258,7 +128,7 @@
       text-align: center;
     }
 
-    /* ── Week strip (how it works) ── */
+    /* ── Week strip (reused: building preview + ready recap) ── */
     .q-week {
       display: flex;
       gap: 6px;
@@ -283,6 +153,7 @@
       border-radius: 8px;
       background: rgba(0,0,0,.03);
       border: 1px solid rgba(0,0,0,.06);
+      transition: background .25s ease, border-color .25s ease;
     }
     .q-week-slot.on {
       background: rgba(0,0,0,.07);
@@ -299,6 +170,38 @@
       border-radius: 50%;
       background: var(--green);
     }
+    .q-build-caption {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ── Reflection / trust / ready: centered non-question layout ── */
+    .q-center { text-align: center; }
+
+    /* ── Dark-theme transition (from "ready" onward) ── */
+    body.theme-dark { background: #080a0f; color: #fff; transition: background .5s ease, color .5s ease; }
+    body.theme-dark .quiz-header { background: #080a0f; }
+    body.theme-dark .q-brand { color: #fff; }
+    body.theme-dark .q-progress-track { background: rgba(255,255,255,.12); }
+    body.theme-dark .q-progress-track span { background: rgba(255,255,255,.85); }
+    body.theme-dark .q-progress-back { color: rgba(255,255,255,.5); }
+    body.theme-dark .q-heading { color: #fff; }
+    body.theme-dark .q-body,
+    body.theme-dark .q-cta-hint,
+    body.theme-dark .q-disclaimer { color: #6b7280; }
+    body.theme-dark .q-ready-item {
+      background: rgba(255,255,255,.05);
+      border-color: rgba(255,255,255,.09);
+      color: rgba(255,255,255,.85);
+    }
+    body.theme-dark .q-ready-tick { background: rgba(34,197,94,.18); color: #4ade80; }
+    body.theme-dark .q-week-label { color: rgba(255,255,255,.4); }
+    body.theme-dark .q-week-slot { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.1); }
+    body.theme-dark .q-week-slot.on { background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22); }
+    body.theme-dark .q-cta { background: #2563eb; }
+    body.theme-dark .q-cta:active { background: #1d4ed8; }
   </style>
 </head>
 <body class="quiz-body">
@@ -313,9 +216,83 @@
 
   <div class="quiz-page">
 
-    <!-- ── S1: Pain point ── -->
-    <section class="step" data-step="1">
-      <h2 class="q-heading" tabindex="-1">What do you struggle with most when tracking your peptides?</h2>
+    <!-- ══ PHASE 1 — Your Routine ══ -->
+
+    <!-- peptideCount -->
+    <section class="step" data-id="peptideCount">
+      <p class="step-label">Phase 1 · Your Routine</p>
+      <h2 class="q-heading" tabindex="-1">How many peptides are you currently tracking?</h2>
+      <ul class="q-options" data-select="single" data-var="peptideCount">
+        <li><button class="q-opt" type="button" data-value="1">Just one</button></li>
+        <li><button class="q-opt" type="button" data-value="2-3">2-3</button></li>
+        <li><button class="q-opt" type="button" data-value="4+">4 or more</button></li>
+        <li><button class="q-opt" type="button" data-value="just-starting">Just starting out</button></li>
+      </ul>
+    </section>
+
+    <!-- scheduleComplexity -->
+    <section class="step" data-id="scheduleComplexity" hidden>
+      <p class="step-label">Phase 1 · Your Routine</p>
+      <h2 class="q-heading" tabindex="-1">How would you describe your schedule?</h2>
+      <ul class="q-options" data-select="single" data-var="scheduleComplexity">
+        <li><button class="q-opt" type="button" data-value="simple">Same time, every day</button></li>
+        <li><button class="q-opt" type="button" data-value="mixed">Different times or days</button></li>
+        <li><button class="q-opt" type="button" data-value="complex">Multiple overlapping cycles</button></li>
+        <li><button class="q-opt" type="button" data-value="unsure">Not sure yet</button></li>
+      </ul>
+    </section>
+
+    <!-- goal (skipped if pre-answered on /quiz/) -->
+    <section class="step" data-id="goal" hidden>
+      <p class="step-label">Phase 1 · Your Routine</p>
+      <h2 class="q-heading" tabindex="-1">What's your main goal?</h2>
+      <ul class="q-options" data-select="single" data-var="goal">
+        <li><button class="q-opt" type="button" data-value="never-miss">Never miss a dose</button></li>
+        <li><button class="q-opt" type="button" data-value="stay-consistent">Stay consistent long-term</button></li>
+        <li><button class="q-opt" type="button" data-value="see-whats-working">See what's actually working</button></li>
+        <li><button class="q-opt" type="button" data-value="simplify">Simplify a complicated routine</button></li>
+      </ul>
+    </section>
+
+    <!-- reflection (non-question) -->
+    <section class="step" data-id="reflection" hidden>
+      <p class="step-label">Phase 1 · Your Routine</p>
+      <span class="q-badge" id="reflectionBadge">Routine complexity: Moderate</span>
+      <h2 class="q-heading" tabindex="-1">Okay, we've got a picture of where you're starting.</h2>
+      <p class="q-profile-summary" id="reflectionSummary"></p>
+      <div class="q-nav"><button class="q-next" type="button">Continue</button></div>
+    </section>
+
+    <!-- ══ PHASE 2 — Where You're At ══ -->
+
+    <!-- trackingMethod -->
+    <section class="step" data-id="trackingMethod" hidden>
+      <p class="step-label">Phase 2 · Where You're At</p>
+      <h2 class="q-heading" tabindex="-1">How are you currently tracking your routine?</h2>
+      <ul class="q-options" data-select="single" data-var="trackingMethod">
+        <li><button class="q-opt" type="button" data-value="notes">Notes app</button></li>
+        <li><button class="q-opt" type="button" data-value="spreadsheet">Spreadsheet</button></li>
+        <li><button class="q-opt" type="button" data-value="memory">Memory - nothing formal</button></li>
+        <li><button class="q-opt" type="button" data-value="other-app">Another app</button></li>
+      </ul>
+    </section>
+
+    <!-- duration -->
+    <section class="step" data-id="duration" hidden>
+      <p class="step-label">Phase 2 · Where You're At</p>
+      <h2 class="q-heading" tabindex="-1">How long have you been tracking this way?</h2>
+      <ul class="q-options" data-select="single" data-var="duration">
+        <li><button class="q-opt" type="button" data-value="new">Just getting started</button></li>
+        <li><button class="q-opt" type="button" data-value="weeks">A few weeks</button></li>
+        <li><button class="q-opt" type="button" data-value="months">A few months</button></li>
+        <li><button class="q-opt" type="button" data-value="long-term">6 months or more</button></li>
+      </ul>
+    </section>
+
+    <!-- painPoint -->
+    <section class="step" data-id="painPoint" hidden>
+      <p class="step-label">Phase 2 · Where You're At</p>
+      <h2 class="q-heading" tabindex="-1">What's your biggest pain point right now?</h2>
       <ul class="q-options" data-select="single" data-var="painPoint">
         <li><button class="q-opt" type="button" data-value="forgot"><span class="q-opt-icon">❓</span> Forgetting if I already took a dose</button></li>
         <li><button class="q-opt" type="button" data-value="juggling"><span class="q-opt-icon">🤹</span> Juggling multiple schedules</button></li>
@@ -326,95 +303,85 @@
       </ul>
     </section>
 
-    <!-- ── S2: How many peptides ── -->
-    <section class="step" data-step="2" hidden>
-      <h2 class="q-heading" tabindex="-1">How many peptides are you currently tracking?</h2>
-      <ul class="q-options" data-select="single" data-var="peptideCount">
-        <li><button class="q-opt" type="button" data-value="1">Just one</button></li>
-        <li><button class="q-opt" type="button" data-value="2-3">2-3</button></li>
-        <li><button class="q-opt" type="button" data-value="4+">4 or more</button></li>
-        <li><button class="q-opt" type="button" data-value="just-starting">Just starting out</button></li>
-      </ul>
-    </section>
-
-    <!-- ── S3: Current method ── -->
-    <section class="step" data-step="3" hidden>
-      <h2 class="q-heading" tabindex="-1">How are you currently tracking your routine?</h2>
-      <ul class="q-options" data-select="single" data-var="trackingMethod">
-        <li><button class="q-opt" type="button" data-value="notes">Notes app</button></li>
-        <li><button class="q-opt" type="button" data-value="spreadsheet">Spreadsheet</button></li>
-        <li><button class="q-opt" type="button" data-value="memory">Memory - nothing formal</button></li>
-        <li><button class="q-opt" type="button" data-value="other-app">Another app</button></li>
-      </ul>
-    </section>
-
-    <!-- ── S4: Reminders check ── -->
-    <section class="step" data-step="4" hidden>
-      <h2 class="q-heading" tabindex="-1">Do you currently use reminders to stay on schedule?</h2>
-      <ul class="q-options" data-select="single" data-var="usesReminders">
-        <li><button class="q-opt" type="button" data-value="yes">Yes</button></li>
-        <li><button class="q-opt" type="button" data-value="sometimes">Sometimes</button></li>
-        <li><button class="q-opt" type="button" data-value="no">No</button></li>
-      </ul>
-    </section>
-
-    <!-- ── S5: Building your plan ── -->
-    <section class="step" data-step="5" hidden>
-      <div class="q-build">
-        <div class="q-build-ring">
-          <svg viewBox="0 0 116 116" aria-hidden="true">
-            <circle class="q-build-track" cx="58" cy="58" r="52" />
-            <circle class="q-build-fill" id="buildFill" cx="58" cy="58" r="52" />
-          </svg>
-          <div class="q-build-pct" id="buildPct">0%</div>
+    <!-- buildPreview (auto-advance) -->
+    <section class="step" data-id="buildPreview" hidden>
+      <div class="q-center">
+        <h2 class="q-heading" tabindex="-1">Building your routine preview…</h2>
+        <div class="q-week" id="buildWeek">
+          <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot" data-day="0"></span></div>
+          <div class="q-week-day"><span class="q-week-label">M</span><span class="q-week-slot" data-day="1"></span></div>
+          <div class="q-week-day"><span class="q-week-label">T</span><span class="q-week-slot" data-day="2"></span></div>
+          <div class="q-week-day"><span class="q-week-label">W</span><span class="q-week-slot" data-day="3"></span></div>
+          <div class="q-week-day"><span class="q-week-label">T</span><span class="q-week-slot" data-day="4"></span></div>
+          <div class="q-week-day"><span class="q-week-label">F</span><span class="q-week-slot" data-day="5"></span></div>
+          <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot" data-day="6"></span></div>
         </div>
-        <h2 class="q-build-title" tabindex="-1">Building your routine plan</h2>
-        <div class="q-build-list">
-          <div class="q-build-item"><span class="q-build-check"></span> Reviewing your answers</div>
-          <div class="q-build-item"><span class="q-build-check"></span> Mapping your dose schedule</div>
-          <div class="q-build-item"><span class="q-build-check"></span> Setting up your reminders</div>
-          <div class="q-build-item"><span class="q-build-check"></span> Finalizing your plan</div>
-        </div>
+        <p class="q-build-caption">Based on what you've told us so far.</p>
       </div>
     </section>
 
-    <!-- ── S6: Complexity result / chaos-vs-clarity ── -->
-    <section class="step" data-step="6" hidden>
-      <span class="q-badge" id="complexityBadge">Routine complexity: Moderate</span>
-      <h2 class="q-heading" tabindex="-1">Your routine, organized.</h2>
-      <p class="q-profile-summary" id="complexitySummary"></p>
+    <!-- ══ PHASE 3 — What's Been Hard ══ -->
 
-      <div class="q-compare">
-        <div class="q-compare-col">
-          <p class="q-compare-label">Now</p>
-          <div class="q-chaos">
-            <span class="q-chaos-tag" style="top:12px;left:10px;transform:rotate(-6deg)">Notes app</span>
-            <span class="q-chaos-tag" style="top:40px;left:70px;transform:rotate(5deg)">Mon?</span>
-            <span class="q-chaos-tag" style="top:30px;left:14px;transform:rotate(3deg)">Calendar</span>
-            <span class="q-chaos-tag" style="top:74px;left:44px;transform:rotate(-4deg)">did I?</span>
-            <span class="q-chaos-tag" style="top:96px;left:12px;transform:rotate(7deg)">Spreadsheet</span>
-            <span class="q-chaos-tag" style="top:120px;left:56px;transform:rotate(-5deg)">Memory</span>
-            <span class="q-chaos-tag" style="top:60px;left:96px;transform:rotate(8deg)">Wed?</span>
-          </div>
-        </div>
-        <div class="q-compare-col">
-          <p class="q-compare-label">With PepTrack</p>
-          <div class="q-clarity">
-            <div class="q-clarity-row"><span class="q-clarity-dot"></span> Dose logged <span class="q-clarity-time">8:00 AM</span></div>
-            <div class="q-clarity-row"><span class="q-clarity-dot"></span> Reminder set <span class="q-clarity-time">Today</span></div>
-            <div class="q-clarity-row"><span class="q-clarity-dot"></span> Next dose <span class="q-clarity-time">Wed</span></div>
-          </div>
-        </div>
-      </div>
-
-      <button class="q-skip next-button" type="button">See how it works →</button>
+    <!-- deep-dive: consistency cluster (forgot / logging / unsure) -->
+    <section class="step" data-id="deepdive-consistency" hidden>
+      <p class="step-label">Phase 3 · What's Been Hard</p>
+      <h2 class="q-heading" tabindex="-1">What usually gets in the way?</h2>
+      <ul class="q-options" data-select="single" data-var="painDetail">
+        <li><button class="q-opt" type="button" data-value="timing"><span class="q-opt-icon">🕐</span> I lose track of the day or time</button></li>
+        <li><button class="q-opt" type="button" data-value="no-reminder"><span class="q-opt-icon">🔕</span> I forget without a visible reminder</button></li>
+        <li><button class="q-opt" type="button" data-value="busy"><span class="q-opt-icon">🌀</span> Life gets busy and it slips</button></li>
+        <li><button class="q-opt" type="button" data-value="unclear"><span class="q-opt-icon">🤷</span> Not sure — it just happens</button></li>
+      </ul>
     </section>
 
-    <!-- ── S7: How it works ── -->
-    <section class="step" data-step="7" hidden>
-      <h2 class="q-heading" tabindex="-1">See your whole routine at a glance.</h2>
-      <p class="q-body">Every dose, schedule, and reminder in one timeline - so you always know what you've logged, what's coming up, and what's still active.</p>
+    <!-- deep-dive: consolidation cluster (juggling / scattered) -->
+    <section class="step" data-id="deepdive-consolidation" hidden>
+      <p class="step-label">Phase 3 · What's Been Hard</p>
+      <h2 class="q-heading" tabindex="-1">What makes it hardest to keep straight?</h2>
+      <ul class="q-options" data-select="single" data-var="painDetail">
+        <li><button class="q-opt" type="button" data-value="scattered-tools"><span class="q-opt-icon">🗂️</span> Too many places to check</button></li>
+        <li><button class="q-opt" type="button" data-value="overlapping"><span class="q-opt-icon">🔀</span> Schedules that don't line up</button></li>
+        <li><button class="q-opt" type="button" data-value="switching"><span class="q-opt-icon">🔁</span> Switching between apps and notes</button></li>
+        <li><button class="q-opt" type="button" data-value="no-overview"><span class="q-opt-icon">🧩</span> No single view of everything</button></li>
+      </ul>
+    </section>
 
+    <!-- deep-dive: visibility cluster (active) -->
+    <section class="step" data-id="deepdive-visibility" hidden>
+      <p class="step-label">Phase 3 · What's Been Hard</p>
+      <h2 class="q-heading" tabindex="-1">What's hardest to tell at a glance?</h2>
+      <ul class="q-options" data-select="single" data-var="painDetail">
+        <li><button class="q-opt" type="button" data-value="still-active"><span class="q-opt-icon">⏳</span> Whether something's still active</button></li>
+        <li><button class="q-opt" type="button" data-value="next-dose"><span class="q-opt-icon">⏰</span> When the next dose is due</button></li>
+        <li><button class="q-opt" type="button" data-value="last-logged"><span class="q-opt-icon">🕓</span> How long ago I last logged</button></li>
+        <li><button class="q-opt" type="button" data-value="big-picture"><span class="q-opt-icon">🔭</span> The overall picture, not one dose</button></li>
+      </ul>
+    </section>
+
+    <!-- how we help: consistency 1/2 -->
+    <section class="step" data-id="help-consistency-1" hidden>
+      <p class="step-label">Phase 3 · What's Been Hard</p>
+      <h2 class="q-heading" tabindex="-1">A reminder that's actually hard to miss.</h2>
+      <p class="q-body">PepTrack surfaces your next dose the moment you open the app — no digging through notes or guessing. If it's due, you'll see it first.</p>
+      <div class="q-clarity">
+        <div class="q-clarity-row"><span class="q-clarity-dot"></span> Next dose <span class="q-clarity-time">8:00 AM</span></div>
+        <div class="q-clarity-row"><span class="q-clarity-dot"></span> Reminder set <span class="q-clarity-time">Today</span></div>
+        <div class="q-clarity-row"><span class="q-clarity-dot"></span> Last logged <span class="q-clarity-time">Yesterday</span></div>
+      </div>
+      <div class="q-nav"><button class="q-next" type="button">Next</button></div>
+    </section>
+    <section class="step" data-id="help-consistency-2" hidden>
+      <p class="step-label">Phase 3 · What's Been Hard</p>
+      <h2 class="q-heading" tabindex="-1">One tap, logged for good.</h2>
+      <p class="q-body">Marking a dose done takes one tap. No more wondering an hour later whether you actually took it — it's right there, timestamped.</p>
+      <div class="q-nav"><button class="q-next" type="button">Next</button></div>
+    </section>
+
+    <!-- how we help: consolidation 1/2 -->
+    <section class="step" data-id="help-consolidation-1" hidden>
+      <p class="step-label">Phase 3 · What's Been Hard</p>
+      <h2 class="q-heading" tabindex="-1">Every schedule, one timeline.</h2>
+      <p class="q-body">However many peptides you're running, PepTrack lines up every schedule in a single view — so nothing gets missed because it was on a different list.</p>
       <div class="q-week">
         <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot"></span></div>
         <div class="q-week-day"><span class="q-week-label">M</span><span class="q-week-slot on"></span></div>
@@ -424,25 +391,73 @@
         <div class="q-week-day"><span class="q-week-label">F</span><span class="q-week-slot on"></span></div>
         <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot"></span></div>
       </div>
+      <div class="q-nav"><button class="q-next" type="button">Next</button></div>
+    </section>
+    <section class="step" data-id="help-consolidation-2" hidden>
+      <p class="step-label">Phase 3 · What's Been Hard</p>
+      <h2 class="q-heading" tabindex="-1">Nothing to switch between.</h2>
+      <p class="q-body">Replace the notes app, the spreadsheet, and the sticky notes with one place that actually stays in sync with what you're doing.</p>
+      <div class="q-nav"><button class="q-next" type="button">Next</button></div>
+    </section>
 
-      <p class="q-body">One clean system instead of a mix of apps, notes, and memory.</p>
-      <div class="q-nav">
-        <button class="q-next" type="button">Next</button>
+    <!-- how we help: visibility 1/2 -->
+    <section class="step" data-id="help-visibility-1" hidden>
+      <p class="step-label">Phase 3 · What's Been Hard</p>
+      <h2 class="q-heading" tabindex="-1">Know what's still active, instantly.</h2>
+      <p class="q-body">PepTrack tracks what's currently active based on what you've logged, so you're never guessing whether something's still in effect.</p>
+      <div class="q-clarity">
+        <div class="q-clarity-row"><span class="q-clarity-dot"></span> Still active <span class="q-clarity-time">Yes</span></div>
+        <div class="q-clarity-row"><span class="q-clarity-dot"></span> Next dose <span class="q-clarity-time">Wed</span></div>
+        <div class="q-clarity-row"><span class="q-clarity-dot"></span> Last logged <span class="q-clarity-time">2 days ago</span></div>
+      </div>
+      <div class="q-nav"><button class="q-next" type="button">Next</button></div>
+    </section>
+    <section class="step" data-id="help-visibility-2" hidden>
+      <p class="step-label">Phase 3 · What's Been Hard</p>
+      <h2 class="q-heading" tabindex="-1">Your whole routine, at a glance.</h2>
+      <p class="q-body">One screen shows what's done, what's next, and what's still active — the full picture instead of one dose at a time.</p>
+      <div class="q-nav"><button class="q-next" type="button">Next</button></div>
+    </section>
+
+    <!-- trust -->
+    <section class="step" data-id="trust" hidden>
+      <div class="q-center">
+        <h2 class="q-heading" tabindex="-1">Built for people running real routines.</h2>
+        <div class="q-stars">★★★★★</div>
+        <p class="q-quote">"Nice simple UI. So far it's been easy to add new items and schedules, seems to do exactly what it's supposed to do."</p>
+        <p class="q-cta-hint">— Waitingforanswers, App Store</p>
+        <div class="q-nav"><button class="q-next" type="button">Continue</button></div>
       </div>
     </section>
 
-    <!-- ── S8: Handoff ── -->
-    <section class="step" data-step="8" hidden>
+    <!-- ready (dark theme starts here) -->
+    <section class="step" data-id="ready" hidden>
       <div class="q-ready">
         <img class="q-ready-logo" src="/peptrack-icon.png" alt="" width="84" height="84" />
         <h2 class="q-heading" style="text-align:center" tabindex="-1">Your PepTrack Routine Is Ready</h2>
+        <div class="q-week" id="readyWeek">
+          <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot" data-day="0"></span></div>
+          <div class="q-week-day"><span class="q-week-label">M</span><span class="q-week-slot" data-day="1"></span></div>
+          <div class="q-week-day"><span class="q-week-label">T</span><span class="q-week-slot" data-day="2"></span></div>
+          <div class="q-week-day"><span class="q-week-label">W</span><span class="q-week-slot" data-day="3"></span></div>
+          <div class="q-week-day"><span class="q-week-label">T</span><span class="q-week-slot" data-day="4"></span></div>
+          <div class="q-week-day"><span class="q-week-label">F</span><span class="q-week-slot" data-day="5"></span></div>
+          <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot" data-day="6"></span></div>
+        </div>
         <div class="q-ready-list">
           <div class="q-ready-item"><span class="q-ready-tick">✓</span> Dose schedule mapped</div>
           <div class="q-ready-item"><span class="q-ready-tick">✓</span> Reminders configured</div>
           <div class="q-ready-item"><span class="q-ready-tick">✓</span> Routine timeline ready</div>
         </div>
-        <a class="q-cta" id="checkoutLink" href="https://peptrack.superwall.app/web-onboarding">Start Tracking →</a>
-        <p class="q-cta-hint">Set up in under 5 minutes</p>
+        <div class="q-nav"><button class="q-next" type="button">Continue</button></div>
+      </div>
+    </section>
+
+    <!-- transition (one line, manual tap, fires its own event before checkout) -->
+    <section class="step" data-id="transition" hidden>
+      <div class="q-ready">
+        <h2 class="q-heading" style="text-align:center" tabindex="-1">Let's get you set up.</h2>
+        <a class="q-cta" id="checkoutLink" href="https://peptrack.superwall.app/web-onboarding">Continue →</a>
         <p class="q-disclaimer">PepTrack is a tracking tool, not medical advice, and is not affiliated with any drug or pharmaceutical manufacturer.</p>
       </div>
     </section>
@@ -452,13 +467,43 @@
   <script>
     (function () {
       var answers = {
-        painPoint: '', peptideCount: '', trackingMethod: '', usesReminders: ''
+        peptideCount: '', scheduleComplexity: '', goal: '', trackingMethod: '',
+        duration: '', painPoint: '', painDetail: '', _goalPrefilled: false
       };
 
-      var TOTAL = 8;
-      var cur = 0;
       var steps = Array.prototype.slice.call(document.querySelectorAll('.step'));
       var bar = document.getElementById('progressBar');
+      var progressBack = document.getElementById('progressBack');
+      var curId = null;
+
+      function clusterFor(pp) {
+        if (pp === 'juggling' || pp === 'scattered') return 'consolidation';
+        if (pp === 'active') return 'visibility';
+        return 'consistency'; // forgot, logging, unsure, and any unmapped fallback
+      }
+
+      var STEPS = [
+        { id: 'peptideCount' },
+        { id: 'scheduleComplexity' },
+        { id: 'goal', visible: function (a) { return !a._goalPrefilled; } },
+        { id: 'reflection', onEnter: buildReflection },
+        { id: 'trackingMethod' },
+        { id: 'duration' },
+        { id: 'painPoint' },
+        { id: 'buildPreview', onEnter: runBuildPreview },
+        { id: 'deepdive-consistency', visible: function (a) { return clusterFor(a.painPoint) === 'consistency'; } },
+        { id: 'deepdive-consolidation', visible: function (a) { return clusterFor(a.painPoint) === 'consolidation'; } },
+        { id: 'deepdive-visibility', visible: function (a) { return clusterFor(a.painPoint) === 'visibility'; } },
+        { id: 'help-consistency-1', visible: function (a) { return clusterFor(a.painPoint) === 'consistency'; } },
+        { id: 'help-consistency-2', visible: function (a) { return clusterFor(a.painPoint) === 'consistency'; } },
+        { id: 'help-consolidation-1', visible: function (a) { return clusterFor(a.painPoint) === 'consolidation'; } },
+        { id: 'help-consolidation-2', visible: function (a) { return clusterFor(a.painPoint) === 'consolidation'; } },
+        { id: 'help-visibility-1', visible: function (a) { return clusterFor(a.painPoint) === 'visibility'; } },
+        { id: 'help-visibility-2', visible: function (a) { return clusterFor(a.painPoint) === 'visibility'; } },
+        { id: 'trust' },
+        { id: 'ready', onEnter: enterReady },
+        { id: 'transition' }
+      ];
 
       var checkoutLink = document.getElementById('checkoutLink');
       var query = window.location.search;
@@ -469,7 +514,7 @@
       }
       if (query) {
         var params = new URLSearchParams(query);
-        var reserved = ['email', 'uid', 'user', 'app_user_id', 'pp'];
+        var reserved = ['email', 'uid', 'user', 'app_user_id', 'goal'];
         params.forEach(function (v, k) {
           if (reserved.indexOf(k.toLowerCase()) === -1) checkoutUrl.searchParams.append(k, v);
         });
@@ -478,18 +523,9 @@
       checkoutLink.href = checkoutUrl.toString();
 
       // ── PostHog (web-quiz diagnostics) ──
-      // Separate namespace from the app's peptrack_onboarding_* events.
-      var phFired = { start: false, complete: false };
-      var stepEnterTime = null;
-      var screenNames = [
-        'pain_point', 'peptide_count', 'current_method', 'reminders',
-        'building_plan', 'complexity_result', 'how_it_works', 'ready_paywall'
-      ];
-
       function phReady() { return typeof posthog !== 'undefined' && typeof posthog.capture === 'function'; }
       function phCapture(event, props) { if (phReady()) { try { posthog.capture(event, props || {}); } catch (e) {} } }
 
-      // Attach funnel context (landing page, UTMs) to every event.
       (function registerFunnelContext() {
         if (!phReady()) return;
         var ctx = { platform: 'web' };
@@ -502,6 +538,9 @@
         } catch (e) {}
         try { posthog.register(ctx); } catch (e) {}
       }());
+
+      var phFired = { start: false, complete: false, paywallContinue: false };
+      var stepEnterTime = null;
 
       function trackWebquizStart() {
         if (phFired.start) return;
@@ -517,19 +556,26 @@
         phCapture('peptrack_webquiz_completed');
       }
 
-      function trackWebquizScreen(i) {
+      // Distinct from "completed the questions" — fires only when the user
+      // taps through the post-reveal transition screen toward checkout, so we
+      // can tell a technical paywall failure apart from a real choice to stop.
+      function trackPaywallContinue() {
+        if (phFired.paywallContinue) return;
+        phFired.paywallContinue = true;
+        phCapture('peptrack_webquiz_paywall_continue_clicked', { pain_cluster: clusterFor(answers.painPoint) });
+      }
+
+      function trackWebquizScreen(idx, id, pathLength) {
         var now = Date.now();
-        var props = { step_number: i + 1, step_name: screenNames[i] || ('step_' + (i + 1)) };
+        var props = { step_number: idx + 1, step_name: id, path_length: pathLength };
+        if (answers.painPoint) props.pain_cluster = clusterFor(answers.painPoint);
         if (stepEnterTime !== null) props.prev_step_duration_ms = now - stepEnterTime;
         stepEnterTime = now;
         phCapture('peptrack_webquiz_screen_reached', props);
       }
 
       // ── Meta events ──
-      // Each fires at most once. The in-memory flag covers back/forward inside
-      // the quiz; sessionStorage covers leaving and re-entering (e.g. back to
-      // the landing page, then into the quiz again) within the same tab.
-      var pixelFired = { start: false, complete: false };
+      var pixelFired = { start: false, complete: false, paywallContinue: false };
 
       function fireOnce(memKey, storeKey, fire) {
         if (pixelFired[memKey]) return;
@@ -543,33 +589,61 @@
       }
 
       function trackQuizStart() {
-        fireOnce('start', 'peptrackQuizStarted', function () {
-          fbq('trackCustom', 'QuizStart');
-        });
+        fireOnce('start', 'peptrackQuizStarted', function () { fbq('trackCustom', 'QuizStart'); });
       }
-
       function trackQuizComplete() {
-        fireOnce('complete', 'peptrackQuizCompleted', function () {
-          fbq('track', 'CompleteRegistration');
-        });
+        fireOnce('complete', 'peptrackQuizCompleted', function () { fbq('track', 'CompleteRegistration'); });
+      }
+      function trackMetaPaywallContinue() {
+        fireOnce('paywallContinue', 'peptrackPaywallContinueClicked', function () { fbq('trackCustom', 'PaywallContinueClicked'); });
       }
 
-      function show(i) {
-        steps.forEach(function (s, idx) { s.hidden = idx !== i; });
-        cur = i;
-        bar.style.width = ((i + 1) / TOTAL * 100) + '%';
-        document.getElementById('progressBack').hidden = i === 0;
-        var h = steps[i].querySelector('h1, h2');
+      // ── Engine: dynamic, branch-aware step sequence ──
+      function visibleSteps() {
+        return STEPS.filter(function (s) { return !s.visible || s.visible(answers); });
+      }
+      function findStepDef(id) {
+        for (var i = 0; i < STEPS.length; i++) if (STEPS[i].id === id) return STEPS[i];
+        return null;
+      }
+      function currentVisibleIndex(vis) {
+        for (var i = 0; i < vis.length; i++) if (vis[i].id === curId) return i;
+        return 0;
+      }
+
+      function show(id) {
+        curId = id;
+        steps.forEach(function (s) { s.hidden = s.dataset.id !== id; });
+
+        var vis = visibleSteps();
+        var idx = currentVisibleIndex(vis);
+        bar.style.width = ((idx + 1) / vis.length * 100) + '%';
+        progressBack.hidden = idx === 0;
+
+        var active = document.querySelector('.step[data-id="' + id + '"]');
+        var h = active.querySelector('h1, h2');
         if (h) h.focus();
         window.scrollTo(0, 0);
-        trackWebquizScreen(i);
-        if (i === 4) runLoader();
-        if (i === 5) buildComplexity();
-        if (i === TOTAL - 1) { trackQuizComplete(); trackWebquizComplete(); }
+
+        if (id !== 'ready' && id !== 'transition') document.body.classList.remove('theme-dark');
+
+        trackWebquizScreen(idx, id, vis.length);
+        if (id === 'ready') { trackQuizComplete(); trackWebquizComplete(); }
+
+        var def = findStepDef(id);
+        if (def && def.onEnter) def.onEnter();
       }
 
-      function advance() { if (cur < TOTAL - 1) show(cur + 1); }
-      function goBack() { if (cur > 0) show(cur === 5 ? 3 : cur - 1); }
+      function advance() {
+        var vis = visibleSteps();
+        var idx = currentVisibleIndex(vis);
+        if (idx < vis.length - 1) show(vis[idx + 1].id);
+      }
+      function goBack() {
+        var vis = visibleSteps();
+        var idx = currentVisibleIndex(vis);
+        if (idx > 0) show(vis[idx - 1].id);
+      }
 
       document.querySelectorAll('[data-select="single"]').forEach(function (list) {
         var btns = list.querySelectorAll('.q-opt, .q-band');
@@ -583,96 +657,113 @@
         });
       });
 
-      document.querySelectorAll('[data-select="multi"]').forEach(function (list) {
-        list.querySelectorAll('.q-opt').forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            btn.classList.toggle('selected');
-            answers[list.dataset.var] = Array.prototype.slice.call(
-              list.querySelectorAll('.q-opt.selected')
-            ).map(function (b) { return b.dataset.value; });
-          });
-        });
-      });
-
       document.querySelectorAll('.q-next, .next-button').forEach(function (b) { b.addEventListener('click', advance); });
-      document.querySelectorAll('.q-back').forEach(function (b) { b.addEventListener('click', goBack); });
-
-      var progressBack = document.getElementById('progressBack');
       progressBack.addEventListener('click', goBack);
 
-      var buildTimer = null;
+      checkoutLink.addEventListener('click', function () {
+        trackPaywallContinue();
+        trackMetaPaywallContinue();
+      });
 
-      function runLoader() {
-        var items = Array.prototype.slice.call(document.querySelectorAll('.q-build-item'));
-        var fill = document.getElementById('buildFill');
-        var pct = document.getElementById('buildPct');
-        var CIRC = 2 * Math.PI * 52;
-        var DURATION = 4600;
-
-        if (buildTimer) clearInterval(buildTimer);
-        items.forEach(function (el) { el.classList.remove('active', 'done'); });
-        fill.style.strokeDasharray = CIRC;
-        fill.style.strokeDashoffset = CIRC;
-        pct.textContent = '0%';
-
-        var start = Date.now();
-        var perStep = DURATION / items.length;
-
-        buildTimer = setInterval(function () {
-          var elapsed = Date.now() - start;
-          var p = Math.min(elapsed / DURATION, 1);
-
-          pct.textContent = Math.round(p * 100) + '%';
-          fill.style.strokeDashoffset = CIRC * (1 - p);
-
-          var idx = Math.min(Math.floor(elapsed / perStep), items.length - 1);
-          items.forEach(function (el, i) {
-            el.classList.remove('active');
-            if (i < idx) el.classList.add('done');
-          });
-
-          if (p >= 1) {
-            items.forEach(function (el) { el.classList.add('done'); });
-            clearInterval(buildTimer);
-            buildTimer = null;
-            setTimeout(function () { if (cur === 4) advance(); }, 550);
-          } else {
-            items[idx].classList.add('active');
-          }
-        }, 40);
+      // ── Building preview: mini week strip fills in based on answers so far ──
+      function previewPattern() {
+        if (answers.peptideCount === '4+' || answers.scheduleComplexity === 'complex') {
+          return [false, true, true, true, true, true, false];
+        }
+        if (answers.peptideCount === 'just-starting') {
+          return [false, true, false, false, false, false, false];
+        }
+        return [false, true, false, true, false, true, false];
       }
 
+      function renderWeek(containerId, animate) {
+        var el = document.getElementById(containerId);
+        if (!el) return;
+        var pattern = previewPattern();
+        var slots = Array.prototype.slice.call(el.querySelectorAll('.q-week-slot'));
+        slots.forEach(function (s) { s.classList.remove('on'); });
+
+        if (!animate) {
+          slots.forEach(function (s, i) { if (pattern[i]) s.classList.add('on'); });
+          return;
+        }
+        var order = 0;
+        pattern.forEach(function (on, i) {
+          if (!on) return;
+          order++;
+          setTimeout(function () { slots[i].classList.add('on'); }, 260 * order);
+        });
+      }
+
+      var buildPreviewTimer = null;
+      function runBuildPreview() {
+        renderWeek('buildWeek', true);
+        var onCount = previewPattern().filter(Boolean).length;
+        var totalDelay = 260 * onCount + 700;
+        if (buildPreviewTimer) clearTimeout(buildPreviewTimer);
+        buildPreviewTimer = setTimeout(function () {
+          if (curId === 'buildPreview') advance();
+        }, totalDelay);
+      }
+
+      function enterReady() {
+        document.body.classList.add('theme-dark');
+        renderWeek('readyWeek', false);
+      }
+
+      // ── Reflection copy: acknowledges answers gathered in Phase 1 ──
       var complexityMap = {
         '1': { level: 'Simple', line: 'One peptide is easy to manage now - reminders and clean logging keep it that way as your routine grows.' },
         '2-3': { level: 'Moderate', line: 'A few peptides on different schedules is exactly where things start to slip. PepTrack keeps them straight.' },
         '4+': { level: 'Advanced', line: 'Four or more peptides means multiple schedules and logs to juggle. This is where one clean system pays off most.' },
         'just-starting': { level: 'Getting started', line: 'Starting fresh is the best time to build a system - before the schedules pile up.' }
       };
+      var countLabels = {
+        '1': 'One peptide',
+        '2-3': 'A couple of peptides',
+        '4+': 'Several peptides',
+        'just-starting': 'A routine you’re just starting'
+      };
+      var complexityLabels = {
+        simple: 'a same-time-every-day',
+        mixed: 'a mixed-timing',
+        complex: 'a multi-cycle',
+        unsure: 'a schedule you’re still figuring out'
+      };
+      var goalLabels = {
+        'never-miss': 'never missing a dose',
+        'stay-consistent': 'staying consistent long-term',
+        'see-whats-working': 'seeing what’s actually working',
+        'simplify': 'simplifying a complicated routine'
+      };
 
-      function buildComplexity() {
+      function buildReflection() {
         var c = complexityMap[answers.peptideCount] || complexityMap['2-3'];
-        document.getElementById('complexityBadge').textContent = 'Routine complexity: ' + c.level;
-        document.getElementById('complexitySummary').textContent = c.line;
+        document.getElementById('reflectionBadge').textContent = 'Routine complexity: ' + c.level;
+
+        var countText = countLabels[answers.peptideCount] || 'Your routine';
+        var complexityText = complexityLabels[answers.scheduleComplexity] || 'a';
+        var goalText = goalLabels[answers.goal] || 'getting more organized';
+
+        document.getElementById('reflectionSummary').textContent =
+          countText + ', on ' + complexityText + ' schedule — and what matters most to you is ' +
+          goalText + '. Let’s look at how you’re managing that today.';
       }
 
-      // Optional pre-answered pain point handed off from an embedded landing
-      // question (/quiz). Backward-compatible: no param -> normal start at screen 1.
-      var startIndex = 0;
+      // Optional pre-answered goal handed off from the embedded landing
+      // question (/quiz). Backward-compatible: no param -> goal asked normally.
       try {
-        var ppRaw = new URLSearchParams(window.location.search).get('pp');
-        var validPain = ['forgot', 'juggling', 'active', 'logging', 'scattered', 'unsure'];
-        if (ppRaw && validPain.indexOf(ppRaw) !== -1) {
-          answers.painPoint = ppRaw;
-          startIndex = 1;
-          var s1btn = document.querySelector('[data-var="painPoint"] .q-opt[data-value="' + ppRaw + '"]');
-          if (s1btn) s1btn.classList.add('selected');
+        var goalRaw = new URLSearchParams(window.location.search).get('goal');
+        var validGoals = ['never-miss', 'stay-consistent', 'see-whats-working', 'simplify'];
+        if (goalRaw && validGoals.indexOf(goalRaw) !== -1) {
+          answers.goal = goalRaw;
+          answers._goalPrefilled = true;
         }
       } catch (e) {}
 
       trackQuizStart();
       trackWebquizStart();
-      if (startIndex === 1) trackWebquizScreen(0); // record step 1 (answered on the landing page)
-      show(startIndex);
+      show('peptideCount');
     }());
   </script>
 </body>

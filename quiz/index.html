@@ -78,13 +78,6 @@
       padding: 0 24px;
       width: 100%;
     }
-    .lpq-prompt {
-      margin: 0 0 14px;
-      text-align: center;
-      font-size: 19px;
-      font-weight: 800;
-      color: rgba(0,0,0,.55);
-    }
     .lpq-options {
       list-style: none;
       margin: 0;
@@ -233,20 +226,17 @@
         </div>
       </nav>
       <div class="lpq-hero-inner">
-        <h1>Let's get your peptide routine organized.</h1>
+        <h1>What's your main goal?</h1>
       </div>
     </header>
 
     <!-- Embedded first question -->
     <main class="lpq-quiz">
-      <p class="lpq-prompt">What do you struggle with most?</p>
       <ul class="lpq-options">
-        <li><button class="lpq-opt" type="button" data-value="forgot"><span class="lpq-opt-icon">❓</span> Forgetting if I already took a dose <span class="lpq-opt-arrow">→</span></button></li>
-        <li><button class="lpq-opt" type="button" data-value="juggling"><span class="lpq-opt-icon">🤹</span> Juggling multiple schedules <span class="lpq-opt-arrow">→</span></button></li>
-        <li><button class="lpq-opt" type="button" data-value="active"><span class="lpq-opt-icon">⏳</span> Can't tell what's still active <span class="lpq-opt-arrow">→</span></button></li>
-        <li><button class="lpq-opt" type="button" data-value="logging"><span class="lpq-opt-icon">📋</span> Inconsistent logging <span class="lpq-opt-arrow">→</span></button></li>
-        <li><button class="lpq-opt" type="button" data-value="scattered"><span class="lpq-opt-icon">🗂️</span> A mix of apps, notes, and spreadsheets <span class="lpq-opt-arrow">→</span></button></li>
-        <li><button class="lpq-opt" type="button" data-value="unsure"><span class="lpq-opt-icon">👀</span> Not sure yet <span class="lpq-opt-arrow">→</span></button></li>
+        <li><button class="lpq-opt" type="button" data-value="never-miss"><span class="lpq-opt-icon">🔔</span> Never miss a dose <span class="lpq-opt-arrow">→</span></button></li>
+        <li><button class="lpq-opt" type="button" data-value="stay-consistent"><span class="lpq-opt-icon">📅</span> Stay consistent long-term <span class="lpq-opt-arrow">→</span></button></li>
+        <li><button class="lpq-opt" type="button" data-value="see-whats-working"><span class="lpq-opt-icon">📈</span> See what's actually working <span class="lpq-opt-arrow">→</span></button></li>
+        <li><button class="lpq-opt" type="button" data-value="simplify"><span class="lpq-opt-icon">🧩</span> Simplify a complicated routine <span class="lpq-opt-arrow">→</span></button></li>
       </ul>
       <p class="lpq-hint">Takes 2 minutes &middot; Free to start</p>
     </main>
@@ -342,11 +332,11 @@
         sessionStorage.setItem('peptrackLandingPath', '/quiz/');
       } catch (e) {}
 
-      // Embedded question: tapping an answer carries it into the quiz (skips screen 1).
+      // Embedded question: tapping an answer carries it into the quiz (skips the goal question).
       document.querySelectorAll('.lpq-opt').forEach(function (btn) {
         btn.addEventListener('click', function () {
-          var pp = btn.getAttribute('data-value');
-          var params = 'pp=' + encodeURIComponent(pp) + (incoming ? '&' + incoming : '');
+          var goal = btn.getAttribute('data-value');
+          var params = 'goal=' + encodeURIComponent(goal) + (incoming ? '&' + incoming : '');
           window.location.href = '/onboarding/?' + params;
         });
       });
