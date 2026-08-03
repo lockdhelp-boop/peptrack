@@ -3,15 +3,15 @@
 }
 
 :root {
-  color-scheme: dark;
-  --bg: #080a0f;
-  --panel: #0d1017;
-  --border: rgba(255,255,255,.1);
-  --text: #ffffff;
-  --muted: #9aa3b2;
+  color-scheme: light;
+  --bg: #f4f1ea;
+  --panel: #ffffff;
+  --border: rgba(0,0,0,.1);
+  --text: #1c1f26;
+  --muted: #5f646e;
   --accent: #2563eb;
   --accent-hover: #1d4ed8;
-  --green: #22c55e;
+  --green: #16a34a;
   --green-dim: rgba(34,197,94,.12);
 }
 
@@ -64,6 +64,7 @@ a {
   width: 38px;
   height: 38px;
   border-radius: 9px;
+  background: #1c1f26;
 }
 
 .content {
@@ -137,7 +138,7 @@ p {
   margin-bottom: 24px;
   overflow: hidden;
   border-radius: 999px;
-  background: rgba(255,255,255,.08);
+  background: rgba(0,0,0,.08);
 }
 
 .progress span {
@@ -208,7 +209,7 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: #fff;
+  color: #1c1f26;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
@@ -221,6 +222,7 @@ p {
   max-height: 40px;
   border-radius: 9px;
   opacity: 1;
+  background: #1c1f26;
 }
 
 .quiz-progress {
@@ -232,7 +234,7 @@ p {
 .q-progress-back {
   background: none;
   border: none;
-  color: rgba(255,255,255,.5);
+  color: rgba(0,0,0,.5);
   padding: 4px;
   cursor: pointer;
   display: flex;
@@ -249,7 +251,7 @@ p {
   flex: 1;
   height: 5px;
   border-radius: 999px;
-  background: rgba(255,255,255,.1);
+  background: rgba(0,0,0,.1);
   overflow: hidden;
 }
 
@@ -258,7 +260,7 @@ p {
   height: 100%;
   width: 6.67%;
   border-radius: 999px;
-  background: rgba(255,255,255,.85);
+  background: rgba(0,0,0,.85);
   transition: width .3s ease;
 }
 
@@ -291,7 +293,7 @@ p {
 
 .step-label {
   margin: 0 0 16px;
-  color: rgba(255,255,255,.3);
+  color: rgba(0,0,0,.3);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: .03em;
@@ -342,9 +344,9 @@ p {
   display: flex;
   align-items: center;
   gap: 14px;
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid rgba(0,0,0,.08);
   border-radius: 14px;
-  background: rgba(255,255,255,.03);
+  background: rgba(0,0,0,.03);
   color: var(--text);
   font: inherit;
   font-size: 16px;
@@ -356,12 +358,12 @@ p {
 }
 
 .q-opt:active {
-  background: rgba(255,255,255,.07);
+  background: rgba(0,0,0,.07);
 }
 
 .q-opt.selected {
-  border-color: rgba(255,255,255,.5);
-  background: rgba(255,255,255,.06);
+  border-color: rgba(0,0,0,.5);
+  background: rgba(0,0,0,.06);
 }
 
 .q-opt-icon {
@@ -376,7 +378,7 @@ p {
   flex-shrink: 0;
   width: 22px;
   height: 22px;
-  border: 2px solid rgba(255,255,255,.15);
+  border: 2px solid rgba(0,0,0,.15);
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -385,8 +387,8 @@ p {
 }
 
 .q-opt.selected .q-check {
-  border-color: #fff;
-  background: #fff;
+  border-color: #1c1f26;
+  background: #1c1f26;
 }
 
 .q-opt.selected .q-check::after {
@@ -414,7 +416,7 @@ p {
 /* ── Tag input ── */
 
 .q-tag-wrap {
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid rgba(0,0,0,.08);
   border-radius: 14px;
   padding: 12px 14px;
   display: flex;
@@ -422,13 +424,13 @@ p {
   gap: 8px;
   min-height: 56px;
   align-items: center;
-  background: rgba(255,255,255,.03);
+  background: rgba(0,0,0,.03);
   cursor: text;
   transition: border-color .15s;
 }
 
 .q-tag-wrap:focus-within {
-  border-color: rgba(255,255,255,.3);
+  border-color: rgba(0,0,0,.3);
 }
 
 .q-tag {
@@ -437,8 +439,8 @@ p {
   gap: 6px;
   padding: 6px 10px;
   border-radius: 8px;
-  background: rgba(255,255,255,.1);
-  color: rgba(255,255,255,.7);
+  background: rgba(0,0,0,.1);
+  color: rgba(0,0,0,.7);
   font-size: 14px;
   font-weight: 600;
   animation: qFade .2s ease;
@@ -469,7 +471,7 @@ p {
 }
 
 .q-tag-input::placeholder {
-  color: rgba(255,255,255,.25);
+  color: rgba(0,0,0,.25);
 }
 
 /* ── Age bands ── */
@@ -486,9 +488,9 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid rgba(0,0,0,.08);
   border-radius: 12px;
-  background: rgba(255,255,255,.03);
+  background: rgba(0,0,0,.03);
   color: var(--text);
   font: inherit;
   font-size: 16px;
@@ -498,11 +500,11 @@ p {
   -webkit-appearance: none;
 }
 
-.q-band:active { background: rgba(255,255,255,.07); }
+.q-band:active { background: rgba(0,0,0,.07); }
 
 .q-band.selected {
-  border-color: rgba(255,255,255,.5);
-  background: rgba(255,255,255,.06);
+  border-color: rgba(0,0,0,.5);
+  background: rgba(0,0,0,.06);
 }
 
 /* ── Nav row ── */
@@ -518,7 +520,7 @@ p {
   width: 52px;
   height: 52px;
   flex-shrink: 0;
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid rgba(0,0,0,.08);
   border-radius: 14px;
   background: transparent;
   color: var(--muted);
@@ -530,15 +532,15 @@ p {
   -webkit-appearance: none;
 }
 
-.q-back:active { background: rgba(255,255,255,.05); }
+.q-back:active { background: rgba(0,0,0,.05); }
 
 .q-next {
   flex: 1;
   min-height: 52px;
   border: 0;
   border-radius: 14px;
-  background: #fff;
-  color: #000;
+  background: #1c1f26;
+  color: #fff;
   font: inherit;
   font-size: 17px;
   font-weight: 700;
@@ -546,7 +548,7 @@ p {
   -webkit-appearance: none;
 }
 
-.q-next:active { background: rgba(255,255,255,.85); }
+.q-next:active { background: rgba(0,0,0,.85); }
 
 /* ── Skip / ghost link ── */
 
@@ -582,7 +584,7 @@ p {
 .q-loader-ring {
   width: 48px;
   height: 48px;
-  border: 3px solid rgba(255,255,255,.08);
+  border: 3px solid rgba(0,0,0,.08);
   border-top-color: var(--accent);
   border-radius: 50%;
   animation: qSpin .7s linear infinite;
@@ -602,8 +604,8 @@ p {
   display: inline-block;
   padding: 5px 12px;
   border-radius: 999px;
-  background: rgba(255,255,255,.08);
-  color: rgba(255,255,255,.6);
+  background: rgba(0,0,0,.08);
+  color: rgba(0,0,0,.6);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .04em;
@@ -668,25 +670,25 @@ p {
   flex: 1;
   min-height: 48px;
   padding: 12px 14px;
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid rgba(0,0,0,.08);
   border-radius: 12px;
-  background: rgba(255,255,255,.03);
+  background: rgba(0,0,0,.03);
   color: var(--text);
   font: inherit;
   font-size: 16px;
   outline: none;
 }
 
-.q-email::placeholder { color: rgba(255,255,255,.25); }
-.q-email:focus { border-color: rgba(255,255,255,.3); }
+.q-email::placeholder { color: rgba(0,0,0,.25); }
+.q-email:focus { border-color: rgba(0,0,0,.3); }
 
 .q-email-btn {
   min-height: 48px;
   padding: 12px 18px;
   border: 0;
   border-radius: 12px;
-  background: #fff;
-  color: #000;
+  background: #1c1f26;
+  color: #fff;
   font: inherit;
   font-size: 15px;
   font-weight: 700;
@@ -717,9 +719,9 @@ p {
 
 .q-feature {
   padding: 18px;
-  border: 1px solid rgba(255,255,255,.06);
+  border: 1px solid rgba(0,0,0,.06);
   border-radius: 14px;
-  background: rgba(255,255,255,.02);
+  background: rgba(0,0,0,.02);
 }
 
 .q-feature-name {
@@ -740,12 +742,12 @@ p {
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: 10px;
-  background: rgba(255,255,255,.04);
-  border: 1px dashed rgba(255,255,255,.08);
+  background: rgba(0,0,0,.04);
+  border: 1px dashed rgba(0,0,0,.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,.2);
+  color: rgba(0,0,0,.2);
   font-size: 13px;
 }
 
@@ -753,7 +755,7 @@ p {
 
 .q-stars {
   font-size: 22px;
-  color: #facc15;
+  color: #f59e0b;
   letter-spacing: 2px;
   margin: 0 0 8px;
 }
@@ -762,8 +764,8 @@ p {
   margin-top: 20px;
   padding: 16px;
   border-radius: 12px;
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(255,255,255,.06);
+  background: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.06);
   color: var(--muted);
   font-size: 14px;
   font-style: italic;
@@ -799,8 +801,8 @@ p {
   margin-top: 28px;
   border: 0;
   border-radius: 14px;
-  background: #fff;
-  color: #000;
+  background: #1c1f26;
+  color: #fff;
   font: inherit;
   font-size: 17px;
   font-weight: 700;
@@ -808,11 +810,11 @@ p {
   -webkit-appearance: none;
 }
 
-.q-cta:active { background: rgba(255,255,255,.85); }
+.q-cta:active { background: rgba(0,0,0,.85); }
 
 .q-disclaimer {
   margin-top: 24px;
-  color: rgba(255,255,255,.25);
+  color: rgba(0,0,0,.25);
   font-size: 12px;
   line-height: 1.55;
 }

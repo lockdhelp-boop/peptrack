@@ -7,7 +7,7 @@
   <title>PepTrack — Get Your Peptide Routine Organized</title>
   <meta name="description" content="Answer one quick question and PepTrack will help you organize your whole peptide routine - logging, reminders, and schedule in one place." />
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="stylesheet" href="/funnel/styles.css" />
+  <link rel="stylesheet" href="/funnel/styles.css?v=2" />
   <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -33,7 +33,7 @@
 
     /* ── Hero band (dark, curved bottom) ── */
     .lpq-hero {
-      background: linear-gradient(180deg, #11151d 0%, #0a0d13 100%);
+      background: linear-gradient(180deg, #ece7dd 0%, #f4f1ea 100%);
       border-radius: 0 0 28px 28px;
       padding: 0 24px 44px;
     }
@@ -51,9 +51,9 @@
       gap: 5px;
       padding: 6px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,.06);
+      background: rgba(0,0,0,.06);
       font-size: 13px;
-      color: rgba(255,255,255,.5);
+      color: rgba(0,0,0,.5);
       font-weight: 600;
     }
     .lpq-proof-pill .lpq-stars { color: #f59e0b; letter-spacing: 1px; font-size: 12px; }
@@ -73,7 +73,7 @@
     .lpq-hero p {
       font-size: 16px;
       line-height: 1.45;
-      color: rgba(255,255,255,.5);
+      color: rgba(0,0,0,.5);
       margin: 0;
     }
 
@@ -89,7 +89,7 @@
       text-align: center;
       font-size: 15px;
       font-weight: 700;
-      color: rgba(255,255,255,.55);
+      color: rgba(0,0,0,.55);
     }
     .lpq-options {
       list-style: none;
@@ -106,7 +106,7 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      border: 1px solid rgba(255,255,255,.1);
+      border: 1px solid rgba(0,0,0,.1);
       border-radius: 14px;
       background: var(--panel);
       color: var(--text);
@@ -118,15 +118,15 @@
       transition: border-color .15s, background .15s, transform .1s;
       -webkit-appearance: none;
     }
-    .lpq-opt:hover { border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.05); }
+    .lpq-opt:hover { border-color: rgba(0,0,0,.28); background: rgba(0,0,0,.05); }
     .lpq-opt:active { transform: scale(.99); }
     .lpq-opt-icon { flex-shrink: 0; font-size: 22px; line-height: 1; }
-    .lpq-opt-arrow { margin-left: auto; color: rgba(255,255,255,.25); flex-shrink: 0; }
+    .lpq-opt-arrow { margin-left: auto; color: rgba(0,0,0,.25); flex-shrink: 0; }
     .lpq-hint {
       text-align: center;
       margin: 14px 0 0;
       font-size: 13px;
-      color: rgba(255,255,255,.3);
+      color: rgba(0,0,0,.3);
     }
 
     /* ── Shared section wrapper ── */
@@ -148,10 +148,10 @@
       gap: 12px;
       padding: 14px 16px;
       border-radius: 12px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.06);
+      background: rgba(0,0,0,.03);
+      border: 1px solid rgba(0,0,0,.06);
       font-size: 15px;
-      color: rgba(255,255,255,.7);
+      color: rgba(0,0,0,.7);
     }
     .lpq-tick {
       flex-shrink: 0;
@@ -168,33 +168,33 @@
     .lpq-eyebrow {
       margin: 0 0 12px;
       font-size: 12px; font-weight: 700; letter-spacing: .08em;
-      text-transform: uppercase; color: rgba(255,255,255,.35);
+      text-transform: uppercase; color: rgba(0,0,0,.35);
     }
     .lpq-steps { display: flex; flex-direction: column; gap: 12px; }
     .lpq-step {
       display: flex; gap: 14px; align-items: flex-start;
       padding: 16px; border-radius: 12px;
-      background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06);
+      background: rgba(0,0,0,.03); border: 1px solid rgba(0,0,0,.06);
     }
     .lpq-step-num {
       flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
-      background: #fff; color: #000; font-size: 14px; font-weight: 750;
+      background: #1c1f26; color: #fff; font-size: 14px; font-weight: 750;
       display: flex; align-items: center; justify-content: center;
     }
-    .lpq-step-title { margin: 0 0 3px; font-size: 16px; font-weight: 700; color: #fff; }
-    .lpq-step-desc { margin: 0; font-size: 14px; line-height: 1.45; color: rgba(255,255,255,.55); }
+    .lpq-step-title { margin: 0 0 3px; font-size: 16px; font-weight: 700; color: #1c1f26; }
+    .lpq-step-desc { margin: 0; font-size: 14px; line-height: 1.45; color: rgba(0,0,0,.55); }
 
     /* ── Social proof ── */
     .lpq-social { padding: 36px 24px 8px; }
     .lpq-reviews { display: flex; flex-direction: column; gap: 12px; }
     .lpq-review {
       padding: 16px; border-radius: 12px;
-      background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06);
+      background: rgba(0,0,0,.03); border: 1px solid rgba(0,0,0,.06);
     }
     .lpq-review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
     .lpq-review-stars { color: #f59e0b; font-size: 13px; letter-spacing: 1px; }
-    .lpq-review-user { font-size: 12px; color: rgba(255,255,255,.3); }
-    .lpq-review-text { font-size: 15px; line-height: 1.45; color: rgba(255,255,255,.55); }
+    .lpq-review-user { font-size: 12px; color: rgba(0,0,0,.3); }
+    .lpq-review-text { font-size: 15px; line-height: 1.45; color: rgba(0,0,0,.55); }
 
     /* ── Closing CTA ── */
     .lpq-close { padding: 40px 24px 8px; text-align: center; }
@@ -205,17 +205,17 @@
     .lpq-cta {
       display: flex; align-items: center; justify-content: center; gap: 8px;
       width: 100%; padding: 16px 24px; border: 0; border-radius: 14px;
-      background: #fff; color: #000; font: inherit; font-size: 17px; font-weight: 750;
+      background: #1c1f26; color: #fff; font: inherit; font-size: 17px; font-weight: 750;
       text-decoration: none; cursor: pointer; transition: transform .12s ease, background .12s ease;
     }
-    .lpq-cta:hover { background: rgba(255,255,255,.9); transform: scale(1.015); }
+    .lpq-cta:hover { background: rgba(0,0,0,.9); transform: scale(1.015); }
 
     /* ── Footer ── */
     .lpq-footer { padding: 36px 24px 20px; text-align: center; }
     .lpq-footer-links { display: flex; justify-content: center; gap: 8px 20px; flex-wrap: wrap; margin-bottom: 12px; }
-    .lpq-footer-links a { color: rgba(255,255,255,.3); font-size: 12px; text-decoration: none; }
-    .lpq-footer-links a:hover { color: rgba(255,255,255,.6); }
-    .lpq-disclaimer { font-size: 11px; line-height: 1.5; color: rgba(255,255,255,.2); max-width: 400px; margin: 0 auto; }
+    .lpq-footer-links a { color: rgba(0,0,0,.3); font-size: 12px; text-decoration: none; }
+    .lpq-footer-links a:hover { color: rgba(0,0,0,.6); }
+    .lpq-disclaimer { font-size: 11px; line-height: 1.5; color: rgba(0,0,0,.2); max-width: 400px; margin: 0 auto; }
   </style>
 </head>
 <body>
