@@ -28,8 +28,12 @@
   </script>
   <!-- End PostHog -->
   <style>
-    /* Center via auto margins so tall steps never clip under the header */
-    .quiz-page { justify-content: flex-start; }
+    /* Center via auto margins so tall steps never clip under the header.
+       padding-top is bumped above the shared 90px default: on short real
+       viewports, tall steps (like ready) can fill all the free space the
+       auto-margin centering relies on, collapsing that margin to 0 - this
+       extra buffer keeps a safety gap even then. */
+    .quiz-page { justify-content: flex-start; padding-top: 108px; }
     .quiz-page > .step { margin-top: auto; margin-bottom: auto; }
 
     @media (min-height: 800px) {
