@@ -79,6 +79,51 @@
       color: rgba(0,0,0,.4);
     }
 
+    /* ── Merge visual: multiple schedules converging into one ── */
+    .q-merge {
+      margin: 20px 0 4px;
+    }
+    .q-merge-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 9px;
+      margin-bottom: 6px;
+      border-radius: 7px;
+      background: rgba(0,0,0,.05);
+      font-size: 13px;
+      color: rgba(0,0,0,.75);
+    }
+    .q-merge-row:nth-child(2) { margin-left: 12px; margin-right: -12px; }
+    .q-merge-row:nth-child(3) { margin-left: 24px; margin-right: -24px; }
+    .q-merge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+    .q-merge-freq {
+      margin-left: auto;
+      font-size: 11px;
+      color: rgba(0,0,0,.4);
+    }
+    .q-merge-arrow {
+      text-align: center;
+      font-size: 15px;
+      color: rgba(0,0,0,.25);
+      margin: 6px 0;
+    }
+    .q-merge-result {
+      text-align: center;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: var(--green-dim);
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
     /* ── Ready screen recap ── */
     .q-ready-logo {
       display: block;
@@ -393,14 +438,12 @@
     <section class="step" data-id="help-consolidation-1" hidden>
       <h2 class="q-heading" tabindex="-1">Every schedule, one timeline.</h2>
       <p class="q-body">However many peptides you're running, PepTrack lines up every schedule in a single view - so nothing gets missed because it was on a different list.</p>
-      <div class="q-week">
-        <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot"></span></div>
-        <div class="q-week-day"><span class="q-week-label">M</span><span class="q-week-slot on"></span></div>
-        <div class="q-week-day"><span class="q-week-label">T</span><span class="q-week-slot"></span></div>
-        <div class="q-week-day"><span class="q-week-label">W</span><span class="q-week-slot on"></span></div>
-        <div class="q-week-day"><span class="q-week-label">T</span><span class="q-week-slot"></span></div>
-        <div class="q-week-day"><span class="q-week-label">F</span><span class="q-week-slot on"></span></div>
-        <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot"></span></div>
+      <div class="q-merge">
+        <div class="q-merge-row"><span class="q-merge-dot"></span> Semax <span class="q-merge-freq">Daily</span></div>
+        <div class="q-merge-row"><span class="q-merge-dot"></span> BPC-157 <span class="q-merge-freq">Every other day</span></div>
+        <div class="q-merge-row"><span class="q-merge-dot"></span> TB-500 <span class="q-merge-freq">Weekly</span></div>
+        <div class="q-merge-arrow">↓</div>
+        <div class="q-merge-result">One synced timeline</div>
       </div>
       <div class="q-nav"><button class="q-next" type="button">Next</button></div>
     </section>
