@@ -419,14 +419,6 @@
           <div class="q-ready-item"><span class="q-ready-tick">✓</span> <span id="readyPainLine"></span></div>
           <div class="q-ready-item"><span class="q-ready-tick">✓</span> <span id="readyCountLine"></span></div>
         </div>
-        <div class="q-nav"><button class="q-next" type="button">Continue</button></div>
-      </div>
-    </section>
-
-    <!-- transition (one line, manual tap, fires its own event before checkout) -->
-    <section class="step" data-id="transition" hidden>
-      <div class="q-ready">
-        <h2 class="q-heading" style="text-align:center" tabindex="-1">Let's get you set up.</h2>
         <a class="q-cta" id="checkoutLink" href="https://peptrack.superwall.app/web-onboarding">Continue →</a>
         <p class="q-disclaimer">PepTrack is a tracking tool, not medical advice, and is not affiliated with any drug or pharmaceutical manufacturer.</p>
       </div>
@@ -471,8 +463,7 @@
         { id: 'help-visibility-1', visible: function (a) { return clusterFor(a.painPoint) === 'visibility'; } },
         { id: 'help-visibility-2', visible: function (a) { return clusterFor(a.painPoint) === 'visibility'; } },
         { id: 'trust' },
-        { id: 'ready', onEnter: enterReady },
-        { id: 'transition' }
+        { id: 'ready', onEnter: enterReady }
       ];
 
       var checkoutLink = document.getElementById('checkoutLink');
@@ -526,9 +517,9 @@
         phCapture('peptrack_webquiz_completed');
       }
 
-      // Distinct from "completed the questions" — fires only when the user
-      // taps through the post-reveal transition screen toward checkout, so we
-      // can tell a technical paywall failure apart from a real choice to stop.
+      // Distinct from "completed the questions" - fires only when the user
+      // taps the ready screen's checkout link, so we can tell a technical
+      // paywall failure apart from a real choice to stop.
       function trackPaywallContinue() {
         if (phFired.paywallContinue) return;
         phFired.paywallContinue = true;
