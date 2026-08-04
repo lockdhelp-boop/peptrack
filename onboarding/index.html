@@ -178,6 +178,50 @@
 
     /* ── Reflection / trust / ready: centered non-question layout ── */
     .q-center { text-align: center; }
+
+    /* ── Reflection: badge pop-in + highlighted personalized words ── */
+    .q-badge { animation: qBadgePop .5s cubic-bezier(.34,1.56,.64,1) .15s both; }
+    @keyframes qBadgePop {
+      0% { opacity: 0; transform: scale(.7); }
+      60% { opacity: 1; transform: scale(1.08); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .q-highlight { font-weight: 800; color: var(--text); }
+
+    /* ── Build preview: status line ── */
+    .q-build-status {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      margin: 0 0 10px;
+      min-height: 18px;
+    }
+
+    /* ── Trust: staggered stars + quote entrance ── */
+    .q-star {
+      display: inline-block;
+      opacity: 0;
+      transform: scale(.5);
+      animation: qStarPop .3s ease-out forwards;
+    }
+    .q-star:nth-child(1) { animation-delay: .05s; }
+    .q-star:nth-child(2) { animation-delay: .15s; }
+    .q-star:nth-child(3) { animation-delay: .25s; }
+    .q-star:nth-child(4) { animation-delay: .35s; }
+    .q-star:nth-child(5) { animation-delay: .45s; }
+    @keyframes qStarPop { to { opacity: 1; transform: scale(1); } }
+    .step[data-id="trust"] .q-quote { animation: qFade .4s ease .55s both; }
+    .step[data-id="trust"] .q-cta-hint { animation: qFade .3s ease .7s both; }
+
+    /* ── Ready: emotional closing line ── */
+    .q-ready-emotion {
+      margin: 20px 0 4px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+    }
   </style>
 </head>
 <body class="quiz-body">
@@ -209,10 +253,10 @@
     <section class="step" data-id="scheduleComplexity" hidden>
       <h2 class="q-heading" tabindex="-1">How would you describe your schedule?</h2>
       <ul class="q-options" data-select="single" data-var="scheduleComplexity">
-        <li><button class="q-opt" type="button" data-value="simple">Same time, every day</button></li>
-        <li><button class="q-opt" type="button" data-value="mixed">Different times or days</button></li>
-        <li><button class="q-opt" type="button" data-value="complex">Multiple overlapping cycles</button></li>
-        <li><button class="q-opt" type="button" data-value="unsure">Not sure yet</button></li>
+        <li><button class="q-opt" type="button" data-value="simple"><span class="q-opt-icon">⏰</span> Same time, every day</button></li>
+        <li><button class="q-opt" type="button" data-value="mixed"><span class="q-opt-icon">🔀</span> Different times or days</button></li>
+        <li><button class="q-opt" type="button" data-value="complex"><span class="q-opt-icon">🌀</span> Multiple overlapping cycles</button></li>
+        <li><button class="q-opt" type="button" data-value="unsure"><span class="q-opt-icon">🤷</span> Not sure yet</button></li>
       </ul>
     </section>
 
@@ -253,10 +297,10 @@
     <section class="step" data-id="duration" hidden>
       <h2 class="q-heading" tabindex="-1">How long have you been tracking this way?</h2>
       <ul class="q-options" data-select="single" data-var="duration">
-        <li><button class="q-opt" type="button" data-value="new">Just getting started</button></li>
-        <li><button class="q-opt" type="button" data-value="weeks">A few weeks</button></li>
-        <li><button class="q-opt" type="button" data-value="months">A few months</button></li>
-        <li><button class="q-opt" type="button" data-value="long-term">6 months or more</button></li>
+        <li><button class="q-opt" type="button" data-value="new"><span class="q-opt-icon">🆕</span> Just getting started</button></li>
+        <li><button class="q-opt" type="button" data-value="weeks"><span class="q-opt-icon">📆</span> A few weeks</button></li>
+        <li><button class="q-opt" type="button" data-value="months"><span class="q-opt-icon">🗓️</span> A few months</button></li>
+        <li><button class="q-opt" type="button" data-value="long-term"><span class="q-opt-icon">🏆</span> 6 months or more</button></li>
       </ul>
     </section>
 
@@ -277,6 +321,7 @@
     <section class="step" data-id="buildPreview" hidden>
       <div class="q-center">
         <h2 class="q-heading" tabindex="-1">Building your routine preview…</h2>
+        <p class="q-build-status" id="buildStatus">Mapping your schedule…</p>
         <div class="q-week" id="buildWeek">
           <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot" data-day="0"></span></div>
           <div class="q-week-day"><span class="q-week-label">M</span><span class="q-week-slot" data-day="1"></span></div>
@@ -286,7 +331,6 @@
           <div class="q-week-day"><span class="q-week-label">F</span><span class="q-week-slot" data-day="5"></span></div>
           <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot" data-day="6"></span></div>
         </div>
-        <p class="q-build-caption">Based on what you've told us so far.</p>
       </div>
     </section>
 
@@ -340,7 +384,7 @@
       <h2 class="q-heading" tabindex="-1">One tap, logged for good.</h2>
       <p class="q-body">Marking a dose done takes one tap. No more wondering an hour later whether you actually took it - it's right there, timestamped.</p>
       <div class="q-clarity">
-        <div class="q-clarity-row"><span class="q-clarity-dot"></span> Dose logged <span class="q-clarity-time">Just now</span></div>
+        <div class="q-clarity-row"><span class="q-clarity-dot"></span> 👆 Dose logged <span class="q-clarity-time">Just now</span></div>
       </div>
       <div class="q-nav"><button class="q-next" type="button">Next</button></div>
     </section>
@@ -364,7 +408,7 @@
       <h2 class="q-heading" tabindex="-1">Nothing to switch between.</h2>
       <p class="q-body">Replace the notes app, the spreadsheet, and the sticky notes with one place that actually stays in sync with what you're doing.</p>
       <div class="q-clarity">
-        <div class="q-clarity-row"><span class="q-clarity-dot"></span> Everything, one place <span class="q-clarity-time">Now</span></div>
+        <div class="q-clarity-row"><span class="q-clarity-dot"></span> 📍 Everything, one place <span class="q-clarity-time">Now</span></div>
       </div>
       <div class="q-nav"><button class="q-next" type="button">Next</button></div>
     </section>
@@ -384,7 +428,7 @@
       <h2 class="q-heading" tabindex="-1">Your whole routine, at a glance.</h2>
       <p class="q-body">One screen shows what's done, what's next, and what's still active - the full picture instead of one dose at a time.</p>
       <div class="q-clarity">
-        <div class="q-clarity-row"><span class="q-clarity-dot"></span> Full picture <span class="q-clarity-time">Live</span></div>
+        <div class="q-clarity-row"><span class="q-clarity-dot"></span> 👁️ Full picture <span class="q-clarity-time">Live</span></div>
       </div>
       <div class="q-nav"><button class="q-next" type="button">Next</button></div>
     </section>
@@ -393,7 +437,7 @@
     <section class="step" data-id="trust" hidden>
       <div class="q-center">
         <h2 class="q-heading" tabindex="-1">Built for people running real routines.</h2>
-        <div class="q-stars">★★★★★</div>
+        <div class="q-stars"><span class="q-star">★</span><span class="q-star">★</span><span class="q-star">★</span><span class="q-star">★</span><span class="q-star">★</span></div>
         <p class="q-quote">"Nice simple UI. So far it's been easy to add new items and schedules, seems to do exactly what it's supposed to do."</p>
         <p class="q-cta-hint">- Waitingforanswers, App Store</p>
         <div class="q-nav"><button class="q-next" type="button">Continue</button></div>
@@ -404,7 +448,7 @@
     <section class="step" data-id="ready" hidden>
       <div class="q-ready">
         <img class="q-ready-logo" src="/peptrack-icon.png" alt="" width="84" height="84" />
-        <h2 class="q-heading" style="text-align:center" tabindex="-1">Your PepTrack Routine Is Ready</h2>
+        <h2 class="q-heading" id="readyHeadline" style="text-align:center" tabindex="-1"></h2>
         <div class="q-week" id="readyWeek">
           <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot" data-day="0"></span></div>
           <div class="q-week-day"><span class="q-week-label">M</span><span class="q-week-slot" data-day="1"></span></div>
@@ -419,6 +463,7 @@
           <div class="q-ready-item"><span class="q-ready-tick">✓</span> <span id="readyPainLine"></span></div>
           <div class="q-ready-item"><span class="q-ready-tick">✓</span> <span id="readyCountLine"></span></div>
         </div>
+        <p class="q-ready-emotion" id="readyEmotion"></p>
         <a class="q-cta" id="checkoutLink" href="https://peptrack.superwall.app/web-onboarding">Continue →</a>
         <p class="q-disclaimer">PepTrack is a tracking tool, not medical advice, and is not affiliated with any drug or pharmaceutical manufacturer.</p>
       </div>
@@ -624,8 +669,11 @@
         trackMetaPaywallContinue();
       });
 
-      // ── Building preview: mini week strip fills in based on answers so far ──
-      function previewPattern() {
+      // ── Building preview: mini week strip fills in based on answers so far.
+      // partialPattern() reflects what we know by Phase 2; finalPattern() is a
+      // strict superset (never removes a day), so the ready screen can
+      // visibly "complete" the same calendar rather than reveal a new one. ──
+      function partialPattern() {
         if (answers.peptideCount === '4+' || answers.scheduleComplexity === 'complex') {
           return [false, true, true, true, true, true, false];
         }
@@ -635,10 +683,16 @@
         return [false, true, false, true, false, true, false];
       }
 
-      function renderWeek(containerId, animate) {
+      function finalPattern() {
+        if (answers.peptideCount === 'just-starting') {
+          return [false, true, false, true, false, true, false];
+        }
+        return [false, true, true, true, true, true, false];
+      }
+
+      function renderWeek(containerId, pattern, animate) {
         var el = document.getElementById(containerId);
         if (!el) return;
-        var pattern = previewPattern();
         var slots = Array.prototype.slice.call(el.querySelectorAll('.q-week-slot'));
         slots.forEach(function (s) { s.classList.remove('on'); });
 
@@ -654,11 +708,40 @@
         });
       }
 
+      // Ready screen: instantly matches whatever buildPreview left filled
+      // (no flash/re-animate), then animates in just the newly-known days.
+      function completeReadyWeek() {
+        var el = document.getElementById('readyWeek');
+        if (!el) return;
+        var base = partialPattern();
+        var final = finalPattern();
+        var slots = Array.prototype.slice.call(el.querySelectorAll('.q-week-slot'));
+        slots.forEach(function (s, i) { s.classList.toggle('on', !!base[i]); });
+        var order = 0;
+        final.forEach(function (on, i) {
+          if (on && !base[i]) {
+            order++;
+            setTimeout(function () { slots[i].classList.add('on'); }, 260 * order + 300);
+          }
+        });
+      }
+
       var buildPreviewTimer = null;
+      var buildStatusTimers = [];
       function runBuildPreview() {
-        renderWeek('buildWeek', true);
-        var onCount = previewPattern().filter(Boolean).length;
+        renderWeek('buildWeek', partialPattern(), true);
+        var onCount = partialPattern().filter(Boolean).length;
         var totalDelay = 260 * onCount + 700;
+
+        var statusEl = document.getElementById('buildStatus');
+        var labels = ['Mapping your schedule…', 'Factoring in your goal…', 'Almost there…'];
+        statusEl.textContent = labels[0];
+        buildStatusTimers.forEach(function (t) { clearTimeout(t); });
+        buildStatusTimers = [
+          setTimeout(function () { statusEl.textContent = labels[1]; }, Math.round(totalDelay * 0.4)),
+          setTimeout(function () { statusEl.textContent = labels[2]; }, Math.round(totalDelay * 0.75))
+        ];
+
         if (buildPreviewTimer) clearTimeout(buildPreviewTimer);
         buildPreviewTimer = setTimeout(function () {
           if (curId === 'buildPreview') advance();
@@ -666,13 +749,24 @@
       }
 
       function enterReady() {
-        renderWeek('readyWeek', false);
+        completeReadyWeek();
+
+        var goalShort = goalShortLabels[answers.goal] || 'get organized';
+        var painPhrase = clusterPainLabels[clusterFor(answers.painPoint)];
+        document.getElementById('readyHeadline').textContent =
+          'Built to help you ' + goalShort + ', without ' + painPhrase + '.';
+
+        var countText = countLabels[answers.peptideCount] || 'Your routine';
+        var complexityText = complexityLabels[answers.scheduleComplexity] || 'a';
+        document.getElementById('readyCountLine').textContent =
+          countText + ', ' + complexityText + ' schedule - mapped';
         document.getElementById('readyGoalLine').textContent =
           'Built around ' + (goalLabels[answers.goal] || 'getting more organized');
         document.getElementById('readyPainLine').textContent =
           painPointLabels[answers.painPoint] || 'A system that keeps you on track';
-        document.getElementById('readyCountLine').textContent =
-          readyCountLabels[answers.peptideCount] || 'One clean schedule for your routine';
+
+        document.getElementById('readyEmotion').textContent =
+          'You\'re not guessing anymore - you\'ve got a system.';
       }
 
       // ── Reflection copy: acknowledges answers gathered in Phase 1 ──
@@ -709,11 +803,17 @@
         scattered: 'Everything in one place',
         unsure: 'A system that keeps you on track'
       };
-      var readyCountLabels = {
-        '1': 'One peptide, fully mapped',
-        '2-3': 'A couple of peptides, one clean schedule',
-        '4+': 'Several peptides, one clean schedule',
-        'just-starting': 'Set up right from the start'
+      var goalShortLabels = {
+        'weight-loss': 'lose weight',
+        'muscle-gain': 'build muscle',
+        'recovery': 'recover faster',
+        'energy': 'boost your energy',
+        'not-sure': 'find what actually works'
+      };
+      var clusterPainLabels = {
+        consistency: 'the guesswork of remembering',
+        consolidation: 'the mess of juggling apps',
+        visibility: 'wondering what\'s still active'
       };
 
       function buildReflection() {
@@ -724,9 +824,10 @@
         var complexityText = complexityLabels[answers.scheduleComplexity] || 'a';
         var goalText = goalLabels[answers.goal] || 'getting more organized';
 
-        document.getElementById('reflectionSummary').textContent =
-          countText + ', on ' + complexityText + ' schedule - and what matters most to you is ' +
-          goalText + '. Let’s look at how you’re managing that today.';
+        document.getElementById('reflectionSummary').innerHTML =
+          '<span class="q-highlight">' + countText + '</span>, on <span class="q-highlight">' +
+          complexityText + ' schedule</span> - and what matters most to you is <span class="q-highlight">' +
+          goalText + '</span>. Let’s look at how you’re managing that today.';
       }
 
       // Optional pre-answered goal handed off from the embedded landing
