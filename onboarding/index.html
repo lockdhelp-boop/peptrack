@@ -82,10 +82,10 @@
     /* ── Ready screen recap ── */
     .q-ready-logo {
       display: block;
-      width: 84px;
-      height: 84px;
-      margin: 0 auto 22px;
-      border-radius: 19px;
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 16px;
+      border-radius: 11px;
       background: #1c1f26;
     }
     .q-ready-list {
@@ -449,15 +449,6 @@
       <div class="q-ready">
         <img class="q-ready-logo" src="/peptrack-icon.png" alt="" width="84" height="84" />
         <h2 class="q-heading" id="readyHeadline" style="text-align:center" tabindex="-1"></h2>
-        <div class="q-week" id="readyWeek">
-          <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot" data-day="0"></span></div>
-          <div class="q-week-day"><span class="q-week-label">M</span><span class="q-week-slot" data-day="1"></span></div>
-          <div class="q-week-day"><span class="q-week-label">T</span><span class="q-week-slot" data-day="2"></span></div>
-          <div class="q-week-day"><span class="q-week-label">W</span><span class="q-week-slot" data-day="3"></span></div>
-          <div class="q-week-day"><span class="q-week-label">T</span><span class="q-week-slot" data-day="4"></span></div>
-          <div class="q-week-day"><span class="q-week-label">F</span><span class="q-week-slot" data-day="5"></span></div>
-          <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot" data-day="6"></span></div>
-        </div>
         <div class="q-ready-list">
           <div class="q-ready-item"><span class="q-ready-tick">✓</span> <span id="readyGoalLine"></span></div>
           <div class="q-ready-item"><span class="q-ready-tick">✓</span> <span id="readyPainLine"></span></div>
@@ -669,10 +660,7 @@
         trackMetaPaywallContinue();
       });
 
-      // ── Building preview: mini week strip fills in based on answers so far.
-      // partialPattern() reflects what we know by Phase 2; finalPattern() is a
-      // strict superset (never removes a day), so the ready screen can
-      // visibly "complete" the same calendar rather than reveal a new one. ──
+      // ── Building preview: mini week strip fills in based on answers so far ──
       function partialPattern() {
         if (answers.peptideCount === '4+' || answers.scheduleComplexity === 'complex') {
           return [false, true, true, true, true, true, false];
@@ -681,13 +669,6 @@
           return [false, true, false, false, false, false, false];
         }
         return [false, true, false, true, false, true, false];
-      }
-
-      function finalPattern() {
-        if (answers.peptideCount === 'just-starting') {
-          return [false, true, false, true, false, true, false];
-        }
-        return [false, true, true, true, true, true, false];
       }
 
       function renderWeek(containerId, pattern, animate) {
@@ -705,24 +686,6 @@
           if (!on) return;
           order++;
           setTimeout(function () { slots[i].classList.add('on'); }, 260 * order);
-        });
-      }
-
-      // Ready screen: instantly matches whatever buildPreview left filled
-      // (no flash/re-animate), then animates in just the newly-known days.
-      function completeReadyWeek() {
-        var el = document.getElementById('readyWeek');
-        if (!el) return;
-        var base = partialPattern();
-        var final = finalPattern();
-        var slots = Array.prototype.slice.call(el.querySelectorAll('.q-week-slot'));
-        slots.forEach(function (s, i) { s.classList.toggle('on', !!base[i]); });
-        var order = 0;
-        final.forEach(function (on, i) {
-          if (on && !base[i]) {
-            order++;
-            setTimeout(function () { slots[i].classList.add('on'); }, 260 * order + 300);
-          }
         });
       }
 
@@ -749,8 +712,6 @@
       }
 
       function enterReady() {
-        completeReadyWeek();
-
         var goalShort = goalShortLabels[answers.goal] || 'get organized';
         var painPhrase = clusterPainLabels[clusterFor(answers.painPoint)];
         document.getElementById('readyHeadline').textContent =
