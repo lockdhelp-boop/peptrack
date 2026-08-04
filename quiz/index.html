@@ -70,13 +70,13 @@
       -webkit-text-stroke: .4px currentColor;
       line-height: 1.15;
       letter-spacing: -.03em;
-      margin: 32px 0 36px;
+      margin: 32px 0 16px;
     }
 
-    /* ── Embedded question (overlaps hero) ── */
+    /* ── Embedded question ── */
     .lpq-quiz {
       max-width: 520px;
-      margin: -18px auto 0;
+      margin: 0 auto;
       padding: 0 24px;
       width: 100%;
     }
@@ -120,10 +120,11 @@
     .lpq-opt-arrow { margin-left: auto; color: rgba(0,0,0,.25); flex-shrink: 0; }
 
     /* ── Lifestyle image ── */
-    .lpq-image { padding: 68px 24px 8px; }
+    .lpq-image { padding: 4px 24px 32px; }
     .lpq-image img {
       display: block;
-      width: 100%;
+      width: 88%;
+      margin: 0 auto;
       height: auto;
       border-radius: 20px;
     }
@@ -245,20 +246,21 @@
       </div>
     </header>
 
+    <!-- Lifestyle image -->
+    <div class="lpq-image lpq-wrap">
+      <img src="lifestyle-hero.png" alt="PepTrack dose tracking and estimated activity, shown next to someone relaxing at home" width="1254" height="1254" loading="lazy" />
+    </div>
+
     <!-- Embedded first question -->
     <main class="lpq-quiz">
       <p class="lpq-prompt">What's your main goal?</p>
       <ul class="lpq-options">
-        <li><button class="lpq-opt" type="button" data-value="never-miss"><span class="lpq-opt-icon">🔔</span> Never miss a dose <span class="lpq-opt-arrow">→</span></button></li>
-        <li><button class="lpq-opt" type="button" data-value="stay-consistent"><span class="lpq-opt-icon">📅</span> Stay consistent long-term <span class="lpq-opt-arrow">→</span></button></li>
-        <li><button class="lpq-opt" type="button" data-value="see-whats-working"><span class="lpq-opt-icon">📈</span> See what's actually working <span class="lpq-opt-arrow">→</span></button></li>
-        <li><button class="lpq-opt" type="button" data-value="simplify"><span class="lpq-opt-icon">🧩</span> Simplify a complicated routine <span class="lpq-opt-arrow">→</span></button></li>
+        <li><button class="lpq-opt" type="button" data-value="weight-loss"><span class="lpq-opt-icon">⚖️</span> Lose weight <span class="lpq-opt-arrow">→</span></button></li>
+        <li><button class="lpq-opt" type="button" data-value="muscle-gain"><span class="lpq-opt-icon">💪</span> Build muscle <span class="lpq-opt-arrow">→</span></button></li>
+        <li><button class="lpq-opt" type="button" data-value="recovery"><span class="lpq-opt-icon">🩹</span> Recover faster <span class="lpq-opt-arrow">→</span></button></li>
+        <li><button class="lpq-opt" type="button" data-value="energy"><span class="lpq-opt-icon">⚡</span> Boost energy <span class="lpq-opt-arrow">→</span></button></li>
       </ul>
     </main>
-
-    <!-- Lifestyle image -->
-    <div class="lpq-image lpq-wrap">
-      <img src="lifestyle-hero.png" alt="PepTrack dose tracking and estimated activity, shown next to someone relaxing at home" width="1254" height="1254" loading="lazy" />
     </div>
 
     <!-- Value strip -->

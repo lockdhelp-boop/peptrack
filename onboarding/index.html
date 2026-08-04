@@ -221,10 +221,10 @@
     <section class="step" data-id="goal" hidden>
       <h2 class="q-heading" tabindex="-1">What's your main goal?</h2>
       <ul class="q-options" data-select="single" data-var="goal">
-        <li><button class="q-opt" type="button" data-value="never-miss">Never miss a dose</button></li>
-        <li><button class="q-opt" type="button" data-value="stay-consistent">Stay consistent long-term</button></li>
-        <li><button class="q-opt" type="button" data-value="see-whats-working">See what's actually working</button></li>
-        <li><button class="q-opt" type="button" data-value="simplify">Simplify a complicated routine</button></li>
+        <li><button class="q-opt" type="button" data-value="weight-loss"><span class="q-opt-icon">⚖️</span> Lose weight</button></li>
+        <li><button class="q-opt" type="button" data-value="muscle-gain"><span class="q-opt-icon">💪</span> Build muscle</button></li>
+        <li><button class="q-opt" type="button" data-value="recovery"><span class="q-opt-icon">🩹</span> Recover faster</button></li>
+        <li><button class="q-opt" type="button" data-value="energy"><span class="q-opt-icon">⚡</span> Boost energy</button></li>
       </ul>
     </section>
 
@@ -689,10 +689,10 @@
         unsure: 'a schedule you’re still figuring out'
       };
       var goalLabels = {
-        'never-miss': 'never missing a dose',
-        'stay-consistent': 'staying consistent long-term',
-        'see-whats-working': 'seeing what’s actually working',
-        'simplify': 'simplifying a complicated routine'
+        'weight-loss': 'losing weight',
+        'muscle-gain': 'building muscle',
+        'recovery': 'recovering faster',
+        'energy': 'boosting your energy'
       };
 
       function buildReflection() {
@@ -712,7 +712,7 @@
       // question (/quiz). Backward-compatible: no param -> goal asked normally.
       try {
         var goalRaw = new URLSearchParams(window.location.search).get('goal');
-        var validGoals = ['never-miss', 'stay-consistent', 'see-whats-working', 'simplify'];
+        var validGoals = ['weight-loss', 'muscle-gain', 'recovery', 'energy'];
         if (goalRaw && validGoals.indexOf(goalRaw) !== -1) {
           answers.goal = goalRaw;
           answers._goalPrefilled = true;
