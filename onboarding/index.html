@@ -225,6 +225,7 @@
         <li><button class="q-opt" type="button" data-value="muscle-gain"><span class="q-opt-icon">💪</span> Build muscle</button></li>
         <li><button class="q-opt" type="button" data-value="recovery"><span class="q-opt-icon">🩹</span> Recover faster</button></li>
         <li><button class="q-opt" type="button" data-value="energy"><span class="q-opt-icon">⚡</span> Boost energy</button></li>
+        <li><button class="q-opt" type="button" data-value="not-sure"><span class="q-opt-icon">🤷</span> Don't know yet</button></li>
       </ul>
     </section>
 
@@ -692,7 +693,8 @@
         'weight-loss': 'losing weight',
         'muscle-gain': 'building muscle',
         'recovery': 'recovering faster',
-        'energy': 'boosting your energy'
+        'energy': 'boosting your energy',
+        'not-sure': 'figuring out what works for you'
       };
 
       function buildReflection() {
@@ -712,7 +714,7 @@
       // question (/quiz). Backward-compatible: no param -> goal asked normally.
       try {
         var goalRaw = new URLSearchParams(window.location.search).get('goal');
-        var validGoals = ['weight-loss', 'muscle-gain', 'recovery', 'energy'];
+        var validGoals = ['weight-loss', 'muscle-gain', 'recovery', 'energy', 'not-sure'];
         if (goalRaw && validGoals.indexOf(goalRaw) !== -1) {
           answers.goal = goalRaw;
           answers._goalPrefilled = true;
