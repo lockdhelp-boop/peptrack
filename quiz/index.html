@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>PepTrack - Get Your Peptide Routine Organized</title>
-  <meta name="description" content="Answer one quick question and PepTrack will help you organize your whole peptide routine - logging, reminders, and schedule in one place." />
+  <title>PepTrack - Stop Guessing Your Routine</title>
+  <meta name="description" content="Track your whole peptide routine in one place - logging, reminders, and active levels, so you stop second-guessing every week." />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="/funnel/styles.css?v=2" />
   <!-- Meta Pixel Code -->
@@ -23,324 +23,243 @@
   </script>
   <!-- End Meta Pixel Code -->
   <style>
-    .lpq {
+    .lp {
       width: 100%;
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
+      padding: 0;
+      margin: 0;
     }
 
-    /* ── Hero band (curved bottom, bold brand-color panel behind heading) ── */
-    .lpq-hero {
-      background: #1c1f26;
-      border-radius: 0 0 100% 0 / 0 0 26px 0;
-      padding: 0 24px 0;
-    }
-    .lpq-nav {
-      padding: 14px 0 8px;
+    /* ── Nav ── */
+    .lp-nav {
+      padding: 14px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-shrink: 0;
     }
-    .lpq-nav .brand { font-size: 22px; color: #fff; }
-    .lpq-nav .brand img { width: 42px; height: 42px; }
-    .lpq-proof-pill {
+    .lp-nav .brand {
+      font-size: 18px;
+    }
+    .lp-nav .brand img {
+      width: 32px;
+      height: 32px;
+    }
+    .lp-proof-pill {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      padding: 4px 9px;
+      gap: 5px;
+      padding: 6px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,.12);
-      font-size: 11px;
-      color: rgba(255,255,255,.75);
+      background: rgba(0,0,0,.06);
+      font-size: 13px;
+      color: rgba(0,0,0,.5);
       font-weight: 600;
     }
-    .lpq-proof-pill .lpq-stars { color: #f59e0b; letter-spacing: 1px; font-size: 10px; }
-    .lpq-hero-inner {
-      max-width: 520px;
-      margin: 0 auto;
-      width: 100%;
-      text-align: center;
-      padding-top: 20px;
-    }
-    .lpq-hero h1 {
-      font-size: clamp(24px, 7vw, 38px);
-      font-weight: 700;
-      color: #fff;
-      -webkit-text-stroke: .4px currentColor;
-      line-height: 1.15;
-      letter-spacing: -.03em;
-      margin: 32px 0 36px;
+    .lp-proof-pill .lp-stars {
+      color: #f59e0b;
+      letter-spacing: 1px;
+      font-size: 12px;
     }
 
-    /* ── Embedded question ── */
-    .lpq-quiz {
-      max-width: 520px;
-      margin: 0 auto;
-      padding: 16px 24px 0;
-      width: 100%;
-    }
-    .lpq-prompt {
-      margin: 0 0 14px;
-      text-align: center;
-      font-size: 24px;
-      font-weight: 800;
-      color: var(--text);
-    }
-    .lpq-options {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    /* ── Hero ── */
+    .lp-hero {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-    }
-    .lpq-opt {
-      width: 100%;
-      min-height: 60px;
-      padding: 17px 18px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      border: 1px solid rgba(0,0,0,.1);
-      border-radius: 14px;
-      background: var(--panel);
-      color: var(--text);
-      font: inherit;
-      font-size: 16px;
-      line-height: 1.35;
-      text-align: left;
-      cursor: pointer;
-      transition: border-color .15s, background .15s, transform .1s;
-      -webkit-appearance: none;
-    }
-    .lpq-opt:hover { border-color: rgba(0,0,0,.28); background: rgba(0,0,0,.05); }
-    .lpq-opt:active { transform: scale(.99); }
-    .lpq-opt-icon { flex-shrink: 0; font-size: 22px; line-height: 1; }
-    .lpq-opt-arrow { margin-left: auto; color: rgba(0,0,0,.25); flex-shrink: 0; }
-
-    /* ── Lifestyle image ── */
-    .lpq-image { padding: 68px 24px 8px; }
-    .lpq-image img {
-      display: block;
-      width: 88%;
+      justify-content: center;
+      padding: 0 24px 24px;
+      max-width: 520px;
       margin: 0 auto;
-      height: auto;
-      border-radius: 20px;
+      width: 100%;
     }
-
-    /* ── Shared section wrapper ── */
-    .lpq-wrap { max-width: 520px; margin: 0 auto; width: 100%; }
-    .lpq-h2 {
-      font-size: clamp(22px, 6vw, 27px);
-      line-height: 1.15;
-      letter-spacing: -.025em;
-      font-weight: 750;
+    .lp-hero h1 {
+      font-size: clamp(32px, 9vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -.035em;
       margin: 0 0 16px;
     }
-
-    /* ── Value strip ── */
-    .lpq-value { padding: 44px 24px 8px; text-align: center; }
-    .lpq-value-list { display: flex; flex-direction: column; gap: 10px; }
-    .lpq-value-item {
+    .lp-hero-img {
+      width: 72%;
+      margin: 4px auto 8px;
+    }
+    .lp-hero-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .lp-sub {
+      font-size: 17px;
+      line-height: 1.5;
+      color: rgba(0,0,0,.5);
+      margin: 0 0 28px;
+    }
+    .lp-cta {
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 16px 24px;
+      border: 0;
+      border-radius: 14px;
+      background: #1c1f26;
+      color: #fff;
+      font: inherit;
+      font-size: 17px;
+      font-weight: 750;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .lp-cta:hover {
+      background: rgba(0,0,0,.9);
+      transform: scale(1.015);
+    }
+    .lp-cta svg {
+      flex-shrink: 0;
+    }
+    .lp-hint {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 13px;
+      color: rgba(0,0,0,.3);
+    }
+
+    /* ── Below fold (just barely visible) ── */
+    .lp-below {
+      padding: 32px 24px 20px;
+      max-width: 520px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
       gap: 12px;
-      padding: 14px 16px;
+    }
+    .lp-review {
+      padding: 16px;
       border-radius: 12px;
       background: rgba(0,0,0,.03);
       border: 1px solid rgba(0,0,0,.06);
+    }
+    .lp-review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .lp-review-stars {
+      color: #f59e0b;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+    .lp-review-user {
+      font-size: 12px;
+      color: rgba(0,0,0,.3);
+    }
+    .lp-review-text {
       font-size: 15px;
-      color: rgba(0,0,0,.7);
+      line-height: 1.45;
+      color: rgba(0,0,0,.55);
     }
-    .lpq-tick {
-      flex-shrink: 0;
-      width: 20px; height: 20px;
-      border-radius: 50%;
-      background: var(--green-dim);
-      color: var(--green);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px; font-weight: 700;
-    }
-
-    /* ── How it works ── */
-    .lpq-how { padding: 36px 24px 8px; text-align: center; }
-    .lpq-eyebrow {
-      margin: 0 0 12px;
-      font-size: 12px; font-weight: 700; letter-spacing: .08em;
-      text-transform: uppercase; color: rgba(0,0,0,.35);
-    }
-    .lpq-steps { display: flex; flex-direction: column; gap: 12px; }
-    .lpq-step {
-      display: flex; gap: 14px; align-items: center;
-      padding: 16px; border-radius: 12px;
-      background: rgba(0,0,0,.03); border: 1px solid rgba(0,0,0,.06);
-      text-align: left;
-    }
-    .lpq-step-num {
-      flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
-      background: #1c1f26; color: #fff; font-size: 14px; font-weight: 750;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .lpq-step-title { margin: 0 0 3px; font-size: 16px; font-weight: 700; color: #1c1f26; }
-    .lpq-step-desc { margin: 0; font-size: 14px; line-height: 1.45; color: rgba(0,0,0,.55); }
-
-    /* ── Social proof ── */
-    .lpq-social { padding: 36px 24px 8px; text-align: center; }
-    .lpq-reviews { display: flex; flex-direction: column; gap: 12px; }
-    .lpq-review {
-      padding: 16px; border-radius: 12px;
-      background: rgba(0,0,0,.03); border: 1px solid rgba(0,0,0,.06);
-      text-align: left;
-    }
-    .lpq-review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-    .lpq-review-stars { color: #f59e0b; font-size: 13px; letter-spacing: 1px; }
-    .lpq-review-user { font-size: 12px; color: rgba(0,0,0,.3); }
-    .lpq-review-text { font-size: 15px; line-height: 1.45; color: rgba(0,0,0,.55); }
-
-    /* ── Closing CTA ── */
-    .lpq-close { padding: 40px 24px 8px; text-align: center; }
-    .lpq-close-line {
-      font-size: clamp(22px, 6vw, 28px);
-      font-weight: 750; letter-spacing: -.025em; line-height: 1.15; margin: 0 0 20px;
-    }
-    .lpq-cta {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      width: 100%; padding: 16px 24px; border: 0; border-radius: 14px;
-      background: #1c1f26; color: #fff; font: inherit; font-size: 17px; font-weight: 750;
-      text-decoration: none; cursor: pointer; transition: transform .12s ease, background .12s ease;
-    }
-    .lpq-cta:hover { background: rgba(0,0,0,.9); transform: scale(1.015); }
 
     /* ── Footer ── */
-    .lpq-footer { padding: 36px 24px 20px; text-align: center; }
-    .lpq-footer-links { display: flex; justify-content: center; gap: 8px 20px; flex-wrap: wrap; margin-bottom: 12px; }
-    .lpq-footer-links a { color: rgba(0,0,0,.3); font-size: 12px; text-decoration: none; }
-    .lpq-footer-links a:hover { color: rgba(0,0,0,.6); }
-    .lpq-disclaimer { font-size: 11px; line-height: 1.5; color: rgba(0,0,0,.2); max-width: 400px; margin: 0 auto; }
+    .lp-footer {
+      padding: 24px 24px 20px;
+      text-align: center;
+    }
+    .lp-footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 8px 20px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .lp-footer-links a {
+      color: rgba(0,0,0,.3);
+      font-size: 12px;
+      text-decoration: none;
+    }
+    .lp-footer-links a:hover {
+      color: rgba(0,0,0,.6);
+    }
+    .lp-disclaimer {
+      font-size: 11px;
+      line-height: 1.5;
+      color: rgba(0,0,0,.2);
+      max-width: 400px;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body>
   <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=3767964506689016&amp;ev=PageView&amp;noscript=1" alt="" />
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=3767964506689016&amp;ev=PageView&amp;noscript=1"
+      alt=""
+    />
   </noscript>
 
-  <div class="lpq">
+  <div class="lp">
 
-    <!-- Hero band -->
-    <header class="lpq-hero">
-      <nav class="lpq-nav lpq-wrap">
-        <div class="brand" aria-label="PepTrack">
-          <img src="/peptrack-icon.png" alt="" width="42" height="42" />
-          <span>PepTrack</span>
-        </div>
-        <div class="lpq-proof-pill">
-          <span class="lpq-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          App Store
-        </div>
-      </nav>
-      <div class="lpq-hero-inner">
-        <h1>Take the guesswork and stress out of your peptide routine.</h1>
+    <!-- Nav -->
+    <nav class="lp-nav">
+      <div class="brand" aria-label="PepTrack">
+        <img src="/peptrack-icon.png" alt="" width="32" height="32" />
+        <span>PepTrack</span>
       </div>
-    </header>
-
-    <!-- Embedded first question -->
-    <main class="lpq-quiz">
-      <p class="lpq-prompt">What's your main goal?</p>
-      <ul class="lpq-options">
-        <li><button class="lpq-opt" type="button" data-value="weight-loss"><span class="lpq-opt-icon">⚖️</span> Lose weight <span class="lpq-opt-arrow">→</span></button></li>
-        <li><button class="lpq-opt" type="button" data-value="muscle-gain"><span class="lpq-opt-icon">💪</span> Build muscle <span class="lpq-opt-arrow">→</span></button></li>
-        <li><button class="lpq-opt" type="button" data-value="recovery"><span class="lpq-opt-icon">🩹</span> Recover faster <span class="lpq-opt-arrow">→</span></button></li>
-        <li><button class="lpq-opt" type="button" data-value="energy"><span class="lpq-opt-icon">⚡</span> Boost energy <span class="lpq-opt-arrow">→</span></button></li>
-        <li><button class="lpq-opt" type="button" data-value="not-sure"><span class="lpq-opt-icon">🤷</span> Don't know yet <span class="lpq-opt-arrow">→</span></button></li>
-      </ul>
-    </main>
-
-    <!-- Lifestyle image -->
-    <div class="lpq-image lpq-wrap">
-      <img src="lifestyle-hero.png" alt="PepTrack dose tracking and estimated activity, shown next to someone relaxing at home" width="1254" height="1254" loading="lazy" />
-    </div>
-
-    <!-- Value strip -->
-    <section class="lpq-value lpq-wrap">
-      <h2 class="lpq-h2">Everything in one place.</h2>
-      <div class="lpq-value-list">
-        <div class="lpq-value-item"><span class="lpq-tick">&#10003;</span> Your next dose, front and center</div>
-        <div class="lpq-value-item"><span class="lpq-tick">&#10003;</span> A reminder for every schedule</div>
-        <div class="lpq-value-item"><span class="lpq-tick">&#10003;</span> Your whole routine at a glance</div>
+      <div class="lp-proof-pill">
+        <span class="lp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        App Store
       </div>
-    </section>
+    </nav>
 
-    <!-- How it works -->
-    <section class="lpq-how lpq-wrap">
-      <p class="lpq-eyebrow">How it works</p>
-      <h2 class="lpq-h2">Set up once. Stop thinking about it.</h2>
-      <div class="lpq-steps">
-        <div class="lpq-step">
-          <span class="lpq-step-num">1</span>
-          <div>
-            <p class="lpq-step-title">Add your peptides</p>
-            <p class="lpq-step-desc">Everything you're taking, in one place - however many that is.</p>
-          </div>
-        </div>
-        <div class="lpq-step">
-          <span class="lpq-step-num">2</span>
-          <div>
-            <p class="lpq-step-title">Set each schedule</p>
-            <p class="lpq-step-desc">Daily, weekly, or custom. PepTrack handles the reminders from there.</p>
-          </div>
-        </div>
-        <div class="lpq-step">
-          <span class="lpq-step-num">3</span>
-          <div>
-            <p class="lpq-step-title">Open the app and know</p>
-            <p class="lpq-step-desc">What's next, what's done, and what's still active - at a glance.</p>
-          </div>
-        </div>
+    <!-- Hero - above the fold -->
+    <main class="lp-hero">
+      <h1>Peptides are confusing enough. Tracking shouldn't&nbsp;be.</h1>
+      <div class="lp-hero-img">
+        <img src="2phonepeptrack.png" alt="PepTrack app - dose tracking and routine dashboard" />
       </div>
-    </section>
-
-    <!-- Social proof -->
-    <section class="lpq-social lpq-wrap">
-      <h2 class="lpq-h2">Built for people running real routines.</h2>
-      <div class="lpq-reviews">
-        <div class="lpq-review">
-          <div class="lpq-review-header">
-            <span class="lpq-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span class="lpq-review-user">Waitingforanswers</span>
-          </div>
-          <p class="lpq-review-text">"Nice simple UI. So far it's been easy to add new items and schedules, seems to do exactly what it's supposed to do."</p>
-        </div>
-        <div class="lpq-review">
-          <div class="lpq-review-header">
-            <span class="lpq-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span class="lpq-review-user">Thetimcook</span>
-          </div>
-          <p class="lpq-review-text">"I've used a few peptide calculators and apps before that were mostly clunky and confusing but after using PepTrack it made things more easy and simple. Would recommend."</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Closing CTA -->
-    <section class="lpq-close lpq-wrap">
-      <p class="lpq-close-line">Your routine, off your mind.</p>
-      <a class="lpq-cta" href="/onboarding/" id="closeCta">
-        Start the Quiz
+      <p class="lp-sub">Track your whole peptide routine in one place - logging, reminders, and active levels, so you stop second-guessing every week.</p>
+      <a class="lp-cta" href="/onboarding/" id="heroCta">
+        Take the Quiz
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
+      <p class="lp-hint">Takes 2 minutes</p>
+    </main>
+
+    <!-- Below fold - just barely peeks -->
+    <section class="lp-below">
+      <div class="lp-review">
+        <div class="lp-review-header">
+          <span class="lp-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="lp-review-user">Thetimcook</span>
+        </div>
+        <p class="lp-review-text">"I've used a few peptide calculators and apps before that were mostly clunky and confusing but after using PepTrack it made things more easy and simple. Would recommend."</p>
+      </div>
+      <div class="lp-review">
+        <div class="lp-review-header">
+          <span class="lp-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="lp-review-user">Waitingforanswers</span>
+        </div>
+        <p class="lp-review-text">"Nice simple UI. So far it's been easy to add new items and schedules, seems to do exactly what it's supposed to do."</p>
+      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="lpq-footer lpq-wrap">
-      <div class="lpq-footer-links">
+    <footer class="lp-footer">
+      <div class="lp-footer-links">
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
         <a href="mailto:support.peptrack@gmail.com">Contact</a>
       </div>
-      <p class="lpq-disclaimer">PepTrack is a tracking tool, not medical advice, and is not affiliated with any drug or pharmaceutical manufacturer.</p>
+      <p class="lp-disclaimer">PepTrack is a tracking tool, not medical advice, and is not affiliated with any drug or pharmaceutical manufacturer.</p>
     </footer>
 
   </div>
@@ -348,25 +267,13 @@
   <script>
     (function () {
       var query = window.location.search;
-      var incoming = query ? query.replace(/^\?/, '') : '';
+      var cta = document.getElementById('heroCta');
+      if (cta && query) cta.href = '/onboarding/' + query;
 
       try {
         sessionStorage.setItem('peptrackFunnelParameters', query);
-        sessionStorage.setItem('peptrackLandingPath', '/quiz/');
+        sessionStorage.setItem('peptrackLandingPath', window.location.pathname);
       } catch (e) {}
-
-      // Embedded question: tapping an answer carries it into the quiz (skips the goal question).
-      document.querySelectorAll('.lpq-opt').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var goal = btn.getAttribute('data-value');
-          var params = 'goal=' + encodeURIComponent(goal) + (incoming ? '&' + incoming : '');
-          window.location.href = '/onboarding/?' + params;
-        });
-      });
-
-      // Bottom CTA: no pre-answer, just forward funnel params.
-      var closeCta = document.getElementById('closeCta');
-      if (closeCta && query) closeCta.href = '/onboarding/' + query;
     }());
   </script>
 </body>
