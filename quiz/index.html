@@ -8,6 +8,9 @@
   <meta name="description" content="Answer one quick question and PepTrack will help you organize your whole peptide routine - logging, reminders, and schedule in one place." />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="/funnel/styles.css?v=2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
   <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -23,6 +26,9 @@
   </script>
   <!-- End Meta Pixel Code -->
   <style>
+    body {
+      font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
     .lpq {
       width: 100%;
       min-height: 100vh;
@@ -143,11 +149,12 @@
     }
 
     /* ── Value strip ── */
-    .lpq-value { padding: 44px 24px 8px; }
+    .lpq-value { padding: 44px 24px 8px; text-align: center; }
     .lpq-value-list { display: flex; flex-direction: column; gap: 10px; }
     .lpq-value-item {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 12px;
       padding: 14px 16px;
       border-radius: 12px;
@@ -167,7 +174,7 @@
     }
 
     /* ── How it works ── */
-    .lpq-how { padding: 36px 24px 8px; }
+    .lpq-how { padding: 36px 24px 8px; text-align: center; }
     .lpq-eyebrow {
       margin: 0 0 12px;
       font-size: 12px; font-weight: 700; letter-spacing: .08em;
@@ -175,9 +182,10 @@
     }
     .lpq-steps { display: flex; flex-direction: column; gap: 12px; }
     .lpq-step {
-      display: flex; gap: 14px; align-items: flex-start;
+      display: flex; gap: 14px; align-items: center;
       padding: 16px; border-radius: 12px;
       background: rgba(0,0,0,.03); border: 1px solid rgba(0,0,0,.06);
+      text-align: left;
     }
     .lpq-step-num {
       flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
@@ -188,11 +196,12 @@
     .lpq-step-desc { margin: 0; font-size: 14px; line-height: 1.45; color: rgba(0,0,0,.55); }
 
     /* ── Social proof ── */
-    .lpq-social { padding: 36px 24px 8px; }
+    .lpq-social { padding: 36px 24px 8px; text-align: center; }
     .lpq-reviews { display: flex; flex-direction: column; gap: 12px; }
     .lpq-review {
       padding: 16px; border-radius: 12px;
       background: rgba(0,0,0,.03); border: 1px solid rgba(0,0,0,.06);
+      text-align: left;
     }
     .lpq-review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
     .lpq-review-stars { color: #f59e0b; font-size: 13px; letter-spacing: 1px; }
