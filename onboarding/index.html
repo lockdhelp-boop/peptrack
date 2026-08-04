@@ -47,7 +47,6 @@
 
     /* ── Reused "with PepTrack" clarity rows (help screens) ── */
     .q-clarity {
-      height: 156px;
       border-radius: 12px;
       background: rgba(0,0,0,.03);
       border: 1px solid rgba(0,0,0,.12);
@@ -340,6 +339,9 @@
     <section class="step" data-id="help-consistency-2" hidden>
       <h2 class="q-heading" tabindex="-1">One tap, logged for good.</h2>
       <p class="q-body">Marking a dose done takes one tap. No more wondering an hour later whether you actually took it - it's right there, timestamped.</p>
+      <div class="q-clarity">
+        <div class="q-clarity-row"><span class="q-clarity-dot"></span> Dose logged <span class="q-clarity-time">Just now</span></div>
+      </div>
       <div class="q-nav"><button class="q-next" type="button">Next</button></div>
     </section>
 
@@ -361,6 +363,9 @@
     <section class="step" data-id="help-consolidation-2" hidden>
       <h2 class="q-heading" tabindex="-1">Nothing to switch between.</h2>
       <p class="q-body">Replace the notes app, the spreadsheet, and the sticky notes with one place that actually stays in sync with what you're doing.</p>
+      <div class="q-clarity">
+        <div class="q-clarity-row"><span class="q-clarity-dot"></span> Everything, one place <span class="q-clarity-time">Now</span></div>
+      </div>
       <div class="q-nav"><button class="q-next" type="button">Next</button></div>
     </section>
 
@@ -378,6 +383,9 @@
     <section class="step" data-id="help-visibility-2" hidden>
       <h2 class="q-heading" tabindex="-1">Your whole routine, at a glance.</h2>
       <p class="q-body">One screen shows what's done, what's next, and what's still active - the full picture instead of one dose at a time.</p>
+      <div class="q-clarity">
+        <div class="q-clarity-row"><span class="q-clarity-dot"></span> Full picture <span class="q-clarity-time">Live</span></div>
+      </div>
       <div class="q-nav"><button class="q-next" type="button">Next</button></div>
     </section>
 
@@ -407,9 +415,9 @@
           <div class="q-week-day"><span class="q-week-label">S</span><span class="q-week-slot" data-day="6"></span></div>
         </div>
         <div class="q-ready-list">
-          <div class="q-ready-item"><span class="q-ready-tick">✓</span> Dose schedule mapped</div>
-          <div class="q-ready-item"><span class="q-ready-tick">✓</span> Reminders configured</div>
-          <div class="q-ready-item"><span class="q-ready-tick">✓</span> Routine timeline ready</div>
+          <div class="q-ready-item"><span class="q-ready-tick">✓</span> <span id="readyGoalLine"></span></div>
+          <div class="q-ready-item"><span class="q-ready-tick">✓</span> <span id="readyPainLine"></span></div>
+          <div class="q-ready-item"><span class="q-ready-tick">✓</span> <span id="readyCountLine"></span></div>
         </div>
         <div class="q-nav"><button class="q-next" type="button">Continue</button></div>
       </div>
@@ -668,6 +676,12 @@
 
       function enterReady() {
         renderWeek('readyWeek', false);
+        document.getElementById('readyGoalLine').textContent =
+          'Built around ' + (goalLabels[answers.goal] || 'getting more organized');
+        document.getElementById('readyPainLine').textContent =
+          painPointLabels[answers.painPoint] || 'A system that keeps you on track';
+        document.getElementById('readyCountLine').textContent =
+          readyCountLabels[answers.peptideCount] || 'One clean schedule for your routine';
       }
 
       // ── Reflection copy: acknowledges answers gathered in Phase 1 ──
@@ -695,6 +709,20 @@
         'recovery': 'recovering faster',
         'energy': 'boosting your energy',
         'not-sure': 'figuring out what works for you'
+      };
+      var painPointLabels = {
+        forgot: 'No more forgetting doses',
+        juggling: 'No more juggling schedules',
+        active: 'Always know what\'s active',
+        logging: 'Consistent logging, finally',
+        scattered: 'Everything in one place',
+        unsure: 'A system that keeps you on track'
+      };
+      var readyCountLabels = {
+        '1': 'One peptide, fully mapped',
+        '2-3': 'A couple of peptides, one clean schedule',
+        '4+': 'Several peptides, one clean schedule',
+        'just-starting': 'Set up right from the start'
       };
 
       function buildReflection() {
