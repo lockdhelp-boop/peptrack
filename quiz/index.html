@@ -31,9 +31,9 @@
       flex-direction: column;
     }
 
-    /* ── Hero band (curved bottom, tinted panel behind heading) ── */
+    /* ── Hero band (curved bottom, bold brand-color panel behind heading) ── */
     .lpq-hero {
-      background: linear-gradient(180deg, var(--bg) 0, var(--bg) 76px, #ece7dd 76px, #ece7dd 100%);
+      background: linear-gradient(180deg, var(--bg) 0, var(--bg) 76px, var(--accent) 76px, var(--accent) 100%);
       border-radius: 0 0 28px 28px;
       padding: 0 24px 30px;
     }
@@ -67,6 +67,7 @@
     .lpq-hero h1 {
       font-size: clamp(24px, 7vw, 38px);
       font-weight: 700;
+      color: #fff;
       -webkit-text-stroke: .4px currentColor;
       line-height: 1.15;
       letter-spacing: -.03em;
