@@ -284,7 +284,7 @@
 
     <!-- peptideCount -->
     <section class="step" data-id="peptideCount">
-      <h2 class="q-heading" tabindex="-1">How many peptides are you currently tracking?</h2>
+      <h2 class="q-heading" tabindex="-1">How many peptides are you currently taking?</h2>
       <ul class="q-options" data-select="single" data-var="peptideCount">
         <li><button class="q-opt" type="button" data-value="1"><span class="q-opt-icon">💊</span> Just one</button></li>
         <li><button class="q-opt" type="button" data-value="2-3"><span class="q-opt-icon">🧪</span> 2-3</button></li>
@@ -300,6 +300,7 @@
         <li><button class="q-opt" type="button" data-value="simple"><span class="q-opt-icon">⏰</span> Same time, every day</button></li>
         <li><button class="q-opt" type="button" data-value="mixed"><span class="q-opt-icon">🔀</span> Different times or days</button></li>
         <li><button class="q-opt" type="button" data-value="complex"><span class="q-opt-icon">🌀</span> Multiple overlapping cycles</button></li>
+        <li><button class="q-opt" type="button" data-value="all-over"><span class="q-opt-icon">🌪️</span> All over the place</button></li>
         <li><button class="q-opt" type="button" data-value="unsure"><span class="q-opt-icon">🤷</span> Not sure yet</button></li>
       </ul>
     </section>
@@ -334,6 +335,7 @@
         <li><button class="q-opt" type="button" data-value="spreadsheet"><span class="q-opt-icon">📊</span> Spreadsheet</button></li>
         <li><button class="q-opt" type="button" data-value="memory"><span class="q-opt-icon">🧠</span> Memory - nothing formal</button></li>
         <li><button class="q-opt" type="button" data-value="other-app"><span class="q-opt-icon">📱</span> Another app</button></li>
+        <li><button class="q-opt" type="button" data-value="none"><span class="q-opt-icon">🚫</span> Not at all</button></li>
       </ul>
     </section>
 
@@ -350,7 +352,7 @@
 
     <!-- painPoint -->
     <section class="step" data-id="painPoint" hidden>
-      <h2 class="q-heading" tabindex="-1">What's your biggest pain point right now?</h2>
+      <h2 class="q-heading" tabindex="-1">What's the hardest part about your peptides?</h2>
       <ul class="q-options" data-select="single" data-var="painPoint">
         <li><button class="q-opt" type="button" data-value="forgot"><span class="q-opt-icon">❓</span> Forgetting if I already took a dose</button></li>
         <li><button class="q-opt" type="button" data-value="juggling"><span class="q-opt-icon">🤹</span> Juggling multiple schedules</button></li>
@@ -788,6 +790,7 @@
         simple: 'a same-time-every-day',
         mixed: 'a mixed-timing',
         complex: 'a multi-cycle',
+        'all-over': 'an all-over-the-place',
         unsure: 'a schedule you’re still figuring out'
       };
       var goalLabels = {
