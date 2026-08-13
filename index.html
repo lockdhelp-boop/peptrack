@@ -110,394 +110,202 @@
     ]
   }
   </script>
+  <link rel="stylesheet" href="/assets/site.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Homepage-only layout. Everything else comes from the design system. */
 
-    :root {
-      --bg:       #080a0f;
-      --bg2:      #0d0f14;
-      --border:   rgba(255,255,255,.07);
-      --accent:   #2563EB;
-      --accent2:  #3b82f6;
-      --accent3:  #1d4ed8;
-      --text:     #ffffff;
-      --muted:    #6b7280;
-      --card-bg:  rgba(255,255,255,.03);
-      --card-border: rgba(255,255,255,.08);
-    }
-
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg); color: var(--text);
-      line-height: 1.6; overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-
-    /* ── Nav ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 0 24px; height: 60px;
-      display: flex; align-items: center; justify-content: space-between; gap: 24px;
-      background: rgba(8,10,15,.92);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo { display: flex; align-items: center; gap: 10px; }
-    .nav-logo img { height: 42px; width: auto; }
-    .nav-logo-text { font-size: 18px; font-weight: 800; letter-spacing: -.03em; color: #fff; }
-    .nav-links { display: flex; align-items: center; gap: 2px; flex: 1; justify-content: center; }
-    .nav-links a {
-      font-size: 14px; font-weight: 500; color: rgba(255,255,255,.55);
-      padding: 6px 12px; border-radius: 8px; transition: color .15s, background .15s;
-      white-space: nowrap;
-    }
-    .nav-links a:hover { color: #fff; background: rgba(255,255,255,.07); }
-    .nav-divider { width: 1px; height: 14px; background: var(--border); margin: 0 4px; }
-    .nav-cta {
-      background: var(--accent); color: #fff;
-      font-size: 14px; font-weight: 700;
-      padding: 8px 18px; border-radius: 50px;
-      transition: background .2s, transform .15s; white-space: nowrap;
-    }
-    .nav-cta:hover { background: var(--accent3); transform: translateY(-1px); }
-    @media (max-width: 640px) { .nav-links { display: none; } }
-
-    /* ── Hero ── */
-    .hero {
-      padding: 110px 0 80px;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 70% at 15% 50%, rgba(37,99,235,.1), transparent 65%);
-      pointer-events: none;
-    }
-    .hero-inner {
-      display: flex; align-items: center; gap: 48px; min-height: 520px;
-    }
+    .hero { padding: 96px 0 76px; overflow: hidden; }
+    .hero-inner { display: flex; align-items: center; gap: 52px; }
     .hero-left { flex: 1 1 0; min-width: 0; }
-    .hero-right {
-      flex: 0 0 50%;
-      display: flex; align-items: center; justify-content: flex-end;
-    }
+    .hero-right { flex: 0 0 48%; display: flex; justify-content: flex-end; }
     .hero-right img {
-      width: 100%; max-width: 560px;
-      filter: drop-shadow(0 24px 48px rgba(37,99,235,.15));
+      width: 100%; max-width: 540px;
+      filter: drop-shadow(0 30px 60px rgba(0,0,0,.55));
     }
-    .hero-eyebrow {
-      font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--accent2); margin-bottom: 20px; display: block;
-    }
-    .hero h1 {
-      font-size: clamp(36px, 5.5vw, 66px);
-      font-weight: 900; line-height: 1.0; letter-spacing: -.03em;
-      color: #fff; margin-bottom: 20px;
-    }
-    .hero h1 em { font-style: normal; color: var(--accent2); }
+    .hero h1 { margin-bottom: 20px; }
+    .hero h1 em { font-style: normal; color: var(--text-muted); }
     .hero-sub {
-      font-size: clamp(15px, 1.8vw, 18px);
-      color: var(--muted); line-height: 1.65; margin-bottom: 36px; max-width: 440px;
+      font-size: var(--step-1); color: var(--text-muted);
+      max-width: 440px; margin-bottom: 34px;
     }
-    .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: #fff; color: #080a0f;
-      font-size: 15px; font-weight: 700;
-      padding: 14px 26px; border-radius: 50px;
-      transition: opacity .15s, transform .1s;
-    }
-    .btn-primary:hover { opacity: .9; transform: translateY(-1px); }
-    .btn-primary svg { width: 18px; height: 18px; }
-    .btn-ghost {
-      font-size: 14px; font-weight: 600; color: var(--muted); transition: color .15s;
-    }
-    .btn-ghost:hover { color: #fff; }
-    .hero-note { font-size: 12px; color: var(--muted); margin-top: 14px; }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .hero-note { font-size: var(--step--1); color: var(--text-faint); margin-top: 16px; }
 
-    /* ── Proof strip ── */
-    .proof-strip {
-      padding: 22px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
+    /* Capability strip — quiet, no emoji, matches the app's restraint. */
+    .strip { border-block: 1px solid var(--border); padding: 20px 0; overflow: hidden; }
+    .strip-track {
+      display: flex; align-items: center; gap: 40px;
+      width: max-content; animation: strip 38s linear infinite;
     }
-    .proof-strip-inner {
-      display: flex; align-items: center; gap: 44px;
-      animation: marquee 24s linear infinite;
-      width: max-content;
+    @keyframes strip { to { transform: translateX(-50%); } }
+    .strip-item {
+      display: flex; align-items: center; gap: 9px; white-space: nowrap;
+      font-size: var(--step--1); font-weight: 500; color: var(--text-muted);
     }
-    @keyframes marquee {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .proof-item {
-      display: flex; align-items: center; gap: 8px;
-      white-space: nowrap; color: var(--muted); font-size: 13px; font-weight: 500;
-    }
-    .proof-item strong { color: rgba(255,255,255,.8); }
-    .proof-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,.15); }
+    .strip-item svg { width: 15px; height: 15px; color: var(--signal-soft); flex-shrink: 0; }
 
-    /* ── How it works ── */
-    .hiw-section { padding: 80px 0; border-top: 1px solid var(--border); }
-    .hiw-steps {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 0; margin-top: 52px; position: relative;
+    .section-head { text-align: center; margin-bottom: 48px; }
+    .section-head .eyebrow { margin-bottom: 12px; }
+    .section-head p { color: var(--text-muted); margin-top: 10px; }
+
+    /* Steps */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; position: relative; }
+    .steps::before {
+      content: ''; position: absolute; top: 26px; left: 12.5%; right: 12.5%; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,.16) 15%, rgba(255,255,255,.16) 85%, transparent);
     }
-    .hiw-steps::before {
-      content: '';
-      position: absolute; top: 27px; left: 12.5%; right: 12.5%; height: 1px;
-      background: linear-gradient(to right, transparent, rgba(37,99,235,.3) 15%, rgba(37,99,235,.3) 85%, transparent);
-    }
-    .hiw-step {
-      display: flex; flex-direction: column; align-items: center;
-      text-align: center; padding: 0 20px; position: relative; z-index: 1;
-    }
+    .step { text-align: center; position: relative; z-index: 1; }
     .step-num {
-      width: 54px; height: 54px; border-radius: 50%; flex-shrink: 0;
-      background: var(--bg2); border: 1px solid rgba(37,99,235,.4);
+      width: 52px; height: 52px; margin: 0 auto 18px;
+      border-radius: 50%; background: var(--bg-raised);
+      border: 1px solid var(--border-strong);
       display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 18px; color: var(--accent2); margin-bottom: 20px;
+      font-weight: 700; font-size: 17px; color: var(--text);
+      box-shadow: 0 2px 10px rgba(255,255,255,.05);
     }
-    .hiw-step h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .hiw-step p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+    .step h3 { font-size: var(--step-0); margin-bottom: 8px; }
+    .step p { font-size: var(--step--1); color: var(--text-muted); line-height: 1.6; }
 
-    /* ── Reviews ── */
-    .reviews-section { padding: 80px 0; border-top: 1px solid var(--border); }
-    .section-eyebrow {
-      font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--accent2); display: block; margin-bottom: 14px; text-align: center;
-    }
-    .section-title {
-      font-size: clamp(26px, 4vw, 40px); font-weight: 800;
-      letter-spacing: -.02em; color: #fff; text-align: center;
-      line-height: 1.1; margin-bottom: 8px;
-    }
-    .section-sub {
-      font-size: 16px; color: var(--muted); text-align: center; margin-bottom: 0;
-    }
-    .reviews-marquee-wrap {
-      margin-top: 48px; overflow: hidden;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-    }
-    .reviews-marquee-track {
-      display: flex; gap: 16px; width: max-content;
-      animation: reviewsScroll 44s linear infinite;
-    }
-    .reviews-marquee-track:hover { animation-play-state: paused; }
-    @keyframes reviewsScroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .t-card {
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      border-radius: 20px; padding: 26px 22px;
-      flex: 0 0 300px; width: 300px; position: relative;
-    }
-    .t-stars { display: flex; gap: 2px; margin-bottom: 12px; }
-    .t-stars span { color: #f5a623; font-size: 14px; }
-    .t-quote { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,.75); margin-bottom: 18px; }
-    .t-author { display: flex; align-items: center; gap: 10px; }
-    .t-avatar {
-      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
-      background: linear-gradient(135deg, var(--accent), var(--accent3));
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 13px; color: #fff;
-    }
-    .t-name { font-weight: 600; font-size: 14px; }
-    .t-handle { font-size: 12px; color: var(--muted); }
-    .t-badge {
-      position: absolute; top: 18px; right: 18px;
-      font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
-      color: var(--accent2); background: rgba(37,99,235,.1); border: 1px solid rgba(37,99,235,.25);
-      padding: 3px 8px; border-radius: 50px;
-    }
-
-    /* ── Features ── */
-    .features-section {
-      padding: 80px 0;
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-    }
-    .features-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px;
-    }
-    .feature-card {
-      background: rgba(255,255,255,.02); border: 1px solid var(--card-border);
-      border-radius: 20px; padding: 26px 22px;
-      transition: border-color .2s, transform .2s;
-    }
-    .feature-card:hover { border-color: rgba(37,99,235,.3); transform: translateY(-2px); }
+    /* Feature cards */
     .feature-icon {
-      margin-bottom: 16px;
-      width: 44px; height: 44px;
-      background: rgba(37,99,235,.1);
-      border: 1px solid rgba(37,99,235,.2);
-      border-radius: 10px;
+      width: 42px; height: 42px; margin-bottom: 16px;
+      border-radius: 11px; background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
       display: flex; align-items: center; justify-content: center;
+      color: var(--text);
     }
-    .feature-card h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .feature-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+    .feature-icon svg { width: 20px; height: 20px; }
+    /* Eight features into a 3-column grid leaves a ragged last row; the final
+       card takes the spare column so the block still reads as a rectangle. */
+    @media (min-width: 861px) { .feature-card--wide { grid-column: span 2; } }
 
-    /* ── CTA ── */
-    .cta-section { padding: 80px 0; border-top: 1px solid var(--border); }
-    .cta-inner {
-      background: linear-gradient(135deg, rgba(37,99,235,.1), rgba(37,99,235,.03));
-      border: 1px solid rgba(37,99,235,.2);
-      border-radius: 28px; padding: 56px 48px;
+    /* Reviews */
+    .reviews-wrap {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+              mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    }
+    .reviews-track { display: flex; gap: 16px; width: max-content; animation: strip 52s linear infinite; }
+    .reviews-track:hover { animation-play-state: paused; }
+    .t-card { flex: 0 0 306px; width: 306px; padding: 24px 22px; }
+    .t-stars { display: flex; gap: 3px; margin-bottom: 12px; color: #f5a623; font-size: 13px; }
+    .t-quote { font-size: 14px; line-height: 1.65; color: var(--text-body); margin-bottom: 18px; flex: 1; }
+    .t-author { display: flex; align-items: center; gap: 11px; }
+    .t-avatar {
+      width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(255,255,255,.10); border: 1px solid var(--border-strong);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 12px; color: var(--text);
+    }
+    .t-name { font-weight: 600; font-size: 14px; line-height: 1.3; }
+    .t-handle { font-size: 12px; color: var(--text-faint); line-height: 1.3; }
+
+    /* Closing CTA */
+    .cta-wide {
       display: flex; align-items: center; justify-content: space-between;
       gap: 32px; flex-wrap: wrap;
+      padding: 48px 44px; border-radius: var(--r-xl);
+      background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
     }
-    .cta-inner h2 {
-      font-size: clamp(22px, 3vw, 34px); font-weight: 800;
-      letter-spacing: -.02em; color: #fff; margin-bottom: 8px;
-    }
-    .cta-inner p { font-size: 15px; color: var(--muted); }
+    .cta-wide h2 { font-size: var(--step-2); margin-bottom: 8px; }
+    .cta-wide p { color: var(--text-muted); }
 
-    /* ── FAQ ── */
-    .faq-section {
-      padding: 80px 0;
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-    }
-    .faq-grid {
-      max-width: 820px; margin: 44px auto 0;
-      display: grid; gap: 12px;
-    }
-    .faq-item {
-      background: rgba(255,255,255,.02);
-      border: 1px solid var(--card-border);
-      border-radius: 16px; padding: 22px 24px;
-    }
-    .faq-item h3 { font-size: 16px; color: #fff; margin-bottom: 8px; }
-    .faq-item p { font-size: 14px; color: var(--muted); line-height: 1.7; }
-    .faq-item a { color: var(--accent2); }
-
-    /* ── Footer ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 24px; text-align: center;
-      font-size: 13px; color: var(--muted);
-    }
-    footer a { color: var(--muted); transition: color .15s; }
-    footer a:hover { color: #fff; }
-    .footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 10px; flex-wrap: wrap; }
-
-    /* ── Responsive ── */
-    @media (max-width: 860px) {
-      .hero-inner { flex-direction: column; min-height: unset; gap: 40px; padding: 0; }
-      .hero-right { justify-content: center; flex: unset; width: 100%; }
-      .hero-right img { max-width: 100%; }
+    @media (max-width: 900px) {
+      .hero-inner { flex-direction: column; gap: 44px; }
+      .hero-right { flex: unset; width: 100%; justify-content: center; }
       .hero-sub { max-width: 100%; }
-      .features-grid { grid-template-columns: 1fr 1fr; }
-      .hiw-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
-      .hiw-steps::before { display: none; }
+      .steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .steps::before { display: none; }
     }
-    @media (max-width: 600px) {
-      nav { padding: 0 20px; }
-      .hero { padding: 80px 0 48px; }
-      .features-grid { grid-template-columns: 1fr; }
-      .hiw-steps { grid-template-columns: 1fr; }
-      .cta-inner { padding: 36px 24px; }
+    @media (max-width: 700px) {
+      .hero { padding: 60px 0 48px; }
+      .steps { grid-template-columns: 1fr; }
+      .cta-wide { padding: 32px 24px; }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <div class="nav-logo">
-      <img src="/peptrack-icon.png" alt="PepTrack" />
-      <span class="nav-logo-text">PepTrack</span>
-    </div>
+  <nav class="nav">
+    <a class="nav-logo" href="/"><img src="/peptrack-icon.png" alt="" width="42" height="42" /><span>PepTrack</span></a>
     <div class="nav-links">
       <a href="#features">Features</a>
       <a href="#reviews">Reviews</a>
+      <a href="/tools/">Tools</a>
       <a href="/guides/">Guides</a>
       <a href="/blog/">Blog</a>
-      <div class="nav-divider"></div>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
     </div>
-    <!-- TODO: Replace # with real App Store link once live -->
     <a class="nav-cta" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032">Download Free</a>
   </nav>
 
-  <!-- ── Hero ── -->
-  <section class="hero">
-    <div class="container">
+  <!-- Hero -->
+  <section class="hero glow-host">
+    <div class="shell shell--wide">
       <div class="hero-inner">
         <div class="hero-left">
-          <span class="hero-eyebrow">Now Available on iOS</span>
+          <span class="eyebrow">Now available on iOS</span>
           <h1>Peptide tracking<br><em>made simple.</em></h1>
-          <p class="hero-sub">PepTrack is a private peptide routine tracker for iPhone. Organize custom routines, log entries, set reminders, and review timing in one clean place.</p>
+          <p class="hero-sub">A private peptide routine tracker for iPhone. Organize custom routines, log entries, set reminders, and review timing in one clean place.</p>
           <div class="hero-actions">
-            <!-- TODO: Replace # with real App Store link once live -->
-            <a class="btn-primary" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032">
-              <svg viewBox="0 0 24 24" fill="#080a0f"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-              Download on the App Store
-            </a>
-            <a class="btn-ghost" href="#features">See features</a>
+            <a class="btn btn--primary" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> Download on the App Store</a>
+            <a class="btn btn--ghost" href="#features">See features</a>
           </div>
-          <p class="hero-note">Free to download · iOS only</p>
+          <p class="hero-note">Free to download &middot; No account required &middot; iOS only</p>
         </div>
         <div class="hero-right">
-          <img src="/peptrack-mockup.png" alt="PepTrack App" />
+          <img src="/peptrack-mockup.png" alt="PepTrack running on iPhone" width="540" height="540" fetchpriority="high" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Proof strip ── -->
-  <div class="proof-strip">
-    <div class="proof-strip-inner">
-      <div class="proof-item"><strong>💉 Dose logging</strong></div><div class="proof-dot"></div>
-      <div class="proof-item"><strong>📅 Protocol scheduling</strong></div><div class="proof-dot"></div>
-      <div class="proof-item"><strong>🔔 Smart reminders</strong></div><div class="proof-dot"></div>
-      <div class="proof-item"><strong>📊 Progress tracking</strong></div><div class="proof-dot"></div>
-      <div class="proof-item"><strong>🔒 Private by default</strong></div><div class="proof-dot"></div>
-      <div class="proof-item"><strong>📱 iPhone optimized</strong></div><div class="proof-dot"></div>
-      <div class="proof-item"><strong>⚡ Log in seconds</strong></div><div class="proof-dot"></div>
-      <div class="proof-item"><strong>🧬 Research library</strong></div><div class="proof-dot"></div>
-      <!-- duplicate for seamless loop -->
-      <div class="proof-item"><strong>💉 Dose logging</strong></div><div class="proof-dot"></div>
-      <div class="proof-item"><strong>📅 Protocol scheduling</strong></div><div class="proof-dot"></div>
-      <div class="proof-item"><strong>🔔 Smart reminders</strong></div><div class="proof-dot"></div>
-      <div class="proof-item"><strong>📊 Progress tracking</strong></div><div class="proof-dot"></div>
-      <div class="proof-item"><strong>🔒 Private by default</strong></div><div class="proof-dot"></div>
-      <div class="proof-item"><strong>📱 iPhone optimized</strong></div><div class="proof-dot"></div>
-      <div class="proof-item"><strong>⚡ Log in seconds</strong></div><div class="proof-dot"></div>
-      <div class="proof-item"><strong>🧬 Research library</strong></div><div class="proof-dot"></div>
+  <!-- Capability strip -->
+  <div class="strip">
+    <div class="strip-track">
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6m-3-3v6"/><circle cx="12" cy="12" r="9"/></svg><span>Entry logging</span></div>
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Routine scheduling</span></div>
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span>Custom reminders</span></div>
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span>History and charts</span></div>
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>Private by default</span></div>
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8" y2="11"/><line x1="12" y1="11" x2="12" y2="11"/><line x1="16" y1="11" x2="16" y2="11"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="12" y1="16" x2="12" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg><span>Reconstitution calculator</span></div>
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg><span>Built for iPhone</span></div>
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>Log in seconds</span></div>
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6m-3-3v6"/><circle cx="12" cy="12" r="9"/></svg><span>Entry logging</span></div>
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Routine scheduling</span></div>
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span>Custom reminders</span></div>
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span>History and charts</span></div>
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>Private by default</span></div>
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8" y2="11"/><line x1="12" y1="11" x2="12" y2="11"/><line x1="16" y1="11" x2="16" y2="11"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="12" y1="16" x2="12" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg><span>Reconstitution calculator</span></div>
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg><span>Built for iPhone</span></div>
+        <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>Log in seconds</span></div>
     </div>
   </div>
 
-  <!-- ── How it works ── -->
-  <section class="hiw-section" id="how-it-works">
-    <div class="container">
-      <span class="section-eyebrow">How it works</span>
-      <h2 class="section-title">Up and running in minutes</h2>
-      <p class="section-sub">No setup headaches. Just open the app and start tracking.</p>
-      <div class="hiw-steps">
-        <div class="hiw-step">
+  <!-- How it works -->
+  <section class="section" id="how-it-works">
+    <div class="shell shell--wide">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2>Up and running in minutes</h2>
+        <p>No setup headaches. Open the app and start tracking.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
           <div class="step-num">1</div>
           <h3>Add custom entries</h3>
           <p>Enter names and details for the routine you already follow.</p>
         </div>
-        <div class="hiw-step">
+        <div class="step">
           <div class="step-num">2</div>
           <h3>Set your schedule</h3>
           <p>Add the frequency and timing from your existing routine.</p>
         </div>
-        <div class="hiw-step">
+        <div class="step">
           <div class="step-num">3</div>
           <h3>Log each entry</h3>
           <p>Record the user-entered amount, time, site, and optional notes.</p>
         </div>
-        <div class="hiw-step">
+        <div class="step">
           <div class="step-num">4</div>
           <h3>Review your history</h3>
           <p>Use reminders and history to see what you planned and recorded.</p>
@@ -506,236 +314,225 @@
     </div>
   </section>
 
-  <!-- ── Reviews ── -->
-  <section class="reviews-section" id="reviews">
-    <div class="container">
-      <span class="section-eyebrow">What people are saying</span>
-      <h2 class="section-title">Built for people who take<br>their protocol seriously</h2>
-      <p class="section-sub">Real users. Real results.</p>
-
-      <div class="reviews-marquee-wrap">
-        <div class="reviews-marquee-track">
-
-          <!-- Set 1 -->
-          <div class="t-card">
-            <div class="t-badge">Verified</div>
-            <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="t-quote">"Finally an app that actually keeps up with my protocol. I run multiple compounds and PepTrack keeps everything clean and on schedule."</p>
-            <div class="t-author">
-              <div class="t-avatar">RK</div>
-              <div><div class="t-name">Ryan K.</div><div class="t-handle">Biohacker · Denver</div></div>
-            </div>
-          </div>
-          <div class="t-card">
-            <div class="t-badge">Verified</div>
-            <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="t-quote">"The reminders alone are worth it. I used to miss doses constantly. Haven't missed one since I started using PepTrack."</p>
-            <div class="t-author">
-              <div class="t-avatar">JM</div>
-              <div><div class="t-name">Jake M.</div><div class="t-handle">Fitness coach · Austin</div></div>
-            </div>
-          </div>
-          <div class="t-card">
-            <div class="t-badge">Verified</div>
-            <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="t-quote">"I've tried spreadsheets, notes apps, everything. Nothing came close to how clean and fast PepTrack is. It just gets out of the way."</p>
-            <div class="t-author">
-              <div class="t-avatar">AL</div>
-              <div><div class="t-name">Alex L.</div><div class="t-handle">MD · San Francisco</div></div>
-            </div>
-          </div>
-          <div class="t-card">
-            <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="t-quote">"Everything stays on my device which was the dealbreaker for me. Private, fast, and dead simple. Exactly what I needed."</p>
-            <div class="t-author">
-              <div class="t-avatar">TW</div>
-              <div><div class="t-name">Tyler W.</div><div class="t-handle">Longevity researcher · NYC</div></div>
-            </div>
-          </div>
-          <div class="t-card">
-            <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="t-quote">"The scheduling feature is incredible. Set it once and it handles everything. I don't have to think about timing anymore."</p>
-            <div class="t-author">
-              <div class="t-avatar">SC</div>
-              <div><div class="t-name">Sam C.</div><div class="t-handle">Athlete · Miami</div></div>
-            </div>
-          </div>
-          <div class="t-card">
-            <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="t-quote">"Logging a dose takes two seconds. The design is clean and it doesn't feel like a medical app. Exactly the right balance."</p>
-            <div class="t-author">
-              <div class="t-avatar">BH</div>
-              <div><div class="t-name">Ben H.</div><div class="t-handle">Entrepreneur · LA</div></div>
-            </div>
-          </div>
-
-          <!-- Set 2 (duplicate for seamless loop) -->
-          <div class="t-card">
-            <div class="t-badge">Verified</div>
-            <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="t-quote">"Finally an app that actually keeps up with my protocol. I run multiple compounds and PepTrack keeps everything clean and on schedule."</p>
-            <div class="t-author">
-              <div class="t-avatar">RK</div>
-              <div><div class="t-name">Ryan K.</div><div class="t-handle">Biohacker · Denver</div></div>
-            </div>
-          </div>
-          <div class="t-card">
-            <div class="t-badge">Verified</div>
-            <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="t-quote">"The reminders alone are worth it. I used to miss doses constantly. Haven't missed one since I started using PepTrack."</p>
-            <div class="t-author">
-              <div class="t-avatar">JM</div>
-              <div><div class="t-name">Jake M.</div><div class="t-handle">Fitness coach · Austin</div></div>
-            </div>
-          </div>
-          <div class="t-card">
-            <div class="t-badge">Verified</div>
-            <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="t-quote">"I've tried spreadsheets, notes apps, everything. Nothing came close to how clean and fast PepTrack is. It just gets out of the way."</p>
-            <div class="t-author">
-              <div class="t-avatar">AL</div>
-              <div><div class="t-name">Alex L.</div><div class="t-handle">MD · San Francisco</div></div>
-            </div>
-          </div>
-          <div class="t-card">
-            <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="t-quote">"Everything stays on my device which was the dealbreaker for me. Private, fast, and dead simple. Exactly what I needed."</p>
-            <div class="t-author">
-              <div class="t-avatar">TW</div>
-              <div><div class="t-name">Tyler W.</div><div class="t-handle">Longevity researcher · NYC</div></div>
-            </div>
-          </div>
-          <div class="t-card">
-            <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="t-quote">"The scheduling feature is incredible. Set it once and it handles everything. I don't have to think about timing anymore."</p>
-            <div class="t-author">
-              <div class="t-avatar">SC</div>
-              <div><div class="t-name">Sam C.</div><div class="t-handle">Athlete · Miami</div></div>
-            </div>
-          </div>
-          <div class="t-card">
-            <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-            <p class="t-quote">"Logging a dose takes two seconds. The design is clean and it doesn't feel like a medical app. Exactly the right balance."</p>
-            <div class="t-author">
-              <div class="t-avatar">BH</div>
-              <div><div class="t-name">Ben H.</div><div class="t-handle">Entrepreneur · LA</div></div>
-            </div>
-          </div>
-
-        </div>
+  <!-- Features -->
+  <section class="section" id="features">
+    <div class="shell shell--wide">
+      <div class="section-head">
+        <span class="eyebrow">Features</span>
+        <h2>Everything you need to organize your routine</h2>
       </div>
-    </div>
-  </section>
-
-  <!-- ── Features ── -->
-  <section class="features-section" id="features">
-    <div class="container">
-      <span class="section-eyebrow">Features</span>
-      <h2 class="section-title">Everything you need<br>to organize your routine</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6m-3-3v6"/><circle cx="12" cy="12" r="9"/></svg>
-          </div>
-          <h3>Entry Logging</h3>
+      <div class="card-grid card-grid--3">
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6m-3-3v6"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <h3>Entry logging</h3>
           <p>Record user-entered amounts, timing, sites, and optional notes in a consistent format.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          </div>
-          <h3>Routine Scheduling</h3>
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <h3>Routine scheduling</h3>
           <p>Keep the frequency and timing from your existing routine visible in one place.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <h3>History and Charts</h3>
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h3>History and charts</h3>
           <p>Review your user-entered history, timing, and visual estimates over time.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-          </div>
-          <h3>Custom Reminders</h3>
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+          <h3>Custom reminders</h3>
           <p>Set local reminders that match the schedule you already follow.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          </div>
-          <h3>Private by Default</h3>
-          <p>Your routine details, logs, schedules, reminders, and notes stay on your device. No account is required.</p>
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h3>Private by default</h3>
+          <p>Routine details, logs, schedules, reminders, and notes stay on your device. No account required.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-          </div>
-          <h3>Research Library</h3>
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <h3>Research library</h3>
           <p>Informational content on compounds built right into the app. Learn while you track.</p>
         </div>
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8" y2="11"/><line x1="12" y1="11" x2="12" y2="11"/><line x1="16" y1="11" x2="16" y2="11"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="12" y1="16" x2="12" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg></div>
+          <h3>Reconstitution calculator</h3>
+          <p>Run concentration and syringe-unit math in the app — or in your browser with the free <a href="/tools/peptide-reconstitution-calculator/">web calculator</a>.</p>
+        </div>
+        <div class="card feature-card--wide">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.9 4.9l2.9 2.9"/><path d="M16.2 16.2l2.9 2.9"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.9 19.1l2.9-2.9"/><path d="M16.2 7.8l2.9-2.9"/></svg></div>
+          <h3>Apple Health, optional</h3>
+          <p>Connect weight data if you want it. Nothing syncs unless you turn it on, and it stays on your device and in Apple Health.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ── FAQ ── -->
-  <section class="faq-section" id="faq">
-    <div class="container">
-      <span class="section-eyebrow">Common questions</span>
-      <h2 class="section-title">A tracking tool,<br>not a medical app</h2>
-      <div class="faq-grid">
-        <div class="faq-item">
-          <h3>What is PepTrack?</h3>
+  <!-- Reviews -->
+  <section class="section" id="reviews">
+    <div class="shell shell--wide">
+      <div class="section-head">
+        <span class="eyebrow">What people are saying</span>
+        <h2>Built for people who take their protocol seriously</h2>
+      </div>
+    </div>
+    <div class="reviews-wrap">
+      <div class="reviews-track">
+          <div class="card t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">“Finally an app that actually keeps up with my protocol. I run multiple compounds and PepTrack keeps everything clean and on schedule.”</p>
+            <div class="t-author">
+              <div class="t-avatar">RK</div>
+              <div><div class="t-name">Ryan K.</div><div class="t-handle">Biohacker · Denver</div></div>
+            </div>
+          </div>
+          <div class="card t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">“The reminders alone are worth it. I used to miss doses constantly. Haven’t missed one since I started using PepTrack.”</p>
+            <div class="t-author">
+              <div class="t-avatar">JM</div>
+              <div><div class="t-name">Jake M.</div><div class="t-handle">Fitness coach · Austin</div></div>
+            </div>
+          </div>
+          <div class="card t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">“I’ve tried spreadsheets, notes apps, everything. Nothing came close to how clean and fast PepTrack is. It just gets out of the way.”</p>
+            <div class="t-author">
+              <div class="t-avatar">AL</div>
+              <div><div class="t-name">Alex L.</div><div class="t-handle">MD · San Francisco</div></div>
+            </div>
+          </div>
+          <div class="card t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">“Everything stays on my device which was the dealbreaker for me. Private, fast, and dead simple. Exactly what I needed.”</p>
+            <div class="t-author">
+              <div class="t-avatar">TW</div>
+              <div><div class="t-name">Tyler W.</div><div class="t-handle">Longevity researcher · NYC</div></div>
+            </div>
+          </div>
+          <div class="card t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">“The scheduling feature is incredible. Set it once and it handles everything. I don’t have to think about timing anymore.”</p>
+            <div class="t-author">
+              <div class="t-avatar">SC</div>
+              <div><div class="t-name">Sam C.</div><div class="t-handle">Athlete · Miami</div></div>
+            </div>
+          </div>
+          <div class="card t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">“Logging a dose takes two seconds. The design is clean and it doesn’t feel like a medical app. Exactly the right balance.”</p>
+            <div class="t-author">
+              <div class="t-avatar">BH</div>
+              <div><div class="t-name">Ben H.</div><div class="t-handle">Entrepreneur · LA</div></div>
+            </div>
+          </div>
+          <div class="card t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">“Finally an app that actually keeps up with my protocol. I run multiple compounds and PepTrack keeps everything clean and on schedule.”</p>
+            <div class="t-author">
+              <div class="t-avatar">RK</div>
+              <div><div class="t-name">Ryan K.</div><div class="t-handle">Biohacker · Denver</div></div>
+            </div>
+          </div>
+          <div class="card t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">“The reminders alone are worth it. I used to miss doses constantly. Haven’t missed one since I started using PepTrack.”</p>
+            <div class="t-author">
+              <div class="t-avatar">JM</div>
+              <div><div class="t-name">Jake M.</div><div class="t-handle">Fitness coach · Austin</div></div>
+            </div>
+          </div>
+          <div class="card t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">“I’ve tried spreadsheets, notes apps, everything. Nothing came close to how clean and fast PepTrack is. It just gets out of the way.”</p>
+            <div class="t-author">
+              <div class="t-avatar">AL</div>
+              <div><div class="t-name">Alex L.</div><div class="t-handle">MD · San Francisco</div></div>
+            </div>
+          </div>
+          <div class="card t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">“Everything stays on my device which was the dealbreaker for me. Private, fast, and dead simple. Exactly what I needed.”</p>
+            <div class="t-author">
+              <div class="t-avatar">TW</div>
+              <div><div class="t-name">Tyler W.</div><div class="t-handle">Longevity researcher · NYC</div></div>
+            </div>
+          </div>
+          <div class="card t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">“The scheduling feature is incredible. Set it once and it handles everything. I don’t have to think about timing anymore.”</p>
+            <div class="t-author">
+              <div class="t-avatar">SC</div>
+              <div><div class="t-name">Sam C.</div><div class="t-handle">Athlete · Miami</div></div>
+            </div>
+          </div>
+          <div class="card t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">“Logging a dose takes two seconds. The design is clean and it doesn’t feel like a medical app. Exactly the right balance.”</p>
+            <div class="t-author">
+              <div class="t-avatar">BH</div>
+              <div><div class="t-name">Ben H.</div><div class="t-handle">Entrepreneur · LA</div></div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow">Common questions</span>
+        <h2>A tracking tool, not a medical app</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary><h3>What is PepTrack?</h3></summary>
           <p>PepTrack is an iPhone app for organizing custom peptide routines, logging entries, setting reminders, and reviewing timing and history.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Does PepTrack provide medical or dosing advice?</h3>
+        </details>
+        <details>
+          <summary><h3>Does PepTrack provide medical or dosing advice?</h3></summary>
           <p>No. PepTrack is a personal tracking and organizational tool. It does not diagnose conditions, recommend compounds, or provide dosing advice.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Does PepTrack require an account?</h3>
+        </details>
+        <details>
+          <summary><h3>Does PepTrack require an account?</h3></summary>
           <p>No. An account is not required to use the core tracking features.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Where is routine data stored?</h3>
+        </details>
+        <details>
+          <summary><h3>Where is routine data stored?</h3></summary>
           <p>Routine details, logs, schedules, reminders, notes, and custom entries are stored locally on your device. See the <a href="/privacy.html">Privacy Policy</a> for the limited account and analytics data handled by service providers.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Where can I learn more before downloading?</h3>
-          <p>Visit the <a href="/guides/">PepTrack guides</a> for practical, non-medical information about organizing routines, reminders, and private tracking.</p>
-        </div>
+        </details>
+        <details>
+          <summary><h3>Where can I learn more before downloading?</h3></summary>
+          <p>Visit the <a href="/guides/">PepTrack guides</a> for practical, non-medical information about organizing routines, reminders, and private tracking, or try the free <a href="/tools/peptide-reconstitution-calculator/">peptide reconstitution calculator</a> in your browser.</p>
+        </details>
       </div>
     </div>
   </section>
 
-  <!-- ── CTA ── -->
-  <section class="cta-section" id="download">
-    <div class="container">
-      <div class="cta-inner">
+  <!-- Closing CTA -->
+  <section class="section" id="download">
+    <div class="shell shell--wide">
+      <div class="cta-wide shine">
         <div>
           <h2>Ready to organize your routine?</h2>
           <p>Free to download. No account needed. iOS only.</p>
         </div>
-        <!-- TODO: Replace # with real App Store link once live -->
-        <a class="btn-primary" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032">
-          <svg viewBox="0 0 24 24" fill="#080a0f"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          Download on App Store
-        </a>
+        <a class="btn btn--primary" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> Download on the App Store</a>
       </div>
     </div>
   </section>
 
-  <footer>
+  <footer class="site-footer">
     <div class="footer-links">
       <a href="/">Home</a>
+      <a href="/tools/">Tools</a>
       <a href="/guides/">Guides</a>
       <a href="/blog/">Blog</a>
       <a href="/privacy.html">Privacy Policy</a>
+      <a href="/consumer-health-privacy.html">Consumer Health Data Privacy</a>
       <a href="/terms.html">Terms of Service</a>
       <a href="mailto:support.peptrack@gmail.com">Contact</a>
     </div>
-    <div>© 2026 PepTrack by Tuned Tech LLC. All rights reserved.</div>
+    <div>&copy; 2026 PepTrack by Tuned Tech LLC. All rights reserved.</div>
   </footer>
 
 </body>

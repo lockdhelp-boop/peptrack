@@ -28,116 +28,23 @@
     "url": "https://pep-track.app/blog/how-to-stay-consistent-with-your-peptide-protocol.html"
   }
   </script>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #080a0f; --bg2: #0d0f14; --border: rgba(255,255,255,.07);
-      --accent: #2563EB; --accent2: #3b82f6; --text: #ffffff; --muted: #6b7280;
-      --card-bg: rgba(255,255,255,.03); --card-border: rgba(255,255,255,.08);
-    }
-    body { font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    nav {
-      position: sticky; top: 0; z-index: 100; padding: 0 24px; height: 60px;
-      display: flex; align-items: center; justify-content: space-between;
-      background: rgba(8,10,15,.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo { display: flex; align-items: center; gap: 10px; }
-    .nav-logo img { height: 42px; width: auto; }
-    .nav-logo-text { font-size: 18px; font-weight: 800; letter-spacing: -.03em; color: #fff; }
-    .nav-links { display: flex; gap: 4px; }
-    .nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,.55);
-      padding: 6px 12px; border-radius: 8px; transition: color .15s, background .15s; }
-    .nav-links a:hover { color: #fff; background: rgba(255,255,255,.07); }
-    .nav-links a[aria-current="page"] { color: #fff; background: rgba(255,255,255,.08); }
-    .nav-cta { background: var(--accent); color: #fff; font-size: 14px; font-weight: 700;
-      padding: 8px 18px; border-radius: 50px; white-space: nowrap; }
-    .article-wrap { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; }
-    .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; flex-wrap: wrap; }
-    .meta-tag { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--accent2); background: rgba(37,99,235,.1); border: 1px solid rgba(37,99,235,.2);
-      padding: 4px 10px; border-radius: 50px; }
-    .meta-date { font-size: 13px; color: var(--muted); }
-    h1 { font-size: clamp(26px, 4.5vw, 42px); font-weight: 800; line-height: 1.1;
-      letter-spacing: -.02em; margin-bottom: 20px; }
-    .article-intro { font-size: 17px; color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 40px;
-      padding-bottom: 40px; border-bottom: 1px solid var(--border); }
-    .disclaimer {
-      background: rgba(37,99,235,.06); border: 1px solid rgba(37,99,235,.2);
-      border-radius: 14px; padding: 16px 20px; margin-bottom: 40px;
-      font-size: 13px; color: var(--muted); line-height: 1.6;
-    }
-    .disclaimer strong { color: rgba(255,255,255,.6); }
-    .takeaways {
-      background: rgba(37,99,235,.06); border: 1px solid rgba(37,99,235,.2);
-      border-radius: 16px; padding: 24px 28px; margin-bottom: 40px;
-    }
-    .takeaways h3 { font-size: 12px; font-weight: 600; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--accent2); margin-bottom: 14px; }
-    .takeaways ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .takeaways li { display: flex; gap: 10px; font-size: 15px; color: rgba(255,255,255,.8); line-height: 1.5; }
-    .takeaways li::before { content: "→"; color: var(--accent2); flex-shrink: 0; font-weight: 700; }
-    .article-body h2 { font-size: clamp(19px, 3vw, 24px); font-weight: 800; line-height: 1.2;
-      letter-spacing: -.02em; margin: 44px 0 14px; }
-    .article-body h3 { font-size: 17px; font-weight: 700; margin: 28px 0 10px; color: rgba(255,255,255,.85); }
-    .article-body p { font-size: 16px; color: rgba(255,255,255,.65); line-height: 1.8; margin-bottom: 16px; }
-    .article-body ul, .article-body ol { margin: 0 0 20px 0; padding-left: 0; list-style: none;
-      display: flex; flex-direction: column; gap: 10px; }
-    .article-body li { font-size: 16px; color: rgba(255,255,255,.65); line-height: 1.7;
-      display: flex; gap: 10px; }
-    .article-body ul li::before { content: "·"; color: var(--accent2); font-weight: 900; flex-shrink: 0; }
-    .article-body ol { counter-reset: item; }
-    .article-body ol li { counter-increment: item; }
-    .article-body ol li::before { content: counter(item) "."; color: var(--accent2);
-      font-weight: 700; flex-shrink: 0; min-width: 20px; }
-    .article-body strong { color: #fff; font-weight: 600; }
-    .pull-quote { border-left: 3px solid var(--accent); padding: 4px 0 4px 24px;
-      margin: 32px 0; font-size: 18px; font-style: italic; color: rgba(255,255,255,.75); line-height: 1.6; }
-    .article-cta {
-      margin-top: 60px; padding: 36px 32px;
-      background: linear-gradient(135deg, rgba(37,99,235,.1), rgba(37,99,235,.04));
-      border: 1px solid rgba(37,99,235,.25); border-radius: 20px; text-align: center;
-    }
-    .article-cta h3 { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
-    .article-cta p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
-    .article-cta a {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent); color: #fff; font-size: 15px; font-weight: 700;
-      padding: 14px 28px; border-radius: 50px;
-    }
-    footer { padding: 32px 24px; border-top: 1px solid var(--border);
-      text-align: center; font-size: 13px; color: var(--muted); }
-    footer a { color: var(--muted); transition: color .15s; }
-    footer a:hover { color: #fff; }
-    .footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 10px; flex-wrap: wrap; }
-    @media (max-width: 700px) {
-      nav { height: auto; min-height: 60px; padding: 8px 18px; flex-wrap: wrap; }
-      .nav-links { order: 3; width: 100%; justify-content: center; padding-top: 6px;
-        border-top: 1px solid var(--border); }
-      .nav-links a { padding: 5px 8px; font-size: 13px; }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/site.css" />
 </head>
 <body>
 
-  <nav>
-    <a class="nav-logo" href="/">
-      <img src="/favicon.png" alt="PepTrack" />
-      <span class="nav-logo-text">PepTrack</span>
-    </a>
+  <nav class="nav">
+    <a class="nav-logo" href="/"><img src="/peptrack-icon.png" alt="" width="42" height="42" /><span>PepTrack</span></a>
     <div class="nav-links">
       <a href="/">Home</a>
+      <a href="/tools/">Tools</a>
       <a href="/guides/">Guides</a>
       <a href="/blog/" aria-current="page">Blog</a>
       <a href="/privacy.html">Privacy</a>
     </div>
-    <a class="nav-cta" href="/">Download Free</a>
+    <a class="nav-cta" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032">Download Free</a>
   </nav>
 
-  <article class="article-wrap">
+  <article class="article">
 
     <div class="article-meta">
       <span class="meta-tag">Protocol</span>
@@ -208,11 +115,11 @@
 
     </div>
 
-    <div class="article-cta">
+    <div class="cta-block">
       <h3>Keep every entry organized.</h3>
       <p>PepTrack makes it simple to record, schedule, and review a user-defined routine. Free to download.</p>
       <!-- TODO: Replace # with App Store link once live -->
-      <a href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032">
+      <a class="btn btn--primary" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.4c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.39-1.32 2.76-2.53 3.99zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
         Download on App Store
       </a>
@@ -220,16 +127,17 @@
 
   </article>
 
-  <footer>
+  <footer class="site-footer">
     <div class="footer-links">
       <a href="/">Home</a>
+      <a href="/tools/">Tools</a>
       <a href="/guides/">Guides</a>
       <a href="/blog/">Blog</a>
       <a href="/privacy.html">Privacy Policy</a>
       <a href="/terms.html">Terms of Service</a>
       <a href="mailto:support.peptrack@gmail.com">Contact</a>
     </div>
-    <div>© 2026 PepTrack by Tuned Tech LLC. All rights reserved.</div>
+    <div>&copy; 2026 PepTrack by Tuned Tech LLC. All rights reserved.</div>
   </footer>
 
 </body>

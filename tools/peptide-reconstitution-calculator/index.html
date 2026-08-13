@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Peptide Reconstitution Calculator — Syringe Units &amp; BAC Water (Free)</title>
+  <meta name="description" content="Free peptide reconstitution calculator. Enter your vial size, bacteriostatic water, and target amount to get the exact insulin syringe units to draw, concentration, and doses per vial." />
+  <link rel="canonical" href="https://pep-track.app/tools/peptide-reconstitution-calculator/" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css" />
+
+  <meta property="og:title" content="Peptide Reconstitution Calculator — Syringe Units &amp; BAC Water" />
+  <meta property="og:description" content="Enter vial size, bacteriostatic water, and target amount to get exact insulin syringe units, concentration, and doses per vial." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pep-track.app/tools/peptide-reconstitution-calculator/" />
+  <meta property="og:image" content="https://pep-track.app/peptrack-mockup.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Peptide Reconstitution Calculator" />
+  <meta name="twitter:description" content="Free calculator for syringe units, concentration, and doses per vial." />
+  <meta name="twitter:image" content="https://pep-track.app/peptrack-mockup.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "PepTrack", "item": "https://pep-track.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://pep-track.app/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Peptide Reconstitution Calculator", "item": "https://pep-track.app/tools/peptide-reconstitution-calculator/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Peptide Reconstitution Calculator",
+        "url": "https://pep-track.app/tools/peptide-reconstitution-calculator/",
+        "description": "A free browser-based calculator that converts vial size, bacteriostatic water volume, and a target amount into insulin syringe units, solution concentration, and doses per vial.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "Tuned Tech LLC", "url": "https://pep-track.app/" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do you calculate peptide reconstitution?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Divide the vial amount by the volume of bacteriostatic water added to get the concentration. On a U-100 insulin syringe, one unit equals 0.01 mL, so units to draw = (target mcg x water mL) / (vial mg x 10). For example, a 5 mg vial reconstituted with 2 mL gives 2.5 mg/mL, or 25 mcg per unit, so a 250 mcg target is 10 units."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much bacteriostatic water should I add to a vial?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "There is no single correct volume. The volume you add only changes the concentration, not the total amount in the vial. More water makes each unit smaller and easier to measure precisely; less water means fewer units per draw. Follow the instructions supplied with your product and with your healthcare provider."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many units is 250 mcg on an insulin syringe?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It depends entirely on the concentration. With a 5 mg vial in 2 mL of water (25 mcg per unit), 250 mcg is 10 units. With the same 5 mg vial in 1 mL (50 mcg per unit), 250 mcg is 5 units. Units are a measure of volume, not amount, so the concentration must be known first."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does a unit mean on an insulin syringe?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On a standard U-100 insulin syringe, 100 units equals 1 mL, so one unit is 0.01 mL. This is true whether the syringe barrel holds 0.3 mL (30 units), 0.5 mL (50 units), or 1 mL (100 units). Only the maximum capacity changes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this calculator recommend a dose?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. It performs arithmetic on the numbers you enter and nothing else. It does not suggest compounds, amounts, schedules, or changes to any routine. Dosing decisions should be made with a qualified healthcare professional."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="/"><img src="/peptrack-icon.png" alt="" width="42" height="42" /><span>PepTrack</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/tools/" aria-current="page">Tools</a>
+      <a href="/guides/">Guides</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy.html">Privacy</a>
+    </div>
+    <a class="nav-cta" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032">Download Free</a>
+  </nav>
+
+  <main class="article">
+    <div class="breadcrumbs"><a href="/">PepTrack</a> / <a href="/tools/">Tools</a> / Reconstitution calculator</div>
+    <span class="eyebrow">Free tool</span>
+    <h1>Peptide Reconstitution Calculator</h1>
+    <p class="dek">Enter your vial size, how much bacteriostatic water you added, and the amount you are measuring. Get the exact insulin syringe units to draw, the resulting concentration, and how many doses the vial holds.</p>
+
+    <div class="disclaimer">
+      <strong>This is a math tool, not medical guidance.</strong> It converts the numbers you enter into volume and syringe units. It does not recommend compounds, amounts, or schedules, and it cannot verify what is in your vial. Dosing decisions belong with a qualified healthcare professional.
+    </div>
+
+    <!-- ── Calculator ── -->
+    <div class="calc">
+      <form class="calc-panel" id="calcForm" autocomplete="off">
+        <h2>Your vial</h2>
+
+        <div class="field">
+          <label for="vialMg">Vial size</label>
+          <div class="input-row">
+            <input type="number" id="vialMg" value="5" min="0" step="any" inputmode="decimal" />
+            <select id="vialUnit" aria-label="Vial size unit">
+              <option value="mg" selected>mg</option>
+              <option value="mcg">mcg</option>
+            </select>
+          </div>
+          <span class="hint">The total amount printed on the vial label.</span>
+        </div>
+
+        <div class="field">
+          <label for="waterMl">Bacteriostatic water added</label>
+          <div class="input-row">
+            <input type="number" id="waterMl" value="2" min="0" step="any" inputmode="decimal" />
+            <select disabled aria-label="Water unit"><option>mL</option></select>
+          </div>
+          <span class="hint">More water means smaller, easier-to-read draws. It does not change the total amount in the vial.</span>
+        </div>
+
+        <div class="field">
+          <label for="doseVal">Amount per dose</label>
+          <div class="input-row">
+            <input type="number" id="doseVal" value="250" min="0" step="any" inputmode="decimal" />
+            <select id="doseUnit" aria-label="Dose unit">
+              <option value="mcg" selected>mcg</option>
+              <option value="mg">mg</option>
+              <option value="iu">IU</option>
+            </select>
+          </div>
+          <span class="hint" id="iuHint" hidden>IU is converted using the ratio you set below.</span>
+        </div>
+
+        <div class="field" id="iuField" hidden>
+          <label for="iuPerMg">IU per mg</label>
+          <input type="number" id="iuPerMg" value="3" min="0" step="any" inputmode="decimal" />
+          <span class="hint">Varies by compound — check your product documentation.</span>
+        </div>
+
+        <div class="field">
+          <label for="syringe">Syringe size</label>
+          <select id="syringe" style="width:100%">
+            <option value="0.3">0.3 mL — 30 units</option>
+            <option value="0.5" selected>0.5 mL — 50 units</option>
+            <option value="1">1 mL — 100 units</option>
+          </select>
+          <span class="hint">Standard U-100 insulin syringe, where 100 units = 1 mL.</span>
+        </div>
+      </form>
+
+      <div class="calc-panel" aria-live="polite">
+        <h2>Draw this much</h2>
+
+        <div class="result-hero">
+          <div class="label">Units on the syringe</div>
+          <div class="value" id="rUnits">10</div>
+          <div class="unit" id="rUnitsSub">on a U-100 insulin syringe</div>
+        </div>
+
+        <div class="syringe">
+          <div class="syringe-bar">
+            <div class="syringe-fill" id="rFill" style="width:20%"></div>
+            <div class="syringe-ticks" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="syringe-scale"><span>0</span><span id="rHalf">25</span><span id="rMax">50 units</span></div>
+        </div>
+
+        <dl class="result-list" style="margin-top:18px">
+          <div class="result-row"><dt>Volume to draw</dt><dd id="rVolume">0.1 mL</dd></div>
+          <div class="result-row"><dt>Concentration</dt><dd id="rConc">2.5 mg/mL</dd></div>
+          <div class="result-row"><dt>Per 1 unit</dt><dd id="rPerUnit">25 mcg</dd></div>
+          <div class="result-row"><dt>Doses per vial</dt><dd id="rDoses">20 doses</dd></div>
+        </dl>
+
+        <div class="calc-note" id="rNote" hidden><span id="rNoteText"></span></div>
+      </div>
+    </div>
+
+    <!-- ── Reference chart ── -->
+    <h2 id="chart">Common reconstitution chart</h2>
+    <p>Standard vial and water combinations, with the amount contained in a single unit on a U-100 syringe. The last column shows what a 250&nbsp;mcg measurement works out to at each concentration.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Vial size</th>
+            <th>BAC water</th>
+            <th class="num">Concentration</th>
+            <th class="num">Per 1 unit</th>
+            <th class="num">250 mcg =</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>2 mg</td><td>1 mL</td><td class="num">2.0 mg/mL</td><td class="num">20 mcg</td><td class="num">12.5 units</td></tr>
+          <tr><td>2 mg</td><td>2 mL</td><td class="num">1.0 mg/mL</td><td class="num">10 mcg</td><td class="num">25 units</td></tr>
+          <tr><td>5 mg</td><td>1 mL</td><td class="num">5.0 mg/mL</td><td class="num">50 mcg</td><td class="num">5 units</td></tr>
+          <tr><td>5 mg</td><td>2 mL</td><td class="num">2.5 mg/mL</td><td class="num">25 mcg</td><td class="num">10 units</td></tr>
+          <tr><td>5 mg</td><td>3 mL</td><td class="num">1.67 mg/mL</td><td class="num">16.7 mcg</td><td class="num">15 units</td></tr>
+          <tr><td>10 mg</td><td>1 mL</td><td class="num">10.0 mg/mL</td><td class="num">100 mcg</td><td class="num">2.5 units</td></tr>
+          <tr><td>10 mg</td><td>2 mL</td><td class="num">5.0 mg/mL</td><td class="num">50 mcg</td><td class="num">5 units</td></tr>
+          <tr><td>10 mg</td><td>3 mL</td><td class="num">3.33 mg/mL</td><td class="num">33.3 mcg</td><td class="num">7.5 units</td></tr>
+          <tr><td>10 mg</td><td>5 mL</td><td class="num">2.0 mg/mL</td><td class="num">20 mcg</td><td class="num">12.5 units</td></tr>
+          <tr><td>15 mg</td><td>3 mL</td><td class="num">5.0 mg/mL</td><td class="num">50 mcg</td><td class="num">5 units</td></tr>
+          <tr><td>20 mg</td><td>2 mL</td><td class="num">10.0 mg/mL</td><td class="num">100 mcg</td><td class="num">2.5 units</td></tr>
+          <tr><td>30 mg</td><td>3 mL</td><td class="num">10.0 mg/mL</td><td class="num">100 mcg</td><td class="num">2.5 units</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── How the math works ── -->
+    <h2 id="how">How the math works</h2>
+    <p>Every reconstitution calculation comes down to three numbers: how much is in the vial, how much liquid you added, and how much you want to measure out. Everything else follows from those.</p>
+
+    <h3>Step 1 — Find the concentration</h3>
+    <p>Divide the vial amount by the water volume. A 5&nbsp;mg vial with 2&nbsp;mL of bacteriostatic water gives <strong>2.5&nbsp;mg per mL</strong>. Adding water never changes how much is in the vial — it only spreads the same amount across more liquid.</p>
+
+    <h3>Step 2 — Convert to units</h3>
+    <p>A U-100 insulin syringe is marked so that <strong>100 units = 1&nbsp;mL</strong>, which makes one unit exactly 0.01&nbsp;mL. So 2.5&nbsp;mg/mL is 2,500&nbsp;mcg/mL, and dividing by 100 gives <strong>25&nbsp;mcg in every unit</strong>.</p>
+
+    <h3>Step 3 — Divide your target by that</h3>
+    <p>If you are measuring 250&nbsp;mcg and each unit holds 25&nbsp;mcg, you draw to the <strong>10 unit</strong> mark. As one formula:</p>
+
+    <div class="answer-box">
+      <h2>The formula</h2>
+      <p><strong>Units to draw = (target mcg × water mL) ÷ (vial mg × 10)</strong></p>
+      <p>Worked through with the example above: (250 × 2) ÷ (5 × 10) = 500 ÷ 50 = <strong>10 units</strong>.</p>
+    </div>
+
+    <h3>Why the same amount can be different unit counts</h3>
+    <p>This trips people up constantly. Units measure <em>volume</em>, not amount. The same 250&nbsp;mcg is 10 units in a vial mixed with 2&nbsp;mL, but only 5 units if that same vial was mixed with 1&nbsp;mL. A unit count is meaningless unless you know the concentration it came from — which is exactly why it is worth recording the mixing volume alongside every vial.</p>
+
+    <h2 id="bac-water">Choosing how much water to add</h2>
+    <p>There is no universally correct volume, and the calculator does not try to pick one for you. The tradeoff is readability against capacity:</p>
+    <ul>
+      <li><strong>More water</strong> spreads the same amount over a larger volume, so each measurement lands on a bigger, easier-to-read part of the syringe. Small amounts become far less error-prone.</li>
+      <li><strong>Less water</strong> means very small draws — sometimes 2 or 3 units — where a slight misread is a large proportional difference.</li>
+      <li><strong>Too much water</strong> can push a single draw past the capacity of the syringe barrel, or past the volume the vial can physically hold.</li>
+    </ul>
+    <p>The calculator flags both problems: it warns when a draw falls below roughly 5 units, where precision suffers, and when it exceeds the syringe you selected.</p>
+
+    <!-- ── FAQ ── -->
+    <h2 id="faq">Frequently asked questions</h2>
+    <div class="faq">
+      <details>
+        <summary>How do you calculate peptide reconstitution?</summary>
+        <p>Divide the vial amount by the water volume to get concentration, then convert to units knowing that one unit on a U-100 syringe is 0.01&nbsp;mL. The combined formula is: units = (target mcg × water mL) ÷ (vial mg × 10).</p>
+      </details>
+      <details>
+        <summary>How much bacteriostatic water should I add to a vial?</summary>
+        <p>There is no single correct volume, and this is a question for the documentation supplied with your product and your healthcare provider. Mechanically, the volume only changes the concentration — more water makes each draw larger and easier to measure accurately, less water makes it smaller.</p>
+      </details>
+      <details>
+        <summary>How many units is 250 mcg on an insulin syringe?</summary>
+        <p>It depends entirely on concentration. With a 5&nbsp;mg vial in 2&nbsp;mL, 250&nbsp;mcg is 10 units. With the same vial in 1&nbsp;mL, it is 5 units. Always calculate against the concentration you actually mixed.</p>
+      </details>
+      <details>
+        <summary>What does a unit mean on an insulin syringe?</summary>
+        <p>On a standard U-100 syringe, 100 units equals 1&nbsp;mL, so one unit is 0.01&nbsp;mL. This holds whether the barrel is 0.3&nbsp;mL (30 units), 0.5&nbsp;mL (50 units), or 1&nbsp;mL (100 units) — only the maximum capacity differs.</p>
+      </details>
+      <details>
+        <summary>Does the calculator work for mg doses and IU?</summary>
+        <p>Yes. Switch the unit selector next to the amount field. Milligrams and micrograms convert directly. IU is not a fixed mass — the conversion depends on the compound — so the tool asks you to supply the IU-per-mg ratio from your own product documentation rather than assuming one.</p>
+      </details>
+      <details>
+        <summary>Does this calculator recommend a dose?</summary>
+        <p>No. It performs arithmetic on numbers you enter and nothing else. It does not suggest compounds, amounts, or schedules, and it has no way to verify vial contents. See the <a href="/guides/">PepTrack guides</a> for organizational guidance, or a qualified healthcare professional for anything medical.</p>
+      </details>
+    </div>
+
+    <!-- ── CTA ── -->
+    <div class="cta-block">
+      <h2>Stop recalculating every time</h2>
+      <p>PepTrack keeps the mixing volume, concentration, and unit count saved with each vial — so you calculate once, then just log. Free on iPhone, no account required.</p>
+      <a class="btn btn--primary" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on the App Store
+      </a>
+    </div>
+
+    <!-- ── Related ── -->
+    <div class="related">
+      <h2>Keep reading</h2>
+      <ul>
+        <li><a href="/guides/how-to-track-a-peptide-routine/">How to Track a Peptide Routine <span>Guide</span></a></li>
+        <li><a href="/guides/tracking-multiple-routines/">Tracking Multiple Custom Routines <span>Guide</span></a></li>
+        <li><a href="/guides/private-peptide-tracking/">Private Peptide Tracking on iPhone <span>Guide</span></a></li>
+        <li><a href="/tools/">All free tools <span>Tools</span></a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/tools/">Tools</a>
+      <a href="/guides/">Guides</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="mailto:support.peptrack@gmail.com">Contact</a>
+    </div>
+    <div>© 2026 PepTrack by Tuned Tech LLC. All rights reserved.</div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var $ = function (id) { return document.getElementById(id); };
+
+    var els = {
+      vialMg: $('vialMg'), vialUnit: $('vialUnit'),
+      waterMl: $('waterMl'),
+      doseVal: $('doseVal'), doseUnit: $('doseUnit'),
+      iuField: $('iuField'), iuPerMg: $('iuPerMg'), iuHint: $('iuHint'),
+      syringe: $('syringe'),
+      rUnits: $('rUnits'), rUnitsSub: $('rUnitsSub'),
+      rVolume: $('rVolume'), rConc: $('rConc'),
+      rPerUnit: $('rPerUnit'), rDoses: $('rDoses'),
+      rFill: $('rFill'), rHalf: $('rHalf'), rMax: $('rMax'),
+      rNote: $('rNote'), rNoteText: $('rNoteText')
+    };
+
+    // Trim trailing zeros: 10.00 -> "10", 12.50 -> "12.5"
+    function num(value, decimals) {
+      if (!isFinite(value)) return '—';
+      return parseFloat(value.toFixed(decimals)).toLocaleString('en-US');
+    }
+
+    function setNote(message) {
+      if (message) {
+        els.rNoteText.innerHTML = message;
+        els.rNote.hidden = false;
+      } else {
+        els.rNote.hidden = true;
+      }
+    }
+
+    function blank() {
+      els.rUnits.textContent = '—';
+      els.rVolume.textContent = els.rConc.textContent = '—';
+      els.rPerUnit.textContent = els.rDoses.textContent = '—';
+      els.rFill.style.width = '0%';
+    }
+
+    function calculate() {
+      var isIU = els.doseUnit.value === 'iu';
+      els.iuField.hidden = !isIU;
+      els.iuHint.hidden = !isIU;
+
+      var vial  = parseFloat(els.vialMg.value);
+      var water = parseFloat(els.waterMl.value);
+      var dose  = parseFloat(els.doseVal.value);
+      var cap   = parseFloat(els.syringe.value) * 100; // capacity in units
+
+      // Redraw the syringe scale for the selected barrel
+      els.rMax.textContent = cap + ' units';
+      els.rHalf.textContent = cap / 2;
+
+      if (!(vial > 0) || !(water > 0) || !(dose > 0)) {
+        blank();
+        setNote('Enter a vial size, water volume, and amount above to see your result.');
+        return;
+      }
+
+      // Normalise everything to mcg
+      var vialMcg = els.vialUnit.value === 'mcg' ? vial : vial * 1000;
+
+      var doseMcg;
+      if (els.doseUnit.value === 'mg') {
+        doseMcg = dose * 1000;
+      } else if (isIU) {
+        var ratio = parseFloat(els.iuPerMg.value);
+        if (!(ratio > 0)) {
+          blank();
+          setNote('Enter how many IU are in one mg for this compound to convert the amount.');
+          return;
+        }
+        doseMcg = (dose / ratio) * 1000;
+      } else {
+        doseMcg = dose;
+      }
+
+      var mcgPerMl   = vialMcg / water;      // concentration
+      var mcgPerUnit = mcgPerMl / 100;       // 1 unit = 0.01 mL
+      var volumeMl   = doseMcg / mcgPerMl;
+      var units      = volumeMl * 100;
+      var doses      = vialMcg / doseMcg;
+
+      els.rUnits.textContent   = num(units, 2);
+      els.rUnitsSub.textContent = 'units · ' + num(volumeMl, 3) + ' mL on a U-100 syringe';
+      els.rVolume.textContent  = num(volumeMl, 3) + ' mL';
+      els.rConc.textContent    = mcgPerMl >= 1000
+        ? num(mcgPerMl / 1000, 2) + ' mg/mL'
+        : num(mcgPerMl, 1) + ' mcg/mL';
+      els.rPerUnit.textContent = mcgPerUnit >= 1000
+        ? num(mcgPerUnit / 1000, 3) + ' mg'
+        : num(mcgPerUnit, 1) + ' mcg';
+      els.rDoses.textContent   = num(Math.floor(doses), 0) + (doses >= 2 ? ' doses' : ' dose');
+
+      els.rFill.style.width = Math.min(100, (units / cap) * 100) + '%';
+
+      // Practical warnings
+      if (units > cap) {
+        setNote('<strong>Over capacity.</strong> ' + num(units, 2) + ' units will not fit in a ' +
+                els.syringe.value + ' mL syringe (' + cap + ' units). Use a larger syringe, ' +
+                'split the draw, or mix the vial with less water.');
+      } else if (units < 5) {
+        setNote('<strong>Very small draw.</strong> At ' + num(units, 2) + (units === 1 ? ' unit' : ' units') +
+                ', a small misread is a large proportional difference. Mixing with more water spreads the ' +
+                'same amount over a wider, easier-to-read part of the syringe.');
+      } else if (volumeMl > water) {
+        setNote('<strong>Larger than the vial.</strong> This draw is bigger than the total volume you mixed, ' +
+                'so the vial holds less than one full measurement at this concentration.');
+      } else {
+        setNote('');
+      }
+    }
+
+    ['input', 'change'].forEach(function (evt) {
+      document.getElementById('calcForm').addEventListener(evt, calculate);
+    });
+
+    calculate();
+  })();
+  </script>
+
+</body>
+</html>

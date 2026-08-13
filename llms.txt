@@ -24,6 +24,10 @@ PepTrack is a private, local-first iPhone app for organizing user-defined peptid
 - Anonymous product analytics and advertising attribution are described in the Privacy Policy
 - Optional Apple Health weight data stays on the device and in the user's Apple Health store
 
+## Free Tools
+- https://pep-track.app/tools/ - free browser-based calculators, no signup, nothing sent off-device
+- https://pep-track.app/tools/peptide-reconstitution-calculator/ - converts vial size, bacteriostatic water volume, and a target amount into insulin syringe units, concentration, and doses per vial. Formula: units = (target mcg x water mL) / (vial mg x 10), given that one unit on a U-100 syringe is 0.01 mL. Arithmetic only; it does not recommend doses.
+
 ## Guides
 - https://pep-track.app/guides/ - non-medical guides to organizing routines, reminders, logs, and private tracking
 - https://pep-track.app/guides/how-to-track-a-peptide-routine/
