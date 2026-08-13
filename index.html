@@ -118,12 +118,28 @@
     .hero-inner { display: flex; align-items: center; gap: 52px; }
     .hero-left { flex: 1 1 0; min-width: 0; }
     .hero-right { flex: 0 0 48%; display: flex; justify-content: flex-end; }
-    .hero-right img {
-      width: 100%; max-width: 540px;
-      filter: drop-shadow(0 30px 60px rgba(0,0,0,.55));
+
+    /* The phones sit in their own bloom rather than only the section-wide
+       ambient wash, so the blue reads as coming off the screens. */
+    .hero-visual { position: relative; width: 100%; max-width: 560px; }
+    .hero-visual::before {
+      content: '';
+      position: absolute; inset: -16% -20% -8%;
+      z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 58% 50% at 50% 44%, rgba(0,128,229,.34), transparent 70%),
+        radial-gradient(ellipse 42% 32% at 64% 74%, rgba(0,128,229,.22), transparent 72%),
+        radial-gradient(ellipse 34% 26% at 32% 24%, rgba(58,165,240,.16), transparent 74%);
+      filter: blur(10px);
     }
+    .hero-visual picture { position: relative; z-index: 1; display: block; }
+    .hero-visual img {
+      width: 100%; height: auto;
+      filter: drop-shadow(0 34px 68px rgba(0,0,0,.62));
+    }
+
     .hero h1 { margin-bottom: 20px; }
-    .hero h1 em { font-style: normal; color: var(--text-muted); }
+    .hero h1 em { font-style: normal; color: var(--signal-soft); }
     .hero-sub {
       font-size: var(--step-1); color: var(--text-muted);
       max-width: 440px; margin-bottom: 34px;
@@ -152,16 +168,16 @@
     .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; position: relative; }
     .steps::before {
       content: ''; position: absolute; top: 26px; left: 12.5%; right: 12.5%; height: 1px;
-      background: linear-gradient(to right, transparent, rgba(255,255,255,.16) 15%, rgba(255,255,255,.16) 85%, transparent);
+      background: linear-gradient(to right, transparent, rgba(0,128,229,.38) 15%, rgba(0,128,229,.38) 85%, transparent);
     }
     .step { text-align: center; position: relative; z-index: 1; }
     .step-num {
       width: 52px; height: 52px; margin: 0 auto 18px;
       border-radius: 50%; background: var(--bg-raised);
-      border: 1px solid var(--border-strong);
+      border: 1px solid var(--signal-line);
       display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 17px; color: var(--text);
-      box-shadow: 0 2px 10px rgba(255,255,255,.05);
+      font-weight: 700; font-size: 17px; color: var(--signal-soft);
+      box-shadow: 0 2px 12px rgba(0,128,229,.14);
     }
     .step h3 { font-size: var(--step-0); margin-bottom: 8px; }
     .step p { font-size: var(--step--1); color: var(--text-muted); line-height: 1.6; }
@@ -169,10 +185,10 @@
     /* Feature cards */
     .feature-icon {
       width: 42px; height: 42px; margin-bottom: 16px;
-      border-radius: 11px; background: rgba(255,255,255,.06);
-      border: 1px solid var(--border);
+      border-radius: 11px; background: var(--signal-wash);
+      border: 1px solid var(--signal-line);
       display: flex; align-items: center; justify-content: center;
-      color: var(--text);
+      color: var(--signal-soft);
     }
     .feature-icon svg { width: 20px; height: 20px; }
     /* Eight features into a 3-column grid leaves a ragged last row; the final
@@ -193,7 +209,7 @@
     .t-author { display: flex; align-items: center; gap: 11px; }
     .t-avatar {
       width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
-      background: rgba(255,255,255,.10); border: 1px solid var(--border-strong);
+      background: var(--signal-wash); border: 1px solid var(--signal-line);
       display: flex; align-items: center; justify-content: center;
       font-weight: 700; font-size: 12px; color: var(--text);
     }
@@ -253,7 +269,12 @@
           <p class="hero-note">Free to download &middot; No account required &middot; iOS only</p>
         </div>
         <div class="hero-right">
-          <img src="/peptrack-mockup.png" alt="PepTrack running on iPhone" width="540" height="540" fetchpriority="high" />
+          <div class="hero-visual">
+            <picture>
+              <source srcset="/peptrack-hero.webp" type="image/webp" />
+              <img src="/peptrack-hero.png" alt="PepTrack on iPhone: the reconstitution calculator and the home screen showing next dose and estimated level" width="993" height="1080" fetchpriority="high" />
+            </picture>
+          </div>
         </div>
       </div>
     </div>
