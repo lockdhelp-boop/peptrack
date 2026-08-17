@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Syringe Unit Converter — Units to mL to mg (U-100 &amp; U-40)</title>
+  <meta name="description" content="Free syringe unit converter. Convert between insulin syringe units, millilitres, and mcg or mg on U-100 and U-40 scales, with the concentration handled for you." />
+  <link rel="canonical" href="https://pep-track.app/tools/syringe-unit-converter/" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css" />
+  <meta property="og:title" content="Syringe Unit Converter — Units to mL to mg (U-100 &amp; U-40)" />
+  <meta property="og:description" content="Free syringe unit converter. Convert between insulin syringe units, millilitres, and mcg or mg on U-100 and U-40 scales, with the concentration handled for you." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pep-track.app/tools/syringe-unit-converter/" />
+  <meta property="og:image" content="https://pep-track.app/peptrack-mockup.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "PepTrack", "item": "https://pep-track.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://pep-track.app/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Syringe Unit Converter", "item": "https://pep-track.app/tools/syringe-unit-converter/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Syringe Unit Converter",
+        "url": "https://pep-track.app/tools/syringe-unit-converter/",
+        "description": "Converts between insulin syringe units, millilitres, and mcg or mg amounts across U-100 and U-40 syringe scales.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "Tuned Tech LLC", "url": "https://pep-track.app/" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "How many mL is 10 units?", "acceptedAnswer": { "@type": "Answer", "text": "On a U-100 syringe 10 units is 0.1 mL. On a U-40 syringe the same 10 marks are 0.25 mL, two and a half times more liquid." } },
+          { "@type": "Question", "name": "Is a 0.5 mL syringe the same as U-50?", "acceptedAnswer": { "@type": "Answer", "text": "No. U-50 is not a standard concentration. A 0.5 mL insulin syringe is normally a U-100 syringe that holds 50 units, so the markings are U-100 markings and only the capacity differs." } },
+          { "@type": "Question", "name": "Do I need to know the concentration?", "acceptedAnswer": { "@type": "Answer", "text": "Only to convert to or from an amount in mcg or mg. Units and millilitres are pure volume and convert without it." } },
+          { "@type": "Question", "name": "What is the difference between U-100 and U-40?", "acceptedAnswer": { "@type": "Answer", "text": "U-100 is calibrated for 100 units per mL so one unit is 0.01 mL. U-40 is calibrated for 40 units per mL so one unit is 0.025 mL. U-100 is the standard human insulin syringe." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="/"><img src="/peptrack-icon.png" alt="" width="42" height="42" /><span>PepTrack</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a><a href="/tools/" aria-current="page">Tools</a><a href="/guides/">Guides</a><a href="/blog/">Blog</a><a href="/privacy.html">Privacy</a>
+    </div>
+    <a class="nav-cta" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032">Download Free</a>
+  </nav>
+
+  <main class="article">
+    <div class="breadcrumbs"><a href="/">PepTrack</a> / <a href="/tools/">Tools</a> / Syringe converter</div>
+    <span class="eyebrow">Free tool</span>
+    <h1>Syringe Unit Converter</h1>
+    <p class="dek">Convert between units on an insulin syringe, volume in millilitres, and the actual amount in mcg or mg. Handles both U-100 and U-40 scales — the distinction that causes the most expensive mistakes.</p>
+
+    <div class="disclaimer"><strong>Unit conversion only.</strong> This tool converts numbers you enter between units, volume, and amount. It does not recommend compounds, amounts, or schedules, and it cannot verify what is in your vial. Talk to a qualified healthcare professional about anything medical.</div>
+
+    <div class="calc">
+      <form class="calc-panel" id="cf" autocomplete="off">
+        <h2>Convert</h2>
+        <div class="field">
+          <label for="scale">Syringe scale</label>
+          <select id="scale" style="width:100%">
+            <option value="100" selected>U-100 — 1 unit = 0.01 mL (standard)</option>
+            <option value="40">U-40 — 1 unit = 0.025 mL (veterinary)</option>
+          </select>
+          <span class="hint">U-100 is the standard human insulin syringe. U-40 is calibrated for 40 units/mL and is mostly veterinary — mixing the two up is a 2.5&times; error.</span>
+        </div>
+        <div class="field">
+          <label for="mode">Start from</label>
+          <select id="mode" style="width:100%">
+            <option value="units" selected>Units on the syringe</option>
+            <option value="ml">Volume in mL</option>
+            <option value="amt">Amount (mcg or mg)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="val" id="valLabel">Units</label>
+          <div class="input-row">
+            <input type="number" id="val" value="10" min="0" step="any" inputmode="decimal" />
+            <select id="valUnit" aria-label="Unit"><option value="mcg">mcg</option><option value="mg">mg</option></select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="conc">Concentration</label>
+          <div class="input-row">
+            <input type="number" id="conc" value="2.5" min="0" step="any" inputmode="decimal" />
+            <select id="concUnit" aria-label="Concentration unit"><option value="mgml" selected>mg/mL</option><option value="mcgml">mcg/mL</option></select>
+          </div>
+          <span class="hint">Vial amount divided by the water you added. Needed only to convert to or from an amount.</span>
+        </div>
+      </form>
+
+      <div class="calc-panel" aria-live="polite">
+        <h2>Equivalents</h2>
+        <div class="result-hero">
+          <div class="label">Units on the syringe</div>
+          <div class="value" id="rU">10</div>
+          <div class="unit" id="rUsub">on a U-100 syringe</div>
+        </div>
+        <dl class="result-list">
+          <div class="result-row"><dt>Volume</dt><dd id="rMl">0.1 mL</dd></div>
+          <div class="result-row"><dt>Amount</dt><dd id="rAmt">250 mcg</dd></div>
+          <div class="result-row"><dt>Per 1 unit</dt><dd id="rPer">25 mcg</dd></div>
+        </dl>
+        <div class="calc-note" id="rNote" hidden><span id="rNoteT"></span></div>
+      </div>
+    </div>
+
+    <h2 id="how">How the conversion works</h2>
+    <p>Insulin syringes are marked in units rather than millilitres, and a unit is a fixed fraction of a millilitre — but which fraction depends on the scale the syringe was made for.</p>
+    <ul>
+      <li><strong>U-100</strong> is calibrated for 100 units per mL, so <strong>1 unit = 0.01 mL</strong>. This is the standard human insulin syringe and what almost every peptide guide assumes.</li>
+      <li><strong>U-40</strong> is calibrated for 40 units per mL, so <strong>1 unit = 0.025 mL</strong>. It is mostly veterinary.</li>
+    </ul>
+    <p>Barrel size does not change this. A 0.3&nbsp;mL, 0.5&nbsp;mL, and 1&nbsp;mL U-100 syringe all read the same at the 10-unit mark; they just hold 30, 50, and 100 units in total.</p>
+    <p>Units and millilitres describe <em>volume</em> only. To reach an actual amount in mcg or mg you also need the concentration, which is why that field feeds the amount row.</p>
+
+    <div class="answer-box">
+      <h2>The formulas</h2>
+      <p><strong>mL = units &divide; scale</strong> &nbsp;(scale is 100 or 40)</p>
+      <p><strong>amount = mL &times; concentration</strong></p>
+      <p>On a U-100 syringe at 2.5&nbsp;mg/mL: 10 units = 0.1&nbsp;mL = 250&nbsp;mcg.</p>
+    </div>
+
+    <h2 id="faq">Frequently asked questions</h2>
+    <div class="faq">
+      <details><summary><h3>How many mL is 10 units?</h3></summary><p>On a U-100 syringe, 10 units is 0.1&nbsp;mL. On a U-40 syringe the same 10 marks are 0.25&nbsp;mL — two and a half times more liquid.</p></details>
+      <details><summary><h3>Is a 0.5 mL syringe the same as U-50?</h3></summary><p>No, and this is a common mix-up. "U-50" is not a standard concentration. A 0.5&nbsp;mL insulin syringe is normally a U-100 syringe that holds 50 units. The markings are U-100 markings; only the capacity is smaller.</p></details>
+      <details><summary><h3>Do I need the concentration?</h3></summary><p>Only to convert to or from an amount in mcg or mg. Units and mL are pure volume and convert without it.</p></details>
+      <details><summary><h3>What if my syringe is marked in mL?</h3></summary><p>Then use the volume row directly and ignore units. Tuberculin and standard syringes are marked in mL and need no unit conversion at all.</p></details>
+    </div>
+
+    <div class="cta-block">
+      <h2>Keep the numbers with the routine</h2>
+      <p>PepTrack saves concentration, unit counts, and vial details alongside each entry, so the math stops being something you redo every week. Free on iPhone, no account required.</p>
+      <a class="btn btn--primary" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> Download on the App Store</a>
+    </div>
+
+    <div class="related">
+      <h2>Keep reading</h2>
+      <ul>
+        <li><a href="/tools/peptide-reconstitution-calculator/">Peptide Reconstitution Calculator <span>Free tool</span></a></li>
+        <li><a href="/tools/peptide-half-life-chart/">Peptide Half-Life Chart <span>Free tool</span></a></li>
+        <li><a href="/tools/peptide-cost-per-mg-calculator/">Cost Per mg Calculator <span>Free tool</span></a></li>
+        <li><a href="/tools/">All free tools <span>Tools</span></a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">Home</a><a href="/tools/">Tools</a><a href="/guides/">Guides</a><a href="/blog/">Blog</a>
+      <a href="/privacy.html">Privacy Policy</a><a href="/consumer-health-privacy.html">Consumer Health Data Privacy</a>
+      <a href="/terms.html">Terms of Service</a><a href="mailto:support.peptrack@gmail.com">Contact</a>
+    </div>
+    <div>&copy; 2026 PepTrack by Tuned Tech LLC. All rights reserved.</div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+    var $ = function (i) { return document.getElementById(i); };
+    var val=$('val'), mode=$('mode'), scale=$('scale'), conc=$('conc'), concUnit=$('concUnit'),
+        valUnit=$('valUnit'), valLabel=$('valLabel'),
+        rU=$('rU'), rUsub=$('rUsub'), rMl=$('rMl'), rAmt=$('rAmt'), rPer=$('rPer'),
+        rNote=$('rNote'), rNoteT=$('rNoteT');
+
+    function num(v, d) { return isFinite(v) ? parseFloat(v.toFixed(d)).toLocaleString('en-US') : '—'; }
+    function amt(mcg) { return mcg >= 1000 ? num(mcg/1000,3) + ' mg' : num(mcg,1) + ' mcg'; }
+
+    function calc() {
+      var m = mode.value;
+      valLabel.textContent = m === 'units' ? 'Units' : m === 'ml' ? 'Volume in mL' : 'Amount';
+      valUnit.hidden = m !== 'amt';
+
+      var s = parseFloat(scale.value);
+      var v = parseFloat(val.value);
+      var c = parseFloat(conc.value);
+      var mcgPerMl = concUnit.value === 'mgml' ? c * 1000 : c;
+
+      rUsub.textContent = 'on a U-' + s + ' syringe';
+
+      if (!(v > 0)) {
+        rU.textContent = rMl.textContent = rAmt.textContent = rPer.textContent = '—';
+        rNote.hidden = false; rNoteT.textContent = 'Enter a value above to convert.';
+        return;
+      }
+
+      var units, ml, mcg;
+      if (m === 'units')      { units = v; ml = v / s; }
+      else if (m === 'ml')    { ml = v;    units = v * s; }
+      else                    { mcg = valUnit.value === 'mg' ? v * 1000 : v;
+                                if (!(mcgPerMl > 0)) {
+                                  rU.textContent = rMl.textContent = rAmt.textContent = rPer.textContent = '—';
+                                  rNote.hidden = false;
+                                  rNoteT.textContent = 'Enter a concentration to convert from an amount.';
+                                  return;
+                                }
+                                ml = mcg / mcgPerMl; units = ml * s; }
+
+      if (mcg === undefined) mcg = mcgPerMl > 0 ? ml * mcgPerMl : NaN;
+
+      rU.textContent   = num(units, 2);
+      rMl.textContent  = num(ml, 4) + ' mL';
+      rAmt.textContent = isFinite(mcg) ? amt(mcg) : 'add concentration';
+      rPer.textContent = mcgPerMl > 0 ? amt(mcgPerMl / s) : '—';
+
+      if (s === 40) {
+        rNote.hidden = false;
+        rNoteT.innerHTML = '<strong>U-40 scale.</strong> One unit here is 0.025 mL — 2.5&times; a U-100 unit. Check the barrel before drawing.';
+      } else { rNote.hidden = true; }
+    }
+    ['input','change'].forEach(function (e) { document.getElementById('cf').addEventListener(e, calc); });
+    calc();
+  })();
+  </script>
+</body>
+</html>

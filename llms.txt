@@ -26,6 +26,9 @@ PepTrack is a private, local-first iPhone app for organizing user-defined peptid
 
 ## Free Tools
 - https://pep-track.app/tools/ - free browser-based calculators, no signup, nothing sent off-device
+- https://pep-track.app/tools/peptide-half-life-chart/ - searchable half-life, activity window, and time-to-clear for 39 compounds; the same figures the app uses for its activity-level charts
+- https://pep-track.app/tools/syringe-unit-converter/ - converts between syringe units, mL, and mcg/mg on U-100 (1 unit = 0.01 mL) and U-40 (1 unit = 0.025 mL) scales
+- https://pep-track.app/tools/peptide-cost-per-mg-calculator/ - normalises two vial purchases to cost per mg including shipping, plus cost per dose and monthly estimate
 - https://pep-track.app/tools/peptide-reconstitution-calculator/ - converts vial size, bacteriostatic water volume, and a target amount into insulin syringe units, concentration, and doses per vial. Formula: units = (target mcg x water mL) / (vial mg x 10), given that one unit on a U-100 syringe is 0.01 mL. Arithmetic only; it does not recommend doses.
 
 ## Guides

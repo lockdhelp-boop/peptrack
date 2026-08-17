@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Peptide Cost Per mg Calculator — Compare Vial Pricing</title>
+  <meta name="description" content="Free cost per mg calculator for peptides. Compare two vial purchases like for like, including shipping, and see cost per dose, doses per vial, and estimated monthly cost." />
+  <link rel="canonical" href="https://pep-track.app/tools/peptide-cost-per-mg-calculator/" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css" />
+  <meta property="og:title" content="Peptide Cost Per mg Calculator" />
+  <meta property="og:description" content="Compare two vial purchases like for like, including shipping, with cost per dose and monthly estimates." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pep-track.app/tools/peptide-cost-per-mg-calculator/" />
+  <meta property="og:image" content="https://pep-track.app/peptrack-mockup.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "PepTrack", "item": "https://pep-track.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://pep-track.app/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Peptide Cost Per mg Calculator", "item": "https://pep-track.app/tools/peptide-cost-per-mg-calculator/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Peptide Cost Per mg Calculator",
+        "url": "https://pep-track.app/tools/peptide-cost-per-mg-calculator/",
+        "description": "Compares two peptide purchases on a like-for-like basis by normalising total price, vial count, and vial size into cost per milligram, cost per dose, and estimated monthly cost.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "Tuned Tech LLC", "url": "https://pep-track.app/" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "How do you calculate cost per mg?", "acceptedAnswer": { "@type": "Answer", "text": "Divide the total price paid, including shipping, by the total milligrams in the order, which is the number of vials multiplied by the amount per vial." } },
+          { "@type": "Question", "name": "Should shipping be included?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Shipping is often the deciding factor between a single vial and a bulk order, and leaving it out systematically flatters small orders." } },
+          { "@type": "Question", "name": "Why is cost per dose different from cost per mg?", "acceptedAnswer": { "@type": "Answer", "text": "Cost per mg measures what you bought. Cost per dose measures what you use, so it depends on the amount measured out each time." } },
+          { "@type": "Question", "name": "Does a lower cost per mg mean a better product?", "acceptedAnswer": { "@type": "Answer", "text": "No. It is a price comparison only. Purity, third-party testing, handling, and waste are not visible to the calculation." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="/"><img src="/peptrack-icon.png" alt="" width="42" height="42" /><span>PepTrack</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a><a href="/tools/" aria-current="page">Tools</a><a href="/guides/">Guides</a><a href="/blog/">Blog</a><a href="/privacy.html">Privacy</a>
+    </div>
+    <a class="nav-cta" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032">Download Free</a>
+  </nav>
+
+  <main class="article">
+    <div class="breadcrumbs"><a href="/">PepTrack</a> / <a href="/tools/">Tools</a> / Cost per mg</div>
+    <span class="eyebrow">Free tool</span>
+    <h1>Peptide Cost Per mg Calculator</h1>
+    <p class="dek">Vials are not sold in consistent sizes, so sticker price tells you very little. Normalise two purchases to cost per milligram — including shipping — and see what each actually costs per dose and per month.</p>
+
+    <div class="disclaimer"><strong>Price arithmetic only.</strong> This tool compares numbers you enter. It does not recommend compounds, amounts, schedules, or suppliers, and it cannot assess purity or quality. Talk to a qualified healthcare professional about anything medical.</div>
+
+    <div class="calc">
+      <form class="calc-panel" id="cf" autocomplete="off">
+        <h2>Option A</h2>
+        <div class="field">
+          <label for="pA">Total price paid</label>
+          <div class="input-row">
+            <select id="cur" aria-label="Currency" style="flex:0 0 auto">
+              <option value="$" selected>$</option><option value="£">£</option><option value="€">€</option>
+            </select>
+            <input type="number" id="pA" value="180" min="0" step="any" inputmode="decimal" />
+          </div>
+          <span class="hint">Include shipping and any fees — that is what you actually paid.</span>
+        </div>
+        <div class="field">
+          <label for="nA">Vials in the order</label>
+          <input type="number" id="nA" value="5" min="1" step="1" inputmode="numeric" />
+        </div>
+        <div class="field">
+          <label for="sA">Amount per vial</label>
+          <div class="input-row">
+            <input type="number" id="sA" value="5" min="0" step="any" inputmode="decimal" />
+            <select id="uA" aria-label="Unit"><option value="mg" selected>mg</option><option value="mcg">mcg</option></select>
+          </div>
+        </div>
+
+        <h2 style="margin-top:26px">Option B <span style="font-weight:400;color:var(--text-faint);font-size:13px">— optional</span></h2>
+        <div class="field">
+          <label for="pB">Total price paid</label>
+          <input type="number" id="pB" placeholder="Leave blank to skip" min="0" step="any" inputmode="decimal" />
+        </div>
+        <div class="field">
+          <label for="nB">Vials in the order</label>
+          <input type="number" id="nB" value="1" min="1" step="1" inputmode="numeric" />
+        </div>
+        <div class="field">
+          <label for="sB">Amount per vial</label>
+          <div class="input-row">
+            <input type="number" id="sB" value="10" min="0" step="any" inputmode="decimal" />
+            <select id="uB" aria-label="Unit"><option value="mg" selected>mg</option><option value="mcg">mcg</option></select>
+          </div>
+        </div>
+
+        <h2 style="margin-top:26px">Your routine <span style="font-weight:400;color:var(--text-faint);font-size:13px">— optional</span></h2>
+        <div class="field">
+          <label for="dose">Amount per dose</label>
+          <div class="input-row">
+            <input type="number" id="dose" value="250" min="0" step="any" inputmode="decimal" />
+            <select id="doseU" aria-label="Dose unit"><option value="mcg" selected>mcg</option><option value="mg">mg</option></select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="freq">Doses per week</label>
+          <input type="number" id="freq" value="7" min="0" step="any" inputmode="decimal" />
+          <span class="hint">Used to estimate cost per dose and per month.</span>
+        </div>
+      </form>
+
+      <div class="calc-panel" aria-live="polite">
+        <h2>Cost breakdown</h2>
+        <div class="result-hero">
+          <div class="label">Option A — cost per mg</div>
+          <div class="value" id="rA">$7.20</div>
+          <div class="unit" id="rAsub">25 mg total</div>
+        </div>
+        <dl class="result-list">
+          <div class="result-row"><dt>Cost per dose</dt><dd id="rDoseA">$1.80</dd></div>
+          <div class="result-row"><dt>Doses per vial</dt><dd id="rDpvA">20</dd></div>
+          <div class="result-row"><dt>Estimated per month</dt><dd id="rMoA">$54.60</dd></div>
+        </dl>
+
+        <div id="bWrap" hidden>
+          <div class="result-hero" style="margin-top:18px">
+            <div class="label">Option B — cost per mg</div>
+            <div class="value" id="rB">—</div>
+            <div class="unit" id="rBsub"></div>
+          </div>
+          <dl class="result-list">
+            <div class="result-row"><dt>Cost per dose</dt><dd id="rDoseB">—</dd></div>
+            <div class="result-row"><dt>Doses per vial</dt><dd id="rDpvB">—</dd></div>
+            <div class="result-row"><dt>Estimated per month</dt><dd id="rMoB">—</dd></div>
+          </dl>
+        </div>
+
+        <div class="calc-note" id="rNote" hidden><span id="rNoteT"></span></div>
+      </div>
+    </div>
+
+    <h2 id="how">Why cost per mg is the only fair comparison</h2>
+    <p>Sticker price tells you almost nothing, because vials are not sold in a consistent size. A $60 vial and a $95 vial are not comparable until you know whether they hold 5&nbsp;mg or 15&nbsp;mg. Normalising to cost per milligram is the only way to put two listings side by side.</p>
+    <p>The arithmetic is deliberately simple:</p>
+
+    <div class="answer-box">
+      <h2>The formula</h2>
+      <p><strong>cost per mg = total price &divide; (vials &times; mg per vial)</strong></p>
+      <p>Five 5&nbsp;mg vials for $180 is 25&nbsp;mg total, so $180 &divide; 25 = <strong>$7.20 per mg</strong>.</p>
+    </div>
+
+    <h3>Include shipping, or the comparison lies</h3>
+    <p>Shipping is where bulk pricing quietly wins or loses. A cheaper per-vial price with $35 shipping on a single vial is often worse than a higher price across five. Put the full amount you paid into the price field rather than the listed unit price.</p>
+
+    <h3>Cost per dose is the number you actually feel</h3>
+    <p>Cost per mg is right for comparing sellers, but it is abstract. What lands is cost per dose and cost per month, which depend on the amount you measure out. A 10&nbsp;mg vial at a great per-mg rate is poor value if the routine only ever uses a fraction of it before the vial is finished.</p>
+
+    <h3>What this does not account for</h3>
+    <p>Purity, testing, storage losses, and whether a vial gets used before it is discarded are all real costs this calculator cannot see. Two products at an identical cost per mg are not necessarily equivalent, and the cheaper number is not automatically the better buy.</p>
+
+    <h2 id="faq">Frequently asked questions</h2>
+    <div class="faq">
+      <details><summary><h3>How do you calculate cost per mg?</h3></summary><p>Divide the total price you paid, including shipping, by the total milligrams in the order — the number of vials multiplied by the amount per vial.</p></details>
+      <details><summary><h3>Should I include shipping?</h3></summary><p>Yes. Shipping is often the deciding factor between a single vial and a bulk order, and leaving it out systematically flatters small orders.</p></details>
+      <details><summary><h3>Why is cost per dose different from cost per mg?</h3></summary><p>Cost per mg measures what you bought. Cost per dose measures what you use, so it depends on the amount measured out each time.</p></details>
+      <details><summary><h3>Does a lower cost per mg mean a better product?</h3></summary><p>No. It is a price comparison and nothing more. Purity, third-party testing, handling, and waste are not visible to this calculation.</p></details>
+    </div>
+
+    <div class="cta-block">
+      <h2>Keep the numbers with the routine</h2>
+      <p>PepTrack saves concentration, unit counts, and vial details alongside each entry, so the math stops being something you redo every week. Free on iPhone, no account required.</p>
+      <a class="btn btn--primary" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> Download on the App Store</a>
+    </div>
+
+    <div class="related">
+      <h2>Keep reading</h2>
+      <ul>
+        <li><a href="/tools/peptide-reconstitution-calculator/">Peptide Reconstitution Calculator <span>Free tool</span></a></li>
+        <li><a href="/tools/syringe-unit-converter/">Syringe Unit Converter <span>Free tool</span></a></li>
+        <li><a href="/tools/peptide-half-life-chart/">Peptide Half-Life Chart <span>Free tool</span></a></li>
+        <li><a href="/tools/">All free tools <span>Tools</span></a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">Home</a><a href="/tools/">Tools</a><a href="/guides/">Guides</a><a href="/blog/">Blog</a>
+      <a href="/privacy.html">Privacy Policy</a><a href="/consumer-health-privacy.html">Consumer Health Data Privacy</a>
+      <a href="/terms.html">Terms of Service</a><a href="mailto:support.peptrack@gmail.com">Contact</a>
+    </div>
+    <div>&copy; 2026 PepTrack by Tuned Tech LLC. All rights reserved.</div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+    var $ = function (i) { return document.getElementById(i); };
+    var F = $('cf');
+
+    function n(id) { return parseFloat($(id).value); }
+    function mg(v, unitId) { return $(unitId).value === 'mcg' ? v / 1000 : v; }
+    function money(v, c) { return isFinite(v) ? c + v.toFixed(2) : '—'; }
+
+    function side(pId, nId, sId, uId, cur, doseMg, perWeek) {
+      var price = n(pId), vials = n(nId), size = n(sId);
+      if (!(price > 0) || !(vials > 0) || !(size > 0)) return null;
+      var totalMg = vials * mg(size, uId);
+      if (!(totalMg > 0)) return null;
+      var perMg = price / totalMg;
+      var o = { perMg: perMg, totalMg: totalMg };
+      if (doseMg > 0) {
+        o.perDose = perMg * doseMg;
+        o.dpv = mg(size, uId) / doseMg;
+        if (perWeek > 0) o.perMonth = o.perDose * perWeek * (52 / 12);
+      }
+      return o;
+    }
+
+    function calc() {
+      var cur = $('cur').value;
+      var doseMg = mg(n('dose'), 'doseU');
+      var perWeek = n('freq');
+
+      var A = side('pA','nA','sA','uA', cur, doseMg, perWeek);
+      var B = side('pB','nB','sB','uB', cur, doseMg, perWeek);
+
+      function paint(o, k) {
+        $('r'+k).textContent    = o ? money(o.perMg, cur) : '—';
+        $('r'+k+'sub').textContent = o ? parseFloat(o.totalMg.toFixed(3)) + ' mg total' : 'fill in the fields';
+        $('rDose'+k).textContent = o && o.perDose ? money(o.perDose, cur) : '—';
+        $('rDpv'+k).textContent  = o && o.dpv ? Math.floor(o.dpv) + ' doses' : '—';
+        $('rMo'+k).textContent   = o && o.perMonth ? money(o.perMonth, cur) : '—';
+      }
+      paint(A, 'A'); paint(B, 'B');
+      $('bWrap').hidden = !B;
+
+      var note = $('rNote'), t = $('rNoteT');
+      if (A && B) {
+        // Saving is measured against the dearer option, so "cheaper by 25%"
+        // means you pay 25% less than the alternative — not that the dearer
+        // one costs 25% more, which is a different (larger) number.
+        var lo = Math.min(A.perMg, B.perMg), hi = Math.max(A.perMg, B.perMg);
+        var saving = hi > 0 ? (hi - lo) / hi * 100 : 0;
+        note.hidden = false;
+        if (saving < 0.5) {
+          t.innerHTML = '<strong>Effectively identical.</strong> The two options land within half a percent per mg.';
+        } else {
+          t.innerHTML = '<strong>Option ' + (A.perMg < B.perMg ? 'A' : 'B') + ' is cheaper</strong> by ' +
+                        saving.toFixed(1) + '% per mg. Purity, testing, and waste are not in this number.';
+        }
+      } else if (!A) {
+        note.hidden = false;
+        t.textContent = 'Enter a price, vial count, and vial size for Option A to see a result.';
+      } else { note.hidden = true; }
+    }
+    ['input','change'].forEach(function (e) { F.addEventListener(e, calc); });
+    calc();
+  })();
+  </script>
+</body>
+</html>

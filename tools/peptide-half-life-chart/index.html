@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Peptide Half-Life Chart — 39 Compounds, Searchable</title>
+  <meta name="description" content="Searchable peptide half-life chart covering 39 compounds, with estimated activity window, time to clear, and what each half-life means for how often you log." />
+  <link rel="canonical" href="https://pep-track.app/tools/peptide-half-life-chart/" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css" />
+  <meta property="og:title" content="Peptide Half-Life Chart — 39 Compounds" />
+  <meta property="og:description" content="Half-life, activity window, and time to clear for 39 compounds, with what each means for logging cadence." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pep-track.app/tools/peptide-half-life-chart/" />
+  <meta property="og:image" content="https://pep-track.app/peptrack-mockup.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "PepTrack", "item": "https://pep-track.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://pep-track.app/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Peptide Half-Life Chart", "item": "https://pep-track.app/tools/peptide-half-life-chart/" }
+        ]
+      },
+      {
+        "@type": "Dataset",
+        "name": "Peptide half-life and activity window reference",
+        "description": "Biological half-life and estimated activity window for 39 peptides and related compounds, used by the PepTrack iOS app to render estimated activity-level charts.",
+        "url": "https://pep-track.app/tools/peptide-half-life-chart/",
+        "creator": { "@type": "Organization", "name": "Tuned Tech LLC" },
+        "isAccessibleForFree": true
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a peptide half-life?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Half-life is the time it takes for the amount of a compound in the body to fall by half. It is a rate, not a stopping point: after one half-life half remains, after two a quarter remains, and so on. It is the main reason two compounds with identical amounts can behave very differently over a week." }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does it take a peptide to clear?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A common rule of thumb is roughly five half-lives, at which point about 3 percent of the original amount remains. The time-to-clear column applies that rule. It is an estimate, not a guarantee, and it does not account for individual variation." }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does half-life differ from the activity window?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Half-life measures how fast a compound leaves the body. The activity window is how long downstream effects may persist, which can be much longer. TB-500 has a short half-life but a long activity window because the response it triggers outlasts the compound itself." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this chart tell me how often to dose?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. It describes published pharmacokinetic behaviour and what that implies for recordkeeping cadence. It does not recommend compounds, amounts, or schedules. Dosing decisions belong with a qualified healthcare professional." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    .band {
+      display: inline-block; white-space: nowrap;
+      font-size: 11px; font-weight: 700; letter-spacing: .04em;
+      padding: 3px 9px; border-radius: var(--r-pill);
+      border: 1px solid var(--signal-line); background: var(--signal-wash); color: var(--signal-soft);
+    }
+    .band--very-short { border-color: rgba(245,166,35,.32); background: rgba(245,166,35,.10); color: var(--warn); }
+    .band--short      { border-color: rgba(245,166,35,.24); background: rgba(245,166,35,.07); color: #e0b263; }
+    .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin: 26px 0 4px; }
+    .filter-bar input[type="search"] {
+      flex: 1 1 240px; min-width: 0;
+      background: var(--bg); border: 1px solid var(--border-strong);
+      border-radius: var(--r-sm); padding: 11px 13px; font-size: var(--step-0);
+    }
+    .filter-bar input[type="search"]:focus { border-color: var(--signal-soft); outline: none; }
+    .filter-bar select { flex: 0 0 auto; }
+    .result-count { font-size: var(--step--1); color: var(--text-muted); margin: 10px 0 0; }
+    table th { cursor: default; }
+    tbody tr[hidden] { display: none; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="/"><img src="/peptrack-icon.png" alt="" width="42" height="42" /><span>PepTrack</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/tools/" aria-current="page">Tools</a>
+      <a href="/guides/">Guides</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy.html">Privacy</a>
+    </div>
+    <a class="nav-cta" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032">Download Free</a>
+  </nav>
+
+  <main class="article">
+    <div class="breadcrumbs"><a href="/">PepTrack</a> / <a href="/tools/">Tools</a> / Half-life chart</div>
+    <span class="eyebrow">Free reference</span>
+    <h1>Peptide Half-Life Chart</h1>
+    <p class="dek">Half-life, estimated activity window, and approximate time to clear for 39 compounds — with what each one implies for how often a routine gets logged. These are the same figures PepTrack uses to draw its estimated activity-level charts.</p>
+
+    <div class="disclaimer">
+      <strong>Reference only, not dosing guidance.</strong> These are published pharmacokinetic estimates that vary by individual, route, and formulation. This page does not recommend compounds, amounts, or schedules. Talk to a qualified healthcare professional about anything medical.
+    </div>
+
+    <div class="filter-bar">
+      <input type="search" id="q" placeholder="Search a compound…" aria-label="Search compounds" autocomplete="off" />
+      <select id="cat" aria-label="Filter by category">
+        <option value="">All categories</option>
+        <option value="healing">Healing</option>
+        <option value="longevity">Longevity</option>
+        <option value="glp1">GLP-1</option>
+        <option value="growth">Growth hormone</option>
+        <option value="cognitive">Cognitive</option>
+        <option value="metabolic">Metabolic</option>
+        <option value="sexual">Sexual health</option>
+      </select>
+      <select id="bandsel" aria-label="Filter by duration">
+        <option value="">Any duration</option>
+        <option value="very-short">Very short</option>
+        <option value="short">Short</option>
+        <option value="medium">Medium</option>
+        <option value="long">Long</option>
+        <option value="very-long">Very long</option>
+      </select>
+    </div>
+    <p class="result-count" id="count">Showing all 39 compounds</p>
+
+    <div class="table-wrap">
+      <table id="hl">
+        <thead>
+          <tr>
+            <th>Compound</th>
+            <th>Category</th>
+            <th class="num">Half-life</th>
+            <th class="num">Activity window</th>
+            <th class="num">~Time to clear</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-name="sermorelin" data-cat="growthHormone" data-band="very-short">
+            <td><strong>Sermorelin</strong></td>
+            <td>—</td>
+            <td class="num">15 min</td>
+            <td class="num">4 hr</td>
+            <td class="num">1.25 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="collagen peptides" data-cat="" data-band="very-short">
+            <td><strong>Collagen Peptides</strong></td>
+            <td>—</td>
+            <td class="num">30 min</td>
+            <td class="num">24 hr</td>
+            <td class="num">2.5 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="cjc-1295" data-cat="" data-band="very-short">
+            <td><strong>CJC-1295</strong></td>
+            <td>—</td>
+            <td class="num">30 min</td>
+            <td class="num">4 hr</td>
+            <td class="num">2.5 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="aod-9604" data-cat="glp1" data-band="very-short">
+            <td><strong>AOD-9604</strong></td>
+            <td>GLP-1</td>
+            <td class="num">30 min</td>
+            <td class="num">4 hr</td>
+            <td class="num">2.5 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="selank" data-cat="cognitive" data-band="very-short">
+            <td><strong>Selank</strong></td>
+            <td>Cognitive</td>
+            <td class="num">30 min</td>
+            <td class="num">7 days</td>
+            <td class="num">2.5 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="semax" data-cat="cognitive" data-band="very-short">
+            <td><strong>Semax</strong></td>
+            <td>Cognitive</td>
+            <td class="num">30 min</td>
+            <td class="num">12 hr</td>
+            <td class="num">2.5 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="na-selank" data-cat="cognitive" data-band="very-short">
+            <td><strong>NA-Selank</strong></td>
+            <td>Cognitive</td>
+            <td class="num">30 min</td>
+            <td class="num">7 days</td>
+            <td class="num">2.5 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="dsip" data-cat="sleep" data-band="very-short">
+            <td><strong>DSIP</strong></td>
+            <td>Sleep</td>
+            <td class="num">30 min</td>
+            <td class="num">8 hr</td>
+            <td class="num">2.5 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="carnosine" data-cat="" data-band="very-short">
+            <td><strong>Carnosine</strong></td>
+            <td>—</td>
+            <td class="num">30 min</td>
+            <td class="num">24 hr</td>
+            <td class="num">2.5 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="ghrp-2" data-cat="growthHormone" data-band="very-short">
+            <td><strong>GHRP-2</strong></td>
+            <td>—</td>
+            <td class="num">36 min</td>
+            <td class="num">4 hr</td>
+            <td class="num">3 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="ghrp-6" data-cat="growthHormone" data-band="very-short">
+            <td><strong>GHRP-6</strong></td>
+            <td>—</td>
+            <td class="num">36 min</td>
+            <td class="num">4 hr</td>
+            <td class="num">3 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="tesamorelin" data-cat="growthHormone" data-band="very-short">
+            <td><strong>Tesamorelin</strong></td>
+            <td>—</td>
+            <td class="num">36 min</td>
+            <td class="num">4 hr</td>
+            <td class="num">3 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="oxytocin" data-cat="" data-band="very-short">
+            <td><strong>Oxytocin</strong></td>
+            <td>—</td>
+            <td class="num">45 min</td>
+            <td class="num">1 hr</td>
+            <td class="num">3.75 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="ghk-cu" data-cat="longevity" data-band="very-short">
+            <td><strong>GHK-Cu</strong></td>
+            <td>Longevity</td>
+            <td class="num">1 hr</td>
+            <td class="num">6 hr</td>
+            <td class="num">5 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="ss-31" data-cat="longevity" data-band="very-short">
+            <td><strong>SS-31</strong></td>
+            <td>Longevity</td>
+            <td class="num">1 hr</td>
+            <td class="num">6 hr</td>
+            <td class="num">5 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="gonadorelin" data-cat="" data-band="very-short">
+            <td><strong>Gonadorelin</strong></td>
+            <td>—</td>
+            <td class="num">1 hr</td>
+            <td class="num">4 hr</td>
+            <td class="num">5 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="kisspeptin-10" data-cat="sexual" data-band="very-short">
+            <td><strong>Kisspeptin-10</strong></td>
+            <td>Sexual health</td>
+            <td class="num">1 hr</td>
+            <td class="num">4 hr</td>
+            <td class="num">5 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="epithalon" data-cat="longevity" data-band="very-short">
+            <td><strong>Epithalon</strong></td>
+            <td>Longevity</td>
+            <td class="num">1 hr</td>
+            <td class="num">12 hr</td>
+            <td class="num">5 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="nad+" data-cat="longevity" data-band="very-short">
+            <td><strong>NAD+</strong></td>
+            <td>Longevity</td>
+            <td class="num">1 hr</td>
+            <td class="num">6 hr</td>
+            <td class="num">5 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="hexarelin" data-cat="growthHormone" data-band="very-short">
+            <td><strong>Hexarelin</strong></td>
+            <td>—</td>
+            <td class="num">1.2 hr</td>
+            <td class="num">4 hr</td>
+            <td class="num">6 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="bpc-157" data-cat="healing" data-band="very-short">
+            <td><strong>BPC-157</strong></td>
+            <td>Healing</td>
+            <td class="num">1.5 hr</td>
+            <td class="num">6 hr</td>
+            <td class="num">7.5 hr</td>
+            <td><span class="band band--very-short">Very short</span></td>
+          </tr>
+          <tr data-name="thymosin beta-4" data-cat="healing" data-band="short">
+            <td><strong>Thymosin Beta-4</strong></td>
+            <td>Healing</td>
+            <td class="num">2 hr</td>
+            <td class="num">2 days</td>
+            <td class="num">10 hr</td>
+            <td><span class="band band--short">Short</span></td>
+          </tr>
+          <tr data-name="tb-500" data-cat="healing" data-band="short">
+            <td><strong>TB-500</strong></td>
+            <td>Healing</td>
+            <td class="num">2 hr</td>
+            <td class="num">2 days</td>
+            <td class="num">10 hr</td>
+            <td><span class="band band--short">Short</span></td>
+          </tr>
+          <tr data-name="ipamorelin" data-cat="growthHormone" data-band="short">
+            <td><strong>Ipamorelin</strong></td>
+            <td>—</td>
+            <td class="num">2 hr</td>
+            <td class="num">4 hr</td>
+            <td class="num">10 hr</td>
+            <td><span class="band band--short">Short</span></td>
+          </tr>
+          <tr data-name="thymosin alpha-1" data-cat="immune" data-band="short">
+            <td><strong>Thymosin Alpha-1</strong></td>
+            <td>Immune</td>
+            <td class="num">2 hr</td>
+            <td class="num">24 hr</td>
+            <td class="num">10 hr</td>
+            <td><span class="band band--short">Short</span></td>
+          </tr>
+          <tr data-name="mots-c" data-cat="metabolic" data-band="short">
+            <td><strong>MOTS-c</strong></td>
+            <td>Metabolic</td>
+            <td class="num">2 hr</td>
+            <td class="num">12 hr</td>
+            <td class="num">10 hr</td>
+            <td><span class="band band--short">Short</span></td>
+          </tr>
+          <tr data-name="pt-141" data-cat="sexual" data-band="short">
+            <td><strong>PT-141</strong></td>
+            <td>Sexual health</td>
+            <td class="num">2.7 hr</td>
+            <td class="num">12 hr</td>
+            <td class="num">13.5 hr</td>
+            <td><span class="band band--short">Short</span></td>
+          </tr>
+          <tr data-name="bremelanotide" data-cat="" data-band="short">
+            <td><strong>Bremelanotide</strong></td>
+            <td>—</td>
+            <td class="num">2.7 hr</td>
+            <td class="num">12 hr</td>
+            <td class="num">13.5 hr</td>
+            <td><span class="band band--short">Short</span></td>
+          </tr>
+          <tr data-name="igf-1" data-cat="" data-band="medium">
+            <td><strong>IGF-1</strong></td>
+            <td>—</td>
+            <td class="num">12 hr</td>
+            <td class="num">24 hr</td>
+            <td class="num">2.5 days</td>
+            <td><span class="band band--medium">Medium</span></td>
+          </tr>
+          <tr data-name="liraglutide" data-cat="glp1" data-band="medium">
+            <td><strong>Liraglutide</strong></td>
+            <td>GLP-1</td>
+            <td class="num">13 hr</td>
+            <td class="num">24 hr</td>
+            <td class="num">2.70833 days</td>
+            <td><span class="band band--medium">Medium</span></td>
+          </tr>
+          <tr data-name="igf-1 lr3" data-cat="growthHormone" data-band="medium">
+            <td><strong>IGF-1 LR3</strong></td>
+            <td>—</td>
+            <td class="num">20 hr</td>
+            <td class="num">2 days</td>
+            <td class="num">4.16667 days</td>
+            <td><span class="band band--medium">Medium</span></td>
+          </tr>
+          <tr data-name="melanotan i" data-cat="tanning" data-band="medium">
+            <td><strong>Melanotan I</strong></td>
+            <td>Tanning</td>
+            <td class="num">22 hr</td>
+            <td class="num">3 days</td>
+            <td class="num">4.58333 days</td>
+            <td><span class="band band--medium">Medium</span></td>
+          </tr>
+          <tr data-name="mk-677" data-cat="growthHormone" data-band="medium">
+            <td><strong>MK-677</strong></td>
+            <td>—</td>
+            <td class="num">24 hr</td>
+            <td class="num">24 hr</td>
+            <td class="num">5 days</td>
+            <td><span class="band band--medium">Medium</span></td>
+          </tr>
+          <tr data-name="melanotan ii" data-cat="tanning" data-band="medium">
+            <td><strong>Melanotan II</strong></td>
+            <td>Tanning</td>
+            <td class="num">28 hr</td>
+            <td class="num">3 days</td>
+            <td class="num">5.83333 days</td>
+            <td><span class="band band--medium">Medium</span></td>
+          </tr>
+          <tr data-name="tesofensine" data-cat="" data-band="long">
+            <td><strong>Tesofensine</strong></td>
+            <td>—</td>
+            <td class="num">2 days</td>
+            <td class="num">24 hr</td>
+            <td class="num">10 days</td>
+            <td><span class="band band--long">Long</span></td>
+          </tr>
+          <tr data-name="tirzepatide" data-cat="glp1" data-band="very-long">
+            <td><strong>Tirzepatide</strong></td>
+            <td>GLP-1</td>
+            <td class="num">5 days</td>
+            <td class="num">5 days</td>
+            <td class="num">25 days</td>
+            <td><span class="band band--very-long">Very long</span></td>
+          </tr>
+          <tr data-name="semaglutide" data-cat="glp1" data-band="very-long">
+            <td><strong>Semaglutide</strong></td>
+            <td>GLP-1</td>
+            <td class="num">7 days</td>
+            <td class="num">7 days</td>
+            <td class="num">35 days</td>
+            <td><span class="band band--very-long">Very long</span></td>
+          </tr>
+          <tr data-name="mazdutide" data-cat="" data-band="very-long">
+            <td><strong>Mazdutide</strong></td>
+            <td>—</td>
+            <td class="num">7 days</td>
+            <td class="num">7 days</td>
+            <td class="num">35 days</td>
+            <td><span class="band band--very-long">Very long</span></td>
+          </tr>
+          <tr data-name="cjc-1295 (dac)" data-cat="" data-band="very-long">
+            <td><strong>CJC-1295 (DAC)</strong></td>
+            <td>—</td>
+            <td class="num">8 days</td>
+            <td class="num">8 days</td>
+            <td class="num">40 days</td>
+            <td><span class="band band--very-long">Very long</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="what">What half-life actually tells you</h2>
+    <p>Half-life is the time it takes for the amount of a compound in the body to fall by half. It is a <em>rate</em>, not an expiry date. After one half-life half remains; after two, a quarter; after three, an eighth. Nothing switches off at the end.</p>
+    <p>This is the single biggest reason two compounds at the same amount behave completely differently across a week. Sermorelin at roughly 15 minutes is effectively gone before the hour is out. Semaglutide at about 7 days is still substantially present when the next weekly dose lands — which is why levels build for several weeks before settling.</p>
+
+    <h3>Time to clear is roughly five half-lives</h3>
+    <p>The convention is that after about five half-lives around 3% of the original amount remains, which is usually treated as cleared. That is what the time-to-clear column shows. It is arithmetic on a published estimate, not a measurement of you.</p>
+
+    <h3>Half-life and activity window are not the same thing</h3>
+    <p>Half-life describes how fast something leaves. The activity window describes how long the downstream response may last, and it is often much longer. TB-500 is the clearest example in the table: a roughly 2-hour half-life against a 48-hour activity window, because what it sets in motion outlives the compound itself. A chart drawn only on half-life would show almost nothing; that is why PepTrack models both.</p>
+
+    <h2 id="cadence">What each band means for logging</h2>
+    <p>Grouping by duration is the practical way to read the table. The point is not what to take — it is how much your record needs to capture.</p>
+    <div class="card-grid card-grid--3" style="margin-top:22px">
+      <div class="card"><h3>Very short</h3><p>Levels fall away within hours, so the time of day you log matters as much as the date.</p></div>
+      <div class="card"><h3>Short</h3><p>Typically logged once or twice daily; little carries over between days.</p></div>
+      <div class="card"><h3>Medium</h3><p>Daily or every-other-day cadence; some overlap builds between doses.</p></div>
+      <div class="card"><h3>Long</h3><p>A few times a week is common; levels clearly accumulate.</p></div>
+      <div class="card"><h3>Very long</h3><p>Weekly cadence is typical, and levels stack for weeks before levelling off.</p></div>
+    </div>
+
+    <h2 id="faq">Frequently asked questions</h2>
+    <div class="faq">
+      <details><summary><h3>What is a peptide half-life?</h3></summary><p>The time for the amount in the body to fall by half. After one half-life half remains, after two a quarter, and so on — it describes a rate of decline, not a point where the compound stops existing.</p></details>
+      <details><summary><h3>How long does it take a peptide to clear?</h3></summary><p>Roughly five half-lives is the usual rule of thumb, leaving about 3% of the original amount. The time-to-clear column applies that. Individual variation is real and this is an estimate.</p></details>
+      <details><summary><h3>Why is the activity window longer than the half-life?</h3></summary><p>Because the two measure different things — how fast the compound leaves versus how long its effects may persist. See the TB-500 row for the starkest example in the table.</p></details>
+      <details><summary><h3>Does this tell me how often to dose?</h3></summary><p>No. It describes pharmacokinetic behaviour and what that implies for recordkeeping. It does not recommend compounds, amounts, or schedules — that belongs with a qualified healthcare professional.</p></details>
+      <details><summary><h3>Where do these numbers come from?</h3></summary><p>They are the published estimates PepTrack uses to render its in-app activity-level charts. Where sources disagree, the app uses a commonly cited mid-range value rather than the extremes.</p></details>
+    </div>
+
+    <div class="cta-block">
+      <h2>See this as a curve, not a table</h2>
+      <p>PepTrack applies these same figures to what you actually logged and draws the estimated level over time, per compound. Free on iPhone, no account required.</p>
+      <a class="btn btn--primary" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> Download on the App Store</a>
+    </div>
+
+    <div class="related">
+      <h2>Keep reading</h2>
+      <ul>
+        <li><a href="/tools/peptide-reconstitution-calculator/">Peptide Reconstitution Calculator <span>Free tool</span></a></li>
+        <li><a href="/tools/syringe-unit-converter/">Syringe Unit Converter <span>Free tool</span></a></li>
+        <li><a href="/guides/how-to-track-a-peptide-routine/">How to Track a Peptide Routine <span>Guide</span></a></li>
+        <li><a href="/tools/">All free tools <span>Tools</span></a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">Home</a><a href="/tools/">Tools</a><a href="/guides/">Guides</a><a href="/blog/">Blog</a>
+      <a href="/privacy.html">Privacy Policy</a><a href="/consumer-health-privacy.html">Consumer Health Data Privacy</a>
+      <a href="/terms.html">Terms of Service</a><a href="mailto:support.peptrack@gmail.com">Contact</a>
+    </div>
+    <div>&copy; 2026 PepTrack by Tuned Tech LLC. All rights reserved.</div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+    var q = document.getElementById('q'), cat = document.getElementById('cat'),
+        bandsel = document.getElementById('bandsel'), count = document.getElementById('count'),
+        rows = [].slice.call(document.querySelectorAll('#hl tbody tr'));
+
+    function apply() {
+      var t = q.value.trim().toLowerCase(), c = cat.value, b = bandsel.value, shown = 0;
+      rows.forEach(function (r) {
+        var ok = (!t || r.dataset.name.indexOf(t) !== -1) &&
+                 (!c || r.dataset.cat === c) &&
+                 (!b || r.dataset.band === b);
+        r.hidden = !ok;
+        if (ok) shown++;
+      });
+      count.textContent = shown === rows.length
+        ? 'Showing all ' + rows.length + ' compounds'
+        : 'Showing ' + shown + ' of ' + rows.length + ' compounds';
+    }
+    [q, cat, bandsel].forEach(function (el) { el.addEventListener('input', apply); });
+  })();
+  </script>
+
+</body>
+</html>
