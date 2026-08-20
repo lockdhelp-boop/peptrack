@@ -53,7 +53,10 @@ These pages describe pharmacokinetics and recordkeeping only. They do not recomm
 - https://pep-track.app/guides/private-peptide-tracking/
 
 ## Blog
-- https://pep-track.app/blog/ - guides on peptide tracking and protocol consistency
+- https://pep-track.app/blog/ - guides on peptide measurement, equipment, and protocol consistency
+- https://pep-track.app/blog/how-many-units-is-250-mcg/ - why a unit count is meaningless without the concentration it came from
+- https://pep-track.app/blog/u100-vs-u40-syringes/ - U-100 is 0.01 mL per unit, U-40 is 0.025 mL; "U-50" is not a real concentration standard
+- https://pep-track.app/blog/how-much-bacteriostatic-water/ - water volume sets concentration and draw size, never the amount in the vial
 
 ## Legal
 - Privacy Policy: https://pep-track.app/privacy.html
