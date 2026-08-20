@@ -37,6 +37,12 @@ PepTrack is a private, local-first iPhone app for organizing user-defined peptid
 - https://pep-track.app/peptides/tb-500/ - half-life ~2 h but activity window ~48 h; the clearest case of the two measures diverging
 - https://pep-track.app/peptides/semaglutide/ - aka Ozempic, Wegovy, Rybelsus; half-life ~7 days, ~35 days to clear, levels accumulate for 4-5 weeks
 - https://pep-track.app/peptides/tirzepatide/ - aka Mounjaro, Zepbound; half-life ~5 days, ~25 days to clear
+- https://pep-track.app/peptides/cjc-1295-dac/ - half-life ~192 h (8 days), longest in the catalog; ~40 days to clear
+- https://pep-track.app/peptides/cjc-1295-no-dac/ - aka Mod GRF 1-29; half-life ~0.5 h, shortest in the catalog
+- https://pep-track.app/peptides/ipamorelin/ - half-life ~2 h, activity window ~4 h; pulsatile, nothing accumulates
+- https://pep-track.app/peptides/mk-677/ - aka Ibutamoren; oral small molecule not a peptide; half-life ~24 h, no reconstitution
+- https://pep-track.app/peptides/pt-141/ - aka Bremelanotide, Vyleesi; half-life ~2.7 h, activity window ~12 h
+- https://pep-track.app/peptides/ghk-cu/ - half-life ~1 h; used topically and injected; vials commonly 50-100 mg
 These pages describe pharmacokinetics and recordkeeping only. They do not recommend compounds, amounts, or schedules.
 
 ## Guides

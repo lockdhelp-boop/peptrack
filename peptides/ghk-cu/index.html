@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GHK-Cu Tracker — Half-Life, Timing &amp; Logging | PepTrack</title>
+  <meta name="description" content="Track GHK-Cu in PepTrack. Half-life of 1 hr, estimated activity window of 6 hr, and what that timescale means for keeping a usable log." />
+  <link rel="canonical" href="https://pep-track.app/peptides/ghk-cu/" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css?v=6a8fbb4c" />
+  <meta property="og:title" content="GHK-Cu Tracker — Half-Life, Timing &amp; Logging" />
+  <meta property="og:description" content="Half-life 1 hr, activity window 6 hr, and what that means for logging." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://pep-track.app/peptides/ghk-cu/" />
+  <meta property="og:image" content="https://pep-track.app/peptrack-mockup.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "PepTrack", "item": "https://pep-track.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Peptides", "item": "https://pep-track.app/peptides/" },
+          { "@type": "ListItem", "position": 3, "name": "GHK-Cu", "item": "https://pep-track.app/peptides/ghk-cu/" }
+        ]
+      },
+      {
+        "@type": "Article",
+        "headline": "GHK-Cu Tracker — Half-Life, Timing and Logging",
+        "description": "Pharmacokinetic reference and recordkeeping guidance for GHK-Cu.",
+        "about": { "@type": "ChemicalSubstance", "name": "GHK-Cu", "alternateName": ["Copper Peptide", "GHK Copper"] },
+        "datePublished": "2026-08-16",
+        "dateModified": "2026-08-16",
+        "author": { "@type": "Organization", "name": "PepTrack" },
+        "publisher": { "@type": "Organization", "name": "Tuned Tech LLC" },
+        "mainEntityOfPage": "https://pep-track.app/peptides/ghk-cu/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What is the half-life of GHK-Cu?", "acceptedAnswer": { "@type": "Answer", "text": "About 1 hour, with an estimated activity window near 6 hours. It clears within roughly 5 hours on the five-half-life convention." } },
+          { "@type": "Question", "name": "Is GHK-Cu used topically or injected?", "acceptedAnswer": { "@type": "Answer", "text": "Both are common, and they are not equivalent records. Logging the route matters more for this compound than for most." } },
+          { "@type": "Question", "name": "Why are GHK-Cu vials so much larger?", "acceptedAnswer": { "@type": "Answer", "text": "50 mg and 100 mg vials are typical, against 5 mg for many peptides. Applying a 5 mg vial's unit habits to a 50 mg vial is a common and large error." } },
+          { "@type": "Question", "name": "How many units is 1 mg of GHK-Cu?", "acceptedAnswer": { "@type": "Answer", "text": "With a 50 mg vial in 5 mL the concentration is 10 mg/mL, so 1 mg is 0.1 mL \u2014 10 units on a U-100 syringe." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="/"><img src="/peptrack-icon.png" alt="" width="42" height="42" /><span>PepTrack</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a><a href="/peptides/" aria-current="page">Peptides</a><a href="/tools/">Tools</a><a href="/guides/">Guides</a><a href="/blog/">Blog</a>
+    </div>
+    <a class="nav-cta" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032">Download Free</a>
+  </nav>
+
+  <main class="article">
+    <div class="breadcrumbs"><a href="/">PepTrack</a> / <a href="/peptides/">Peptides</a> / GHK-Cu</div>
+    <span class="eyebrow">Longevity</span>
+    <h1>GHK-Cu Tracker</h1>
+    <p class="dek">GHK-Cu is a copper tripeptide studied for collagen synthesis and skin and wound repair. This page covers its half-life, what that timescale means for keeping a usable record, and how it changes the shape of a log — not what to take or how much.</p>
+
+    <div class="disclaimer">
+      <strong>Recordkeeping reference, not medical guidance.</strong> This page describes published pharmacokinetic estimates and how they affect logging. It does not recommend GHK-Cu, any amount, or any schedule, and it is not a claim that this compound is safe, effective, or approved for any use. Talk to a qualified healthcare professional.
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="k">Half-life</span><span class="v">1 hr</span><span class="s">biological</span></div>
+      <div class="stat"><span class="k">Activity window</span><span class="v">6 hr</span><span class="s">estimated</span></div>
+      <div class="stat"><span class="k">Time to clear</span><span class="v">5 hr</span><span class="s">~5 half-lives</span></div>
+    </div>
+
+    <h2 id="timing">What GHK-Cu's timing means for tracking</h2>
+<p>GHK-Cu has a short half-life — around <strong>1 hour</strong> — with an estimated activity window near 6. It clears within a working day and does not accumulate between entries.</p>
+    <p>What makes its log different from the other short-acting compounds is the <strong>route</strong>. GHK-Cu is used both topically and by injection, and those are not interchangeable records. A topical application and an injected entry at the same nominal amount describe completely different events, so a log that does not distinguish them becomes difficult to read back later.</p>
+    <p>Vial sizes also run much larger here than for most peptides — 50&nbsp;mg and 100&nbsp;mg are common, against 5&nbsp;mg elsewhere. That changes the reconstitution arithmetic substantially, and it is a frequent source of unit-count errors when someone applies a 5&nbsp;mg vial's habits to a 50&nbsp;mg one.</p>
+
+    <h2 id="logging">What to capture in the log</h2>
+    <ul>
+      <li>Record the route. Topical and injected entries are not comparable and should not share a series.</li>
+      <li>Double-check the vial size — 50 mg and 100 mg vials are common and shift the unit count by an order of magnitude.</li>
+      <li>Nothing carries between days, so each entry stands alone.</li>
+    </ul>
+
+    <h2 id="math">Worked reconstitution example</h2>
+    <p>Purely as arithmetic, using round numbers rather than a recommendation. If a <strong>50 mg</strong> vial were mixed with <strong>5 mL</strong> of bacteriostatic water, the concentration would be <strong>10 mg/mL</strong>. Measuring <strong>1 mg</strong> from that would come to:</p>
+
+    <div class="answer-box">
+      <h2>10 units on a U-100 syringe</h2>
+      <p>50 mg &divide; 5 mL = 10 mg/mL &nbsp;→&nbsp; 1 mg = 0.1 mL = <strong>10 units</strong></p>
+      <p>Change either the vial size or the water and this number changes completely. Run your own figures in the <a href="/tools/peptide-reconstitution-calculator/">reconstitution calculator</a>.</p>
+    </div>
+
+    <h2 id="faq">Frequently asked questions</h2>
+    <div class="faq">
+      <details><summary><h3>What is the half-life of GHK-Cu?</h3></summary><p>About 1 hour, with an estimated activity window near 6 hours. It clears within roughly 5 hours on the five-half-life convention.</p></details>
+      <details><summary><h3>Is GHK-Cu used topically or injected?</h3></summary><p>Both are common, and they are not equivalent records. Logging the route matters more for this compound than for most.</p></details>
+      <details><summary><h3>Why are GHK-Cu vials so much larger?</h3></summary><p>50 mg and 100 mg vials are typical, against 5 mg for many peptides. Applying a 5 mg vial's unit habits to a 50 mg vial is a common and large error.</p></details>
+      <details><summary><h3>How many units is 1 mg of GHK-Cu?</h3></summary><p>With a 50 mg vial in 5 mL the concentration is 10 mg/mL, so 1 mg is 0.1 mL — 10 units on a U-100 syringe.</p></details>
+    </div>
+
+    <div class="cta-block">
+      <h2>Track GHK-Cu without the mental math</h2>
+      <p>PepTrack stores the schedule, the log, and the concentration together, and draws the estimated level using the same half-life figures shown above. Free on iPhone, no account required.</p>
+      <a class="btn btn--primary" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> Download on the App Store</a>
+    </div>
+
+    <div class="related">
+      <h2>Keep reading</h2>
+      <ul>
+        <li><a href="/tools/peptide-half-life-chart/">Peptide Half-Life Chart <span>All 39 compounds</span></a></li>
+        <li><a href="/tools/peptide-reconstitution-calculator/">Reconstitution Calculator <span>Free tool</span></a></li>
+        <li><a href="/peptides/">All compounds <span>Reference</span></a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">Home</a><a href="/peptides/">Peptides</a><a href="/tools/">Tools</a><a href="/guides/">Guides</a><a href="/blog/">Blog</a>
+      <a href="/privacy.html">Privacy Policy</a><a href="/consumer-health-privacy.html">Consumer Health Data Privacy</a>
+      <a href="/terms.html">Terms of Service</a><a href="mailto:support.peptrack@gmail.com">Contact</a>
+    </div>
+    <div>&copy; 2026 PepTrack by Tuned Tech LLC. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
