@@ -390,6 +390,16 @@ a.card:hover::before {
   .stat .v { font-size: 21px; }
 }
 
+/* Lets one wide element (a data table, usually) exceed the prose column
+   without widening the text around it. Centred on the parent, capped so it
+   never exceeds the viewport. */
+.breakout {
+  width: min(1020px, calc(100vw - (var(--gutter) * 2)));
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /* ---------- 9. Data table ------------------------------------------------ */
 
 .table-wrap { overflow-x: auto; margin: 22px 0 26px; border: 1px solid var(--border); border-radius: var(--r-md); }
