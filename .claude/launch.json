@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "peptrack-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "devserver.py",
+        "8199",
+        "/Users/zanetuning/site for PepTrack"
+      ],
+      "port": 8199
+    }
+  ]
+}
