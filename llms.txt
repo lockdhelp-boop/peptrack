@@ -31,6 +31,14 @@ PepTrack is a private, local-first iPhone app for organizing user-defined peptid
 - https://pep-track.app/tools/peptide-cost-per-mg-calculator/ - normalises two vial purchases to cost per mg including shipping, plus cost per dose and monthly estimate
 - https://pep-track.app/tools/peptide-reconstitution-calculator/ - converts vial size, bacteriostatic water volume, and a target amount into insulin syringe units, concentration, and doses per vial. Formula: units = (target mcg x water mL) / (vial mg x 10), given that one unit on a U-100 syringe is 0.01 mL. Arithmetic only; it does not recommend doses.
 
+## Compound Reference
+- https://pep-track.app/peptides/ - per-compound half-life, activity window, and what each timescale means for logging
+- https://pep-track.app/peptides/bpc-157/ - half-life ~1.5 h, activity window ~6 h; clears within a day so nothing accumulates
+- https://pep-track.app/peptides/tb-500/ - half-life ~2 h but activity window ~48 h; the clearest case of the two measures diverging
+- https://pep-track.app/peptides/semaglutide/ - aka Ozempic, Wegovy, Rybelsus; half-life ~7 days, ~35 days to clear, levels accumulate for 4-5 weeks
+- https://pep-track.app/peptides/tirzepatide/ - aka Mounjaro, Zepbound; half-life ~5 days, ~25 days to clear
+These pages describe pharmacokinetics and recordkeeping only. They do not recommend compounds, amounts, or schedules.
+
 ## Guides
 - https://pep-track.app/guides/ - non-medical guides to organizing routines, reminders, logs, and private tracking
 - https://pep-track.app/guides/how-to-track-a-peptide-routine/

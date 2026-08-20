@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Semaglutide Tracker — Half-Life, Timing &amp; Logging | PepTrack</title>
+  <meta name="description" content="Track Semaglutide in PepTrack. Half-life of 7 days, estimated activity window of 7 days, what that means for logging cadence, and a worked reconstitution example." />
+  <link rel="canonical" href="https://pep-track.app/peptides/semaglutide/" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css" />
+  <meta property="og:title" content="Semaglutide Tracker — Half-Life, Timing &amp; Logging" />
+  <meta property="og:description" content="Half-life 7 days, activity window 7 days, and what that means for how a Semaglutide routine gets logged." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://pep-track.app/peptides/semaglutide/" />
+  <meta property="og:image" content="https://pep-track.app/peptrack-mockup.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "PepTrack", "item": "https://pep-track.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Peptides", "item": "https://pep-track.app/peptides/" },
+          { "@type": "ListItem", "position": 3, "name": "Semaglutide", "item": "https://pep-track.app/peptides/semaglutide/" }
+        ]
+      },
+      {
+        "@type": "Article",
+        "headline": "Semaglutide Tracker — Half-Life, Timing and Logging",
+        "description": "Pharmacokinetic reference and recordkeeping guidance for Semaglutide.",
+        "about": { "@type": "ChemicalSubstance", "name": "Semaglutide", "alternateName": ["Ozempic", "Wegovy", "Rybelsus"] },
+        "datePublished": "2026-08-16",
+        "dateModified": "2026-08-16",
+        "author": { "@type": "Organization", "name": "PepTrack" },
+        "publisher": { "@type": "Organization", "name": "Tuned Tech LLC" },
+        "mainEntityOfPage": "https://pep-track.app/peptides/semaglutide/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What is the half-life of semaglutide?", "acceptedAnswer": { "@type": "Answer", "text": "Roughly 7 days, or about 168 hours. At five half-lives that puts full clearance near 35 days after a single administration." } },
+          { "@type": "Question", "name": "How long does semaglutide stay in your system?", "acceptedAnswer": { "@type": "Answer", "text": "On the five-half-life convention, approximately 35 days. That is an estimate from published pharmacokinetics and varies between individuals." } },
+          { "@type": "Question", "name": "Is semaglutide the same as Ozempic or Wegovy?", "acceptedAnswer": { "@type": "Answer", "text": "Semaglutide is the compound; Ozempic, Wegovy, and Rybelsus are brand names for it. PepTrack lists them as aliases so a routine can be recorded under whichever name you use." } },
+          { "@type": "Question", "name": "Why do levels keep rising for the first month?", "acceptedAnswer": { "@type": "Answer", "text": "Because the interval between weekly entries is far shorter than the roughly 35-day clearance time, so each one adds to what remains. Levels typically plateau after about four to five weeks." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="/"><img src="/peptrack-icon.png" alt="" width="42" height="42" /><span>PepTrack</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a><a href="/peptides/" aria-current="page">Peptides</a><a href="/tools/">Tools</a><a href="/guides/">Guides</a><a href="/blog/">Blog</a>
+    </div>
+    <a class="nav-cta" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032">Download Free</a>
+  </nav>
+
+  <main class="doc">
+    <div class="doc-main">
+    <div class="breadcrumbs"><a href="/">PepTrack</a> / <a href="/peptides/">Peptides</a> / Semaglutide</div>
+    <span class="eyebrow">GLP-1</span>
+    <h1>Semaglutide Tracker</h1>
+    <p class="dek">Semaglutide is a GLP-1 receptor agonist used for weight management and blood sugar regulation. This page covers its half-life, what that timescale means for keeping a usable record, and a worked reconstitution example — not what to take or how much.</p>
+
+    <div class="disclaimer">
+      <strong>Recordkeeping reference, not medical guidance.</strong> This page describes published pharmacokinetic estimates and how they affect logging. It does not recommend Semaglutide, any amount, or any schedule, and it is not a claim that this compound is safe, effective, or approved for any use. Talk to a qualified healthcare professional.
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="k">Half-life</span><span class="v">7 days</span><span class="s">biological</span></div>
+      <div class="stat"><span class="k">Activity window</span><span class="v">7 days</span><span class="s">estimated</span></div>
+      <div class="stat"><span class="k">Time to clear</span><span class="v">35 days</span><span class="s">~5 half-lives</span></div>
+    </div>
+
+    <h2 id="timing">What Semaglutide's timing means for tracking</h2>
+<p>Semaglutide sits at the opposite extreme from the healing peptides: a half-life of roughly <strong>7 days</strong>. At the usual five-half-life convention that means it takes around <strong>35 days</strong> to clear — five weeks from a single entry.</p>
+    <p>The consequence people most often miss is <strong>accumulation</strong>. When the interval between entries is shorter than the clearance time, each one lands on top of what is still present. Levels climb for roughly four to five weeks before flattening out. Week five looks nothing like week one, even with an identical amount recorded each time.</p>
+    <p>For a log this inverts the priorities entirely. Clock time is close to irrelevant — a few hours against a 168-hour half-life is noise. What matters is <em>the date and the gap</em>. A skipped week is a genuine dent in a curve that takes weeks to rebuild, and it is exactly the kind of thing that gets forgotten and then misattributed later.</p>
+
+    <h2 id="logging">What to capture in the log</h2>
+    <ul>
+      <li>Log the date; the hour barely matters at this timescale.</li>
+      <li>Record the gap when a week is missed — with a 35-day clearance it stays visible in the curve for over a month.</li>
+      <li>Expect the first month to look different from steady state. That is accumulation, not inconsistency.</li>
+    </ul>
+
+    <h2 id="math">Worked reconstitution example</h2>
+    <p>Purely as arithmetic, using round numbers rather than a recommendation. If a <strong>5 mg</strong> vial were mixed with <strong>2 mL</strong> of bacteriostatic water, the concentration would be <strong>2.5 mg/mL</strong>. Measuring <strong>0.25 mg</strong> from that would come to:</p>
+
+    <div class="answer-box">
+      <h2>10 units on a U-100 syringe</h2>
+      <p>5 mg &divide; 2 mL = 2.5 mg/mL &nbsp;→&nbsp; 0.25 mg = 0.1 mL = <strong>10 units</strong></p>
+      <p>Change either the vial size or the water and this number changes completely. Run your own figures in the <a href="/tools/peptide-reconstitution-calculator/">reconstitution calculator</a>.</p>
+    </div>
+
+    <h2 id="faq">Frequently asked questions</h2>
+    <div class="faq">
+      <details><summary><h3>What is the half-life of semaglutide?</h3></summary><p>Roughly 7 days, or about 168 hours. At five half-lives that puts full clearance near 35 days after a single administration.</p></details>
+      <details><summary><h3>How long does semaglutide stay in your system?</h3></summary><p>On the five-half-life convention, approximately 35 days. That is an estimate from published pharmacokinetics and varies between individuals.</p></details>
+      <details><summary><h3>Is semaglutide the same as Ozempic or Wegovy?</h3></summary><p>Semaglutide is the compound; Ozempic, Wegovy, and Rybelsus are brand names for it. PepTrack lists them as aliases so a routine can be recorded under whichever name you use.</p></details>
+      <details><summary><h3>Why do levels keep rising for the first month?</h3></summary><p>Because the interval between weekly entries is far shorter than the roughly 35-day clearance time, so each one adds to what remains. Levels typically plateau after about four to five weeks.</p></details>
+    </div>
+
+    <div class="cta-block">
+      <h2>Track Semaglutide without the mental math</h2>
+      <p>PepTrack stores the schedule, the log, and the concentration together, and draws the estimated level using the same half-life figures shown above. Free on iPhone, no account required.</p>
+      <a class="btn btn--primary" href="https://apps.apple.com/us/app/peptrack-peptide-tracker/id6773437032"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> Download on the App Store</a>
+    </div>
+
+    <div class="related">
+      <h2>Keep reading</h2>
+      <ul>
+        <li><a href="/tools/peptide-half-life-chart/">Peptide Half-Life Chart <span>All 39 compounds</span></a></li>
+        <li><a href="/tools/peptide-reconstitution-calculator/">Reconstitution Calculator <span>Free tool</span></a></li>
+        <li><a href="/tools/syringe-unit-converter/">Syringe Unit Converter <span>Free tool</span></a></li>
+        <li><a href="/peptides/">All compounds <span>Reference</span></a></li>
+      </ul>
+    </div>
+    </div>
+
+    <aside class="doc-rail">
+      <div class="rail-card">
+        <h2>Semaglutide at a glance</h2>
+        <dl style="margin:0">
+          <div class="rail-fact"><dt>Also known as</dt><dd>Ozempic, Wegovy, Rybelsus</dd></div>
+          <div class="rail-fact"><dt>Category</dt><dd>GLP-1</dd></div>
+          <div class="rail-fact"><dt>Half-life</dt><dd>7 days</dd></div>
+          <div class="rail-fact"><dt>Activity window</dt><dd>7 days</dd></div>
+          <div class="rail-fact"><dt>Time to clear</dt><dd>35 days</dd></div>
+          <div class="rail-fact"><dt>Duration band</dt><dd>Very long</dd></div>
+        </dl>
+      </div>
+
+      <div class="rail-card">
+        <h2>On this page</h2>
+        <ul class="rail-list">
+          <li><a href="#timing">What the timing means</a></li>
+          <li><a href="#logging">What to capture</a></li>
+          <li><a href="#math">Reconstitution example</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="rail-card">
+        <h2>Free tools</h2>
+        <ul class="rail-list">
+          <li><a href="/tools/peptide-reconstitution-calculator/">Reconstitution calculator</a></li>
+          <li><a href="/tools/syringe-unit-converter/">Syringe unit converter</a></li>
+          <li><a href="/tools/peptide-half-life-chart/">Half-life chart, all 39</a></li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">Home</a><a href="/peptides/">Peptides</a><a href="/tools/">Tools</a><a href="/guides/">Guides</a><a href="/blog/">Blog</a>
+      <a href="/privacy.html">Privacy Policy</a><a href="/consumer-health-privacy.html">Consumer Health Data Privacy</a>
+      <a href="/terms.html">Terms of Service</a><a href="mailto:support.peptrack@gmail.com">Contact</a>
+    </div>
+    <div>&copy; 2026 PepTrack by Tuned Tech LLC. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
