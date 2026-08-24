@@ -32,6 +32,10 @@ PepTrack is a private, local-first iPhone app for organizing user-defined peptid
 - https://pep-track.app/tools/peptide-reconstitution-calculator/ - converts vial size, bacteriostatic water volume, and a target amount into insulin syringe units, concentration, and doses per vial. Formula: units = (target mcg x water mL) / (vial mg x 10), given that one unit on a U-100 syringe is 0.01 mL. Arithmetic only; it does not recommend doses.
 
 ## Compound Reference
+- https://pep-track.app/peptides/glp1/ - GLP-1 category: 5-7 day half-lives, levels accumulate for 4-5 weeks
+- https://pep-track.app/peptides/healing/ - healing category: 1.5-2 h half-lives with much longer cited activity windows
+- https://pep-track.app/peptides/growth-hormone/ - growth hormone category: spans 30 min to 8 days, the widest range on the site
+- https://pep-track.app/glossary/ - 26 defined terms across measurement, timing, compounds, and administration
 - https://pep-track.app/peptides/ - per-compound half-life, activity window, and what each timescale means for logging
 - https://pep-track.app/peptides/bpc-157/ - half-life ~1.5 h, activity window ~6 h; clears within a day so nothing accumulates
 - https://pep-track.app/peptides/tb-500/ - half-life ~2 h but activity window ~48 h; the clearest case of the two measures diverging

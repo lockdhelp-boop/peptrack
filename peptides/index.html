@@ -8,10 +8,8 @@
   <link rel="canonical" href="https://pep-track.app/peptides/" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/site.css?v=ac53231a" />
+  <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css?v=6fd29c67" />
   <meta property="og:title" content="Peptide Reference — Half-Life, Timing &amp; Tracking" />
   <meta property="og:description" content="Per-compound half-life, activity window, and what each timescale means for logging." />
   <meta property="og:type" content="website" />
@@ -59,6 +57,27 @@
 
     <div class="disclaimer" style="margin-bottom:28px">
       <strong>Reference, not recommendation.</strong> Listing a compound here is not a claim that it is safe, effective, or approved for any use. These pages describe published pharmacokinetic estimates and recordkeeping only.
+    </div>
+
+
+    <h2 id="categories" style="margin-top:8px">Browse by category</h2>
+    <p style="color:var(--text-muted);margin-bottom:18px">Compounds in the same category tend to share a timescale, and the timescale is what shapes the log.</p>
+    <div class="card-grid card-grid--3" style="margin-bottom:44px">
+      <a class="card" href="/peptides/glp1/">
+        <span class="tag">5–7 days</span><h2>GLP-1</h2>
+        <p>The longest half-lives here. Levels accumulate for over a month before flattening.</p>
+        <span class="read">Browse →</span>
+      </a>
+      <a class="card" href="/peptides/healing/">
+        <span class="tag">1.5–2 hr</span><h2>Healing &amp; recovery</h2>
+        <p>Clear within a working day, but with cited activity windows far longer than that.</p>
+        <span class="read">Browse →</span>
+      </a>
+      <a class="card" href="/peptides/growth-hormone/">
+        <span class="tag">30 min – 8 days</span><h2>Growth hormone</h2>
+        <p>The widest spread on the site — two compounds share a name and differ 384-fold.</p>
+        <span class="read">Browse →</span>
+      </a>
     </div>
 
     <section class="card-grid" aria-label="Compounds">
@@ -130,6 +149,7 @@
       <ul>
         <li><a href="/tools/peptide-half-life-chart/">Half-life chart for all 39 compounds <span>Free tool</span></a></li>
         <li><a href="/tools/peptide-reconstitution-calculator/">Reconstitution Calculator <span>Free tool</span></a></li>
+        <li><a href="/glossary/">Peptide Glossary <span>26 terms</span></a></li>
         <li><a href="/guides/">Tracking guides <span>Guides</span></a></li>
       </ul>
     </div>
@@ -146,7 +166,7 @@
 
   <footer class="site-footer">
     <div class="footer-links">
-      <a href="/">Home</a><a href="/peptides/">Peptides</a><a href="/tools/">Tools</a><a href="/guides/">Guides</a><a href="/blog/">Blog</a>
+      <a href="/">Home</a><a href="/glossary/">Glossary</a><a href="/peptides/">Peptides</a><a href="/tools/">Tools</a><a href="/guides/">Guides</a><a href="/blog/">Blog</a>
       <a href="/privacy.html">Privacy Policy</a><a href="/consumer-health-privacy.html">Consumer Health Data Privacy</a>
       <a href="/terms.html">Terms of Service</a><a href="mailto:support.peptrack@gmail.com">Contact</a>
     </div>

@@ -7,10 +7,8 @@
   <meta name="description" content="Compare a notes app with a dedicated peptide routine tracker for schedules, reminders, structured logs, and history." />
   <link rel="canonical" href="https://pep-track.app/guides/peptide-tracker-vs-notes/" />
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/site.css?v=ac53231a" />
+  <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css?v=6fd29c67" />
   <meta property="og:title" content="Peptide Tracker vs. Notes" />
   <meta property="og:description" content="When a simple note is enough—and when structured schedules, reminders, and history are easier to manage in a dedicated tracker." />
   <meta property="og:type" content="article" />
@@ -72,6 +70,24 @@
     <h2 id="choose-the-lightest-tool-that-stays-clea">Choose the lightest tool that stays clear</h2>
     <p>If a single note answers every question you have, keep using it. If you frequently wonder when you last logged something, whether an entry was completed, or which reminder belongs to which routine, structure may save time.</p>
 
+
+    <h2 id="structure">The real difference is structure, not features</h2>
+    <p>A notes app stores text. A tracker stores <em>fields</em>. That sounds like a small distinction and it is the entire thing.</p>
+    <p>Text cannot be sorted, filtered, counted, or charted. You can write "250 mcg, Tuesday morning, left side" in a note perfectly well — but you cannot then ask "how many entries last month," or "when was the last one," without reading the whole file and counting by hand. Structured fields answer those questions for free.</p>
+
+    <h2 id="threshold">Where notes stop being enough</h2>
+    <p>There is a reasonably clear threshold, and it is not about sophistication:</p>
+    <ul>
+      <li><strong>One item, fixed schedule, short history</strong> — notes are genuinely fine, and a tracker is overhead.</li>
+      <li><strong>More than one item on different schedules</strong> — this is where notes fail first, because a single chronological list interleaves things that need reading separately. See <a href="/guides/tracking-multiple-routines/">tracking multiple routines</a>.</li>
+      <li><strong>Anything reconstituted</strong> — concentration and unit counts want a field, not a sentence, because they are recalculated rather than read.</li>
+      <li><strong>History you expect to look back at</strong> — the moment "when did I last…" becomes a real question, unstructured text is the wrong container.</li>
+    </ul>
+
+    <h2 id="honest">The honest case for notes</h2>
+    <p>Notes have two genuine advantages worth naming. They are already on your phone, and they impose no schema — you can write anything, including the messy context a form has no field for.</p>
+    <p>The pragmatic answer for many people is both: a tracker for the structured record, and a note for the observations that do not fit a field. What does not work is splitting the <em>structured</em> data across the two, because then neither is complete and you cannot trust either.</p>
+
     <div class="cta-block">
       <h2 id="move-beyond-scattered-notes">Move beyond scattered notes</h2>
       <p>PepTrack keeps custom routines, reminders, logs, and history together on iPhone.</p>
@@ -90,7 +106,7 @@
   </main>
   <footer class="site-footer">
     <div class="footer-links">
-      <a href="/">Home</a>
+      <a href="/">Home</a><a href="/glossary/">Glossary</a>
       <a href="/peptides/">Peptides</a>
       <a href="/tools/">Tools</a>
       <a href="/guides/">Guides</a>

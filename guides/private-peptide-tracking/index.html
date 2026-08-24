@@ -7,10 +7,8 @@
   <meta name="description" content="Understand local-first peptide routine tracking, the data PepTrack keeps on-device, and the limited services described in its privacy policy." />
   <link rel="canonical" href="https://pep-track.app/guides/private-peptide-tracking/" />
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/site.css?v=ac53231a" />
+  <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css?v=6fd29c67" />
   <meta property="og:title" content="Private Peptide Tracking on iPhone" />
   <meta property="og:description" content="What local-first tracking means and where PepTrack routine, account, analytics, and Apple Health data go." />
   <meta property="og:type" content="article" />
@@ -74,6 +72,25 @@
       <li>How can server-stored account data be deleted?</li>
     </ul>
 
+
+    <h2 id="why">Why this matters more here than elsewhere</h2>
+    <p>A routine log is unusually revealing. It records what you take, when, how consistently, and often how you felt — and unlike most health data it is frequently something people prefer not to discuss with an employer, an insurer, or a family member with access to a shared account.</p>
+    <p>Depending on where you live, this may also fall under consumer health data rules that are stricter than general privacy law. PepTrack publishes a separate <a href="/consumer-health-privacy.html">Consumer Health Data Privacy Policy</a> covering categories collected, recipients, and how to exercise rights.</p>
+
+    <h2 id="local-first">What local-first actually means</h2>
+    <p>"Local-first" means the record is written to your device and stays there by default, rather than being sent to a server and mirrored back. The practical difference is what happens when the company disappears, gets breached, or changes its terms: data that never left your phone is not in the blast radius.</p>
+    <p>The tradeoff is real and worth stating. Local-first data does not sync between devices on its own, and if you lose the phone without a backup, the history goes with it. That is the cost of the guarantee, not an oversight.</p>
+
+    <h2 id="questions">Questions worth asking any tracker</h2>
+    <ul>
+      <li><strong>Is an account required?</strong> If yes, your data is on a server by definition. If no, ask what is stored anyway.</li>
+      <li><strong>What leaves the device, and when?</strong> "We don't sell your data" and "your data never leaves your phone" are very different claims.</li>
+      <li><strong>What do the analytics capture?</strong> Product analytics that record which screens you visited can imply content even without storing it — worth checking whether autocapture is on.</li>
+      <li><strong>What happens on delete?</strong> Does removing the app remove the record, and does anything persist server-side afterwards?</li>
+      <li><strong>Is health-platform access optional?</strong> Apple Health integration should be something you switch on, not a precondition.</li>
+    </ul>
+    <p>PepTrack's answers are in its <a href="/privacy.html">Privacy Policy</a>. The point of the list is that they are the right questions for any tracker, not only this one.</p>
+
     <div class="cta-block">
       <h2 id="track-locally-on-iphone">Track locally on iPhone</h2>
       <p>PepTrack is designed so routine details stay on your device while core features remain available without an account.</p>
@@ -92,7 +109,7 @@
   </main>
   <footer class="site-footer">
     <div class="footer-links">
-      <a href="/">Home</a>
+      <a href="/">Home</a><a href="/glossary/">Glossary</a>
       <a href="/peptides/">Peptides</a>
       <a href="/tools/">Tools</a>
       <a href="/guides/">Guides</a>

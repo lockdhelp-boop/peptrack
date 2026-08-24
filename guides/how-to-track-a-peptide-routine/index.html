@@ -7,10 +7,8 @@
   <meta name="description" content="A non-medical framework for organizing a user-defined peptide routine with schedules, logs, reminders, and notes." />
   <link rel="canonical" href="https://pep-track.app/guides/how-to-track-a-peptide-routine/" />
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/site.css?v=ac53231a" />
+  <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css?v=6fd29c67" />
   <meta property="og:title" content="How to Track a Peptide Routine" />
   <meta property="og:description" content="Keep a user-defined routine organized with one schedule, a consistent log, useful reminders, and clear notes." />
   <meta property="og:type" content="article" />
@@ -75,6 +73,23 @@
     <h2 id="5-review-history-without-turning-it-into">5. Review history without turning it into advice</h2>
     <p>History can help you answer factual questions such as when you last logged an entry or whether an item was marked complete. It should not be treated as a diagnosis, a recommendation, or proof that a routine is effective.</p>
 
+
+    <h2 id="detail">How much detail is the right amount</h2>
+    <p>The most common failure of a routine log is not that it captures too little — it is that it captures so much it stops getting filled in. A record you maintain for three weeks and abandon is worse than a sparser one you keep for a year, because the gap is invisible later and reads as "nothing happened."</p>
+    <p>A workable floor is four fields: what, how much, when, and where. Anything beyond that should earn its place by answering a question you have actually asked yourself before.</p>
+
+    <h2 id="timescale">Match the record to the timescale</h2>
+    <p>This is the part most guidance skips. How often you log, and what matters in each entry, depends heavily on how long the compound persists.</p>
+    <ul>
+      <li><strong>Short compounds</strong> — anything clearing within a day, like <a href="/peptides/bpc-157/">BPC-157</a> at roughly 1.5 hours — make the <em>clock time</em> the most informative field. Nothing carries into tomorrow, so an entry with only a date describes very little.</li>
+      <li><strong>Long compounds</strong> — <a href="/peptides/semaglutide/">semaglutide</a> at about 7 days, for instance — invert that entirely. A few hours is noise. The date and the interval carry everything, and a skipped week stays visible in the curve for over a month.</li>
+    </ul>
+    <p>The <a href="/tools/peptide-half-life-chart/">half-life chart</a> covers 39 compounds if you want to see where yours sits.</p>
+
+    <h2 id="concentration">Record the mixing volume, not just the units</h2>
+    <p>If any part of your routine is reconstituted, the single most useful thing to store alongside it is <strong>how much bacteriostatic water went in</strong>. Unit counts are meaningless without it — the same 250&nbsp;mcg is 10 units in a vial mixed with 2&nbsp;mL and 5 units in the same vial mixed with 1&nbsp;mL.</p>
+    <p>Three weeks later, "I think it was 2 mL" is not a foundation for arithmetic, and recalculating from a guess is how an original error gets repeated. See <a href="/blog/how-many-units-is-250-mcg/">why a unit count needs its concentration</a>.</p>
+
     <div class="cta-block">
       <h2>Keep the whole routine in one place</h2>
       <p>PepTrack organizes custom routines, reminders, logs, and history privately on iPhone.</p>
@@ -93,7 +108,7 @@
   </main>
   <footer class="site-footer">
     <div class="footer-links">
-      <a href="/">Home</a>
+      <a href="/">Home</a><a href="/glossary/">Glossary</a>
       <a href="/peptides/">Peptides</a>
       <a href="/tools/">Tools</a>
       <a href="/guides/">Guides</a>

@@ -7,10 +7,8 @@
   <meta name="description" content="Keep multiple user-defined peptide routines organized with separate schedules, reminders, logs, and histories." />
   <link rel="canonical" href="https://pep-track.app/guides/tracking-multiple-routines/" />
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/site.css?v=ac53231a" />
+  <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css?v=6fd29c67" />
   <meta property="og:title" content="Tracking Multiple Custom Peptide Routines" />
   <meta property="og:description" content="An organizational approach to keeping multiple custom schedules, reminders, entries, and histories understandable." />
   <meta property="og:type" content="article" />
@@ -69,6 +67,20 @@
     <h2 id="review-facts-not-outcomes">Review facts, not outcomes</h2>
     <p>A tracking history can tell you what you recorded and when. It cannot establish medical safety, effectiveness, or causation. Questions about a routine itself belong with a qualified healthcare professional.</p>
 
+
+    <h2 id="why-hard">Why multiple routines get confusing</h2>
+    <p>The difficulty is rarely volume. It is that compounds on different schedules produce a single interleaved timeline that reads as noise. Three items on three cadences generate entries that look related because they are adjacent in a list, and are not.</p>
+    <p>The fix is keeping each item as its own series with its own history, and using a combined view only for "what is due" — never for reading back what happened.</p>
+
+    <h2 id="timescales">Different timescales need different attention</h2>
+    <p>When one item clears in two hours and another takes five weeks, a single review habit cannot serve both. A weekly glance is roughly right for something like <a href="/peptides/semaglutide/">semaglutide</a>, and close to useless for <a href="/peptides/bpc-157/">BPC-157</a>, where the entire event lives inside an afternoon.</p>
+    <p>Grouping by duration rather than by purpose tends to help. The <a href="/tools/peptide-half-life-chart/">half-life chart</a> sorts by exactly that, and the <a href="/peptides/">compound reference</a> covers what each timescale implies for a log.</p>
+
+    <h2 id="naming">Naming is the thing that breaks first</h2>
+    <p>With several items, inconsistent naming does more damage than any other habit. Search stops working, history splits across near-duplicates, and reminders become hard to recognise.</p>
+    <p>The clearest example is <a href="/peptides/cjc-1295-dac/">CJC-1295 with DAC</a> and <a href="/peptides/cjc-1295-no-dac/">without</a>. Both are routinely called "CJC-1295" and their half-lives differ by roughly 384 times. Logged under one name, the resulting history is not merely untidy — it is wrong, and unrecoverably so.</p>
+    <p>Pick one name per item, write it the same way every time, and disambiguate variants explicitly rather than relying on memory.</p>
+
     <div class="cta-block">
       <h2>One view for every custom routine</h2>
       <p>PepTrack connects user-entered schedules, reminders, logs, and histories without turning them into medical recommendations.</p>
@@ -87,7 +99,7 @@
   </main>
   <footer class="site-footer">
     <div class="footer-links">
-      <a href="/">Home</a>
+      <a href="/">Home</a><a href="/glossary/">Glossary</a>
       <a href="/peptides/">Peptides</a>
       <a href="/tools/">Tools</a>
       <a href="/guides/">Guides</a>

@@ -21,4 +21,4 @@ print('stamped', ver)
 PY
 ```
 
-Current fingerprint: `ac53231a`
+Current fingerprint: `6fd29c67`

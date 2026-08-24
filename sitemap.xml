@@ -103,6 +103,30 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://pep-track.app/peptides/glp1/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pep-track.app/peptides/healing/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pep-track.app/peptides/growth-hormone/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pep-track.app/glossary/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://pep-track.app/guides/</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>

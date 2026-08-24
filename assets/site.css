@@ -8,6 +8,19 @@
    Components are written against tokens, never against raw values.
    ========================================================================== */
 
+/* Self-hosted so the font is not a render-blocking request to a third party.
+   Variable weight 300-700 — anything heavier in the CSS clamps to 700. */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/assets/fonts/space-grotesk-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+                 U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+                 U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* ---------- 1. Tokens ---------------------------------------------------- */
 
 :root {
@@ -144,7 +157,7 @@ button, input, select { font: inherit; color: inherit; }
 
 .nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .nav-logo img { height: 42px; width: 42px; }
-.nav-logo span { font-size: 18px; font-weight: 800; letter-spacing: -.03em; }
+.nav-logo span { font-size: 18px; font-weight: 700; letter-spacing: -.03em; }
 
 .nav-links { display: flex; align-items: center; gap: 2px; }
 .nav-links a {
@@ -398,6 +411,14 @@ a.card:hover::before {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+}
+
+/* Inline SVG diagram with a caption. Scales with the column; the viewBox
+   does the work so there is no fixed height to fight on mobile. */
+.diagram { margin: 28px 0 32px; }
+.diagram svg { width: 100%; height: auto; display: block; overflow: visible; }
+.diagram figcaption {
+  margin-top: 14px; font-size: var(--step--1); color: var(--text-muted); line-height: 1.6;
 }
 
 /* ---------- 9. Data table ------------------------------------------------ */

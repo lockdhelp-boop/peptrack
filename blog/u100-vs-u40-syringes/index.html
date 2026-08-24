@@ -8,10 +8,8 @@
   <link rel="canonical" href="https://pep-track.app/blog/u100-vs-u40-syringes/" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/site.css?v=ac53231a" />
+  <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css?v=6fd29c67" />
   <meta property="og:title" content="U-100 vs U-40 Syringes: The 2.5× Mistake" />
   <meta property="og:description" content="U-100 and U-40 insulin syringes look nearly identical but read completely differently. One unit is 0.01 mL on one and 0.025 mL on the other — a 2.5x difference." />
   <meta property="og:type" content="article" />
@@ -92,6 +90,43 @@
     </ul>
     <p>Both syringes can be the same physical size. The barrel might hold 1&nbsp;mL either way. What differs is how the barrel is <em>marked</em>.</p>
 
+    <figure class="diagram">
+      <svg viewBox="0 0 700 240" role="img" aria-labelledby="synTitle synDesc" xmlns="http://www.w3.org/2000/svg">
+        <title id="synTitle">The same 10-unit mark on a U-100 and a U-40 syringe</title>
+        <desc id="synDesc">Two 1 millilitre syringe barrels drawn to the same physical length. On the U-100 barrel the 10-unit mark fills one tenth of the barrel, or 0.1 millilitres. On the U-40 barrel the 10-unit mark fills one quarter of the barrel, or 0.25 millilitres — two and a half times more liquid.</desc>
+
+        <!-- U-100 -->
+        <text x="0" y="26" fill="#3aa5f0" font-family="ui-monospace, Menlo, monospace" font-size="13" font-weight="700" letter-spacing="1.5">U-100</text>
+        <text x="0" y="46" fill="rgba(255,255,255,.55)" font-family="ui-monospace, Menlo, monospace" font-size="12">1 unit = 0.01 mL</text>
+        <rect x="120" y="14" width="500" height="42" rx="7" fill="#0d0d0f" stroke="rgba(255,255,255,.16)"/>
+        <rect x="121" y="15" width="50" height="40" rx="6" fill="#3aa5f0" fill-opacity=".55"/>
+        <g stroke="rgba(255,255,255,.14)">
+          <line x1="170" y1="14" x2="170" y2="56"/><line x1="220" y1="14" x2="220" y2="56"/>
+          <line x1="270" y1="14" x2="270" y2="56"/><line x1="320" y1="14" x2="320" y2="56"/>
+          <line x1="370" y1="14" x2="370" y2="56"/><line x1="420" y1="14" x2="420" y2="56"/>
+          <line x1="470" y1="14" x2="470" y2="56"/><line x1="520" y1="14" x2="520" y2="56"/>
+          <line x1="570" y1="14" x2="570" y2="56"/>
+        </g>
+        <text x="176" y="76" fill="#ffffff" font-family="ui-monospace, Menlo, monospace" font-size="13" font-weight="700">10 units = 0.10 mL</text>
+        <text x="600" y="76" fill="rgba(255,255,255,.30)" font-family="ui-monospace, Menlo, monospace" font-size="11" text-anchor="end">100 units · 1 mL</text>
+
+        <!-- U-40 -->
+        <text x="0" y="146" fill="#f5a623" font-family="ui-monospace, Menlo, monospace" font-size="13" font-weight="700" letter-spacing="1.5">U-40</text>
+        <text x="0" y="166" fill="rgba(255,255,255,.55)" font-family="ui-monospace, Menlo, monospace" font-size="12">1 unit = 0.025 mL</text>
+        <rect x="120" y="134" width="500" height="42" rx="7" fill="#0d0d0f" stroke="rgba(255,255,255,.16)"/>
+        <rect x="121" y="135" width="125" height="40" rx="6" fill="#f5a623" fill-opacity=".55"/>
+        <g stroke="rgba(255,255,255,.14)">
+          <line x1="245" y1="134" x2="245" y2="176"/><line x1="370" y1="134" x2="370" y2="176"/>
+          <line x1="495" y1="134" x2="495" y2="176"/>
+        </g>
+        <text x="251" y="196" fill="#ffffff" font-family="ui-monospace, Menlo, monospace" font-size="13" font-weight="700">10 units = 0.25 mL</text>
+        <text x="600" y="196" fill="rgba(255,255,255,.30)" font-family="ui-monospace, Menlo, monospace" font-size="11" text-anchor="end">40 units · 1 mL</text>
+
+        <text x="120" y="228" fill="rgba(255,255,255,.72)" font-family="inherit" font-size="13">Same barrel length. Same mark. 2.5&#215; the liquid.</text>
+      </svg>
+      <figcaption>Both barrels hold 1&nbsp;mL. Drawing to the 10-unit mark gives 0.10&nbsp;mL on a U-100 and 0.25&nbsp;mL on a U-40.</figcaption>
+    </figure>
+
     <h2 id="table">The same mark, two volumes</h2>
     <div class="table-wrap">
       <table>
@@ -139,6 +174,8 @@
       <ul>
         <li><a href="/blog/how-many-units-is-250-mcg/">How Many Units Is 250 mcg on an Insulin Syringe? <span>Blog</span></a></li>
         <li><a href="/blog/how-much-bacteriostatic-water/">How Much Bacteriostatic Water Should You Add? <span>Blog</span></a></li>
+        <li><a href="/glossary/#u-100">What "U-100" means <span>Glossary</span></a></li>
+        <li><a href="/peptides/">Compound reference <span>Half-life &amp; timing</span></a></li>
         <li><a href="/tools/peptide-reconstitution-calculator/">Reconstitution Calculator <span>Free tool</span></a></li>
         <li><a href="/tools/syringe-unit-converter/">Syringe Unit Converter <span>Free tool</span></a></li>
       </ul>
@@ -147,7 +184,7 @@
 
   <footer class="site-footer">
     <div class="footer-links">
-      <a href="/">Home</a><a href="/peptides/">Peptides</a><a href="/tools/">Tools</a><a href="/guides/">Guides</a><a href="/blog/">Blog</a>
+      <a href="/">Home</a><a href="/glossary/">Glossary</a><a href="/peptides/">Peptides</a><a href="/tools/">Tools</a><a href="/guides/">Guides</a><a href="/blog/">Blog</a>
       <a href="/privacy.html">Privacy Policy</a><a href="/consumer-health-privacy.html">Consumer Health Data Privacy</a>
       <a href="/terms.html">Terms of Service</a><a href="mailto:support.peptrack@gmail.com">Contact</a>
     </div>
